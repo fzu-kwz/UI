@@ -21,6 +21,7 @@ export default defineConfig({
     },
   },
   build: {
+    outDir: "ui",
     assetsDir: "static",
     rollupOptions: {
       input: {
