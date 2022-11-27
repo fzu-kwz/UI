@@ -1,0 +1,18 @@
+{
+  "name": "k-vue3-comp",
+  "version": "0.0.24",
+  "description": "A Simple Components Library For Vue3",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "k-vue3-comp",
+    "vue3-comp",
+    "k-vue3-ui",
+    "vue3-ui"
+  ],
+  "author": "fzu-kwz",
+  "license": "ISC",
+  "types": "./types/index.d.ts"
+}

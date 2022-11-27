@@ -1,0 +1,96 @@
+@hover-color: #409eff;
+@size: 28px;
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+
+  &-num,
+  &-icon,
+  &-jump-num,
+  &-jump-btn,
+  .ellipsis {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: @size;
+    height: @size;
+    line-height: @size;
+    background-color: #f0f0f0;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    padding: 0;
+    margin: 2px;
+    cursor: pointer;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+
+    &:hover {
+      color: @hover-color;
+    }
+  }
+
+  .ellipsis {
+    &::after {
+      content: "···";
+    }
+
+    &-left {
+      &:hover {
+        &::after {
+          content: "«";
+          font-size: 16px;
+        }
+      }
+    }
+
+    &-right {
+      &:hover {
+        &::after {
+          content: "»";
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  &-icon {
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &-num {
+    &.active {
+      color: #fff;
+      background-color: @hover-color;
+    }
+  }
+
+  &-jump {
+    display: flex;
+
+    &-num {
+      box-sizing: border-box;
+      width: 50px;
+      outline: #fff;
+      text-align: center;
+      cursor: text;
+
+      &:hover {
+        color: #000;
+      }
+    }
+
+    &-btn {
+      &:disabled {
+        color: #ccc;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
