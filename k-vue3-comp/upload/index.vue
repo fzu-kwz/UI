@@ -4,7 +4,7 @@
       <label for="upload-file" title="upload">Click Upload</label>
     </KButton>
     <label v-else for="upload-file" class="upload-label" title="upload">
-      <img src="../assets/icon/add.svg" alt="add" width="50" height="50" />
+      <img src="../assets/icon/add.svg" alt="add" width="30" height="30" />
     </label>
     <div class="file-list" v-if="showList">
       <ul class="file-list-ul">
@@ -61,7 +61,7 @@ const props = defineProps({
   },
   multiple: {
     type: Boolean,
-    default: false,
+    default: undefined,
   },
   limit: {
     type: Number,
@@ -84,7 +84,7 @@ const fileList: Array<File> = reactive([]);
 /**
  * @description 文件上传方法
  * @param event 文件上传事件
- * @param limit 文件最大数量
+ * @param limit 文件数量限制
  * @param reg 匹配文件类型
  * @param maxSize 文件大小限制
  */
@@ -102,7 +102,7 @@ const fileChange = (
   const filesLength = files.length;
 
   if (filesLength > limit) {
-    alert(`The number of single upload does not exceed ${limit}!`);
+    alert(`The number of single upload no more than ${limit}!`);
     return (fileInput.value = "");
   }
   for (let i = 0; i < filesLength; i++) {
@@ -116,7 +116,7 @@ const fileChange = (
   for (let i = 0; i < filesLength; i++) {
     const item = files.item(i) as File;
     if (item.size > maxSize) {
-      alert(`File size does not exceed ${maxSize / 1024 / 1024}M!`);
+      alert(`File size no more than ${maxSize / 1024 / 1024}M!`);
       return (fileInput.value = "");
     }
   }

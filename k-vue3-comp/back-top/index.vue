@@ -1,5 +1,10 @@
 <template>
-  <span class="back-top icon" v-show="visible" @click="backTop">
+  <span
+    class="back-top icon"
+    v-show="visible"
+    :style="{ right: right + 'px', bottom: bottom + 'px' }"
+    @click="backTop"
+  >
     <img
       src="../assets/icon/back-top.svg"
       alt="back-top"
@@ -23,6 +28,18 @@ const props = defineProps({
     type: [HTMLElement, Window],
     default: window,
   },
+  height: {
+    type: Number,
+    default: 300,
+  },
+  right: {
+    type: Number,
+    default: 40,
+  },
+  bottom: {
+    type: Number,
+    default: 40,
+  },
 });
 
 const visible = ref(false);
@@ -34,7 +51,7 @@ const handleScroll = () => {
   } else {
     scrollTop.value = (props.backTopNode as HTMLElement).scrollTop;
   }
-  visible.value = scrollTop.value >= 200 ? true : false;
+  visible.value = scrollTop.value >= props.height ? true : false;
 };
 
 onMounted(() => {

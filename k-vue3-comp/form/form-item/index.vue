@@ -5,7 +5,7 @@
       :style="{
         width: alignTop ? '100%' : labelWidth + 'px',
         display: alignTop ? 'block' : '',
-        paddingBottom: alignTop ? '3px' : '',
+        paddingBottom: alignTop ? '5px' : '',
       }"
       >{{ labelText }}</label
     >
@@ -25,9 +25,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { watch } from "vue";
-
-const props = defineProps({
+defineProps({
   labelText: {
     type: String,
     default: undefined,

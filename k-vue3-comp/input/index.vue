@@ -6,6 +6,7 @@
       size ? 'k-input-' + size : '',
       disabled ? 'k-input-disabled' : '',
     ]"
+    :style="{ height: type === 'textarea' ? 'auto' : '' }"
   >
     <input
       v-if="type === 'text' || type === 'password'"
@@ -46,7 +47,8 @@
         <img
           src="../assets/icon/delete.svg"
           alt="delete"
-          v-show="modelValue !== ''"
+          width="16"
+          height="16"
         />
       </span>
     </span>
@@ -54,10 +56,8 @@
     <textarea
       v-if="type === 'textarea'"
       class="k-textarea"
-      :class="[
-        resize ? '' : 'k-textarea-resize',
-        disabled ? 'k-textarea-disabled' : '',
-      ]"
+      :class="[disabled ? 'k-textarea-disabled' : '']"
+      :style="{ resize: resize ? 'vertical' : 'none' }"
       :placeholder="placeholder"
       :autofocus="autofocus"
       :maxlength="maxlength"
