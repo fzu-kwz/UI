@@ -94,17 +94,22 @@ const open = ref(false);
 
 .fold {
   width: 100%;
-}
-
-.aside-fold {
   display: none;
 }
 
-.aside-open {
-  display: block;
-}
-
 @media screen and(max-width: 768px) {
+  .fold {
+    display: block;
+  }
+
+  .aside-fold {
+    display: none;
+  }
+
+  .aside-open {
+    display: block;
+  }
+
   .k-container {
     flex-direction: column;
   }
