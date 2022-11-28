@@ -1,7 +1,11 @@
 <template>
   <KForm>
+    <h3 style="margin-top: 0;">Select 下拉框</h3>
     <p style="font-size: 14px; margin-top: 0;">
-      需要绑定v-model，size: 大小，options: 选项，allowClear: 显示清空
+      需要绑定v-model <br />
+      size: 大小 <br />
+      options: 选项 <br />
+      allowClear: 显示清空
     </p>
     <FormItem label-text="基础用法" align-top>
       <KSelect v-model="select" :options="options"></KSelect>

@@ -1,5 +1,5 @@
 <template>
-  <aside :style="{ width: width + 'px' }">
+  <aside class="k-aside" :style="{ width: width + 'px' }">
     <slot></slot>
   </aside>
 </template>
@@ -10,7 +10,7 @@ export default {
   props: {
     width: {
       type: String,
-      default: "200",
+      default: undefined,
     },
   },
 };

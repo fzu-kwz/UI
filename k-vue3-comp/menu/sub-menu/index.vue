@@ -1,6 +1,6 @@
 <template>
   <li class="sub-menu-item" @click="visible = !visible">
-    <span>
+    <span class="menu-item-title">
       <slot name="title"></slot>
     </span>
     <img

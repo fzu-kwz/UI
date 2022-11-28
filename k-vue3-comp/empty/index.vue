@@ -1,8 +1,8 @@
 <template>
   <div class="empty">
     <img src="../assets/icon/no-data.svg" alt="no-data" />
-    <span>
-      <slot>{{ text }}</slot>
+    <span v-if="text">
+      {{ text }}
     </span>
   </div>
 </template>

@@ -1,7 +1,10 @@
 <template>
   <KForm>
+    <h3 style="margin-top: 0;">Loading 加载中</h3>
     <p style="font-size: 14px; margin-top: 0;">
-      width: 宽度，height: 高度
+      text: 文字说明 <br />
+      width: 宽度 <br />
+      height: 高度
     </p>
     <FormItem label-text="基础用法" align-top>
       <Loading></Loading>

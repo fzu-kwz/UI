@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="k-main">
     <slot></slot>
   </main>
 </template>

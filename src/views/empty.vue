@@ -1,5 +1,6 @@
 <template>
   <KForm>
+    <h3 style="margin-top: 0">Empty 空状态</h3>
     <p style="font-size: 14px; margin-top: 0;">text: 描述文字</p>
     <FormItem label-text="基础用法" align-top>
       <Empty></Empty>

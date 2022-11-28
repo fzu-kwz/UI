@@ -6,6 +6,9 @@
       :width="width"
       :height="height"
     />
+    <span class="loading-text" v-if="text">
+      {{ text }}
+    </span>
   </span>
 </template>
 
@@ -13,6 +16,10 @@
 export default {
   name: "Loading",
   props: {
+    text: {
+      type: String,
+      default: "",
+    },
     width: {
       type: Number,
       default: 30,

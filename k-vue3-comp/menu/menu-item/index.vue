@@ -1,9 +1,11 @@
 <template>
-  <li class="menu-item" tabindex="-1" ref="menu-item">
-    <router-link v-if="route" class="menu-item-title" :to="route">
-      <slot name="title"></slot>
-    </router-link>
-    <span v-else class="menu-item-title"><slot name="title"></slot></span>
+  <li
+    class="menu-item"
+    tabindex="-1"
+    ref="menu-item"
+    @click="route ? router.push(route) : ''"
+  >
+    <span class="menu-item-title"><slot name="title"></slot></span>
   </li>
 </template>
 
@@ -15,8 +17,7 @@ export default {
 
 <script setup lang="ts">
 import { ComponentInternalInstance, getCurrentInstance, onMounted } from "vue";
-
-const { proxy } = getCurrentInstance() as ComponentInternalInstance;
+import { useRouter } from "vue-router";
 
 defineProps({
   route: {
@@ -24,6 +25,10 @@ defineProps({
     default: undefined,
   },
 });
+
+const { proxy } = getCurrentInstance() as ComponentInternalInstance;
+
+const router = useRouter();
 
 onMounted(() => {
   const menuItem = proxy?.$refs["menu-item"] as HTMLElement;
