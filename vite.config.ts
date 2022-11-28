@@ -6,9 +6,10 @@ import path from "path";
 export default defineConfig({
   plugins: [vue(), vueJsx()],
   resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "k-vue3-comp"),
-    },
+    alias: [
+      { find: "@", replacement: path.resolve(__dirname, "src") },
+      { find: "$", replacement: path.resolve(__dirname, "k-vue3-comp") },
+    ],
   },
   server: {
     host: "0.0.0.0",

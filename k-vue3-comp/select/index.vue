@@ -105,12 +105,12 @@ watch(props, () => {
   } else {
     close.value = false;
   }
+  if (props.modelValue === "") currentName.value = "";
 });
 
 // 清空值
 const clear = () => {
   emits("update:model-value", "");
-  currentName.value = "";
 };
 </script>
 

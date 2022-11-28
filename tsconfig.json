@@ -9,14 +9,27 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": ["ESNext", "DOM"],
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
     "skipLibCheck": true,
     "noEmit": true,
     "noImplicitAny": true,
     "baseUrl": "./",
     "paths": {
-      "@/*": ["k-vue3-comp/*"]
+      "$/*": [
+        "k-vue3-comp/*"
+      ],
+      "@/*": [
+        "src/*"
+      ],
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ]
 }

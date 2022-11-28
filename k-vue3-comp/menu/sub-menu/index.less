@@ -1,0 +1,33 @@
+.sub-menu-item {
+  position: relative;
+  padding: 0 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #daebff;
+    cursor: pointer;
+  }
+
+  .down {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    margin-top: -7px;
+    transition: transform 0.2s;
+
+    &.up {
+      transform: rotate(-180deg);
+    }
+  }
+}
+
+.sub-menu {
+  list-style: none;
+  padding: 0;
+}

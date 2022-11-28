@@ -1,0 +1,30 @@
+.menu-item {
+  position: relative;
+  padding: 0 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: all 0.2s;
+
+  &-title {
+    text-decoration: none;
+    color: #000;
+    width: 100%;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &:hover {
+    background-color: #daebff;
+    cursor: pointer;
+  }
+
+  &:focus {
+    color: #409eff;
+  }
+}

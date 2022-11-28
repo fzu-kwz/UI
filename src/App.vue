@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <h3 style="text-align: center;">A Simple Components Library For Vue3</h3>
   <KForm>
     <p class="title">
@@ -149,50 +149,67 @@
       <BackTop></BackTop>
     </FormItem>
   </KForm>
+</template> -->
+<template>
+  <Container>
+    <Aside class="k-aside" width="200">
+      <Menu>
+        <MenuItem v-for="item in menu" :route="item.route">
+          <template #title>{{ item.title }}</template>
+        </MenuItem>
+      </Menu>
+    </Aside>
+    <Main class="k-main">
+      <router-view></router-view>
+    </Main>
+  </Container>
 </template>
 
 <script setup lang="ts">
-import {
-  KInput,
-  KButton,
-  KSelect,
-  LazyLoadImg,
-  BackTop,
-  Pagination,
-  Upload,
-  Empty,
-  Loading,
-  KForm,
-  FormItem,
-} from "@/index";
-import { ref } from "vue";
+import { Container, Aside, Main, Menu, MenuItem } from "$/index";
 
-const btnType = ["default", "primary", "success", "info", "warning", "danger"];
-const size = ["large", "medium", "small"];
-const select = ref();
-const options = [
+const menu = [
   {
-    value: "月亮之上",
-    name: "月亮之上",
+    route: "/layout",
+    title: "Layout 布局",
   },
   {
-    value: "自由飞翔",
-    name: "自由飞翔",
+    route: "/button",
+    title: "Button 按钮",
   },
   {
-    value: "全是爱",
-    name: "全是爱",
+    route: "/input",
+    title: "Input 输入框",
+  },
+  {
+    route: "/select",
+    title: "Select 下拉框",
+  },
+  {
+    route: "/pagination",
+    title: "Pagination 分页",
+  },
+  {
+    route: "/loading",
+    title: "Loading 加载中",
+  },
+  {
+    route: "/upload",
+    title: "Upload 上传",
+  },
+  {
+    route: "/empty",
+    title: "Empty 空状态",
+  },
+  {
+    route: "/lazy-load-img",
+    title: "LazyLoadImg 懒加载图片",
+  },
+  {
+    route: "/back-top",
+    title: "BackTop 回到顶部",
   },
 ];
 </script>
 
-<style lang="less" scoped>
-.title {
-  font-size: 14px;
-}
-
-.kbtn {
-  margin-bottom: 5px;
-  margin-right: 5px;
-}
-</style>
+<style lang="less" scoped></style>

@@ -65,6 +65,7 @@
       :disabled="disabled"
       :rows="rows"
       :cols="cols"
+      v-model="modelValue"
       @focus="focus = true"
       @blur="focus = false"
     ></textarea>
