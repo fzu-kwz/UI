@@ -50,6 +50,10 @@
     }
   }
 
+  .up {
+    transform: rotate(-180deg);
+  }
+
   &-option {
     background-color: #fff;
     position: absolute;
@@ -65,12 +69,7 @@
     overflow-x: hidden;
     box-sizing: border-box;
     box-shadow: 0 1px 5px #ccc;
-    display: none;
-
-    &-display {
-      display: block;
-      z-index: 999;
-    }
+    z-index: 999;
 
     li {
       box-sizing: border-box;

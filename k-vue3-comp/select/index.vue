@@ -10,6 +10,7 @@
     <span class="value" @click="display = !display">{{ currentName }}</span>
     <img
       class="down"
+      :class="display ? 'up' : ''"
       src="../assets/icon/down.svg"
       alt="down"
       width="16"
@@ -29,10 +30,8 @@
     />
     <ul
       class="k-select-option"
-      :class="[
-        size ? 'k-select-option-' + size : '',
-        display ? 'k-select-option-display' : '',
-      ]"
+      :class="[size ? 'k-select-option-' + size : '']"
+      v-show="display"
     >
       <li
         v-for="item in options"
