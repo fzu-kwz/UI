@@ -35,16 +35,16 @@ import { ref } from "vue";
 
 const menu = [
   {
-    route: "/new",
-    title: "New",
-  },
-  {
     route: "/layout",
     title: "Layout 布局",
   },
   {
     route: "/button",
     title: "Button 按钮",
+  },
+  {
+    route: "/radio",
+    title: "Radio 单选框",
   },
   {
     route: "/input",

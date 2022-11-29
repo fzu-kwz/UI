@@ -19,6 +19,7 @@ import Menu from "./menu/index.vue";
 import MenuItem from "./menu/menu-item/index.vue";
 import SubMenu from "./menu/sub-menu/index.vue";
 import Progress from "./progress/index.vue";
+import Radio from "./radio/index.vue";
 
 // 按需引入
 export {
@@ -42,6 +43,7 @@ export {
   MenuItem,
   SubMenu,
   Progress,
+  Radio,
 };
 
 const component = [
@@ -65,6 +67,7 @@ const component = [
   MenuItem,
   SubMenu,
   Progress,
+  Radio,
 ];
 
 const KUI = {

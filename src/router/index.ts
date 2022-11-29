@@ -11,6 +11,7 @@ const Loading = () => import("@/views/loading.vue");
 const Menu = () => import("@/views/menu.vue");
 const Pagination = () => import("@/views/pagination.vue");
 const Progress = () => import("@/views/progress.vue");
+const Radio = () => import("@/views/radio.vue");
 const Select = () => import("@/views/select.vue");
 const Upload = () => import("@/views/upload.vue");
 
@@ -81,6 +82,12 @@ const routes: RouteRecordRaw[] = [
     name: "progress",
     component: Progress,
     meta: { title: "Progress" },
+  },
+  {
+    path: "/radio",
+    name: "radio",
+    component: Radio,
+    meta: { title: "Radio" },
   },
   {
     path: "/select",
