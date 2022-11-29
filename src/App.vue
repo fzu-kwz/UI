@@ -35,6 +35,10 @@ import { ref } from "vue";
 
 const menu = [
   {
+    route: "/new",
+    title: "New",
+  },
+  {
     route: "/layout",
     title: "Layout 布局",
   },
@@ -69,6 +73,10 @@ const menu = [
   {
     route: "/upload",
     title: "Upload 上传",
+  },
+  {
+    route: "/progress",
+    title: "Progress 进度条",
   },
   {
     route: "/empty",

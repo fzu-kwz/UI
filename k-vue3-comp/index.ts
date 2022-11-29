@@ -18,6 +18,7 @@ import FormItem from "./form/form-item/index.vue";
 import Menu from "./menu/index.vue";
 import MenuItem from "./menu/menu-item/index.vue";
 import SubMenu from "./menu/sub-menu/index.vue";
+import Progress from "./progress/index.vue";
 
 // 按需引入
 export {
@@ -40,6 +41,7 @@ export {
   Menu,
   MenuItem,
   SubMenu,
+  Progress,
 };
 
 const component = [
@@ -62,6 +64,7 @@ const component = [
   Menu,
   MenuItem,
   SubMenu,
+  Progress,
 ];
 
 const KUI = {

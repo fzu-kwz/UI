@@ -1,20 +1,21 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 
-const BackTop = () => import("../views/back-top.vue");
-const Button = () => import("../views/button.vue");
-const Empty = () => import("../views/empty.vue");
-const Form = () => import("../views/form.vue");
-const Input = () => import("../views/input.vue");
-const Layout = () => import("../views/layout.vue");
-const LazyLoadImg = () => import("../views/lazy-load-img.vue");
-const Loading = () => import("../views/loading.vue");
-const Menu = () => import("../views/menu.vue");
-const Pagination = () => import("../views/pagination.vue");
-const Select = () => import("../views/select.vue");
-const Upload = () => import("../views/upload.vue");
+const BackTop = () => import("@/views/back-top.vue");
+const Button = () => import("@/views/button.vue");
+const Empty = () => import("@/views/empty.vue");
+const Form = () => import("@/views/form.vue");
+const Input = () => import("@/views/input.vue");
+const Layout = () => import("@/views/layout.vue");
+const LazyLoadImg = () => import("@/views/lazy-load-img.vue");
+const Loading = () => import("@/views/loading.vue");
+const Menu = () => import("@/views/menu.vue");
+const Pagination = () => import("@/views/pagination.vue");
+const Progress = () => import("@/views/progress.vue");
+const Select = () => import("@/views/select.vue");
+const Upload = () => import("@/views/upload.vue");
 
 const routes: RouteRecordRaw[] = [
-  { path: "/", redirect: "/back-top" },
+  { path: "/", redirect: "/layout" },
   {
     path: "/back-top",
     name: "back-top",
@@ -74,6 +75,12 @@ const routes: RouteRecordRaw[] = [
     name: "pagination",
     component: Pagination,
     meta: { title: "Pagination" },
+  },
+  {
+    path: "/progress",
+    name: "progress",
+    component: Progress,
+    meta: { title: "Progress" },
   },
   {
     path: "/select",

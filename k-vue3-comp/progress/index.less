@@ -1,0 +1,44 @@
+.progress {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &-bar {
+    background-color: #eee;
+    border-radius: 20px;
+    width: calc(100% - 40px);
+    height: 8px;
+  }
+
+  &-value {
+    display: block;
+    border-radius: 20px;
+    height: 100%;
+    background-color: #409eff;
+
+    &.primary {
+      background-color: #409eff;
+    }
+    &.success {
+      background-color: #67c23a;
+    }
+
+    &.info {
+      background-color: #909399;
+    }
+
+    &.warning {
+      background-color: #e6a23c;
+    }
+
+    &.danger {
+      background-color: #f56c6c;
+    }
+  }
+
+  &-ratio {
+    width: 40px;
+    font-size: 14px;
+    text-align: right;
+  }
+}
