@@ -96,10 +96,6 @@ const open = ref(false);
 </script>
 
 <style lang="less" scoped>
-.k-aside {
-  padding-top: 20px;
-}
-
 .fold {
   width: 100%;
   display: none;
@@ -123,7 +119,6 @@ const open = ref(false);
   }
   .k-aside {
     width: 100%;
-    padding-top: 0;
   }
 }
 </style>
