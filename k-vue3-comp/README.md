@@ -84,6 +84,7 @@ onMounted(() => {
     │ ├─menu-item      菜单项
     │ └─sub-menu       二级菜单
     ├─pagination       分页
+    ├─progress         进度条
     ├─select           下拉框
     └─upload           上传
     index.d.ts         声明文件
