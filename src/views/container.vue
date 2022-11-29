@@ -1,6 +1,6 @@
 <template>
   <KForm>
-    <h3 style="margin-top: 0;">Layout 布局</h3>
+    <h3 style="margin-top: 0;">Container 布局容器</h3>
     <p style="font-size: 14px; margin-top: 0;">
       参考ElementUI，Container默认水平排列，当包含Header或者Footer时，垂直排列 <hr />
       Header <br />

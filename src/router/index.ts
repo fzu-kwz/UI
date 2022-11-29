@@ -5,7 +5,7 @@ const Button = () => import("@/views/button.vue");
 const Empty = () => import("@/views/empty.vue");
 const Form = () => import("@/views/form.vue");
 const Input = () => import("@/views/input.vue");
-const Layout = () => import("@/views/layout.vue");
+const Container = () => import("@/views/container.vue");
 const LazyLoadImg = () => import("@/views/lazy-load-img.vue");
 const Loading = () => import("@/views/loading.vue");
 const Menu = () => import("@/views/menu.vue");
@@ -16,7 +16,7 @@ const Select = () => import("@/views/select.vue");
 const Upload = () => import("@/views/upload.vue");
 
 const routes: RouteRecordRaw[] = [
-  { path: "/", redirect: "/layout" },
+  { path: "/", redirect: "/container" },
   {
     path: "/back-top",
     name: "back-top",
@@ -48,10 +48,10 @@ const routes: RouteRecordRaw[] = [
     meta: { title: "Input" },
   },
   {
-    path: "/layout",
-    name: "layout",
-    component: Layout,
-    meta: { title: "Layout" },
+    path: "/container",
+    name: "container",
+    component: Container,
+    meta: { title: "Container" },
   },
   {
     path: "/lazy-load-img",

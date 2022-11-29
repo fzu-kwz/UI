@@ -35,8 +35,8 @@ import { ref } from "vue";
 
 const menu = [
   {
-    route: "/layout",
-    title: "Layout 布局",
+    route: "/container",
+    title: "Container 布局容器",
   },
   {
     route: "/button",
