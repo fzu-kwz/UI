@@ -9,6 +9,7 @@
     </p>
     <FormItem label-text="基础用法" align-top>
       <LazyLoadImg
+        :scroll-node="scrollNode"
         src="/favicon.ico"
         v-for="item in 5"
         style="display: block;"
@@ -19,6 +20,8 @@
 
 <script setup lang="ts">
 import { LazyLoadImg, KForm, FormItem } from "$/index";
+
+const scrollNode = document.getElementsByTagName("main")[0];
 </script>
 
 <style scoped></style>

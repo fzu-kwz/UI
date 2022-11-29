@@ -1,6 +1,6 @@
 <template>
-  <KButton class="fold" @click="open = !open">
-    {{ open ? "close" : "open" }}
+  <KButton class="fold" @click="open = true" v-show="!open">
+    Menu
   </KButton>
   <Container class="k-container">
     <Aside :class="open ? 'aside-open' : 'aside-fold'">
@@ -8,17 +8,17 @@
         <MenuItem
           v-for="item in menu"
           :route="item.route"
-          @click="open = !open"
+          @click="open = false"
         >
           <template #title>{{ item.title }}</template>
         </MenuItem>
       </Menu>
     </Aside>
-    <Main>
+    <Main v-show="!open">
       <router-view></router-view>
     </Main>
   </Container>
-  <BackTop></BackTop>
+  <BackTop :back-top-node="backTopNode"></BackTop>
 </template>
 
 <script setup lang="ts">
@@ -31,7 +31,12 @@ import {
   BackTop,
   KButton,
 } from "$/index";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+
+const backTopNode = ref();
+onMounted(() => {
+  backTopNode.value = document.getElementsByTagName("main")[0];
+});
 
 const menu = [
   {
@@ -96,9 +101,15 @@ const open = ref(false);
 </script>
 
 <style lang="less" scoped>
+.k-container {
+  height: 100vh;
+}
 .fold {
-  width: 100%;
   display: none;
+  position: fixed;
+  left: 30px;
+  right: 30px;
+  z-index: 9;
 }
 
 @media screen and(max-width: 768px) {
@@ -118,6 +129,7 @@ const open = ref(false);
     flex-direction: column;
   }
   .k-aside {
+    height: 100vh;
     width: 100%;
   }
 }
