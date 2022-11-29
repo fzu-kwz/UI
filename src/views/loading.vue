@@ -7,13 +7,19 @@
       height: 高度
     </p>
     <FormItem label-text="基础用法" align-top>
-      <Loading></Loading>
+      <Loading v-if="loading"></Loading>
     </FormItem>
   </KForm>
 </template>
 
 <script setup lang="ts">
 import { Loading, KForm, FormItem } from "$/index";
+import { ref } from "vue";
+
+const loading = ref(true);
+setTimeout(() => {
+  loading.value = false;
+}, 1500);
 </script>
 
 <style scoped></style>
