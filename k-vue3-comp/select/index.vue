@@ -1,33 +1,35 @@
 <template>
-  <div
-    class="k-select"
-    :class="[size ? 'k-select-' + size : '']"
-    tabindex="-1"
-    @click.self="display = !display"
-    @blur="display = false"
-    ref="select"
-  >
-    <span class="value" @click="display = !display">{{ currentName }}</span>
-    <img
-      class="down"
-      :class="display ? 'up' : ''"
-      src="../assets/icon/down.svg"
-      alt="down"
-      width="16"
-      height="16"
-      v-show="!close"
-      @click="display = !display"
-    />
-    <img
-      class="delete"
-      src="../assets/icon/delete.svg"
-      alt="delete"
-      width="16"
-      height="16"
-      v-if="allowClear"
-      v-show="close"
-      @click="clear"
-    />
+  <div class="k-select">
+    <KInput
+      :class="display ? 'shadow' : ''"
+      :size="size"
+      v-model="currentName"
+      readonly
+      :disabled="disabled"
+      @click="disabled ? '' : (display = !display)"
+    >
+      <template #k-input-suffix>
+        <img
+          class="down"
+          :class="display ? 'up' : ''"
+          src="../assets/icon/down.svg"
+          alt="down"
+          width="16"
+          height="16"
+          v-show="!close"
+        />
+        <img
+          class="delete"
+          src="../assets/icon/delete.svg"
+          alt="delete"
+          width="16"
+          height="16"
+          v-if="allowClear"
+          v-show="close"
+          @click.stop="clear"
+        />
+      </template>
+    </KInput>
     <ul
       class="k-select-option"
       :class="[size ? 'k-select-option-' + size : '']"
@@ -53,8 +55,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { PropType, ref, watch } from "vue";
-
+import { computed, PropType, ref, watch } from "vue";
+import { KInput } from "../index";
 import { SelectOption } from "./types";
 
 const props = defineProps({
@@ -73,6 +75,10 @@ const props = defineProps({
     },
   },
   allowClear: {
+    type: Boolean,
+    default: undefined,
+  },
+  disabled: {
     type: Boolean,
     default: undefined,
   },
@@ -110,6 +116,13 @@ watch(props, () => {
 // 清空值
 const clear = () => {
   emits("update:model-value", "");
+};
+
+const blur = () => {
+  console.log("inputBlur");
+};
+const selectClick = () => {
+  console.log("selectClick");
 };
 </script>
 

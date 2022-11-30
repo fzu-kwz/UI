@@ -10,6 +10,9 @@
     <FormItem label-text="基础用法" align-top>
       <KSelect v-model="select" :options="options"></KSelect>
     </FormItem>
+    <FormItem label-text="禁用状态" align-top>
+      <KSelect v-model="select" :options="options" disabled></KSelect>
+    </FormItem>
     <FormItem label-text="显示清空" align-top>
       <KSelect v-model="select" :options="options" allow-clear></KSelect>
     </FormItem>

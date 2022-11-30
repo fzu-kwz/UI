@@ -27,30 +27,36 @@
       @blur="focus = false"
     />
     <span class="k-input-suffix">
-      <span
-        class="view"
-        v-if="props.type === 'password' && allowView"
-        @click="showPass"
-      >
-        <img
-          src="../assets/icon/show.svg"
-          alt="show"
-          v-show="type === 'text'"
-        />
-        <img
-          src="../assets/icon/hide.svg"
-          alt="hide"
-          v-show="type === 'password'"
-        />
-      </span>
-      <span class="clear" v-if="allowClear" @click="clear">
-        <img
-          src="../assets/icon/delete.svg"
-          alt="delete"
-          width="16"
-          height="16"
-        />
-      </span>
+      <slot name="k-input-suffix">
+        <span
+          class="view"
+          v-if="props.type === 'password' && allowView"
+          @click="showPass"
+        >
+          <img
+            src="../assets/icon/show.svg"
+            alt="show"
+            width="16"
+            height="16"
+            v-show="type === 'text'"
+          />
+          <img
+            src="../assets/icon/hide.svg"
+            alt="hide"
+            width="16"
+            height="16"
+            v-show="type === 'password'"
+          />
+        </span>
+        <span class="clear" v-if="allowClear" @click="clear">
+          <img
+            src="../assets/icon/delete.svg"
+            alt="delete"
+            width="16"
+            height="16"
+          />
+        </span>
+      </slot>
     </span>
 
     <textarea
