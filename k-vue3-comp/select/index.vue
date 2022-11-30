@@ -53,7 +53,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { PropType, ref, watch } from "vue";
 
 import { SelectOption } from "./types";
 
@@ -67,7 +67,7 @@ const props = defineProps({
     default: undefined,
   },
   options: {
-    type: Array<SelectOption>,
+    type: Array as PropType<SelectOption[]>,
     default: () => {
       return [];
     },
