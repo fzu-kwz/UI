@@ -5,7 +5,7 @@
   box-sizing: border-box;
   border: 1px solid #dcdfe6;
   border-radius: 3px;
-  padding: 2px 4px;
+  padding: 0 4px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -45,19 +45,6 @@
     box-shadow: 0 0 2px #409eff;
   }
 
-  &-disabled {
-    cursor: not-allowed;
-    background-color: #ddd;
-    opacity: .5;
-
-    &:hover,
-    &:active,
-    &:focus {
-      border-color: #dcdfe6;
-      box-shadow: none;
-    }
-  }
-
   &-inner {
     width: 100%;
     height: 100%;
@@ -79,6 +66,24 @@
       -moz-user-select: none;
       -webkit-user-select: none;
       -ms-user-select: none;
+    }
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+    background-color: #ddd;
+    opacity: .5;
+
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: #dcdfe6;
+      box-shadow: none;
+    }
+
+    .clear,
+    .view {
+      cursor: not-allowed;
     }
   }
 }

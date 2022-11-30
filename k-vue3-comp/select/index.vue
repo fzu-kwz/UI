@@ -1,7 +1,6 @@
 <template>
   <div class="k-select">
     <KInput
-      :class="display ? 'shadow' : ''"
       :size="size"
       v-model="currentName"
       readonly
@@ -11,7 +10,7 @@
       <template #k-input-suffix>
         <img
           class="down"
-          :class="display ? 'up' : ''"
+          :class="[display ? 'up' : '', disabled ? 'disabled' : '']"
           src="../assets/icon/down.svg"
           alt="down"
           width="16"
@@ -55,7 +54,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, PropType, ref, watch } from "vue";
+import { PropType, ref, watch } from "vue";
 import { KInput } from "../index";
 import { SelectOption } from "./types";
 
@@ -116,13 +115,6 @@ watch(props, () => {
 // 清空值
 const clear = () => {
   emits("update:model-value", "");
-};
-
-const blur = () => {
-  console.log("inputBlur");
-};
-const selectClick = () => {
-  console.log("selectClick");
 };
 </script>
 
