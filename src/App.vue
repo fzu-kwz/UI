@@ -59,8 +59,7 @@ const open = ref(false);
 .fold {
   display: none;
   position: fixed;
-  left: 30px;
-  right: 30px;
+  width: 100%;
   z-index: 9;
 }
 
