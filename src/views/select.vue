@@ -5,7 +5,8 @@
       需要绑定v-model <br />
       size: 大小 <br />
       options: 选项 <br />
-      allowClear: 显示清空
+      allowClear: 显示清空 <br />
+      disabled: 禁用
     </p>
     <FormItem label-text="基础用法" align-top>
       <KSelect v-model="select" :options="options"></KSelect>
