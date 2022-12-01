@@ -68,6 +68,7 @@ onMounted(() => {
     ├─assets           静态文件
     │ ├─gif            gif
     │ └─icon           svg图标
+    ├─avatar           头像
     ├─back-top         返回顶部
     ├─button           按钮
     ├─color-picker     颜色选择器
@@ -88,6 +89,7 @@ onMounted(() => {
     ├─progress         进度条
     ├─radio            单选框
     ├─select           下拉框
+    ├─skeleton         骨架屏
     └─upload           上传
     index.d.ts         声明文件
     index.ts           组件导出入口
