@@ -13,7 +13,8 @@
     <FormItem label-text="加载失败" align-top>
       <Avatar
         src="https://img.baidu.com/it/u=3263383870,1485448309&fm=253&fmt=auto&app=138&f=JPEG?w=200&h=200"
-      ></Avatar>
+      >
+      </Avatar>
     </FormItem>
     <FormItem label-text="展示类型" align-top>
       <Avatar

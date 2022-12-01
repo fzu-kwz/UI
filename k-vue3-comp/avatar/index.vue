@@ -4,8 +4,9 @@
       v-if="src"
       :src="src"
       :alt="alt"
-      @error="src = '/k-vue3-comp/assets/img/error.png'"
+      @error="(src = ''), (loadErr = true)"
     />
+    <img v-else-if="loadErr" src="../assets/img/error.png" />
     <slot v-else></slot>
   </span>
 </template>
@@ -40,6 +41,8 @@ const props = defineProps({
 
 const src = ref();
 src.value = props.src;
+
+const loadErr = ref(false);
 </script>
 
 <style lang="less" scoped>
