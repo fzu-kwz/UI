@@ -41,7 +41,7 @@
 import { KButton, KForm, FormItem } from "$/index";
 
 const type = ["default", "primary", "success", "info", "warning", "danger"];
-const size = ["large", "medium", "small"];
+const size = ["large", "medium", "defalut", "small"];
 </script>
 
 <style scoped>

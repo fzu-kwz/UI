@@ -32,7 +32,7 @@ defineProps({
   },
   labelWidth: {
     type: String,
-    default: "80",
+    default: "60",
   },
   alignTop: {
     type: Boolean,

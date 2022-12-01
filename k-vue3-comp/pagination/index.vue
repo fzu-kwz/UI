@@ -1,7 +1,7 @@
 <template>
   <div class="pagination" v-if="total !== 0">
     <span class="pagination-icon" @click="goToBefore" :disabled="current === 1">
-      <img src="../assets/icon/left.svg" alt="left" />
+      <img src="../assets/icon/left.svg" alt="left" width="16" />
     </span>
 
     <span
@@ -32,7 +32,7 @@
       @click="goToNext"
       :disabled="current === total"
     >
-      <img src="../assets/icon/right.svg" alt="right" />
+      <img src="../assets/icon/right.svg" alt="right" width="16" />
     </span>
 
     <div v-show="showJump" class="pagination-jump">
