@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 
 const BackTop = () => import("@/views/back-top.vue");
 const Button = () => import("@/views/button.vue");
+const ColorPicker = () => import("@/views/color-picker.vue");
 const Empty = () => import("@/views/empty.vue");
 const Form = () => import("@/views/form.vue");
 const Input = () => import("@/views/input.vue");
@@ -28,6 +29,12 @@ const routes: RouteRecordRaw[] = [
     name: "button",
     component: Button,
     meta: { title: "Button 按钮" },
+  },
+  {
+    path: "/color-picker",
+    name: "color-picker",
+    component: ColorPicker,
+    meta: { title: "ColorPicker 颜色选择器" },
   },
   {
     path: "/empty",
