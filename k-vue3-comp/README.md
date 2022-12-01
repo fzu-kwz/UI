@@ -70,6 +70,7 @@ onMounted(() => {
     │ └─icon           svg图标
     ├─back-top         返回顶部
     ├─button           按钮
+    ├─color-picker     颜色选择器
     ├─container        布局容器
     ├─empty            空状态
     ├─footer           页脚
@@ -85,6 +86,7 @@ onMounted(() => {
     │ └─sub-menu       二级菜单
     ├─pagination       分页
     ├─progress         进度条
+    ├─radio            单选框
     ├─select           下拉框
     └─upload           上传
     index.d.ts         声明文件
