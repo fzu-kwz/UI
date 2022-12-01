@@ -34,7 +34,7 @@
 import { KSelect, KForm, FormItem } from "$/index";
 import { ref } from "vue";
 
-const size = ["large", "medium", "small"];
+const size = ["large", "medium", "", "small"];
 const select = ref();
 const options = [
   {
