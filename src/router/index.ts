@@ -15,6 +15,7 @@ const Pagination = () => import("@/views/pagination.vue");
 const Progress = () => import("@/views/progress.vue");
 const Radio = () => import("@/views/radio.vue");
 const Select = () => import("@/views/select.vue");
+const Skeleton = () => import("@/views/skeleton.vue");
 const Upload = () => import("@/views/upload.vue");
 
 const routes: RouteRecordRaw[] = [
@@ -108,6 +109,12 @@ const routes: RouteRecordRaw[] = [
     name: "select",
     component: Select,
     meta: { title: "Select 下拉框" },
+  },
+  {
+    path: "/skeleton",
+    name: "skeleton",
+    component: Skeleton,
+    meta: { title: "Skeleton 骨架屏" },
   },
   {
     path: "/upload",

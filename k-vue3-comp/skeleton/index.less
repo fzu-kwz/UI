@@ -1,0 +1,40 @@
+.skeleton {
+  &-bar {
+    margin-top: 16px;
+    height: 16px;
+    border-radius: 3px;
+    animation: gradient 2s infinite linear;
+
+    &:first-child {
+      width: 33%;
+    }
+
+    &:last-child {
+      width: 66%;
+    }
+  }
+
+  .one-row {
+    width: 100%;
+  }
+
+  .two-row {
+    &:last-child {
+      width: 100%;
+    }
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-color: #eee;
+  }
+
+  50% {
+    background-color: #ddd;
+  }
+
+  100% {
+    background-color: #eee;
+  }
+}
