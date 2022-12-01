@@ -18,7 +18,7 @@
       <router-view></router-view>
     </Main>
   </Container>
-  <BackTop :back-top-node="backTopNode"></BackTop>
+  <BackTop :target="target"></BackTop>
 </template>
 
 <script setup lang="ts">
@@ -34,9 +34,9 @@ import {
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 
-const backTopNode = ref();
+const target = ref();
 onMounted(() => {
-  backTopNode.value = document.getElementsByTagName("main")[0];
+  target.value = document.getElementsByTagName("main")[0];
 });
 
 const router = useRouter();

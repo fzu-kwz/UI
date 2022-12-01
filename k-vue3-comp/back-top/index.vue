@@ -24,7 +24,7 @@ export default {
 import { onMounted, onUnmounted, ref } from "vue";
 
 const props = defineProps({
-  backTopNode: {
+  target: {
     type: [HTMLElement, Window],
     default: window,
   },
@@ -46,24 +46,24 @@ const visible = ref(false);
 const scrollTop = ref<number>(0);
 
 const handleScroll = () => {
-  if (props.backTopNode === window) {
+  if (props.target === window) {
     scrollTop.value = document.documentElement.scrollTop;
   } else {
-    scrollTop.value = (props.backTopNode as HTMLElement).scrollTop;
+    scrollTop.value = (props.target as HTMLElement).scrollTop;
   }
   visible.value = scrollTop.value >= props.height ? true : false;
 };
 
 onMounted(() => {
-  props.backTopNode.addEventListener("scroll", handleScroll, true);
+  props.target.addEventListener("scroll", handleScroll, true);
 });
 
 onUnmounted(() => {
-  props.backTopNode.removeEventListener("scroll", handleScroll);
+  props.target.removeEventListener("scroll", handleScroll);
 });
 
 const backTop = () => {
-  props.backTopNode.scrollTo({
+  props.target.scrollTo({
     top: 0,
     behavior: "smooth", // 平滑移动
   });

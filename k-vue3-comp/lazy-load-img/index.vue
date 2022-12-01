@@ -9,6 +9,7 @@
   />
 </template>
 
+<!-- Bug：在一个比视口高度小的滚动元素中，其中在视口内的懒加载图片会加载 -->
 <script lang="ts">
 export default {
   name: "LazyLoadImg",
@@ -38,7 +39,7 @@ const props = defineProps({
     type: Number,
     default: 200,
   },
-  scrollNode: {
+  target: {
     type: [HTMLElement, Window],
     default: window,
   },
@@ -66,13 +67,13 @@ const lazyload = () => {
   }
 };
 
-// 子组件比父组件先渲染，onMounted中拿不到scrollNode，所以要监听props变化后再监听滚动
+// 子组件比父组件先渲染，onMounted中拿不到target，所以要监听props变化后再监听滚动
 watch(props, () => {
   scrollViewHeight.value =
-    (props.scrollNode as HTMLElement).offsetTop +
+    (props.target as HTMLElement).offsetTop +
     parseInt(
       window
-        .getComputedStyle(props.scrollNode as HTMLElement)
+        .getComputedStyle(props.target as HTMLElement)
         .getPropertyValue("height")
     );
 
@@ -82,20 +83,20 @@ watch(props, () => {
       : windowHeight;
 
   lazyload();
-  props.scrollNode.addEventListener("scroll", () => {
+  props.target.addEventListener("scroll", () => {
     lazyload();
   });
 });
 
 onMounted(() => {
   lazyload();
-  props.scrollNode.addEventListener("scroll", () => {
+  props.target.addEventListener("scroll", () => {
     lazyload();
   });
 });
 
 onUnmounted(() => {
-  props.scrollNode.removeEventListener("scroll", () => {
+  props.target.removeEventListener("scroll", () => {
     lazyload();
   });
 });
