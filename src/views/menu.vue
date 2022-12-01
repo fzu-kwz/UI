@@ -7,7 +7,6 @@
       route: 链接 <hr />
       SubMenu <br />
       title插槽: 菜单项名称 <br />
-      任意插槽: 子菜单
     </p>
 
     <FormItem label-text="基础用法" align-top>

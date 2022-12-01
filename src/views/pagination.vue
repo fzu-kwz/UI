@@ -4,7 +4,7 @@
     <p style="font-size: 14px; margin-top: 0;">
       total: 总数 <br />
       showJump: 显示跳转 <br />
-      @currentChange获取当前页面
+      @currentChange: 获取当前页码
     </p>
     <FormItem label-text="基础用法" align-top>
       <Pagination></Pagination

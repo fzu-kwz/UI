@@ -18,7 +18,8 @@
       disabled: 禁用 <br />
       resize(文本域): 纵向可缩放 <br />
       rows(文本域): 行数 <br />
-      cols(文本域): 列数
+      cols(文本域): 列数 <br />
+      k-input-suffix插槽: 后置图标按钮
     </p>
     <FormItem label-text="基础用法" align-top>
       <KInput v-model="value" placeholder="请输入" />
