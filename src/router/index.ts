@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 
+const Avatar = () => import("@/views/avatar.vue");
 const BackTop = () => import("@/views/back-top.vue");
 const Button = () => import("@/views/button.vue");
 const ColorPicker = () => import("@/views/color-picker.vue");
@@ -17,7 +18,13 @@ const Select = () => import("@/views/select.vue");
 const Upload = () => import("@/views/upload.vue");
 
 const routes: RouteRecordRaw[] = [
-  { path: "/", redirect: "/container" },
+  { path: "/", redirect: "/avatar" },
+  {
+    path: "/avatar",
+    name: "avatar",
+    component: Avatar,
+    meta: { title: "Avatar 头像" },
+  },
   {
     path: "/back-top",
     name: "back-top",

@@ -21,6 +21,7 @@ import SubMenu from "./menu/sub-menu/index.vue";
 import Progress from "./progress/index.vue";
 import Radio from "./radio/index.vue";
 import ColorPicker from "./color-picker/index.vue";
+import Avatar from "./avatar/index.vue";
 
 // 按需引入
 export {
@@ -46,6 +47,7 @@ export {
   Progress,
   Radio,
   ColorPicker,
+  Avatar,
 };
 
 const component = [
@@ -71,6 +73,7 @@ const component = [
   Progress,
   Radio,
   ColorPicker,
+  Avatar,
 ];
 
 const KUI = {
