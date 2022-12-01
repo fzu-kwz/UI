@@ -1,38 +1,31 @@
 <template>
-  <div class="upload">
-    <KButton v-if="button" type="primary" class="upload-btn">
-      <label for="upload-file" title="upload">Click Upload</label>
-    </KButton>
-    <label v-else for="upload-file" class="upload-label" title="upload">
-      <img src="../assets/icon/add.svg" alt="add" width="30" height="30" />
-    </label>
-    <div class="file-list" v-if="showList">
-      <ul class="file-list-ul">
-        <li v-for="item in fileList" :key="item.name">
-          <span class="file-name">{{ item.name }}</span>
-          <img
-            class="delete"
-            src="../assets/icon/delete.svg"
-            alt="delete"
-            width="16"
-            height="16"
-            @click="removeFile(item.name)"
-          />
-        </li>
-      </ul>
-      <div class="progress" v-show="fileList.length !== 0">
-        <progress :value="percentage" max="100"></progress>
-        <span>{{ percentage }}%</span>
-      </div>
-    </div>
+  <div class="upload" @click="uploadClick">
+    <slot> </slot>
     <input
-      id="upload-file"
       v-show="false"
+      ref="upload-input"
       type="file"
       :accept="accept"
       :multiple="multiple"
       @change="fileChange($event, limit, accept, maxSize)"
     />
+  </div>
+  <slot name="tip"></slot>
+  <div class="file-list" v-if="showList">
+    <ul class="file-list-ul">
+      <li v-for="item in fileList" :key="item.name">
+        <span class="file-name">{{ item.name }}</span>
+        <img
+          class="delete"
+          src="../assets/icon/delete.svg"
+          alt="delete"
+          width="16"
+          height="16"
+          @click="removeFile(item.name)"
+        />
+      </li>
+    </ul>
+    <Progress v-show="fileList.length !== 0" :value="percentage"></Progress>
   </div>
 </template>
 
@@ -43,17 +36,13 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { KButton } from "..";
-import { reactive } from "vue";
+import { ComponentInternalInstance, getCurrentInstance, reactive } from "vue";
+import { Progress } from "..";
 
 const props = defineProps({
-  button: {
-    type: Boolean,
-    default: false,
-  },
   accept: {
     type: String,
-    default: "image/*",
+    default: undefined,
   },
   showList: {
     type: Boolean,
@@ -81,19 +70,27 @@ const emits = defineEmits(["upload"]);
 
 const fileList: Array<File> = reactive([]);
 
+const { proxy } = getCurrentInstance() as ComponentInternalInstance;
+
+const uploadClick = () => {
+  (proxy?.$refs["upload-input"] as HTMLElement).click();
+};
+
 /**
  * @description 文件上传方法
  * @param event 文件上传事件
  * @param limit 文件数量限制
- * @param reg 匹配文件类型
+ * @param accept 匹配文件类型
  * @param maxSize 文件大小限制
  */
 const fileChange = (
   event: Event,
   limit: number,
-  reg: string,
+  accept: string | undefined,
   maxSize: number
 ) => {
+  // 文件类型正则表达式
+  const pattern = accept ? new RegExp(accept) : "";
   // 文件上传控件
   const fileInput = event.target as HTMLInputElement;
   // 文件列表
@@ -101,22 +98,26 @@ const fileChange = (
   // 文件个数
   const filesLength = files.length;
 
+  // 文件数量限制
   if (filesLength > limit) {
-    alert(`The number of single upload no more than ${limit}!`);
+    alert(`Number of files no more than ${limit}!`);
     return (fileInput.value = "");
   }
-  for (let i = 0; i < filesLength; i++) {
-    const pattern = new RegExp(reg);
-    const item = files.item(i) as File;
-    if (!pattern.test(item.type)) {
-      alert(`Only accept ${props.accept}!`);
-      return (fileInput.value = "");
+  // 文件类型限制
+  if (pattern) {
+    for (let i = 0; i < filesLength; i++) {
+      const item = files.item(i) as File;
+      if (!pattern.test(item.type)) {
+        alert(`Only accept ${props.accept}!`);
+        return (fileInput.value = "");
+      }
     }
   }
+  // 文件大小限制
   for (let i = 0; i < filesLength; i++) {
     const item = files.item(i) as File;
     if (item.size > maxSize) {
-      alert(`File size no more than ${maxSize / 1024 / 1024}M!`);
+      alert(`File size no more than ${maxSize / 1024 / 1024}MB!`);
       return (fileInput.value = "");
     }
   }
