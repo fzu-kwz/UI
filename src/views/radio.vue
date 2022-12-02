@@ -10,6 +10,12 @@
       <Radio v-model="radio" value="1" style="margin-right: 5px;">123</Radio>
       <Radio v-model="radio" value="2">456</Radio>
     </FormItem>
+    <FormItem label-text="禁用状态" align-top>
+      <Radio disabled v-model="radio" value="1" style="margin-right: 5px;">
+        123
+      </Radio>
+      <Radio disabled v-model="radio" value="2">456</Radio>
+    </FormItem>
   </KForm>
 </template>
 

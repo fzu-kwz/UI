@@ -3,9 +3,8 @@
     <input
       class="radio-input"
       type="radio"
-      :checked="modelValue === value"
+      :checked="checked"
       :disabled="disabled"
-      @click=""
     />
     <label class="radio-label" :class="disabled ? 'disabled' : ''">
       <slot></slot>
@@ -20,6 +19,8 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { computed, watch } from "vue";
+
 const props = defineProps({
   modelValue: {
     type: [String, Number, Boolean],
@@ -33,6 +34,13 @@ const props = defineProps({
     type: Boolean,
     default: undefined,
   },
+});
+
+const checked = computed(() => {
+  if (!props.modelValue) return false;
+  else if (!props.value) return false;
+  else if (props.modelValue !== props.value) return false;
+  else return true;
 });
 
 const emits = defineEmits(["update:modelValue"]);
