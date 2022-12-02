@@ -6,7 +6,6 @@
       class="skeleton-bar"
       :class="rowCount"
     ></div>
-
     <slot v-else></slot>
   </div>
 </template>
@@ -35,8 +34,7 @@ const props = defineProps({
   },
 });
 
-const loading = ref();
-loading.value = props.loading;
+const loading = ref(props.loading);
 
 const rowCount = computed(() => {
   return props.rows === 1 ? "one-row" : props.rows === 2 ? "two-row" : "";

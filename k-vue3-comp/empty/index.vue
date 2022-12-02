@@ -1,6 +1,7 @@
 <template>
   <div class="empty">
-    <img src="../assets/icon/no-data.svg" alt="no-data" />
+    <img v-if="src" :src="src" />
+    <img v-else src="../assets/icon/no-data.svg" alt="no-data" />
     <span v-if="text">
       {{ text }}
     </span>
@@ -11,6 +12,10 @@
 export default {
   name: "Empty",
   props: {
+    src: {
+      type: String,
+      default: undefined,
+    },
     text: {
       type: String,
       default: "No Data",

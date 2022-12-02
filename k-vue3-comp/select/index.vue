@@ -91,12 +91,14 @@ const close = ref(false);
 
 // 选中值
 const currentVal = ref("");
+
+// 显示的值
 const currentName = ref("");
 
 // 更新v-model绑定的值
-const emits = defineEmits(["update:model-value"]);
+const emits = defineEmits(["update:modelValue"]);
 const valueChange = (item: SelectOption) => {
-  emits("update:model-value", item.value);
+  emits("update:modelValue", item.value);
   currentName.value = item.name;
   display.value = false;
 };
@@ -114,7 +116,7 @@ watch(props, () => {
 
 // 清空值
 const clear = () => {
-  emits("update:model-value", "");
+  emits("update:modelValue", "");
 };
 </script>
 

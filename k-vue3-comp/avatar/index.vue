@@ -1,12 +1,7 @@
 <template>
   <span class="avatar" :class="[shape, size ? size : '']">
-    <img
-      v-if="src"
-      :src="src"
-      :alt="alt"
-      @error="(src = ''), (loadErr = true)"
-    />
-    <img v-else-if="loadErr" src="../assets/img/error.png" />
+    <img v-if="(src && loaded)" :src="src" :alt="alt" @error="loaded = false" />
+    <img v-else-if="!loaded" src="../assets/img/error.png" />
     <slot v-else></slot>
   </span>
 </template>
@@ -18,7 +13,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref, watch } from "vue";
 
 const props = defineProps({
   shape: {
@@ -39,10 +34,14 @@ const props = defineProps({
   },
 });
 
-const src = ref();
-src.value = props.src;
-
-const loadErr = ref(false);
+const src = computed(() => {
+  return props.src;
+});
+watch(src, () => {
+  loaded.value = true;
+});
+// 是否加载成功
+const loaded = ref(true);
 </script>
 
 <style lang="less" scoped>

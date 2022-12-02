@@ -8,7 +8,7 @@
       limit: 文件数量限制 <br />
       maxSize: 文件大小限制 <br />
       tip插槽: 提示文本 <br />
-      @upload: 文件上传成功事件，可获取上传的FormData格式数据
+      @upload: 文件上传成功事件，回调参数FormData格式的数据
     </p>
     <FormItem label-text="基础用法" align-top>
       <Upload :multiple="true" :limit="3">

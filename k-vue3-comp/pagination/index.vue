@@ -77,13 +77,16 @@ const props = defineProps({
   },
 });
 
+const emits = defineEmits(["currentChange", "update:current"]);
+
 // 当前页码
-const current = ref(1);
+const current = computed({
+  get: () => props.current,
+  set: (value) => emits("update:current", value),
+});
 
 // 跳转页码
 const jump = ref("");
-
-const emits = defineEmits(["currentChange"]);
 
 const currentEdge = computed(() => {
   const total = props.total;

@@ -19,7 +19,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, watch } from "vue";
+import { computed } from "vue";
 
 const props = defineProps({
   modelValue: {
@@ -36,14 +36,14 @@ const props = defineProps({
   },
 });
 
+const emits = defineEmits(["update:modelValue"]);
+
 const checked = computed(() => {
   if (!props.modelValue) return false;
   else if (!props.value) return false;
   else if (props.modelValue !== props.value) return false;
   else return true;
 });
-
-const emits = defineEmits(["update:modelValue"]);
 
 const check = () => {
   props.disabled ? "" : emits("update:modelValue", props.value);

@@ -17,7 +17,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { watch } from "vue";
+import { computed } from "vue";
 
 const props = defineProps({
   modelValue: {
@@ -34,8 +34,9 @@ const props = defineProps({
   },
 });
 const emits = defineEmits(["update:modelValue"]);
-watch(props, () => {
-  emits("update:modelValue", props.modelValue);
+const modelValue = computed({
+  get: () => props.modelValue,
+  set: (value) => emits("update:modelValue", value),
 });
 </script>
 
