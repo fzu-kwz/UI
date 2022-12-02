@@ -1,6 +1,6 @@
 <template>
   <Teleport to="body">
-    <div class="mask" v-show="visible" @click.self="close">
+    <div class="mask" v-if="visible" @click.self="closeByModal">
       <div
         class="modal"
         :style="{
@@ -9,6 +9,7 @@
         }"
       >
         <div class="modal-header">
+          <span v-if="title" class="title">{{ title }}</span>
           <img
             v-if="showClose"
             class="close"
@@ -18,9 +19,10 @@
             height="20"
             @click="close"
           />
-          <span v-if="title" class="title">{{ title }}</span>
         </div>
-        <slot></slot>
+        <div class="modal-body">
+          <slot></slot>
+        </div>
         <div class="modal-footer"><slot name="footer"></slot></div>
       </div>
     </div>
@@ -55,7 +57,11 @@ const props = defineProps({
   },
   showClose: {
     type: Boolean,
-    default: undefined,
+    default: true,
+  },
+  modalClose: {
+    type: Boolean,
+    default: true,
   },
 });
 
@@ -72,6 +78,10 @@ const visible = computed({
 const close = () => {
   visible.value = false;
   emits("close");
+};
+
+const closeByModal = () => {
+  props.modalClose ? close() : "";
 };
 </script>
 
