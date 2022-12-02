@@ -4,10 +4,11 @@ const Avatar = () => import("@/views/avatar.vue");
 const BackTop = () => import("@/views/back-top.vue");
 const Button = () => import("@/views/button.vue");
 const ColorPicker = () => import("@/views/color-picker.vue");
+const Container = () => import("@/views/container.vue");
+const Dialog = () => import("@/views/dialog.vue");
 const Empty = () => import("@/views/empty.vue");
 const Form = () => import("@/views/form.vue");
 const Input = () => import("@/views/input.vue");
-const Container = () => import("@/views/container.vue");
 const LazyLoadImg = () => import("@/views/lazy-load-img.vue");
 const Loading = () => import("@/views/loading.vue");
 const Menu = () => import("@/views/menu.vue");
@@ -45,6 +46,18 @@ const routes: RouteRecordRaw[] = [
     meta: { title: "ColorPicker 颜色选择器" },
   },
   {
+    path: "/container",
+    name: "container",
+    component: Container,
+    meta: { title: "Container 布局容器" },
+  },
+  {
+    path: "/dialog",
+    name: "dialog",
+    component: Dialog,
+    meta: { title: "Dialog 对话框" },
+  },
+  {
     path: "/empty",
     name: "empty",
     component: Empty,
@@ -61,12 +74,6 @@ const routes: RouteRecordRaw[] = [
     name: "input",
     component: Input,
     meta: { title: "Input 输入框" },
-  },
-  {
-    path: "/container",
-    name: "container",
-    component: Container,
-    meta: { title: "Container 布局容器" },
   },
   {
     path: "/lazy-load-img",

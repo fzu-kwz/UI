@@ -1,5 +1,6 @@
 import { App, Component } from "vue";
 import Container from "./container/index.vue";
+import Dialog from "./dialog/index.vue";
 import Header from "./header/index.vue";
 import Footer from "./footer/index.vue";
 import Aside from "./aside/index.vue";
@@ -50,6 +51,7 @@ export {
   ColorPicker,
   Avatar,
   Skeleton,
+  Dialog,
 };
 
 const component = [
@@ -77,6 +79,7 @@ const component = [
   ColorPicker,
   Avatar,
   Skeleton,
+  Dialog,
 ];
 
 const KUI = {

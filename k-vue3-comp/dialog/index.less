@@ -1,0 +1,53 @@
+.mask {
+  z-index: 9;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: auto;
+}
+
+.modal {
+  position: relative;
+  background-color: #fff;
+  border-radius: 3px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-top: 80px;
+  margin-bottom: 20px;
+  max-width: 90%;
+  overflow: auto;
+
+  .title {
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: bold;
+  }
+
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all .2s;
+
+    &:hover {
+      background-color: #eee;
+      transform: rotate(90deg);
+    }
+  }
+
+  &-header {
+    padding: 20px 0;
+    position: relative;
+  }
+
+  &-footer {
+    text-align: right;
+    padding: 20px 0;
+  }
+}
