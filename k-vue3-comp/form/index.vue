@@ -14,7 +14,7 @@ export default {
 defineProps({
   frame: {
     type: Boolean,
-    default: false,
+    default: undefined,
   },
 });
 </script>

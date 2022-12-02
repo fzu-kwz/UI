@@ -4,9 +4,10 @@
     <p style="font-size: 14px; margin-top: 0;">
       MenuItem <br />
       title插槽: 菜单项名称 <br />
-      route: 链接 <hr />
+      route: 链接（string）<hr />
       SubMenu <br />
       title插槽: 菜单项名称 <br />
+      默认插槽: 子菜单列表
     </p>
 
     <FormItem label-text="基础用法" align-top>

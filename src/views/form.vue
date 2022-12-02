@@ -3,11 +3,11 @@
     <h3 style="margin-top: 0">Form 表单</h3>
     <p style="font-size: 14px; margin-top: 0;">
       KForm <br />
-      frame: 带边框 FormItem <hr />
+      frame: 边框（boolean）<hr />
       FormItem <br />
-      labelText: 标签文本 <br />
-      labelWidth: 标签宽度 <br />
-      alignTop: 标签置顶
+      labelText: 标签文本（string）<br />
+      labelWidth: 标签宽度（number，默认60）<br />
+      alignTop: 标签置顶（boolean）
     </p>
     <FormItem label-text="基础用法" align-top>
       <KForm>

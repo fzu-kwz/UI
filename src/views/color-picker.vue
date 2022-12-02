@@ -2,9 +2,9 @@
   <KForm>
     <h3 style="margin-top: 0;">ColorPicker 颜色选择器</h3>
     <p style="font-size: 14px; margin-top: 0;">
-      v-model: 选择的颜色（HEX格式，例子：#ffffff） <br />
-      disabled: 禁用 <br />
-      size: 大小
+      v-model: 选择的颜色（HEX格式，如#ffffff）<br />
+      disabled: 禁用（boolean）<br />
+      size: 大小（string）
     </p>
     <FormItem label-text="基础用法" align-top>
       <ColorPicker></ColorPicker>

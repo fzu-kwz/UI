@@ -3,10 +3,10 @@
     <h3 style="margin-top: 0;">Select 下拉框</h3>
     <p style="font-size: 14px; margin-top: 0;">
       需要绑定v-model <br />
-      size: 大小 <br />
-      options: 选项 <br />
-      allowClear: 显示清空 <br />
-      disabled: 禁用
+      size: 大小（string）<br />
+      options: 选项（Array）<br />
+      allowClear: 显示清空（boolean）<br />
+      disabled: 禁用（boolean）
     </p>
     <FormItem label-text="基础用法" align-top>
       <KSelect v-model="select" :options="options"></KSelect>

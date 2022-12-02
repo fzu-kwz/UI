@@ -2,10 +2,10 @@
   <KForm>
     <h3 style="margin-top: 0;">LazyLoadImg 懒加载图片</h3>
     <p style="font-size: 14px; margin-top: 0;">
-      target: 滚动元素 <br />
-      src: 图片路径 <br />
-      width: 图片宽度 <br />
-      height: 图片高度
+      target: 滚动元素（HTMLElement | Window，默认window）<br />
+      src: 图片路径（string）<br />
+      width: 图片宽度（number，默认200）<br />
+      height: 图片高度（number，默认200）
     </p>
     <FormItem label-text="基础用法" align-top>
       <LazyLoadImg

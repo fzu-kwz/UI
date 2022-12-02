@@ -2,9 +2,9 @@
   <KForm>
     <h3 style="margin-top: 0;">Skeleton 骨架屏</h3>
     <p style="font-size: 14px; margin-top: 0;">
-      rows: 行数 <br />
-      loading: 显示骨架屏 <br />
-      delay: 延迟渲染的时间（避免请求响应过快，出现屏闪）
+      rows: 行数（number，默认4）<br />
+      loading: 显示骨架屏（boolean，默认true）<br />
+      delay: 延迟渲染DMO的时间（number，默认500）
     </p>
     <FormItem label-text="基础用法" align-top>
       <Skeleton></Skeleton>

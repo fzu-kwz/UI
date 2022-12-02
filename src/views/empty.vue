@@ -2,8 +2,8 @@
   <KForm>
     <h3 style="margin-top: 0;">Empty 空状态</h3>
     <p style="font-size: 14px; margin-top: 0;">
-      src: 图片地址 <br />
-      text: 描述文字
+      src: 图片地址（string）<br />
+      text: 描述文字（string，默认No Data）
     </p>
     <FormItem label-text="基础用法" align-top>
       <Empty></Empty>

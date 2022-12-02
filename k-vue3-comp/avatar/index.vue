@@ -1,6 +1,6 @@
 <template>
   <span class="avatar" :class="[shape, size ? size : '']">
-    <img v-if="(src && loaded)" :src="src" :alt="alt" @error="loaded = false" />
+    <img v-if="(src && loaded)" :src="src" @error="loaded = false" />
     <img v-else-if="!loaded" src="../assets/img/error.png" />
     <slot v-else></slot>
   </span>
@@ -25,10 +25,6 @@ const props = defineProps({
     default: undefined,
   },
   src: {
-    type: String,
-    default: undefined,
-  },
-  alt: {
     type: String,
     default: undefined,
   },

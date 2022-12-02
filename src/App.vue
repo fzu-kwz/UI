@@ -83,5 +83,9 @@ const open = ref(false);
     height: 100vh;
     width: 100%;
   }
+
+  .k-main {
+    padding-top: 30px;
+  }
 }
 </style>

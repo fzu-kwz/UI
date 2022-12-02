@@ -2,10 +2,9 @@
   <KForm>
     <h3 style="margin-top: 0;">Avatar 头像</h3>
     <p style="font-size: 14px; margin-top: 0;">
-      src: 图片地址 <br />
-      shape: 类型 <br />
-      size: 大小 <br />
-      alt: 替换文本
+      src: 图片地址（string）<br />
+      shape: 类型（string，可选值circle | square，默认circle）<br />
+      size: 大小（string）
     </p>
     <FormItem label-text="基础用法" align-top>
       <Avatar></Avatar>
@@ -27,7 +26,7 @@
       <Avatar shape="square"></Avatar>
     </FormItem>
     <FormItem label-text="不同大小" align-top>
-      <Avatar v-for="item in size" :size="item"></Avatar>
+      <Avatar v-for="item in size" :size="item"></Avatar><br />
       <Avatar v-for="item in size" shape="square" :size="item"></Avatar>
     </FormItem>
   </KForm>
@@ -36,7 +35,7 @@
 <script setup lang="ts">
 import { Avatar, KForm, FormItem } from "$/index";
 
-const size = ["large", "medium", "defalut", "small"];
+const size = ["large", "medium", "", "small"];
 </script>
 
 <style scoped>

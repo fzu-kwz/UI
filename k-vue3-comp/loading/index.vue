@@ -5,8 +5,8 @@
         <img
           src="../assets/icon/loading.svg"
           alt="loading"
-          :width="width"
-          :height="height"
+          width="30"
+          height="30"
         />
         <span class="loading-text" v-if="text">
           {{ text }}
@@ -26,15 +26,7 @@ export default {
     },
     text: {
       type: String,
-      default: "",
-    },
-    width: {
-      type: Number,
-      default: 30,
-    },
-    height: {
-      type: Number,
-      default: 30,
+      default: "加载中······",
     },
   },
 };
