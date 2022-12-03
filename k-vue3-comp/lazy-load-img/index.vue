@@ -23,7 +23,6 @@ import {
   onMounted,
   onUnmounted,
   ref,
-  watch,
 } from "vue";
 
 const props = defineProps({
@@ -47,46 +46,25 @@ const props = defineProps({
 
 const { proxy } = getCurrentInstance() as ComponentInternalInstance;
 
-// 窗口视高
-const windowHeight = window.innerHeight;
-
-// 滚动元素视高
-const scrollViewHeight = ref();
-
-// 最小视高
-const short = ref();
-short.value = windowHeight;
+// 视口高度
+const viewHeight = ref(
+  (props.target as HTMLElement).offsetTop +
+    parseInt(
+      window
+        .getComputedStyle(props.target as HTMLElement)
+        .getPropertyValue("height")
+    )
+);
 
 const lazyload = () => {
   const img = proxy?.$refs["img"] as HTMLElement;
   // 图片距离顶部高度小于视高，即图片进入可视范围
-  if (img.getBoundingClientRect().top < short.value) {
+  if (img?.getBoundingClientRect().top < viewHeight.value) {
     setTimeout(() => {
       img.setAttribute("src", img.getAttribute("data-src") as string);
     }, 500);
   }
 };
-
-// 子组件比父组件先渲染，onMounted中拿不到target，所以要监听props变化后再监听滚动
-watch(props, () => {
-  scrollViewHeight.value =
-    (props.target as HTMLElement).offsetTop +
-    parseInt(
-      window
-        .getComputedStyle(props.target as HTMLElement)
-        .getPropertyValue("height")
-    );
-
-  short.value =
-    scrollViewHeight.value < windowHeight
-      ? scrollViewHeight.value
-      : windowHeight;
-
-  lazyload();
-  props.target.addEventListener("scroll", () => {
-    lazyload();
-  });
-});
 
 onMounted(() => {
   lazyload();
