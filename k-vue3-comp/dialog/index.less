@@ -19,30 +19,28 @@
   margin-bottom: 30px;
   overflow: auto;
 
-  .title {
-    line-height: 24px;
-    font-size: 18px;
-  }
-
-  .close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: all .2s;
-
-    &:hover {
-      transform: rotate(90deg);
-    }
-  }
-
   &-body {
     padding: 20px;
   }
 
   &-header {
     padding: 20px 20px 10px;
+
+    .title {
+      line-height: 24px;
+      font-size: 18px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 30px;
+      line-height: 24px;
+      font-weight: lighter;
+    }
   }
 
   &-footer {

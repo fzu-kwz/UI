@@ -10,15 +10,7 @@
       >
         <div class="modal-header">
           <span v-if="title" class="title">{{ title }}</span>
-          <img
-            v-if="showClose"
-            class="close"
-            src="../assets/icon/delete.svg"
-            alt="delete"
-            width="20"
-            height="20"
-            @click="close"
-          />
+          <span v-if="showClose" class="close" @click="close">×</span>
         </div>
         <div class="modal-body">
           <slot></slot>
