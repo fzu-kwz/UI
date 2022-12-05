@@ -24,6 +24,7 @@ import Radio from "./radio/index.vue";
 import ColorPicker from "./color-picker/index.vue";
 import Avatar from "./avatar/index.vue";
 import Skeleton from "./skeleton/index.vue";
+import Popup from "./popup/index.vue";
 
 // 按需引入
 export {
@@ -52,6 +53,7 @@ export {
   Avatar,
   Skeleton,
   Dialog,
+  Popup,
 };
 
 const component = [
@@ -80,6 +82,7 @@ const component = [
   Avatar,
   Skeleton,
   Dialog,
+  Popup,
 ];
 
 const KUI = {

@@ -1,0 +1,21 @@
+.popup {
+  display: inline-block;
+  position: relative;
+
+  &-card {
+    display: inline-block;
+    box-shadow: 0 0 5px #c3c5cb;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    font-size: 14px;
+    background-color: #fff;
+    z-index: 2000;
+    position: absolute;
+    transition: all .2s;
+
+    &.fade-out {
+      opacity: 0;
+    }
+  }
+}

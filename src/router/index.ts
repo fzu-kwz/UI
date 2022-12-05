@@ -13,6 +13,7 @@ const LazyLoadImg = () => import("@/views/lazy-load-img.vue");
 const Loading = () => import("@/views/loading.vue");
 const Menu = () => import("@/views/menu.vue");
 const Pagination = () => import("@/views/pagination.vue");
+const Popup = () => import("@/views/popup.vue");
 const Progress = () => import("@/views/progress.vue");
 const Radio = () => import("@/views/radio.vue");
 const Select = () => import("@/views/select.vue");
@@ -98,6 +99,12 @@ const routes: RouteRecordRaw[] = [
     name: "pagination",
     component: Pagination,
     meta: { title: "Pagination 分页" },
+  },
+  {
+    path: "/popup",
+    name: "popup",
+    component: Popup,
+    meta: { title: "Popup 弹窗" },
   },
   {
     path: "/progress",
