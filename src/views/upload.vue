@@ -6,13 +6,13 @@
       showList: 显示上传列表（boolean，默认true）<br />
       multiple: 多文件上传（boolean）<br />
       limit: 文件数量限制（number，默认1）<br />
-      maxSize: 文件大小限制（number，默认1024 * 1024 * 2）<br />
+      maxSize: 文件大小限制（number）<br />
       percentage: 进度百分比（number，默认0）<br />
-      @upload: 文件上传成功事件（回调参数FormData格式的数据）<br />
+      @upload: 文件上传 / 文件移除事件（回调参数文件列表）<br />
       tip插槽: 提示文本
     </p>
     <FormItem label-text="基础用法" align-top>
-      <Upload :multiple="true" :limit="3">
+      <Upload>
         <KButton type="primary">上传文件</KButton>
       </Upload>
     </FormItem>
@@ -26,7 +26,10 @@
           height="30"
         />
         <template #tip>
-          <div class="tip">Only upload pictures, and no more than 2MB</div>
+          <div class="tip">
+            Only accept pictures, file size no more than 2MB and the number of
+            files no more than 3
+          </div>
         </template>
       </Upload>
     </FormItem>
@@ -36,8 +39,8 @@
 <script setup lang="ts">
 import { Upload, KForm, FormItem, KButton } from "$/index";
 
-const upload = (formData: FormData) => {
-  formData.forEach((item) => console.log(item));
+const upload = (fileList: Array<File>) => {
+  console.log(fileList);
 };
 </script>
 

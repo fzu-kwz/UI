@@ -1,6 +1,6 @@
 <template>
   <div class="upload" @click="uploadClick">
-    <slot> </slot>
+    <slot></slot>
     <input
       v-show="false"
       ref="upload-input"
@@ -36,7 +36,12 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ComponentInternalInstance, getCurrentInstance, reactive } from "vue";
+import {
+  ComponentInternalInstance,
+  computed,
+  getCurrentInstance,
+  reactive,
+} from "vue";
 import { Progress } from "..";
 
 const props = defineProps({
@@ -58,7 +63,7 @@ const props = defineProps({
   },
   maxSize: {
     type: Number,
-    default: 1024 * 1024 * 2,
+    default: undefined,
   },
   percentage: {
     type: Number,
@@ -67,7 +72,7 @@ const props = defineProps({
 });
 
 const emits = defineEmits(["upload"]);
-
+// 文件列表
 const fileList: Array<File> = reactive([]);
 
 const { proxy } = getCurrentInstance() as ComponentInternalInstance;
@@ -87,25 +92,24 @@ const fileChange = (
   event: Event,
   limit: number,
   accept: string | undefined,
-  maxSize: number
+  maxSize: number | undefined
 ) => {
   // 文件类型正则表达式
   const pattern = accept ? new RegExp(accept) : "";
   // 文件上传控件
   const fileInput = event.target as HTMLInputElement;
-  // 文件列表
+  // 单次上传文件列表
   const files = fileInput.files as FileList & Array<File>;
-  // 文件个数
-  const filesLength = files.length;
-
+  // 单次上传数量
+  const uploadLength = files.length;
   // 文件数量限制
-  if (filesLength > limit) {
+  if (fileList.length + uploadLength > limit) {
     alert(`Number of files no more than ${limit}!`);
     return (fileInput.value = "");
   }
   // 文件类型限制
   if (pattern) {
-    for (let i = 0; i < filesLength; i++) {
+    for (let i = 0; i < uploadLength; i++) {
       const item = files.item(i) as File;
       if (!pattern.test(item.type)) {
         alert(`Only accept ${props.accept}!`);
@@ -114,22 +118,24 @@ const fileChange = (
     }
   }
   // 文件大小限制
-  for (let i = 0; i < filesLength; i++) {
-    const item = files.item(i) as File;
-    if (item.size > maxSize) {
-      alert(`File size no more than ${maxSize / 1024 / 1024}MB!`);
-      return (fileInput.value = "");
+  if (maxSize) {
+    for (let i = 0; i < uploadLength; i++) {
+      const item = files.item(i) as File;
+      if (item.size > maxSize) {
+        alert(`File size no more than ${formatSize.value}!`);
+        return (fileInput.value = "");
+      }
     }
   }
-
-  fileList.splice(0);
+  // 条件符合，推入文件列表
   fileList.push(...files);
-
-  const formData = new FormData();
-  for (let i = 0; i < filesLength; i++) {
-    formData.append("file" + i, files.item(i) as File);
-  }
-  emits("upload", formData);
+  // 生成FormData格式的文件列表
+  /* const formData = new FormData();
+  for (let i = 0; i < fileList.length; i++) {
+    formData.append("file" + i, fileList[i]);
+  } */
+  // 上传成功事件
+  emits("upload", fileList);
   fileInput.value = "";
 };
 
@@ -142,7 +148,28 @@ const removeFile = (name: string) => {
       return item.name !== name;
     })
   );
+  /* const formData = new FormData();
+  for (let i = 0; i < fileList.length; i++) {
+    formData.append("file" + i, fileList[i]);
+  } */
+  emits("upload", fileList);
 };
+
+const formatSize = computed(() => {
+  if (!props.maxSize) return undefined;
+  if (props.maxSize / 1024 >= 1 && props.maxSize / 1024 < 1024) {
+    return props.maxSize / 1024 + "KB";
+  }
+  if (props.maxSize / 1024 / 1024 >= 1 && props.maxSize / 1024 / 1024 < 1024) {
+    return props.maxSize / 1024 / 1024 + "MB";
+  }
+  if (
+    props.maxSize / 1024 / 1024 / 1024 >= 1 &&
+    props.maxSize / 1024 / 1024 / 1024 < 1024
+  ) {
+    return props.maxSize / 1024 / 1024 / 1024 + "GB";
+  }
+});
 </script>
 
 <style lang="less" scoped>
