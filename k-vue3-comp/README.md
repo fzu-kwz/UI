@@ -67,12 +67,14 @@ onMounted(() => {
     ├─aside            侧边栏
     ├─assets           静态文件
     │ ├─gif            gif
-    │ └─icon           svg图标
+    │ ├─icon           svg图标
+    │ └─img            图片
     ├─avatar           头像
     ├─back-top         返回顶部
     ├─button           按钮
     ├─color-picker     颜色选择器
     ├─container        布局容器
+    ├─dialog           对话框
     ├─empty            空状态
     ├─footer           页脚
     ├─form             表单
@@ -86,6 +88,7 @@ onMounted(() => {
     │ ├─menu-item      菜单项
     │ └─sub-menu       二级菜单
     ├─pagination       分页
+    ├─popup            弹窗
     ├─progress         进度条
     ├─radio            单选框
     ├─select           下拉框
