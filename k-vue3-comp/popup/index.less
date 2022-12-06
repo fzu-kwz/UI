@@ -4,15 +4,33 @@
 
   &-card {
     display: inline-block;
-    box-shadow: 0 0 5px #c3c5cb;
-    padding: 20px;
-    box-sizing: border-box;
-    border-radius: 3px;
-    font-size: 14px;
-    background-color: #fff;
     z-index: 2000;
     position: absolute;
     transition: all .2s;
+    box-sizing: border-box;
+
+    &.bottom {
+      padding-top: 10px;
+    }
+
+    &.right {
+      padding-left: 10px;
+    }
+
+    &.left {
+      padding-right: 10px;
+    }
+
+    &-content {
+      width: 100%;
+      display: inline-block;
+      box-sizing: border-box;
+      border-radius: 3px;
+      box-shadow: 0 0 5px #c3c5cb;
+      padding: 20px;
+      font-size: 14px;
+      background: #fff;
+    }
 
     &.fade-out {
       opacity: 0;

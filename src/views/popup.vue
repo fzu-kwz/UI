@@ -22,7 +22,7 @@ div<template>
             <KButton>下边</KButton>
           </template>
         </Popup>
-        <Popup position="right" content="This is a Popup" style="">
+        <Popup position="right" content="This is a Popup">
           <template #trigger>
             <KButton>右边</KButton>
           </template>
@@ -43,7 +43,7 @@ div<template>
         </Popup>
       </div>
     </FormItem>
-    <FormItem label-text="插槽传入DOM（未完成）" align-top>
+    <FormItem label-text="插槽传入DOM" align-top>
       <Popup>
         <template #trigger>
           <KButton>插槽</KButton>

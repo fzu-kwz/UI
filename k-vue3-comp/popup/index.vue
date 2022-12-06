@@ -3,12 +3,14 @@
     <slot name="trigger"></slot>
     <span
       class="popup-card"
-      :class="fade ? 'fade-out' : ''"
+      :class="[fade ? 'fade-out' : '', position]"
       ref="popup-card"
       :style="{ width: width + 'px' }"
       v-show="show"
     >
-      <slot>{{ content }}</slot>
+      <span class="popup-card-content">
+        <slot>{{ content }}</slot>
+      </span>
     </span>
   </span>
 </template>
@@ -57,7 +59,6 @@ const enterListener = () => {
   switch (props.position) {
     case "bottom":
       cardNode.style.top = "100%";
-      cardNode.style.marginTop = "5px";
       if (
         popupNode.getBoundingClientRect().right -
           popupNode.getBoundingClientRect().width / 2 <
@@ -74,8 +75,8 @@ const enterListener = () => {
       // 左边空间不足
       if (
         popupNode.getBoundingClientRect().right -
-          popupNode.getBoundingClientRect().width <
-        +props.width + 10
+          popupNode.getBoundingClientRect().width <=
+        +props.width
       ) {
         cardNode.style.left =
           -(
@@ -84,17 +85,17 @@ const enterListener = () => {
             5
           ) + "px";
         cardNode.style.top = "100%";
-        cardNode.style.marginTop = "5px";
+        cardNode.style.paddingTop = "10px";
       } else {
-        cardNode.style.left = -props.width - 5 + "px";
+        cardNode.style.left = -props.width + "px";
         cardNode.style.removeProperty("top");
-        cardNode.style.removeProperty("margin-top");
+        cardNode.style.removeProperty("padding-top");
       }
       break;
     default:
       // 右边空间不足
       if (
-        popupNode.getBoundingClientRect().right + +props.width + 10 >
+        popupNode.getBoundingClientRect().right + +props.width >=
         document.documentElement.clientWidth
       ) {
         cardNode.style.right =
@@ -104,12 +105,11 @@ const enterListener = () => {
             5
           ) + "px";
         cardNode.style.top = "100%";
-        cardNode.style.marginTop = "5px";
+        cardNode.style.paddingTop = "10px";
       } else {
         cardNode.style.removeProperty("right");
         cardNode.style.removeProperty("top");
-        cardNode.style.removeProperty("margin-top");
-        cardNode.style.marginLeft = "5px";
+        cardNode.style.removeProperty("padding-top");
       }
   }
 };
