@@ -17,7 +17,13 @@
       </Upload>
     </FormItem>
     <FormItem label-text="图片上传" align-top>
-      <Upload :multiple="true" :limit="3" accept="image/*" @upload="upload">
+      <Upload
+        :multiple="true"
+        :max-size="1024 * 1024 * 2"
+        :limit="3"
+        accept="image/*"
+        @upload="upload"
+      >
         <img
           class="add-icon"
           src="../../k-vue3-comp//assets/icon/add.svg"
