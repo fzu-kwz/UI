@@ -4,7 +4,7 @@
     <span
       class="popup-card"
       :class="[fade ? 'fade-out' : '', position]"
-      ref="popup-card"
+      ref="card"
       :style="{ width: width + 'px' }"
       v-show="show"
     >
@@ -22,13 +22,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import {
-  ComponentInternalInstance,
-  getCurrentInstance,
-  onMounted,
-  onUnmounted,
-  ref,
-} from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 
 const props = defineProps({
   position: {
@@ -48,7 +42,6 @@ const props = defineProps({
 const show = ref(false);
 const fade = ref(false);
 
-const { proxy } = getCurrentInstance() as ComponentInternalInstance;
 const popup = ref<HTMLElement>();
 const card = ref<HTMLElement>();
 
@@ -123,10 +116,8 @@ const leaveListener = () => {
 };
 
 onMounted(() => {
-  popup.value = proxy?.$refs["popup"] as HTMLElement;
-  card.value = proxy?.$refs["popup-card"] as HTMLElement;
-  popup.value.addEventListener("mouseenter", enterListener);
-  popup.value.addEventListener("mouseleave", leaveListener);
+  popup.value?.addEventListener("mouseenter", enterListener);
+  popup.value?.addEventListener("mouseleave", leaveListener);
 });
 
 onUnmounted(() => {

@@ -3,7 +3,7 @@
     <slot></slot>
     <input
       v-show="false"
-      ref="upload-input"
+      ref="uploadInput"
       type="file"
       :accept="accept"
       :multiple="multiple"
@@ -36,12 +36,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import {
-  ComponentInternalInstance,
-  computed,
-  getCurrentInstance,
-  reactive,
-} from "vue";
+import { computed, reactive, ref } from "vue";
 import { Progress } from "..";
 
 const props = defineProps({
@@ -75,10 +70,10 @@ const emits = defineEmits(["upload"]);
 // 文件列表
 const fileList: Array<File> = reactive([]);
 
-const { proxy } = getCurrentInstance() as ComponentInternalInstance;
+const uploadInput = ref<HTMLElement>();
 
 const uploadClick = () => {
-  (proxy?.$refs["upload-input"] as HTMLElement).click();
+  uploadInput.value?.click();
 };
 
 /**

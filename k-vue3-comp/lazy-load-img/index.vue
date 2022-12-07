@@ -17,13 +17,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import {
-  ComponentInternalInstance,
-  getCurrentInstance,
-  onMounted,
-  onUnmounted,
-  ref,
-} from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 
 const props = defineProps({
   src: {
@@ -44,39 +38,39 @@ const props = defineProps({
   },
 });
 
-const { proxy } = getCurrentInstance() as ComponentInternalInstance;
+const img = ref();
 
 // 视口高度
 const viewHeight = ref(
-  (props.target as HTMLElement).offsetTop +
-    parseInt(
-      window
-        .getComputedStyle(props.target as HTMLElement)
-        .getPropertyValue("height")
-    )
+  props.target === window
+    ? window.innerHeight
+    : (props.target as HTMLElement).offsetTop +
+        parseInt(
+          window
+            .getComputedStyle(props.target as HTMLElement)
+            .getPropertyValue("height")
+        )
 );
 
 const lazyload = () => {
-  const img = proxy?.$refs["img"] as HTMLElement;
   // 图片距离顶部高度小于视高，即图片进入可视范围
-  if (img?.getBoundingClientRect().top < viewHeight.value) {
+  if (img.value?.getBoundingClientRect().top < viewHeight.value) {
     setTimeout(() => {
-      img.setAttribute("src", img.getAttribute("data-src") as string);
+      img.value.setAttribute(
+        "src",
+        img.value.getAttribute("data-src") as string
+      );
     }, 500);
   }
 };
 
 onMounted(() => {
   lazyload();
-  props.target.addEventListener("scroll", () => {
-    lazyload();
-  });
+  props.target.addEventListener("scroll", lazyload);
 });
 
 onUnmounted(() => {
-  props.target.removeEventListener("scroll", () => {
-    lazyload();
-  });
+  props.target.removeEventListener("scroll", lazyload);
 });
 </script>
 

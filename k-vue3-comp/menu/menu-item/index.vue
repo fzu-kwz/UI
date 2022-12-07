@@ -2,7 +2,7 @@
   <li
     class="menu-item"
     tabindex="-1"
-    ref="menu-item"
+    ref="menuItem"
     @click="route ? router.push(route) : ''"
   >
     <span class="menu-item-title"><slot name="title"></slot></span>
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ComponentInternalInstance, getCurrentInstance, onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 
 defineProps({
@@ -26,14 +26,13 @@ defineProps({
   },
 });
 
-const { proxy } = getCurrentInstance() as ComponentInternalInstance;
+const menuItem = ref<HTMLElement>();
 
 const router = useRouter();
 
 onMounted(() => {
-  const menuItem = proxy?.$refs["menu-item"] as HTMLElement;
-  if (menuItem.parentElement?.className.includes("sub-menu")) {
-    menuItem.style.padding = "0 40px";
+  if (menuItem.value?.parentElement?.className.includes("sub-menu")) {
+    menuItem.value.style.padding = "0 40px";
   }
 });
 </script>
