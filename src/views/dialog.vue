@@ -1,7 +1,7 @@
 <template>
-  <KForm>
+  <KForm align-top>
     <h3 style="margin-top: 0;">Dialog 对话框</h3>
-    <p style="font-size: 14px; margin-top: 0;">
+    <p class="usage">
       需要绑定v-model:visible: 是否显示对话框（boolean，默认false）<br />
       title: 标题（string）<br />
       width: 对话框宽度（number，默认500）<br />
@@ -11,7 +11,7 @@
       @close: 关闭对话框事件 <br />
       #footer: 底部插槽
     </p>
-    <FormItem label-text="基础用法" align-top>
+    <FormItem label-text="基础用法">
       <KButton @click="visible1 = true">打开Dialog</KButton>
       <Dialog v-model:visible="visible1">
         <span>基础用法</span>
@@ -23,7 +23,7 @@
         </template>
       </Dialog>
     </FormItem>
-    <FormItem label-text="显示标题" align-top>
+    <FormItem label-text="显示标题">
       <KButton @click="visible2 = true">打开Dialog</KButton>
       <Dialog v-model:visible="visible2" title="标题">
         <span>显示标题</span>
@@ -35,7 +35,7 @@
         </template>
       </Dialog>
     </FormItem>
-    <FormItem label-text="顶部距离" align-top>
+    <FormItem label-text="顶部距离">
       <KButton @click="visible3 = true">打开Dialog</KButton>
       <Dialog v-model:visible="visible3" title="标题" :top="200">
         <span>顶部距离：200px</span>

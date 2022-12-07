@@ -1,15 +1,15 @@
 <template>
-  <KForm>
+  <KForm align-top>
     <h3 style="margin-top: 0;">Skeleton 骨架屏</h3>
-    <p style="font-size: 14px; margin-top: 0;">
+    <p class="usage">
       rows: 行数（number，默认4）<br />
       loading: 显示骨架屏（boolean，默认true）<br />
       delay: 延迟渲染DMO的时间（number，默认500）
     </p>
-    <FormItem label-text="基础用法" align-top>
+    <FormItem label-text="基础用法">
       <Skeleton></Skeleton>
     </FormItem>
-    <FormItem label-text="防止抖动" align-top>
+    <FormItem label-text="防止抖动">
       <KButton
         type="primary"
         size="small"

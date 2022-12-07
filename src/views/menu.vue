@@ -1,16 +1,15 @@
 <template>
-  <KForm>
+  <KForm align-top>
     <h3 style="margin-top: 0;">Menu 菜单栏</h3>
-    <p style="font-size: 14px; margin-top: 0;">
+    <p class="usage">
       MenuItem <br />
       title插槽: 菜单项名称 <br />
-      route: 链接（string）<hr />
+      route: 链接（string）<br /><br />
       SubMenu <br />
       title插槽: 菜单项名称 <br />
       默认插槽: 子菜单列表
     </p>
-
-    <FormItem label-text="基础用法" align-top>
+    <FormItem label-text="基础用法">
       <Menu>
         <MenuItem>
           <template #title>自由飞翔</template>

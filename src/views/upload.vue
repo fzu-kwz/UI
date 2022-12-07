@@ -1,7 +1,7 @@
 <template>
-  <KForm>
+  <KForm align-top>
     <h3 style="margin-top: 0;">Upload 上传</h3>
-    <p style="font-size: 14px; margin-top: 0;">
+    <p class="usage">
       accept: 文件类型限制（string）<br />
       showList: 显示上传列表（boolean，默认true）<br />
       multiple: 多文件上传（boolean）<br />
@@ -11,12 +11,12 @@
       @upload: 文件上传 / 文件移除事件（回调参数文件列表）<br />
       tip插槽: 提示文本
     </p>
-    <FormItem label-text="基础用法" align-top>
+    <FormItem label-text="基础用法">
       <Upload>
         <KButton type="primary">上传文件</KButton>
       </Upload>
     </FormItem>
-    <FormItem label-text="图片上传" align-top>
+    <FormItem label-text="图片上传">
       <Upload
         :multiple="true"
         :max-size="1024 * 1024 * 2"

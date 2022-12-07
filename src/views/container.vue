@@ -1,35 +1,36 @@
 <template>
-  <KForm>
+  <KForm align-top>
     <h3 style="margin-top: 0;">Container 布局容器</h3>
-    <p style="font-size: 14px; margin-top: 0;">
-      参考ElementUI，Container默认水平排列，当包含Header或者Footer时，垂直排列 <hr />
+    <p class="usage">
+      参考ElementUI，Container默认水平排列，当包含Header或者Footer时，垂直排列
+      <br />
       Header <br />
-      height: 高度<hr />
+      height: 高度<br /><br />
       Footer <br />
-      height: 高度 <hr />
+      height: 高度 <br /><br />
       Aside <br />
       width: 宽度
     </p>
-    <FormItem label-text="页眉+主体" align-top>
+    <FormItem label-text="页眉+主体">
       <Container>
         <Header>Header</Header>
         <Main>Main</Main>
       </Container>
     </FormItem>
-    <FormItem label-text="页眉+主体+页脚" align-top>
+    <FormItem label-text="页眉+主体+页脚">
       <Container>
         <Header>Header</Header>
         <Main>Main</Main>
         <Footer>Footer</Footer>
       </Container>
     </FormItem>
-    <FormItem label-text="侧边栏+主体" align-top>
+    <FormItem label-text="侧边栏+主体">
       <Container>
         <Aside>Aside</Aside>
         <Main>Main</Main>
       </Container>
     </FormItem>
-    <FormItem label-text="页眉+(侧边栏+主体)" align-top>
+    <FormItem label-text="页眉+(侧边栏+主体)">
       <Container>
         <Header>Header</Header>
         <Container>
@@ -38,7 +39,7 @@
         </Container>
       </Container>
     </FormItem>
-    <FormItem label-text="页眉+(侧边栏+(主体+页脚))" align-top>
+    <FormItem label-text="页眉+(侧边栏+(主体+页脚))">
       <Container>
         <Header>Header</Header>
         <Container>
@@ -50,7 +51,7 @@
         </Container>
       </Container>
     </FormItem>
-    <FormItem label-text="侧边栏+(页眉+主体)" align-top>
+    <FormItem label-text="侧边栏+(页眉+主体)">
       <Container>
         <Aside>Aside</Aside>
         <Container>
@@ -59,7 +60,7 @@
         </Container>
       </Container>
     </FormItem>
-    <FormItem label-text="侧边栏+(页眉+主体+页脚)" align-top>
+    <FormItem label-text="侧边栏+(页眉+主体+页脚)">
       <Container>
         <Aside>Aside</Aside>
         <Container>

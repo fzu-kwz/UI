@@ -1,5 +1,8 @@
 <template>
-  <div class="form" :class="[frame ? 'frame' : '']">
+  <div
+    class="form"
+    :class="[frame ? 'frame' : '', alignTop ? 'align-top' : '']"
+  >
     <slot></slot>
   </div>
 </template>
@@ -13,6 +16,10 @@ export default {
 <script setup lang="ts">
 defineProps({
   frame: {
+    type: Boolean,
+    default: undefined,
+  },
+  alignTop: {
     type: Boolean,
     default: undefined,
   },

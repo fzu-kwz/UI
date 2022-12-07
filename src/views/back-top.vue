@@ -1,7 +1,7 @@
 <template>
   <KForm>
     <h3 style="margin-top: 0;">BackTop 回到顶部</h3>
-    <p style="font-size: 14px; margin-top: 0;">
+    <p class="usage">
       target: 滚动元素（HTMLElement | Window，默认window）<br />
       height: 显示需要达到的滚动高度（number，默认200）<br />
       right: 距离视口右边距（number，默认40）<br />

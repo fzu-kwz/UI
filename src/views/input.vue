@@ -1,7 +1,7 @@
 <template>
-  <KForm>
+  <KForm align-top>
     <h3 style="margin-top: 0;">Input 输入框</h3>
-    <p style="font-size: 14px; margin-top: 0;">
+    <p class="usage">
       需要绑定v-model <br />
       type: 类型（stirng）<br />
       size: 大小（stirng）<br />
@@ -21,19 +21,19 @@
       cols(文本域): 列数（number | string）<br />
       k-input-suffix插槽: 后置图标按钮
     </p>
-    <FormItem label-text="基础用法" align-top>
+    <FormItem label-text="基础用法">
       <KInput v-model="value" placeholder="请输入" />
     </FormItem>
-    <FormItem label-text="禁用状态" align-top>
+    <FormItem label-text="禁用状态">
       <KInput v-model="value" disabled />
     </FormItem>
-    <FormItem label-text="显示清空" align-top>
+    <FormItem label-text="显示清空">
       <KInput v-model="value" allow-clear />
     </FormItem>
-    <FormItem label-text="显示密码" align-top>
+    <FormItem label-text="显示密码">
       <KInput v-model="value" type="password" allow-view />
     </FormItem>
-    <FormItem label-text="不同大小" align-top>
+    <FormItem label-text="不同大小">
       <KInput
         v-model="value"
         v-for="item in size"
@@ -41,7 +41,7 @@
         style="margin-bottom: 5px;"
       />
     </FormItem>
-    <FormItem label-text="文本域" align-top>
+    <FormItem label-text="文本域">
       <KInput
         v-model="value"
         type="textarea"

@@ -1,13 +1,11 @@
 <template>
   <KForm>
     <h3 style="margin-top: 0;">Loading 加载中</h3>
-    <p style="font-size: 14px; margin-top: 0;">
+    <p class="usage">
       text: 文字说明（string）<br />
     </p>
-    <FormItem label-text="" align-top>
-      <Loading v-if="loading"></Loading>
-    </FormItem>
   </KForm>
+  <Loading v-if="loading"></Loading>
 </template>
 
 <script setup lang="ts">
