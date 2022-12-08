@@ -7,7 +7,7 @@
       multiple: 多文件上传（boolean）<br />
       limit: 文件数量限制（number，默认1）<br />
       maxSize: 文件大小限制（number）<br />
-      percentage: 进度百分比（number，默认0）<br />
+      progress: 进度值（number，默认0）<br />
       @upload: 文件上传 / 文件移除事件（回调参数文件列表）<br />
       tip插槽: 提示文本
     </p>

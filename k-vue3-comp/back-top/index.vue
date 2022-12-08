@@ -1,6 +1,6 @@
 <template>
   <span
-    class="back-top icon"
+    class="back-top"
     v-show="visible"
     :style="{ right: right + 'px', bottom: bottom + 'px' }"
     @click="backTop"

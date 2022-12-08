@@ -25,7 +25,7 @@
         />
       </li>
     </ul>
-    <Progress v-show="fileList.length !== 0" :value="percentage"></Progress>
+    <Progress v-show="fileList.length !== 0" :value="progress"></Progress>
   </div>
 </template>
 
@@ -60,7 +60,7 @@ const props = defineProps({
     type: Number,
     default: undefined,
   },
-  percentage: {
+  progress: {
     type: Number,
     default: 0,
   },
