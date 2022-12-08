@@ -56,7 +56,6 @@ export {
   Dialog,
   Popup,
   Tip,
-  TipOption,
 };
 
 const component = [
