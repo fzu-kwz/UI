@@ -25,6 +25,7 @@ import ColorPicker from "./color-picker/index.vue";
 import Avatar from "./avatar/index.vue";
 import Skeleton from "./skeleton/index.vue";
 import Popup from "./popup/index.vue";
+import Tip from "./tip/index";
 
 // 按需引入
 export {
@@ -54,6 +55,8 @@ export {
   Skeleton,
   Dialog,
   Popup,
+  Tip,
+  TipOption,
 };
 
 const component = [

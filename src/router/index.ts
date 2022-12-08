@@ -18,6 +18,7 @@ const Progress = () => import("@/views/progress.vue");
 const Radio = () => import("@/views/radio.vue");
 const Select = () => import("@/views/select.vue");
 const Skeleton = () => import("@/views/skeleton.vue");
+const Tip = () => import("@/views/tip.vue");
 const Upload = () => import("@/views/upload.vue");
 
 const routes: RouteRecordRaw[] = [
@@ -129,6 +130,12 @@ const routes: RouteRecordRaw[] = [
     name: "skeleton",
     component: Skeleton,
     meta: { title: "Skeleton 骨架屏" },
+  },
+  {
+    path: "/tip",
+    name: "tip",
+    component: Tip,
+    meta: { title: "Tip 提示" },
   },
   {
     path: "/upload",
