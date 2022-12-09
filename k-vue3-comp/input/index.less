@@ -5,7 +5,6 @@
   box-sizing: border-box;
   border: 1px solid #dcdfe6;
   border-radius: 3px;
-  padding: 0 4px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -50,11 +49,18 @@
     height: 100%;
     border: 0;
     padding: 0;
+    padding-left: 4px;
     outline: none;
     font-size: 16px;
+
+    &:read-only {
+      cursor: pointer;
+    }
   }
 
   &-suffix {
+    cursor: pointer;
+    padding: 0 4px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -97,6 +103,7 @@
 }
 
 .k-textarea {
+  padding: 4px;
   width: 100%;
   box-sizing: border-box;
   border: 0;
