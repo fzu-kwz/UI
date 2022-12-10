@@ -7,18 +7,18 @@
     z-index: 2000;
     position: absolute;
     transition: all .2s;
-    box-sizing: border-box;
+    overflow: hidden;
 
     &.bottom {
-      padding-top: 10px;
+      padding: 10px 3px 3px 3px;
     }
 
     &.right {
-      padding-left: 10px;
+      padding: 3px 3px 3px 10px;
     }
 
     &.left {
-      padding-right: 10px;
+      padding: 3px 10px 3px 3px;
     }
 
     &-content {
@@ -26,14 +26,18 @@
       display: inline-block;
       box-sizing: border-box;
       border-radius: 3px;
-      box-shadow: 0 0 5px #c3c5cb;
       padding: 20px;
       font-size: 14px;
       background: #fff;
-    }
 
-    &.fade-out {
-      opacity: 0;
+      &.shadow {
+        box-shadow: 0 0 3px #c3c5cb;
+      }
+
+      &.dark {
+        color: #fff;
+        background-color: rgba(#000, .8);
+      }
     }
   }
 }

@@ -9,22 +9,18 @@
     </p>
     <FormItem label-text="基础用法">
       <div style="display: flex; justify-content: center;">
-        <Popup position="left">
+        <Popup position="left" content="Popup" width="90">
           <template #trigger>
             <KButton>左边</KButton>
           </template>
-          <span>This is a Popup</span>
         </Popup>
-        <Popup
-          position="bottom"
-          content="This is a Popup"
-          style="margin: 0 10px;"
-        >
+        <Popup position="bottom" width="90">
           <template #trigger>
             <KButton>下边</KButton>
           </template>
+          <span>Popup</span>
         </Popup>
-        <Popup position="right" content="This is a Popup">
+        <Popup position="right" content="Popup" width="90">
           <template #trigger>
             <KButton>右边</KButton>
           </template>
@@ -33,12 +29,12 @@
     </FormItem>
     <FormItem label-text="空间不足">
       <div style="display: flex; justify-content: space-between;">
-        <Popup position="left" content="左边空间不足时，弹窗显示左下角">
+        <Popup position="left" content="左边空间不足时，弹窗显示右边">
           <template #trigger>
             <KButton>左边</KButton>
           </template>
         </Popup>
-        <Popup position="right" content="右边空间不足时，弹窗显示右下角">
+        <Popup position="right" content="右边空间不足时，弹窗显示左边">
           <template #trigger>
             <KButton>右边</KButton>
           </template>

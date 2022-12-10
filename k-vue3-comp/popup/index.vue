@@ -3,12 +3,11 @@
     <slot name="trigger"></slot>
     <span
       class="k-popup-card"
-      :class="[fade ? 'fade-out' : '', position]"
+      :class="[hover ? position : '']"
       ref="card"
       :style="{ width: width + 'px' }"
-      v-show="show"
     >
-      <span class="k-popup-card-content">
+      <span class="k-popup-card-content" :class="hover ? 'shadow' : ''">
         <slot>{{ content }}</slot>
       </span>
     </span>
@@ -39,16 +38,20 @@ const props = defineProps({
   },
 });
 
-const show = ref(false);
-const fade = ref(false);
+const hover = ref(false);
+//
+const cardHeight = ref();
+const popupHeight = ref();
 
 const popup = ref<HTMLElement>();
 const card = ref<HTMLElement>();
 
 const enterListener = () => {
-  show.value = true;
+  hover.value = true;
   const popupNode = popup.value as HTMLElement;
   const cardNode = card.value as HTMLElement;
+  cardNode.style.opacity = "1";
+  cardNode.style.height = cardHeight.value + "px";
   switch (props.position) {
     case "bottom":
       cardNode.style.top = "100%";
@@ -68,54 +71,54 @@ const enterListener = () => {
       // 左边空间不足
       if (
         popupNode.getBoundingClientRect().right -
-          popupNode.getBoundingClientRect().width <=
+          popupNode.getBoundingClientRect().width -
+          10 <=
         +props.width
       ) {
-        cardNode.style.left =
-          -(
-            popupNode.getBoundingClientRect().right -
-            popupNode.getBoundingClientRect().width -
-            5
-          ) + "px";
-        cardNode.style.top = "100%";
-        cardNode.style.paddingTop = "10px";
+        cardNode.style.removeProperty("padding-right");
+        cardNode.style.removeProperty("left");
+        cardNode.style.paddingLeft = "10px";
+        cardNode.style.top =
+          "-" + (cardHeight.value - popupHeight.value) / 2 + "px";
       } else {
-        cardNode.style.left = -props.width + "px";
-        cardNode.style.removeProperty("top");
-        cardNode.style.removeProperty("padding-top");
+        cardNode.style.removeProperty("padding-left");
+        cardNode.style.left = -props.width - 12 + "px";
+        cardNode.style.paddingRight = "10px";
+        cardNode.style.top =
+          "-" + (cardHeight.value - popupHeight.value) / 2 + "px";
       }
       break;
     default:
       // 右边空间不足
       if (
-        popupNode.getBoundingClientRect().right + +props.width >=
+        popupNode.getBoundingClientRect().right + +props.width + 13 >=
         document.documentElement.clientWidth
       ) {
-        cardNode.style.right =
-          -(
-            document.documentElement.clientWidth -
-            popupNode.getBoundingClientRect().right -
-            5
-          ) + "px";
-        cardNode.style.top = "100%";
-        cardNode.style.paddingTop = "10px";
+        cardNode.style.left = -props.width - 20 + "px";
+        cardNode.style.paddingRight = "10px";
+        cardNode.style.top =
+          "-" + (cardHeight.value - popupHeight.value) / 2 + "px";
       } else {
-        cardNode.style.removeProperty("right");
-        cardNode.style.removeProperty("top");
-        cardNode.style.removeProperty("padding-top");
+        cardNode.style.removeProperty("left");
+        cardNode.style.removeProperty("padding-right");
+        cardNode.style.top =
+          "-" + (cardHeight.value - popupHeight.value) / 2 + "px";
       }
   }
 };
 
 const leaveListener = () => {
-  fade.value = true;
-  setTimeout(() => {
-    show.value = false;
-    fade.value = false;
-  }, 100);
+  (card.value as HTMLElement).style.height = "0";
+  (card.value as HTMLElement).style.opacity = "0";
+  (card.value as HTMLElement).style.removeProperty("padding-top");
+  hover.value = false;
 };
 
 onMounted(() => {
+  cardHeight.value = card.value?.offsetHeight;
+  popupHeight.value = popup.value?.offsetHeight;
+  (card.value as HTMLElement).style.height = "0";
+  (card.value as HTMLElement).style.opacity = "0";
   popup.value?.addEventListener("mouseenter", enterListener);
   popup.value?.addEventListener("mouseleave", leaveListener);
 });
