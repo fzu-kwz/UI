@@ -3,7 +3,7 @@
     Menu
   </KButton>
   <Container class="k-container">
-    <Aside :class="open ? 'aside-open' : 'aside-fold'">
+    <Aside :class="open ? 'aside-open' : 'aside-fold'" width="220">
       <Menu>
         <MenuItem
           v-for="item in menu"
