@@ -1,0 +1,42 @@
+.k-fold-panel-item {
+  &-header {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    line-height: 40px;
+    background-color: #fff;
+    cursor: pointer;
+    border-bottom: 1px solid #ebeef5;
+    font-size: 14px;
+    transition: border-bottom-color .2s;
+
+    .arrow {
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      margin: 0 8px 0 auto;
+      transition: transform .2s;
+
+      &.down {
+        transform: rotate(90deg);
+      }
+    }
+
+    &.no-bottom {
+      border-bottom-color: transparent;
+    }
+  }
+
+  &-wrap {
+    background-color: #fff;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: height .2s;
+  }
+
+  &-content {
+    font-size: 14px;
+    line-height: 1.5;
+    padding-bottom: 20px;
+  }
+}

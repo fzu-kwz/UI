@@ -8,6 +8,8 @@ import ColorPicker from "./color-picker/index.vue";
 import Container from "./container/index.vue";
 import Dialog from "./dialog/index.vue";
 import Empty from "./empty/index.vue";
+import FoldPanel from "./fold-panel/index.vue";
+import FoldPanelItem from "./fold-panel/fold-panel-item/index.vue";
 import Footer from "./footer/index.vue";
 import Form from "./form/index.vue";
 import FormItem from "./form/form-item/index.vue";
@@ -39,6 +41,8 @@ export {
   Container,
   Dialog,
   Empty,
+  FoldPanel,
+  FoldPanelItem,
   Footer,
   Form as KForm,
   FormItem,
@@ -70,6 +74,8 @@ const component = [
   Container,
   Dialog,
   Empty,
+  FoldPanel,
+  FoldPanelItem,
   Footer,
   Form,
   FormItem,

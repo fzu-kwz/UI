@@ -8,6 +8,7 @@ const ColorPicker = () => import("@/views/color-picker.vue");
 const Container = () => import("@/views/container.vue");
 const Dialog = () => import("@/views/dialog.vue");
 const Empty = () => import("@/views/empty.vue");
+const FoldPanel = () => import("@/views/fold-panel.vue");
 const Form = () => import("@/views/form.vue");
 const Input = () => import("@/views/input.vue");
 const LazyLoadImg = () => import("@/views/lazy-load-img.vue");
@@ -71,6 +72,12 @@ const routes: RouteRecordRaw[] = [
     name: "empty",
     component: Empty,
     meta: { title: "Empty 空状态" },
+  },
+  {
+    path: "/fold-panel",
+    name: "fold-panel",
+    component: FoldPanel,
+    meta: { title: "FoldPanel 折叠面板" },
   },
   {
     path: "/form",
