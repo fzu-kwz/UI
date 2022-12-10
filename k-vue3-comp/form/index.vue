@@ -9,7 +9,7 @@
 
 <script lang="ts">
 export default {
-  name: "KForm",
+  name: "Form",
 };
 </script>
 

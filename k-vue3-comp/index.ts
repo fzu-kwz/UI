@@ -2,92 +2,92 @@ import { App, Component } from "vue";
 import Aside from "./aside/index.vue";
 import Avatar from "./avatar/index.vue";
 import BackTop from "./back-top/index.vue";
+import Button from "./button/index.vue";
+import Card from "./card/index.vue";
+import ColorPicker from "./color-picker/index.vue";
 import Container from "./container/index.vue";
 import Dialog from "./dialog/index.vue";
-import Header from "./header/index.vue";
-import Footer from "./footer/index.vue";
-import Main from "./main/index.vue";
-import KInput from "./input/index.vue";
-import KButton from "./button/index.vue";
-import KSelect from "./select/index.vue";
-import LazyLoadImg from "./lazy-load-img/index.vue";
-import Pagination from "./pagination/index.vue";
-import Upload from "./upload/index.vue";
 import Empty from "./empty/index.vue";
-import Loading from "./loading/index.vue";
-import KForm from "./form/index.vue";
+import Footer from "./footer/index.vue";
+import Form from "./form/index.vue";
 import FormItem from "./form/form-item/index.vue";
+import Header from "./header/index.vue";
+import Input from "./input/index.vue";
+import LazyLoadImg from "./lazy-load-img/index.vue";
+import Loading from "./loading/index.vue";
+import Main from "./main/index.vue";
 import Menu from "./menu/index.vue";
 import MenuItem from "./menu/menu-item/index.vue";
 import SubMenu from "./menu/sub-menu/index.vue";
+import Pagination from "./pagination/index.vue";
+import Popup from "./popup/index.vue";
 import Progress from "./progress/index.vue";
 import Radio from "./radio/index.vue";
-import ColorPicker from "./color-picker/index.vue";
+import Select from "./select/index.vue";
 import Skeleton from "./skeleton/index.vue";
-import Popup from "./popup/index.vue";
 import Tip from "./tip/index";
-import Card from "./card/index.vue";
+import Upload from "./upload/index.vue";
 
 // 按需引入
 export {
-  Container,
-  Header,
-  Footer,
   Aside,
-  Main,
-  KInput,
-  KButton,
-  KSelect,
-  LazyLoadImg,
+  Avatar,
   BackTop,
-  Pagination,
-  Upload,
+  Button as KButton,
+  Card,
+  ColorPicker,
+  Container,
+  Dialog,
   Empty,
-  Loading,
-  KForm,
+  Footer,
+  Form as KForm,
   FormItem,
+  Header,
+  Input as KInput,
+  LazyLoadImg,
+  Loading,
+  Main,
   Menu,
   MenuItem,
   SubMenu,
+  Pagination,
+  Popup,
   Progress,
   Radio,
-  ColorPicker,
-  Avatar,
+  Select as KSelect,
   Skeleton,
-  Dialog,
-  Popup,
   Tip,
-  Card,
+  Upload,
 };
 
 const component = [
-  Container,
-  Header,
-  Footer,
   Aside,
-  Main,
-  KInput,
-  KButton,
-  KSelect,
-  LazyLoadImg,
+  Avatar,
   BackTop,
-  Pagination,
-  Upload,
+  Button,
+  Card,
+  ColorPicker,
+  Container,
+  Dialog,
   Empty,
-  Loading,
-  KForm,
+  Footer,
+  Form,
   FormItem,
+  Header,
+  Input,
+  LazyLoadImg,
+  Loading,
+  Main,
   Menu,
   MenuItem,
   SubMenu,
+  Pagination,
+  Popup,
   Progress,
   Radio,
-  ColorPicker,
-  Avatar,
+  Select,
   Skeleton,
-  Dialog,
-  Popup,
-  Card,
+  Upload,
 ];
 
 const KUI = {

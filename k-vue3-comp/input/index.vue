@@ -80,7 +80,7 @@
 
 <script lang="ts">
 export default {
-  name: "KInput",
+  name: "Input",
 };
 </script>
 
