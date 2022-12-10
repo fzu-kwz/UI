@@ -1,13 +1,13 @@
 <template>
-  <span class="progress">
-    <span class="progress-bar">
+  <span class="k-progress">
+    <span class="k-progress-bar">
       <span
-        class="progress-value"
+        class="k-progress-value"
         :style="{ width: ratio }"
         :class="type ? type : ''"
       ></span>
     </span>
-    <span class="progress-ratio">{{ ratio }}</span>
+    <span class="k-progress-ratio">{{ ratio }}</span>
   </span>
 </template>
 

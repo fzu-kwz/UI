@@ -1,12 +1,12 @@
 <template>
-  <span class="radio" :class="disabled ? 'disabled' : ''" @click="check">
+  <span class="k-radio" :class="disabled ? 'disabled' : ''" @click="check">
     <input
-      class="radio-input"
+      class="k-radio-input"
       type="radio"
       :checked="checked"
       :disabled="disabled"
     />
-    <label class="radio-label" :class="disabled ? 'disabled' : ''">
+    <label class="k-radio-label" :class="disabled ? 'disabled' : ''">
       <slot></slot>
     </label>
   </span>

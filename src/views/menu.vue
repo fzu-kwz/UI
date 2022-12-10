@@ -25,13 +25,10 @@
           <MenuItem>
             <template #title>倔强</template>
           </MenuItem>
-          <MenuItem route="/button">
-            <template #title>按钮</template>
+          <MenuItem route="/pagination">
+            <template #title>分页</template>
           </MenuItem>
         </SubMenu>
-        <MenuItem route="/loading">
-          <template #title>加载中</template>
-        </MenuItem>
       </Menu>
     </FormItem>
   </KForm>

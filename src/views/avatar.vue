@@ -39,7 +39,7 @@ const size = ["large", "medium", "", "small"];
 </script>
 
 <style scoped>
-.avatar {
+.k-avatar {
   margin-right: 10px;
 }
 </style>

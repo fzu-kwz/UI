@@ -1,11 +1,11 @@
 <template>
   <li
-    class="menu-item"
+    class="k-menu-item"
     tabindex="-1"
     ref="menuItem"
     @click="route ? router.push(route) : ''"
   >
-    <span class="menu-item-title"><slot name="title"></slot></span>
+    <span class="k-menu-item-title"><slot name="title"></slot></span>
   </li>
 </template>
 
@@ -31,7 +31,7 @@ const menuItem = ref<HTMLElement>();
 const router = useRouter();
 
 onMounted(() => {
-  if (menuItem.value?.parentElement?.className.includes("sub-menu")) {
+  if (menuItem.value?.parentElement?.className.includes("k-sub-menu")) {
     menuItem.value.style.padding = "0 40px";
   }
 });

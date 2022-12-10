@@ -1,14 +1,14 @@
 <template>
-  <span class="popup" ref="popup">
+  <span class="k-popup" ref="popup">
     <slot name="trigger"></slot>
     <span
-      class="popup-card"
+      class="k-popup-card"
       :class="[fade ? 'fade-out' : '', position]"
       ref="card"
       :style="{ width: width + 'px' }"
       v-show="show"
     >
-      <span class="popup-card-content">
+      <span class="k-popup-card-content">
         <slot>{{ content }}</slot>
       </span>
     </span>

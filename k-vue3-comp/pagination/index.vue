@@ -1,6 +1,10 @@
 <template>
-  <div class="pagination" v-if="total !== 0">
-    <span class="pagination-icon" @click="goToBefore" :disabled="current === 1">
+  <div class="k-pagination" v-if="total !== 0">
+    <span
+      class="k-pagination-icon"
+      @click="goToBefore"
+      :disabled="current === 1"
+    >
       <img src="../assets/icon/left.svg" alt="left" width="16" />
     </span>
 
@@ -11,7 +15,7 @@
     ></span>
 
     <span
-      class="pagination-num"
+      class="k-pagination-num"
       v-for="item in total"
       :key="item"
       :class="current === item ? 'active' : ''"
@@ -28,22 +32,22 @@
     ></span>
 
     <span
-      class="pagination-icon"
+      class="k-pagination-icon"
       @click="goToNext"
       :disabled="current === total"
     >
       <img src="../assets/icon/right.svg" alt="right" width="16" />
     </span>
 
-    <div v-show="showJump" class="pagination-jump">
+    <div v-show="showJump" class="k-pagination-jump">
       <input
-        class="pagination-jump-num"
+        class="k-pagination-jump-num"
         type="text"
         v-model="jump"
         @keyup.enter="jumpTo(jump)"
       />
       <button
-        class="pagination-jump-btn"
+        class="k-pagination-jump-btn"
         @click="jumpTo(jump)"
         :disabled="jump === ''"
       >

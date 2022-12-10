@@ -1,6 +1,6 @@
 <template>
   <span
-    class="back-top"
+    class="k-back-top"
     v-show="visible"
     :style="{ right: right + 'px', bottom: bottom + 'px' }"
     @click="backTop"

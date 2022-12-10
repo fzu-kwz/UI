@@ -1,5 +1,5 @@
 <template>
-  <div class="color-picker">
+  <div class="k-color-picker">
     <input
       type="color"
       class="color-picker-inner"

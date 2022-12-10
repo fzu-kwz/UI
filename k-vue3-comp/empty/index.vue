@@ -1,5 +1,5 @@
 <template>
-  <div class="empty">
+  <div class="k-empty">
     <img v-if="src" :src="src" />
     <img v-else src="../assets/icon/no-data.svg" alt="no-data" />
     <span v-if="text">

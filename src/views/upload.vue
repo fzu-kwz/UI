@@ -9,6 +9,7 @@
       maxSize: 文件大小限制（number）<br />
       progress: 进度值（number，默认0）<br />
       @upload: 文件上传 / 文件移除事件（回调参数文件列表）<br />
+      默认插槽: 触发文件选择框的内容<br />
       tip插槽: 提示文本
     </p>
     <FormItem label-text="基础用法">
@@ -45,9 +46,7 @@
 <script setup lang="ts">
 import { Upload, KForm, FormItem, KButton } from "$/index";
 
-const upload = (fileList: Array<File>) => {
-  console.log(fileList);
-};
+const upload = (fileList: Array<File>) => {};
 </script>
 
 <style lang="less" scoped>

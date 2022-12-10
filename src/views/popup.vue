@@ -1,17 +1,19 @@
-div<template>
+<template>
   <KForm align-top>
     <h3 style="margin-top: 0;">Popup 弹窗</h3>
     <p class="usage">
       position: 位置（string，left | right | bottom，默认right）<br />
       width: 宽度（string，默认200）<br />
       content: 内容（string，使用插槽传入内容后无效）<br />
+      trigger插槽: 触发Popup显示的内容
     </p>
     <FormItem label-text="基础用法">
       <div style="display: flex; justify-content: center;">
-        <Popup position="left" content="This is a Popup">
+        <Popup position="left">
           <template #trigger>
             <KButton>左边</KButton>
           </template>
+          <span>This is a Popup</span>
         </Popup>
         <Popup
           position="bottom"

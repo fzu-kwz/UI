@@ -1,5 +1,5 @@
 <template>
-  <span class="avatar" :class="[shape, size ? size : '']">
+  <span class="k-avatar" :class="[shape, size ? size : '']">
     <img v-if="(src && loaded)" :src="src" @error="loaded = false" />
     <img v-else-if="!loaded" src="../assets/img/error.png" />
     <slot v-else></slot>

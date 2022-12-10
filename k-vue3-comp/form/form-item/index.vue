@@ -1,7 +1,11 @@
 <template>
-  <div ref="formItem" class="form-item" :class="[alignTop ? 'align-top' : '']">
+  <div
+    ref="formItem"
+    class="k-form-item"
+    :class="[alignTop ? 'align-top' : '']"
+  >
     <span
-      class="form-item-label"
+      class="k-form-item-label"
       :style="{
         width: alignTop ? '100%' : labelWidth + 'px',
         display: alignTop ? 'block' : '',
@@ -11,7 +15,7 @@
       {{ labelText }}
     </span>
     <div
-      class="form-item-content"
+      class="k-form-item-content"
       :style="{ width: alignTop ? '100%' : `calc(100% - ${labelWidth}px)` }"
     >
       <slot></slot>

@@ -1,6 +1,6 @@
 <template>
-  <li class="sub-menu-item" @click="visible = !visible">
-    <span class="menu-item-title">
+  <li class="k-sub-menu" @click="visible = !visible">
+    <span class="k-sub-menu-title">
       <slot name="title"></slot>
     </span>
     <img
@@ -12,7 +12,7 @@
       height="14"
     />
   </li>
-  <ul v-if="visible" class="sub-menu">
+  <ul v-if="visible" class="k-sub-menu-list">
     <slot></slot>
   </ul>
 </template>

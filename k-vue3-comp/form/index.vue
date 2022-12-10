@@ -1,6 +1,6 @@
 <template>
   <div
-    class="form"
+    class="k-form"
     :class="[frame ? 'frame' : '', alignTop ? 'align-top' : '']"
   >
     <slot></slot>

@@ -2,20 +2,20 @@
   <Teleport to="body">
     <div class="mask" v-if="visible" @click.self="closeByModal">
       <div
-        class="modal"
+        class="k-dialog"
         :style="{
           width: width + 'px',
           marginTop: top + 'px',
         }"
       >
-        <div class="modal-header">
+        <div class="k-dialog-header">
           <span v-if="title" class="title">{{ title }}</span>
           <span v-if="showClose" class="close" @click="close">×</span>
         </div>
-        <div class="modal-body">
+        <div class="k-dialog-body">
           <slot></slot>
         </div>
-        <div class="modal-footer"><slot name="footer"></slot></div>
+        <div class="k-dialog-footer"><slot name="footer"></slot></div>
       </div>
     </div>
   </Teleport>

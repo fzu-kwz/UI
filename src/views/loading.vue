@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { Loading, KForm, FormItem } from "$/index";
+import { Loading, KForm } from "$/index";
 import { ref } from "vue";
 
 const loading = ref(true);

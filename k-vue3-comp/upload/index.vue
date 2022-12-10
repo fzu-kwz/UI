@@ -1,5 +1,5 @@
 <template>
-  <div class="upload" @click="uploadClick">
+  <div class="k-upload" @click="uploadClick">
     <slot></slot>
     <input
       v-show="false"
@@ -11,10 +11,10 @@
     />
   </div>
   <slot name="tip"></slot>
-  <div class="file-list" v-if="showList">
-    <ul class="file-list-ul">
+  <div v-if="showList">
+    <ul class="k-upload-list">
       <li v-for="item in fileList" :key="item.name">
-        <span class="file-name">{{ item.name }}</span>
+        <span class="k-upload-list-filename">{{ item.name }}</span>
         <img
           class="delete"
           src="../assets/icon/delete.svg"

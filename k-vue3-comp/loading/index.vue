@@ -1,14 +1,14 @@
 <template>
   <Teleport :to="to">
     <div class="mask">
-      <span class="loading">
+      <span class="k-loading">
         <img
           src="../assets/icon/loading.svg"
           alt="loading"
           width="30"
           height="30"
         />
-        <span class="loading-text" v-if="text">
+        <span class="k-loading-text" v-if="text">
           {{ text }}
         </span>
       </span>
@@ -26,7 +26,7 @@ export default {
     },
     text: {
       type: String,
-      default: "加载中······",
+      default: "加载中",
     },
   },
 };
