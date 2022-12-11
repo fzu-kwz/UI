@@ -7,7 +7,10 @@
       ref="card"
       :style="{ width: width + 'px' }"
     >
-      <span class="k-popup-card-content" :class="hover ? 'shadow' : ''">
+      <span
+        class="k-popup-card-content"
+        :class="[hover ? 'shadow' : '', theme]"
+      >
         <slot>{{ content }}</slot>
       </span>
     </span>
@@ -30,20 +33,26 @@ const props = defineProps({
   },
   width: {
     type: String,
-    default: "200",
+    default: "150",
   },
   content: {
     type: String,
     default: "",
   },
+  theme: {
+    type: String,
+    default: "light",
+  },
 });
-
+// 是否移入触发Popup的元素
 const hover = ref(false);
-//
+// 弹窗高度
 const cardHeight = ref();
+// 触发Popup的元素的高度
 const popupHeight = ref();
-
+// 触发Popup的元素
 const popup = ref<HTMLElement>();
+// 弹窗
 const card = ref<HTMLElement>();
 
 const enterListener = () => {
@@ -53,21 +62,37 @@ const enterListener = () => {
   cardNode.style.opacity = "1";
   cardNode.style.height = cardHeight.value + "px";
   switch (props.position) {
-    case "bottom":
-      cardNode.style.top = "100%";
-      if (
-        popupNode.getBoundingClientRect().right -
-          popupNode.getBoundingClientRect().width / 2 <
-        +props.width / 2
-      ) {
-        cardNode.style.marginLeft = "5px";
-        cardNode.style.left = -popupNode.getBoundingClientRect().x + "px";
+    case "top":
+      cardNode.style.top = -cardHeight.value - 10 + "px";
+      if (popupNode.getBoundingClientRect().width < +props.width) {
+        cardNode.style.left =
+          -(+props.width - popupNode.getBoundingClientRect().width) / 2 -
+          3 +
+          "px";
       } else {
         cardNode.style.left =
-          -props.width / 2 + popupNode.getBoundingClientRect().width / 2 + "px";
+          (popupNode.getBoundingClientRect().width - +props.width) / 2 -
+          3 +
+          "px";
+      }
+      break;
+    case "bottom":
+      cardNode.style.top = "100%";
+      if (popupNode.getBoundingClientRect().width < +props.width) {
+        cardNode.style.left =
+          -(+props.width - popupNode.getBoundingClientRect().width) / 2 -
+          3 +
+          "px";
+      } else {
+        cardNode.style.left =
+          (popupNode.getBoundingClientRect().width - +props.width) / 2 -
+          3 +
+          "px";
       }
       break;
     case "left":
+      cardNode.style.top =
+        "-" + ((cardHeight.value - popupHeight.value) / 2 + 3) + "px";
       // 左边空间不足
       if (
         popupNode.getBoundingClientRect().right -
@@ -78,17 +103,15 @@ const enterListener = () => {
         cardNode.style.removeProperty("padding-right");
         cardNode.style.removeProperty("left");
         cardNode.style.paddingLeft = "10px";
-        cardNode.style.top =
-          "-" + (cardHeight.value - popupHeight.value) / 2 + "px";
       } else {
         cardNode.style.removeProperty("padding-left");
-        cardNode.style.left = -props.width - 12 + "px";
+        cardNode.style.left = -(+props.width + 15) + "px";
         cardNode.style.paddingRight = "10px";
-        cardNode.style.top =
-          "-" + (cardHeight.value - popupHeight.value) / 2 + "px";
       }
       break;
     default:
+      cardNode.style.top =
+        "-" + ((cardHeight.value - popupHeight.value) / 2 + 3) + "px";
       // 右边空间不足
       if (
         popupNode.getBoundingClientRect().right + +props.width + 13 >=
@@ -96,21 +119,17 @@ const enterListener = () => {
       ) {
         cardNode.style.left = -props.width - 20 + "px";
         cardNode.style.paddingRight = "10px";
-        cardNode.style.top =
-          "-" + (cardHeight.value - popupHeight.value) / 2 + "px";
       } else {
         cardNode.style.removeProperty("left");
         cardNode.style.removeProperty("padding-right");
-        cardNode.style.top =
-          "-" + (cardHeight.value - popupHeight.value) / 2 + "px";
       }
+      break;
   }
 };
 
 const leaveListener = () => {
   (card.value as HTMLElement).style.height = "0";
   (card.value as HTMLElement).style.opacity = "0";
-  (card.value as HTMLElement).style.removeProperty("padding-top");
   hover.value = false;
 };
 

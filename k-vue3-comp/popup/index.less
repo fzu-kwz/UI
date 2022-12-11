@@ -9,6 +9,10 @@
     transition: all .2s;
     overflow: hidden;
 
+    &.top {
+      padding: 3px 3px 10px 3px;
+    }
+
     &.bottom {
       padding: 10px 3px 3px 3px;
     }
@@ -28,15 +32,18 @@
       border-radius: 3px;
       padding: 20px;
       font-size: 14px;
-      background: #fff;
 
       &.shadow {
-        box-shadow: 0 0 3px #c3c5cb;
+        box-shadow: 0 0 3px 0 rgba(#000, .2);
+      }
+
+      &.light {
+        background: #fff;
       }
 
       &.dark {
         color: #fff;
-        background-color: rgba(#000, .8);
+        background-color: rgb(45, 45, 45);
       }
     }
   }
