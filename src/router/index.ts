@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 
+const Guide = () => import("@/views/guide.vue");
 const Avatar = () => import("@/views/avatar.vue");
 const BackTop = () => import("@/views/back-top.vue");
 const Button = () => import("@/views/button.vue");
@@ -24,7 +25,13 @@ const Tip = () => import("@/views/tip.vue");
 const Upload = () => import("@/views/upload.vue");
 
 const routes: RouteRecordRaw[] = [
-  { path: "/", redirect: "/avatar" },
+  { path: "/", redirect: "/guide" },
+  {
+    path: "/guide",
+    name: "guide",
+    component: Guide,
+    meta: { title: "Guide 引导" },
+  },
   {
     path: "/avatar",
     name: "avatar",
