@@ -17,6 +17,10 @@ export function createTip(tipOption: TipOption) {
       tip.className = "k-tip right";
       tip.style.animationName = "right";
       break;
+    case "center":
+      tip.className = "k-tip center";
+      tip.style.animationName = "center";
+      break;
     default:
       tip.className = "k-tip top";
       tip.style.animationName = "top";
@@ -26,6 +30,9 @@ export function createTip(tipOption: TipOption) {
   tipOption.duration
     ? (tip.style.animationDuration = tipOption.duration / 1000 + "s")
     : "";
+  tip.className = tipOption.theme
+    ? tip.className + " " + tipOption.theme
+    : tip.className + " dark";
   document.documentElement.appendChild(tip);
   setTimeout(
     () => {
@@ -40,5 +47,6 @@ export interface TipOption {
   message: string;
   duration?: number;
   position?: string;
+  theme?: string;
 }
 export default createTip;

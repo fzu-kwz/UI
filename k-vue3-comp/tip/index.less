@@ -3,8 +3,6 @@
   position: absolute;
   z-index: 2000;
   text-align: center;
-  color: #fff;
-  background-color: rgba(#000, .8);
   box-sizing: border-box;
   padding: 15px;
   border-radius: 3px;
@@ -15,6 +13,16 @@
   animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
   animation-iteration-count: 1;
   -webkit-animation-iteration-count: 1;
+
+  &.light {
+    background-color: #fff;
+    box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+  }
+
+  &.dark {
+    color: #fff;
+    background-color: rgba(#000, .8);
+  }
 
   &.top {
     top: 0;
@@ -92,6 +100,26 @@
 
     50% {
       right: 5vw;
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  &.center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @keyframes center {
+    0% {
+      opacity: 0;
+    }
+
+    50% {
       opacity: 1;
     }
 
