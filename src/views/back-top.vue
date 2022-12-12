@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { BackTop, KForm, FormItem } from "$/index";
+import { KForm } from "$/index";
 </script>
 
 <style scoped></style>
