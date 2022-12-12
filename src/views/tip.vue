@@ -14,7 +14,7 @@
         v-for="item in tips"
         :key="item.position"
         @click="Tip(item)"
-        style="margin-right: 10px;"
+        style="margin-right: 5px;"
       >
         {{ item.position }}
       </KButton>
@@ -24,7 +24,7 @@
         v-for="item in theme_tips"
         :key="item.theme"
         @click="Tip(item)"
-        style="margin-right: 10px;"
+        style="margin-right: 5px;"
       >
         {{ item.theme }}
       </KButton>
