@@ -2,7 +2,7 @@
   <img
     ref="img"
     :data-src="src"
-    src="../assets/gif/loading.gif"
+    :src="loadingSrc"
     alt="lazy-load-img"
     :width="width"
     :height="height"
@@ -20,6 +20,10 @@ export default {
 import { onMounted, onUnmounted, ref } from "vue";
 
 const props = defineProps({
+  loadingSrc: {
+    type: String,
+    default: "",
+  },
   src: {
     type: String,
     default: "",
