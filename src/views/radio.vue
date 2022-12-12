@@ -7,14 +7,27 @@
       disabled: 禁用（boolean）
     </p>
     <FormItem label-text="基础用法">
-      <Radio v-model="radio" value="1" style="margin-right: 5px;">123</Radio>
-      <Radio v-model="radio" value="2">456</Radio>
+      <Radio
+        v-for="item in radios"
+        :key="item"
+        v-model="radio"
+        :value="item"
+        style="margin-right: 10px;"
+      >
+        {{ item }}
+      </Radio>
     </FormItem>
     <FormItem label-text="禁用状态">
-      <Radio disabled v-model="radio" value="1" style="margin-right: 5px;">
-        123
+      <Radio
+        v-for="item in radios"
+        :key="item"
+        v-model="radio"
+        :value="item"
+        disabled
+        style="margin-right: 10px;"
+      >
+        {{ item }}
       </Radio>
-      <Radio disabled v-model="radio" value="2">456</Radio>
     </FormItem>
   </KForm>
 </template>
@@ -23,7 +36,8 @@
 import { Radio, KForm, FormItem } from "$/index";
 import { ref } from "vue";
 
-const radio = ref("1");
+const radio = ref("单选框A");
+const radios = ["单选框A", "单选框B"];
 </script>
 
 <style scoped></style>
