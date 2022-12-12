@@ -22,6 +22,7 @@ const Progress = () => import("@/views/progress.vue");
 const Radio = () => import("@/views/radio.vue");
 const Select = () => import("@/views/select.vue");
 const Skeleton = () => import("@/views/skeleton.vue");
+const SlideShow = () => import("@/views/slide-show.vue");
 const Tip = () => import("@/views/tip.vue");
 const Upload = () => import("@/views/upload.vue");
 
@@ -158,6 +159,12 @@ const routes: RouteRecordRaw[] = [
     name: "skeleton",
     component: Skeleton,
     meta: { title: "Skeleton 骨架屏" },
+  },
+  {
+    path: "/slide-show",
+    name: "slide-show",
+    component: SlideShow,
+    meta: { title: "SlideShow 幻灯片" },
   },
   {
     path: "/tip",

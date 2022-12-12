@@ -28,6 +28,7 @@ import Progress from "./progress/index.vue";
 import Radio from "./radio/index.vue";
 import Select from "./select/index.vue";
 import Skeleton from "./skeleton/index.vue";
+import SlideShow from "./slide-show/index.vue";
 import Tip from "./tip/index";
 import Upload from "./upload/index.vue";
 
@@ -62,6 +63,7 @@ export {
   Radio,
   Select as KSelect,
   Skeleton,
+  SlideShow,
   Tip,
   Upload,
 };
@@ -96,6 +98,7 @@ const component = [
   Radio,
   Select,
   Skeleton,
+  SlideShow,
   Upload,
 ];
 
