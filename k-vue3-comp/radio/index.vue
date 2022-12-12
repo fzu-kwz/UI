@@ -6,9 +6,12 @@
       :checked="checked"
       :disabled="disabled"
     />
-    <label class="k-radio-label" :class="disabled ? 'disabled' : ''">
+    <span
+      class="k-radio-text"
+      :class="[checked ? 'checked' : '', disabled ? 'disabled' : '']"
+    >
       <slot></slot>
-    </label>
+    </span>
   </span>
 </template>
 
