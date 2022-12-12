@@ -4,6 +4,7 @@ import Avatar from "./avatar/index.vue";
 import BackTop from "./back-top/index.vue";
 import Button from "./button/index.vue";
 import Card from "./card/index.vue";
+import Chechbox from "./checkbox/index.vue";
 import ColorPicker from "./color-picker/index.vue";
 import Container from "./container/index.vue";
 import Dialog from "./dialog/index.vue";
@@ -37,6 +38,7 @@ export {
   BackTop,
   Button as KButton,
   Card,
+  Chechbox,
   ColorPicker,
   Container,
   Dialog,
@@ -70,6 +72,7 @@ const component = [
   BackTop,
   Button,
   Card,
+  Chechbox,
   ColorPicker,
   Container,
   Dialog,

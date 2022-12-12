@@ -5,6 +5,7 @@ const Avatar = () => import("@/views/avatar.vue");
 const BackTop = () => import("@/views/back-top.vue");
 const Button = () => import("@/views/button.vue");
 const Card = () => import("@/views/card.vue");
+const Checkbox = () => import("@/views/checkbox.vue");
 const ColorPicker = () => import("@/views/color-picker.vue");
 const Container = () => import("@/views/container.vue");
 const Dialog = () => import("@/views/dialog.vue");
@@ -55,6 +56,12 @@ const routes: RouteRecordRaw[] = [
     name: "card",
     component: Card,
     meta: { title: "Card 卡片" },
+  },
+  {
+    path: "/checkbox",
+    name: "checkbox",
+    component: Checkbox,
+    meta: { title: "Checkbox 多选框" },
   },
   {
     path: "/color-picker",
