@@ -10,15 +10,21 @@
     <span class="icon right" @click="rightClick">
       <img src="../assets/icon/right.svg" alt="right" />
     </span>
-    <img
-      ref="img"
+    <div
       v-for="item in imgs"
+      class="k-slide-show-img"
       :key="item.src"
-      :src="item.src"
-      :alt="item.alt"
-      :width="width"
-      :height="height"
-    />
+      ref="slideImg"
+      :style="{ width: width + 'px', height: height + 'px' }"
+    >
+      <a
+        :href="item.link"
+        target="_blank"
+        :style="{ width: width + 'px', height: height + 'px' }"
+      >
+        <img :src="item.src" :alt="item.alt" :width="width" :height="height" />
+      </a>
+    </div>
   </span>
 </template>
 
@@ -29,7 +35,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { onMounted, PropType, ref, watch } from "vue";
+import { onMounted, onUnmounted, PropType, ref, watch } from "vue";
 import { SlideImg } from "./types";
 
 const props = defineProps({
@@ -55,25 +61,39 @@ const props = defineProps({
   },
 });
 
-const img = ref<Array<HTMLElement>>();
-const current = ref(0);
-
-onMounted(() => {
-  img.value?.forEach((item, index) => {
-    item.style.left = +props.width * index + "px";
-  });
-});
-
+// 图片元素数组
+const slideImg = ref<Array<HTMLElement>>();
+// 中位数下标
+const middle = Math.floor((props.imgs.length - 1) / 2);
+// 当前图片下标
+const current = ref(middle);
+// 预设间距
+const spacing = ref<Array<string>>([]);
+for (let i = 0; i < props.imgs.length; i++) {
+  spacing.value?.push(+props.width * (i - middle) + "px");
+}
+// 循环定时器
 const timer = ref(
   setInterval(
     () => {
       if (current.value === props.imgs.length - 1) current.value = 0;
       else current.value++;
     },
-    props.delay < 2000 ? 2000 : props.delay
+    props.delay < 0 ? 3000 : props.delay
   )
 );
 
+onMounted(() => {
+  slideImg.value?.forEach((item, index) => {
+    item.style.left = (spacing.value as Array<string>)[index];
+  });
+});
+
+onUnmounted(() => {
+  clearInterval(timer.value);
+});
+
+/* debug */
 const leftClick = () => {
   clearInterval(timer.value);
   if (current.value === 0) current.value = props.imgs.length - 1;
@@ -83,7 +103,7 @@ const leftClick = () => {
       if (current.value === props.imgs.length - 1) current.value = 0;
       else current.value++;
     },
-    props.delay < 2000 ? 2000 : props.delay
+    props.delay < 0 ? 3000 : props.delay
   );
 };
 
@@ -96,20 +116,27 @@ const rightClick = () => {
       if (current.value === props.imgs.length - 1) current.value = 0;
       else current.value++;
     },
-    props.delay < 2000 ? 2000 : props.delay
+    props.delay < 0 ? 3000 : props.delay
   );
 };
 
 watch(current, (newVal, oldVal) => {
-  img.value?.forEach((item, index) => {
+  slideImg.value?.forEach((item, index) => {
     if (index === newVal) {
       item.style.left = "0";
-    }
-    if (index > newVal) {
-      item.style.left = +props.width * (index - newVal) + "px";
-    }
-    if (index < newVal) {
-      item.style.left = -+props.width * (newVal - index) + "px";
+      item.style.transition = "left .3s ease 0s";
+    } else {
+      item.style.left =
+        parseInt(item.style.left.replace("px", "")) - +props.width + "px";
+      if (
+        parseInt(item.style.left.replace("px", "")) <
+        parseInt((spacing.value as Array<string>)[0].replace("px", ""))
+      ) {
+        item.style.left = (spacing.value as Array<string>)[
+          props.imgs.length - 1
+        ];
+        item.style.transition = "none";
+      }
     }
   });
 });

@@ -4,10 +4,17 @@
   position: relative;
   border-radius: 3px;
 
-  &>img {
-    object-fit: cover;
+  &-img {
     position: absolute;
-    transition: left 1s ease 0s;
+    transition: left .3s ease 0s;
+
+    & a {
+      display: block;
+    }
+
+    & img {
+      object-fit: cover;
+    }
   }
 
   .icon {
