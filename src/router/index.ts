@@ -23,6 +23,7 @@ const Radio = () => import("@/views/radio.vue");
 const Select = () => import("@/views/select.vue");
 const Skeleton = () => import("@/views/skeleton.vue");
 const SlideShow = () => import("@/views/slide-show.vue");
+const Table = () => import("@/views/table.vue");
 const Tip = () => import("@/views/tip.vue");
 const Upload = () => import("@/views/upload.vue");
 
@@ -165,6 +166,12 @@ const routes: RouteRecordRaw[] = [
     name: "slide-show",
     component: SlideShow,
     meta: { title: "SlideShow 幻灯片" },
+  },
+  {
+    path: "/table",
+    name: "table",
+    component: Table,
+    meta: { title: "Table 表格" },
   },
   {
     path: "/tip",
