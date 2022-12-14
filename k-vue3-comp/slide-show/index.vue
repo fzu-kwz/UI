@@ -11,7 +11,7 @@
       <img src="../assets/icon/right.svg" alt="right" />
     </span>
     <div
-      v-for="item in imgs"
+      v-for="item in slides"
       class="k-slide-show-img"
       :key="item.src"
       ref="slideImg"
@@ -36,7 +36,7 @@ export default {
 
 <script setup lang="ts">
 import { onMounted, onUnmounted, PropType, ref, watch } from "vue";
-import { SlideImg } from "./types";
+import { Slide } from "./types";
 
 const props = defineProps({
   width: {
@@ -47,11 +47,11 @@ const props = defineProps({
     type: String,
     default: "200",
   },
-  imgs: {
-    type: Array as PropType<Array<SlideImg>>,
+  slides: {
+    type: Array as PropType<Array<Slide>>,
     default: [],
   },
-  delay: {
+  interval: {
     type: Number,
     default: 3000,
   },
@@ -64,22 +64,22 @@ const props = defineProps({
 // 图片元素数组
 const slideImg = ref<Array<HTMLElement>>();
 // 中位数下标
-const middle = Math.floor((props.imgs.length - 1) / 2);
+const middle = Math.floor((props.slides.length - 1) / 2);
 // 当前图片下标
 const current = ref(middle);
 // 预设间距
 const spacing = ref<Array<string>>([]);
-for (let i = 0; i < props.imgs.length; i++) {
+for (let i = 0; i < props.slides.length; i++) {
   spacing.value?.push(+props.width * (i - middle) + "px");
 }
 // 循环定时器
 const timer = ref(
   setInterval(
     () => {
-      if (current.value === props.imgs.length - 1) current.value = 0;
+      if (current.value === props.slides.length - 1) current.value = 0;
       else current.value++;
     },
-    props.delay < 0 ? 3000 : props.delay
+    props.interval < 0 ? 3000 : props.interval
   )
 );
 
@@ -96,27 +96,27 @@ onUnmounted(() => {
 /* debug */
 const leftClick = () => {
   clearInterval(timer.value);
-  if (current.value === 0) current.value = props.imgs.length - 1;
+  if (current.value === 0) current.value = props.slides.length - 1;
   else current.value--;
   timer.value = setInterval(
     () => {
-      if (current.value === props.imgs.length - 1) current.value = 0;
+      if (current.value === props.slides.length - 1) current.value = 0;
       else current.value++;
     },
-    props.delay < 0 ? 3000 : props.delay
+    props.interval < 0 ? 3000 : props.interval
   );
 };
 
 const rightClick = () => {
   clearInterval(timer.value);
-  if (current.value === props.imgs.length - 1) current.value = 0;
+  if (current.value === props.slides.length - 1) current.value = 0;
   else current.value++;
   timer.value = setInterval(
     () => {
-      if (current.value === props.imgs.length - 1) current.value = 0;
+      if (current.value === props.slides.length - 1) current.value = 0;
       else current.value++;
     },
-    props.delay < 0 ? 3000 : props.delay
+    props.interval < 0 ? 3000 : props.interval
   );
 };
 
@@ -133,7 +133,7 @@ watch(current, (newVal, oldVal) => {
         parseInt((spacing.value as Array<string>)[0].replace("px", ""))
       ) {
         item.style.left = (spacing.value as Array<string>)[
-          props.imgs.length - 1
+          props.slides.length - 1
         ];
         item.style.transition = "none";
       }
