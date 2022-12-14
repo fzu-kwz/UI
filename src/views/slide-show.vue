@@ -2,7 +2,7 @@
   <KForm align-top>
     <h3 style="margin-top: 0;">SlideShow 幻灯片（under development）</h3>
     <p class="usage">
-      ！建议不少于3张图片时候使用（debug中）<br />
+      ！建议不少于3张图片时候使用，目前切换箭头还有bug<br />
       width: 图片宽度（number，默认400）<br />
       height: 图片高度（number，默认200）<br />
       imgs: 图片访问地址（Array: SlideImg）<br />
