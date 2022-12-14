@@ -1,6 +1,6 @@
 <template>
   <span class="k-popup" ref="popup">
-    <slot name="trigger"></slot>
+    <slot name="refer"></slot>
     <span
       class="k-popup-card"
       :class="[hover ? position : '']"
@@ -29,7 +29,7 @@ import { onMounted, onUnmounted, ref } from "vue";
 const props = defineProps({
   position: {
     type: String,
-    default: "right",
+    default: "top",
   },
   width: {
     type: String,
