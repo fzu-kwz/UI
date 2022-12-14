@@ -1,6 +1,6 @@
 <template>
   <Teleport :to="to">
-    <div class="mask">
+    <div class="mask" :style="{ background: background }">
       <span class="k-loading">
         <img
           src="../assets/icon/loading.svg"
@@ -27,6 +27,10 @@ export default {
     text: {
       type: String,
       default: "加载中",
+    },
+    background: {
+      type: String,
+      default: "rgba(0, 0, 0, 0.3)",
     },
   },
 };
