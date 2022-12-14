@@ -9,7 +9,8 @@
     :style="{ height: type === 'textarea' ? 'auto' : '' }"
   >
     <input
-      v-if="type === 'text' || type === 'password'"
+      v-if="type !== 'textarea'"
+      ref="_input"
       :type="type"
       class="k-input-inner"
       :class="[disabled ? 'k-input-disabled' : '']"
@@ -23,14 +24,14 @@
       :readonly="readonly"
       :disabled="disabled"
       v-model="modelValue"
-      @focus="(shadow = true), emits('focus')"
-      @blur="(shadow = false), emits('blur')"
+      @focus="shadow = true"
+      @blur="shadow = false"
     />
     <span class="k-input-suffix" v-if="type === 'text' || type === 'password'">
-      <slot name="k-input-suffix">
+      <slot name="suffix">
         <span
           class="view"
-          v-if="props.type === 'password' && allowView"
+          v-if="type === 'password' && allowView"
           @click="showPass"
         >
           <img
@@ -38,14 +39,14 @@
             alt="show"
             width="16"
             height="16"
-            v-show="type === 'text'"
+            v-show="type === 'password' && passType === 'text'"
           />
           <img
             src="../assets/icon/hide.svg"
             alt="hide"
             width="16"
             height="16"
-            v-show="type === 'password'"
+            v-show="type === 'password' && passType === 'password'"
           />
         </span>
         <span class="clear" v-if="allowClear" @click="clear">
@@ -85,19 +86,16 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 
 const props = defineProps({
   modelValue: {
-    type: String,
+    type: [String, Number],
     default: "",
   },
   type: {
     type: String,
     default: "text",
-    validator: (value: string) => {
-      return ["text", "password", "textarea"].indexOf(value) !== -1;
-    },
   },
   size: {
     type: String,
@@ -124,19 +122,19 @@ const props = defineProps({
     default: undefined,
   },
   max: {
-    type: [Number, String],
+    type: Number,
     default: undefined,
   },
   min: {
-    type: [Number, String],
+    type: Number,
     default: undefined,
   },
   maxlength: {
-    type: [Number, String],
+    type: Number,
     default: undefined,
   },
   minlength: {
-    type: [Number, String],
+    type: Number,
     default: undefined,
   },
   readonly: {
@@ -152,17 +150,20 @@ const props = defineProps({
     default: undefined,
   },
   rows: {
-    type: [Number, String],
+    type: Number,
     default: undefined,
   },
   cols: {
-    type: [Number, String],
+    type: Number,
     default: undefined,
   },
 });
 
-// 密码框类型
-const type = ref(props.type);
+const passType = ref();
+const _input = ref<HTMLInputElement>();
+onMounted(() => {
+  _input.value?.type === "password" ? (passType.value = "password") : "";
+});
 
 // 是否聚焦
 const shadow = ref(false);
@@ -174,7 +175,7 @@ const modelValue = computed({
 });
 
 // 更新v-model绑定的值
-const emits = defineEmits(["update:modelValue", "focus", "blur"]);
+const emits = defineEmits(["update:modelValue"]);
 
 // 清空modelValue
 const clear = () => {
@@ -183,7 +184,10 @@ const clear = () => {
 
 // 切换图标
 const showPass = () => {
-  type.value === "password" ? (type.value = "text") : (type.value = "password");
+  if (_input.value)
+    passType.value === "password"
+      ? ((passType.value = "text"), (_input.value.type = "text"))
+      : ((passType.value = "password"), (_input.value.type = "password"));
 };
 </script>
 

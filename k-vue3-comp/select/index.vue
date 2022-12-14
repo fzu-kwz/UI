@@ -7,7 +7,7 @@
       :disabled="disabled"
       @click="disabled ? '' : (display = !display)"
     >
-      <template #k-input-suffix>
+      <template #suffix>
         <img
           class="down"
           :class="[display ? 'up' : '', disabled ? 'disabled' : '']"
