@@ -1,17 +1,20 @@
 <template>
   <Teleport :to="to">
-    <div class="mask" :style="{ background: background }">
-      <span class="k-loading">
+    <div
+      class="mask"
+      :style="{ background: background ? background : 'rgba(0, 0, 0, 0.8)' }"
+    >
+      <div class="k-loading">
         <img
           src="../assets/icon/loading.svg"
           alt="loading"
           width="30"
           height="30"
         />
-        <span class="k-loading-text" v-if="text">
+        <p class="k-loading-text" v-if="text">
           {{ text }}
-        </span>
-      </span>
+        </p>
+      </div>
     </div>
   </Teleport>
 </template>
@@ -30,7 +33,7 @@ export default {
     },
     background: {
       type: String,
-      default: "rgba(0, 0, 0, 0.3)",
+      default: "rgba(0, 0, 0, 0.8)",
     },
   },
 };
