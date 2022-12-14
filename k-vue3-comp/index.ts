@@ -30,7 +30,6 @@ import Select from "./select/index.vue";
 import Skeleton from "./skeleton/index.vue";
 import SlideShow from "./slide-show/index.vue";
 import Table from "./table/index.vue";
-import TableColumn from "./table/table-column/index.vue";
 import Tip from "./tip/index";
 import Upload from "./upload/index.vue";
 
@@ -67,7 +66,6 @@ export {
   Skeleton,
   SlideShow,
   Table as KTable,
-  TableColumn,
   Tip,
   Upload,
 };
@@ -104,7 +102,6 @@ const component = [
   Skeleton,
   SlideShow,
   Table,
-  TableColumn,
   Upload,
 ];
 

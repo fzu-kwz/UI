@@ -27,13 +27,23 @@
   }
 }
 
+.fix-header {
+  table {
+    thead {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      box-shadow: 0 1px 3px #ccc;
+    }
+  }
+}
+
 .k-table {
-  display: inline-block;
   overflow: auto;
   box-sizing: border-box;
 
   table {
-    display: inline-block;
+    width: 100%;
     border-spacing: 0;
     table-layout: fixed;
     color: #303133;
@@ -47,11 +57,13 @@
       background-color: #fff;
 
       .text {
+        padding: 9px 15px;
         box-sizing: border-box;
-        padding: 6px;
         overflow: hidden;
         text-overflow: ellipsis;
-        white-space: nowrap;
+        white-space: normal;
+        word-break: break-all;
+        line-height: 20px;
       }
     }
 
@@ -68,6 +80,8 @@
   }
 
   .no-data {
+    box-sizing: border-box;
+    margin: 0 auto;
     text-align: center;
     font-weight: bold;
     font-size: 14px;

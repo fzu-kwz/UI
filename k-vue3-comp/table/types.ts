@@ -10,14 +10,3 @@ export interface Column {
 export interface Row {
   [key: string]: any;
 }
-
-export interface Scroll {
-  width?: string;
-  height?: string;
-}
-
-export interface Sort {
-  show: boolean;
-  width?: string;
-  align?: "left" | "right" | "center";
-}
