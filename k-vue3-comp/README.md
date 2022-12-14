@@ -25,7 +25,7 @@ app.mount(document.getElementById("app") as HTMLElement);
 // App.vue
 <template>
   <!-- There will be no type prompt -->
-  <BackTop :back-top-node="backTopNode" />
+  <BackTop :target="backTopNode" />
 </template>
 
 <script setup lang="ts">
@@ -45,12 +45,11 @@ onMounted(() => {
 ```vue
 // App.vue
 <template>
-  <BackTop :back-top-node="backTopNode" />
+  <BackTop :target="backTopNode" />
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-
 import { BackTop } from "k-vue3-comp";
 
 const backTopNode = ref();
