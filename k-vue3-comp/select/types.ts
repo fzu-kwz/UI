@@ -1,6 +1,6 @@
 export interface SelectOption {
   value: string;
-  name: string;
+  label?: string;
   disabled?: boolean;
   selected?: boolean;
 }

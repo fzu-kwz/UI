@@ -2,7 +2,7 @@
   <div class="k-select">
     <KInput
       :size="size"
-      v-model="currentName"
+      v-model="currentLabel"
       readonly
       :disabled="disabled"
       @click="disabled ? '' : (display = !display)"
@@ -38,10 +38,9 @@
         v-for="item in options"
         :key="item.value"
         @click="valueChange(item)"
-        :class="currentVal === item.value ? 'active' : ''"
-        :title="item.name"
+        :class="currentValue === item.value ? 'active' : ''"
       >
-        {{ item.name }}
+        {{ item.label ? item.label : item.value }}
       </li>
     </ul>
   </div>
@@ -90,28 +89,28 @@ const display = ref(false);
 const close = ref(false);
 
 // 选中值
-const currentVal = ref("");
+const currentValue = ref("");
 
 // 显示的值
-const currentName = ref("");
+const currentLabel = ref("");
 
 // 更新v-model绑定的值
 const emits = defineEmits(["update:modelValue"]);
 const valueChange = (item: SelectOption) => {
   emits("update:modelValue", item.value);
-  currentName.value = item.name;
+  currentLabel.value = item.label ? item.label : item.value;
   display.value = false;
 };
 
 // 监听绑定值变化
 watch(props, () => {
-  currentVal.value = props.modelValue as string;
+  currentValue.value = props.modelValue as string;
   if (props.modelValue && props.allowClear) {
     close.value = true;
   } else {
     close.value = false;
   }
-  if (props.modelValue === "") currentName.value = "";
+  if (props.modelValue === "") currentLabel.value = "";
 });
 
 // 清空值
