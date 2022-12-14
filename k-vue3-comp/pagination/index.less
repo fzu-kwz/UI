@@ -3,13 +3,14 @@
 
 .k-pagination {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 
   &-num,
   &-icon,
   &-jump-num,
   &-jump-btn,
   .ellipsis {
+    flex-shrink: 0;
     font-size: 14px;
     display: flex;
     justify-content: center;
@@ -18,8 +19,6 @@
     width: @size;
     height: @size;
     line-height: @size;
-    background-color: #f0f0f0;
-    transition: all 0.2s;
     border: 1px solid transparent;
     border-radius: 2px;
     padding: 0;
@@ -35,45 +34,63 @@
   }
 
   .ellipsis {
-    &::after {
-      content: "··";
+    &:hover {
+      &-icon {
+        display: none;
+      }
     }
 
     &-left {
+      .double-left {
+        display: none;
+      }
+
       &:hover {
-        &::after {
-          content: "«";
-          font-size: 18px;
+        .ellipsis-icon {
+          display: none;
+        }
+
+        .double-left {
+          display: block;
         }
       }
     }
 
     &-right {
+      .double-right {
+        display: none;
+      }
+
       &:hover {
-        &::after {
-          content: "»";
-          font-size: 18px;
+        .ellipsis-icon {
+          display: none;
+        }
+
+        .double-right {
+          display: block;
         }
       }
     }
   }
 
   &-icon {
-    &:disabled {
-      opacity: 0.5;
+    &.disabled {
+      opacity: .4;
       cursor: not-allowed;
     }
   }
 
   &-num {
+    font-weight: bold;
+
     &.active {
-      color: #fff;
-      background-color: @hover-color;
+      color: @hover-color;
     }
   }
 
   &-jump {
     display: flex;
+    background-color: #f0f0f0;
 
     &-num {
       box-sizing: border-box;
@@ -81,9 +98,15 @@
       outline: #fff;
       text-align: center;
       cursor: text;
+      transition: all .2s;
 
       &:hover {
         color: #000;
+      }
+
+      &:focus {
+        border-color: #409eff;
+        box-shadow: 0 0 2px #409eff;
       }
     }
 
@@ -92,6 +115,22 @@
         color: #ccc;
         cursor: not-allowed;
       }
+    }
+  }
+}
+
+.bg {
+
+  .k-pagination-num,
+  .k-pagination-icon,
+  .ellipsis {
+    background-color: #f0f0f0;
+  }
+
+  .k-pagination-num {
+    &.active {
+      color: #fff;
+      background-color: @hover-color;
     }
   }
 }

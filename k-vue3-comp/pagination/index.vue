@@ -1,18 +1,41 @@
 <template>
-  <div class="k-pagination" v-if="total !== 0">
+  <div
+    class="k-pagination"
+    :class="background ? 'bg' : ''"
+    v-if="total !== 0 && total !== 1"
+  >
     <span
       class="k-pagination-icon"
+      :class="current === 1 ? 'disabled' : ''"
       @click="goToBefore"
-      :disabled="current === 1"
     >
-      <img src="../assets/icon/left.svg" alt="left" width="16" />
+      <img src="../assets/icon/left.svg" alt="left" />
+    </span>
+
+    <span
+      class="k-pagination-num"
+      @click="goTo(1)"
+      v-show="currentEdge.indexOf(1) === -1"
+    >
+      1
     </span>
 
     <span
       class="ellipsis ellipsis-left"
       @click="goToBeforeMore"
-      v-show="total > 5 && current > 3"
-    ></span>
+      v-show="total > 7 && current > 4"
+    >
+      <img
+        class="ellipsis-icon"
+        src="../assets/icon/ellipsis.svg"
+        alt="ellipsis"
+      />
+      <img
+        class="double-left"
+        src="../assets/icon/double-left.svg"
+        alt="double-left"
+      />
+    </span>
 
     <span
       class="k-pagination-num"
@@ -28,23 +51,44 @@
     <span
       class="ellipsis ellipsis-right"
       @click="goToNextMore"
-      v-show="total > 5 && total - current >= 3"
-    ></span>
+      v-show="total > 7 && total - current >= 4"
+    >
+      <img
+        class="ellipsis-icon"
+        src="../assets/icon/ellipsis.svg"
+        alt="ellipsis"
+      />
+      <img
+        class="double-right"
+        src="../assets/icon/double-right.svg"
+        alt="double-right"
+      />
+    </span>
+
+    <span
+      class="k-pagination-num"
+      @click="goTo(total)"
+      v-show="currentEdge.indexOf(total) === -1"
+    >
+      {{ total }}
+    </span>
 
     <span
       class="k-pagination-icon"
+      :class="current === total ? 'disabled' : ''"
       @click="goToNext"
-      :disabled="current === total"
     >
       <img src="../assets/icon/right.svg" alt="right" width="16" />
     </span>
 
-    <div v-show="showJump" class="k-pagination-jump">
+    <div v-show="jumper" class="k-pagination-jump">
       <input
         class="k-pagination-jump-num"
         type="text"
         v-model="jump"
+        :maxlength="total.toString().length"
         @keyup.enter="jumpTo(jump)"
+        @keyup="jump = jump.replace(/\D/g, '')"
       />
       <button
         class="k-pagination-jump-btn"
@@ -67,21 +111,30 @@ export default {
 import { computed, ref, watch } from "vue";
 
 const props = defineProps({
-  showJump: {
+  jumper: {
     type: Boolean,
     default: undefined,
   },
   total: {
     type: Number,
-    default: 20,
+    default: 10,
   },
   current: {
     type: Number,
     default: 1,
   },
+  background: {
+    type: Boolean,
+    default: undefined,
+  },
 });
 
-const emits = defineEmits(["currentChange", "update:current"]);
+const emits = defineEmits([
+  "currentChange",
+  "update:current",
+  "prevClick",
+  "nextClick",
+]);
 
 // 当前页码
 const current = computed({
@@ -94,14 +147,14 @@ const jump = ref("");
 
 const currentEdge = computed(() => {
   const total = props.total;
-  if (total <= 5) {
-    return [1, 2, 3, 4, 5];
+  if (total <= 6) {
+    return [1, 2, 3, 4, 5, 6];
   } else {
-    if (current.value < 3) {
-      return [1, 2, 3, 4, 5];
+    if (current.value < 4) {
+      return [1, 2, 3, 4, 5, 6];
     }
     if (total - current.value < 3) {
-      return [total - 4, total - 3, total - 2, total - 1, total];
+      return [total - 5, total - 4, total - 3, total - 2, total - 1, total];
     }
   }
   return [
@@ -118,7 +171,9 @@ const goTo = (page: number) => {
 };
 
 const goToBefore = () => {
+  if (current.value === 1) return;
   current.value === 1 ? "" : (current.value -= 1);
+  emits("prevClick", current.value - 1);
 };
 
 const goToBeforeMore = () => {
@@ -127,7 +182,9 @@ const goToBeforeMore = () => {
 };
 
 const goToNext = () => {
+  if (current.value === props.total) return;
   current.value === props.total ? "" : (current.value += 1);
+  emits("nextClick", current.value + 1);
 };
 
 const goToNextMore = () => {
@@ -135,13 +192,18 @@ const goToNextMore = () => {
   else current.value = current.value = current.value += 5;
 };
 
-const jumpTo = (jump: string) => {
-  const page = parseInt(jump);
-  page > props.total
-    ? alert(`Page cannot be more than ${props.total}！`)
-    : page < 1
-    ? alert("Page cannot be less than 1")
-    : (current.value = page);
+const jumpTo = (jumpPage: string) => {
+  const page = parseInt(jumpPage);
+  if (page < 1) {
+    jump.value = "1";
+    return (current.value = 1);
+  }
+  if (page > props.total) {
+    jump.value = props.total.toString();
+    return (current.value = props.total);
+  }
+  jump.value = page.toString();
+  return (current.value = page);
 };
 
 watch(current, () => {
