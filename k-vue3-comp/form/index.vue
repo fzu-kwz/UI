@@ -1,7 +1,7 @@
 <template>
   <div
     class="k-form"
-    :class="[frame ? 'frame' : '', alignTop ? 'align-top' : '']"
+    :class="[border ? 'border' : '', alignTop ? 'align-top' : '']"
   >
     <slot></slot>
   </div>
@@ -15,7 +15,7 @@ export default {
 
 <script setup lang="ts">
 defineProps({
-  frame: {
+  border: {
     type: Boolean,
     default: undefined,
   },
