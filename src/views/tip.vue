@@ -34,7 +34,9 @@
 
 <script setup lang="ts">
 import { Tip, KForm, FormItem, KButton } from "$/index";
-const tips = [
+import { TipOption } from "$/tip";
+
+const tips: Array<TipOption> = [
   {
     message: "This is top tip!",
     position: "top",
@@ -57,7 +59,7 @@ const tips = [
   },
 ];
 
-const theme_tips = [
+const theme_tips: Array<TipOption> = [
   {
     message: "This is light tip!",
     position: "top",
