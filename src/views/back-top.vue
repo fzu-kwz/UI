@@ -1,17 +1,71 @@
 <template>
-  <KForm>
+  <KForm align-top>
     <h3 style="margin-top: 0;">BackTop 回到顶部</h3>
-    <p class="usage">
-      target: 滚动元素（HTMLElement | Window，默认window）<br />
-      height: 显示需要达到的滚动高度（number，默认200）<br />
-      right: 距离视口右边距（number，默认40）<br />
-      bottom: 距离视口底部距离（number，默认40）
-    </p>
+    <FormItem label-text="Attributes">
+      <KTable
+        :columns="usageAttrColumns"
+        :table-data="usageAttrTableData"
+      ></KTable>
+    </FormItem>
   </KForm>
 </template>
 
 <script setup lang="ts">
-import { KForm } from "$/index";
+import { KForm, FormItem, KTable } from "$/index";
+import { Column } from "$/table/types";
+
+const usageAttrColumns: Array<Column> = [
+  {
+    prop: "parameter",
+    label: "参数",
+  },
+  {
+    prop: "note",
+    label: "备注",
+  },
+  {
+    prop: "type",
+    label: "类型",
+  },
+  {
+    prop: "optional",
+    label: "可选值",
+  },
+  {
+    prop: "default",
+    label: "默认值",
+  },
+];
+const usageAttrTableData = [
+  {
+    parameter: "target",
+    note: "触发滚动的对象",
+    type: "HTMLElement / Window",
+    optional: "-",
+    default: "window",
+  },
+  {
+    parameter: "height",
+    note: "达到此滚动高度时显示",
+    type: "number",
+    optional: "-",
+    default: "200",
+  },
+  {
+    parameter: "right",
+    note: "与视口右边的距离",
+    type: "number",
+    optional: "-",
+    default: "40",
+  },
+  {
+    parameter: "bottom",
+    note: "与视口底部的距离",
+    type: "number",
+    optional: "-",
+    default: "40",
+  },
+];
 </script>
 
 <style scoped></style>

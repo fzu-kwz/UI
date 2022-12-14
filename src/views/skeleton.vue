@@ -1,11 +1,6 @@
 <template>
   <KForm align-top>
     <h3 style="margin-top: 0;">Skeleton 骨架屏</h3>
-    <p class="usage">
-      rows: 行数（number，默认4）<br />
-      loading: 显示骨架屏（boolean，默认true）<br />
-      delay: 延迟渲染DMO的时间（number，默认500）
-    </p>
     <FormItem label-text="基础用法">
       <Skeleton></Skeleton>
     </FormItem>
@@ -22,14 +17,67 @@
         <img src="../../k-vue3-comp/assets/img/error.png" />
       </Skeleton>
     </FormItem>
+    <FormItem label-text="Attributes">
+      <KTable
+        :columns="usageAttrColumns"
+        :table-data="usageAttrTableData"
+      ></KTable>
+    </FormItem>
   </KForm>
 </template>
 
 <script setup lang="ts">
-import { Skeleton, KForm, FormItem, KButton } from "$/index";
+import { Skeleton, KForm, FormItem, KButton, KTable } from "$/index";
+import { Column } from "$/table/types";
 import { ref } from "vue";
 
 const loading = ref(true);
+
+const usageAttrColumns: Array<Column> = [
+  {
+    prop: "parameter",
+    label: "参数",
+  },
+  {
+    prop: "note",
+    label: "备注",
+  },
+  {
+    prop: "type",
+    label: "类型",
+  },
+  {
+    prop: "optional",
+    label: "可选值",
+  },
+  {
+    prop: "default",
+    label: "默认值",
+  },
+];
+const usageAttrTableData = [
+  {
+    parameter: "loading",
+    note: "是否显示骨架屏",
+    type: "boolean",
+    optional: "-",
+    default: "true",
+  },
+  {
+    parameter: "rows",
+    note: "行数",
+    type: "number",
+    optional: "-",
+    default: "4",
+  },
+  {
+    parameter: "delay",
+    note: "延迟DOM渲染的时间(单位ms)",
+    type: "number",
+    optional: "-",
+    default: "500",
+  },
+];
 </script>
 
 <style scoped></style>

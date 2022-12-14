@@ -1,11 +1,6 @@
 <template>
   <KForm align-top>
     <h3 style="margin-top: 0;">Card 卡片</h3>
-    <p class="usage">
-      header插槽: 卡片头部 <br />
-      默认插槽: 卡片内容<br />
-      shadow: 阴影显示（string，always | hover | never，默认always）
-    </p>
     <FormItem label-text="基础用法">
       <Card>
         <template #header>
@@ -30,13 +25,84 @@
         </Card>
       </div>
     </FormItem>
+    <FormItem label-text="Attributes">
+      <KTable
+        :columns="usageAttrColumns"
+        :table-data="usageAttrTableData"
+      ></KTable>
+    </FormItem>
+    <FormItem label-text="Slot">
+      <KTable
+        :columns="usageSlotColumns"
+        :table-data="usageSlotTableData"
+      ></KTable>
+    </FormItem>
   </KForm>
 </template>
 
 <script setup lang="ts">
-import { Card, KForm, FormItem } from "$/index";
+import { Card, KForm, FormItem, KTable } from "$/index";
+import { Column } from "$/table/types";
 
 const cards = ["always", "hover", "never"];
+
+const usageAttrColumns: Array<Column> = [
+  {
+    prop: "parameter",
+    label: "参数",
+  },
+  {
+    prop: "note",
+    label: "备注",
+  },
+  {
+    prop: "type",
+    label: "类型",
+  },
+  {
+    prop: "optional",
+    label: "可选值",
+  },
+  {
+    prop: "default",
+    label: "默认值",
+  },
+];
+const usageAttrTableData = [
+  {
+    parameter: "shadow",
+    note: "阴影显示方式",
+    type: "stirng",
+    optional: "always / hover / never",
+    default: "always",
+  },
+];
+const usageSlotColumns: Array<Column> = [
+  {
+    prop: "name",
+    label: "名称",
+  },
+  {
+    prop: "note",
+    label: "备注",
+  },
+  {
+    prop: "data",
+    label: "数据",
+  },
+];
+const usageSlotTableData = [
+  {
+    name: "header",
+    note: " 卡片头部内容",
+    data: "-",
+  },
+  {
+    name: "-",
+    note: " 卡片内容",
+    data: "-",
+  },
+];
 </script>
 
 <style scoped>

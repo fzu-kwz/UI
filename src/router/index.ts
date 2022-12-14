@@ -153,7 +153,7 @@ const routes: RouteRecordRaw[] = [
     path: "/select",
     name: "select",
     component: Select,
-    meta: { title: "Select 下拉框" },
+    meta: { title: "Select 选择器" },
   },
   {
     path: "/skeleton",

@@ -1,15 +1,6 @@
 <template>
   <KForm align-top>
-    <h3 style="margin-top: 0;">Popup 弹窗</h3>
-    <p class="usage">
-      position: 弹窗位置（string，left | right | top |
-      bottom，默认top，左右空间不足时显示在相反位置）<br />
-      width: 弹窗宽度（string，默认200）<br />
-      content: 弹窗内容（string，使用插槽传入内容后无效）<br />
-      theme: 弹窗主题（string，dark | light，默认light）<br />
-      refer插槽: 触发弹窗显示的元素<br />
-      默认插槽: 弹窗内容
-    </p>
+    <h3 style="margin-top: 0;">Popup 弹窗(Debugging)</h3>
     <FormItem label-text="基础用法">
       <div
         v-for="item in popups"
@@ -45,11 +36,24 @@
         <KButton></KButton>
       </Popup>
     </FormItem>
+    <FormItem label-text="Attributes">
+      <KTable
+        :columns="usageAttrColumns"
+        :table-data="usageAttrTableData"
+      ></KTable>
+    </FormItem>
+    <FormItem label-text="Slot">
+      <KTable
+        :columns="usageSlotColumns"
+        :table-data="usageSlotTableData"
+      ></KTable>
+    </FormItem>
   </KForm>
 </template>
 
 <script setup lang="ts">
-import { Popup, KForm, FormItem, KButton } from "$/index";
+import { Popup, KForm, FormItem, KButton, KTable } from "$/index";
+import { Column } from "$/table/types";
 
 const popups = [
   {
@@ -67,6 +71,85 @@ const popups = [
   {
     position: "bottom",
     name: "下边",
+  },
+];
+
+const usageAttrColumns: Array<Column> = [
+  {
+    prop: "parameter",
+    label: "参数",
+  },
+  {
+    prop: "note",
+    label: "备注",
+  },
+  {
+    prop: "type",
+    label: "类型",
+  },
+  {
+    prop: "optional",
+    label: "可选值",
+  },
+  {
+    prop: "default",
+    label: "默认值",
+  },
+];
+const usageAttrTableData = [
+  {
+    parameter: "position",
+    note: "弹窗位置(左右空间不足时显示在相反位置)",
+    type: "string",
+    optional: "left / right / top / bottom",
+    default: "top",
+  },
+  {
+    parameter: "width",
+    note: "弹窗宽度",
+    type: "string",
+    optional: "-",
+    default: "200",
+  },
+  {
+    parameter: "content",
+    note: "弹窗内容(使用插槽后无效)",
+    type: "string",
+    optional: "-",
+    default: "-",
+  },
+  {
+    parameter: "theme",
+    note: "弹窗主题",
+    type: "string",
+    optional: "dark / light",
+    default: "light",
+  },
+];
+const usageSlotColumns: Array<Column> = [
+  {
+    prop: "name",
+    label: "名称",
+  },
+  {
+    prop: "note",
+    label: "备注",
+  },
+  {
+    prop: "data",
+    label: "数据",
+  },
+];
+const usageSlotTableData = [
+  {
+    name: "refer",
+    note: "触发弹窗显示的元素",
+    data: "-",
+  },
+  {
+    name: "-",
+    note: "弹窗内容",
+    data: "-",
   },
 ];
 </script>

@@ -1,10 +1,6 @@
 <template>
   <KForm align-top>
     <h3 style="margin-top: 0;">Checkbox 多选框</h3>
-    <p class="usage">
-      v-model: 绑定值（boolean）<br />
-      @change: 绑定值变化时触发的事件（回调参数绑定值）
-    </p>
     <FormItem label-text="基础用法">
       <Chechbox v-model="checked">多选框</Chechbox>
     </FormItem>
@@ -21,11 +17,24 @@
         {{ item.label }}
       </Chechbox>
     </FormItem>
+    <FormItem label-text="Attributes">
+      <KTable
+        :columns="usageAttrColumns"
+        :table-data="usageAttrTableData"
+      ></KTable>
+    </FormItem>
+    <FormItem label-text="Events">
+      <KTable
+        :columns="usageEventColumns"
+        :table-data="usageEventTableData"
+      ></KTable>
+    </FormItem>
   </KForm>
 </template>
 
 <script setup lang="ts">
-import { Chechbox, KForm, FormItem } from "$/index";
+import { Chechbox, KForm, FormItem, KTable } from "$/index";
+import { Column } from "$/table/types";
 import { reactive, ref } from "vue";
 
 const checked = ref(true);
@@ -43,6 +52,66 @@ const checkboxs = reactive([
     checked: false,
   },
 ]);
+
+const usageAttrColumns: Array<Column> = [
+  {
+    prop: "parameter",
+    label: "参数",
+  },
+  {
+    prop: "note",
+    label: "备注",
+  },
+  {
+    prop: "type",
+    label: "类型",
+  },
+  {
+    prop: "optional",
+    label: "可选值",
+  },
+  {
+    prop: "default",
+    label: "默认值",
+  },
+];
+const usageAttrTableData = [
+  {
+    parameter: "v-model",
+    note: "绑定值(需要绑定)",
+    type: "boolean",
+    optional: "-",
+    default: "-",
+  },
+  {
+    parameter: "disabled",
+    note: "是否禁用",
+    type: "boolean",
+    optional: "-",
+    default: "false",
+  },
+];
+const usageEventColumns: Array<Column> = [
+  {
+    prop: "name",
+    label: "名称",
+  },
+  {
+    prop: "note",
+    label: "备注",
+  },
+  {
+    prop: "callback",
+    label: "回调参数",
+  },
+];
+const usageEventTableData = [
+  {
+    name: "change",
+    note: "绑定值改变时触发",
+    callback: "绑定值",
+  },
+];
 </script>
 
 <style scoped></style>

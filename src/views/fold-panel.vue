@@ -1,11 +1,6 @@
 <template>
   <KForm align-top>
     <h3 style="margin-top: 0;">FoldPanel 折叠面板</h3>
-    <p class="usage">
-      FoldPanelItem<br />
-      title: 标题（string）<br />
-      title插槽: 自定义标题内容（增加图标等）
-    </p>
     <FormItem label-text="基础用法">
       <FoldPanel>
         <FoldPanelItem title="你瞒我瞒">
@@ -27,11 +22,77 @@
         </FoldPanelItem>
       </FoldPanel>
     </FormItem>
+    <FormItem label-text="FoldPanelItem Attributes">
+      <KTable
+        :columns="usageAttrColumns"
+        :table-data="usageAttrTableData"
+      ></KTable>
+    </FormItem>
+    <FormItem label-text="FoldPanelItem Slot">
+      <KTable
+        :columns="usageSlotColumns"
+        :table-data="usageSlotTableData"
+      ></KTable>
+    </FormItem>
   </KForm>
 </template>
 
 <script setup lang="ts">
-import { FoldPanel, FoldPanelItem, KForm, FormItem } from "$/index";
+import { FoldPanel, FoldPanelItem, KForm, FormItem, KTable } from "$/index";
+import { Column } from "$/table/types";
+
+const usageAttrColumns: Array<Column> = [
+  {
+    prop: "parameter",
+    label: "参数",
+  },
+  {
+    prop: "note",
+    label: "备注",
+  },
+  {
+    prop: "type",
+    label: "类型",
+  },
+  {
+    prop: "optional",
+    label: "可选值",
+  },
+  {
+    prop: "default",
+    label: "默认值",
+  },
+];
+const usageAttrTableData = [
+  {
+    parameter: "title",
+    note: "标题",
+    type: "string",
+    optional: "-",
+    default: "-",
+  },
+];
+const usageSlotColumns: Array<Column> = [
+  {
+    prop: "name",
+    label: "名称",
+  },
+  {
+    prop: "note",
+    label: "备注",
+  },
+  {
+    prop: "data",
+    label: "数据",
+  },
+];
+const usageSlotTableData = [
+  {
+    name: "title",
+    note: "自定义标题内容(添加图标等)",
+    data: "-",
+  },
+];
 </script>
 
 <style scoped></style>

@@ -15,28 +15,26 @@
       or send an email to <b>1358848173@qq.com</b>. Thank you!
     </p>
     <div>
-      <Card class="guide-card">
+      <div class="guide-card">
         <a href="https://element.eleme.cn/#/zh-CN" target="_blank">
-          <img src="@/assets/icon/ele.svg" alt="ele" />
+          <img src="@/assets/icon/ele.svg" alt="ele" width="130" height="80" />
         </a>
-      </Card>
-      <Card class="guide-card">
+      </div>
+      <div class="guide-card">
         <a href="https://cn.vuejs.org/" target="_blank">
-          <img src="@/assets/icon/vue.svg" alt="vue" />
+          <img src="@/assets/icon/vue.svg" alt="vue" height="80" />
         </a>
-      </Card>
-      <Card class="guide-card">
+      </div>
+      <div class="guide-card">
         <a href="https://www.tslang.cn/" target="_blank">
-          <img src="@/assets/icon/ts.svg" alt="ts" />
+          <img src="@/assets/icon/ts.svg" alt="ts" height="80" />
         </a>
-      </Card>
+      </div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
-import { Card } from "$/index";
-</script>
+<script setup lang="ts"></script>
 
 <style lang="less" scoped>
 .guide {
@@ -56,11 +54,19 @@ import { Card } from "$/index";
   }
 
   &-card {
-    width: 120px;
+    border-radius: 3px;
+    border: 1px solid #ebeef5;
+    background-color: #fff;
+    box-shadow: 0 2px 12px 0 rgba(#000, 0.1);
+    width: 150px;
     margin: 10px auto;
 
     a {
+      line-height: 120px;
       display: block;
+      img {
+        vertical-align: middle;
+      }
     }
   }
 }

@@ -1,15 +1,8 @@
 <template>
   <KForm align-top>
-    <h3 style="margin-top: 0;">Container 布局容器</h3>
+    <h3 style="margin-top: 0;">Container 布局容器(参考ElementUI)</h3>
     <p class="usage">
-      参考ElementUI，Container默认水平排列，当包含Header或者Footer时，垂直排列
-      <br />
-      Header <br />
-      height: 高度<br /><br />
-      Footer <br />
-      height: 高度 <br /><br />
-      Aside <br />
-      width: 宽度
+      Container默认水平排列，当包含Header或者Footer时，垂直排列
     </p>
     <FormItem label-text="页眉+主体">
       <Container>
@@ -70,6 +63,12 @@
         </Container>
       </Container>
     </FormItem>
+    <FormItem label-text="Attributes">
+      <KTable
+        :columns="usageAttrColumns"
+        :table-data="usageAttrTableData"
+      ></KTable>
+    </FormItem>
   </KForm>
 </template>
 
@@ -82,7 +81,48 @@ import {
   Main,
   KForm,
   FormItem,
+  KTable,
 } from "$/index";
+import { Column } from "$/table/types";
+
+const usageAttrColumns: Array<Column> = [
+  {
+    prop: "parameter",
+    label: "参数",
+  },
+  {
+    prop: "note",
+    label: "备注",
+  },
+  {
+    prop: "type",
+    label: "类型",
+  },
+  {
+    prop: "optional",
+    label: "可选值",
+  },
+  {
+    prop: "default",
+    label: "默认值",
+  },
+];
+const usageAttrTableData = [
+  {
+    parameter: "height",
+    note: "Header / Footer的高度",
+    type: "stirng",
+    optional: "-",
+    default: "48",
+  },
+  {
+    parameter: "width",
+    note: "Aside的宽度",
+    type: "stirng",
+    optional: "-",
+    default: "200",
+  },
+];
 </script>
 
 <style lang="less" scoped>

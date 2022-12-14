@@ -1,14 +1,6 @@
 <template>
   <KForm align-top>
     <h3 style="margin-top: 0;">Menu 菜单栏</h3>
-    <p class="usage">
-      MenuItem <br />
-      title插槽: 菜单项名称 <br />
-      route: 链接（string）<br /><br />
-      SubMenu <br />
-      title插槽: 菜单项名称 <br />
-      默认插槽: 子菜单列表
-    </p>
     <FormItem label-text="基础用法">
       <Menu>
         <MenuItem>
@@ -31,11 +23,109 @@
         </SubMenu>
       </Menu>
     </FormItem>
+    <FormItem label-text="MenuItem Attributes">
+      <KTable
+        :columns="usageMenuItemAttrColumns"
+        :table-data="usageMenuItemAttrTableData"
+      ></KTable>
+    </FormItem>
+    <FormItem label-text="MenuItem Slot">
+      <KTable
+        :columns="usageMenuItemSlotColumns"
+        :table-data="usageMenuItemSlotTableData"
+      ></KTable>
+    </FormItem>
+    <FormItem label-text="SubMenu Slot">
+      <KTable
+        :columns="usageSubMenuSlotColumns"
+        :table-data="usageSubMenuSlotTableData"
+      ></KTable>
+    </FormItem>
   </KForm>
 </template>
 
 <script setup lang="ts">
-import { Menu, MenuItem, SubMenu, KForm, FormItem } from "$/index";
+import { Menu, MenuItem, SubMenu, KForm, FormItem, KTable } from "$/index";
+import { Column } from "$/table/types";
+
+const usageMenuItemAttrColumns: Array<Column> = [
+  {
+    prop: "parameter",
+    label: "参数",
+  },
+  {
+    prop: "note",
+    label: "备注",
+  },
+  {
+    prop: "type",
+    label: "类型",
+  },
+  {
+    prop: "optional",
+    label: "可选值",
+  },
+  {
+    prop: "default",
+    label: "默认值",
+  },
+];
+const usageMenuItemAttrTableData = [
+  {
+    parameter: "route",
+    note: "跳转链接(Vue Router跳转)",
+    type: "string",
+    optional: "-",
+    default: "-",
+  },
+];
+const usageMenuItemSlotColumns: Array<Column> = [
+  {
+    prop: "name",
+    label: "名称",
+  },
+  {
+    prop: "note",
+    label: "备注",
+  },
+  {
+    prop: "data",
+    label: "数据",
+  },
+];
+const usageMenuItemSlotTableData = [
+  {
+    name: "title",
+    note: "菜单项名称",
+    data: "-",
+  },
+];
+const usageSubMenuSlotColumns: Array<Column> = [
+  {
+    prop: "name",
+    label: "名称",
+  },
+  {
+    prop: "note",
+    label: "备注",
+  },
+  {
+    prop: "data",
+    label: "数据",
+  },
+];
+const usageSubMenuSlotTableData = [
+  {
+    name: "title",
+    note: "菜单项名称",
+    data: "-",
+  },
+  {
+    name: "-",
+    note: "子菜单列表",
+    data: "-",
+  },
+];
 </script>
 
 <style scoped></style>
