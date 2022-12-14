@@ -46,7 +46,7 @@ import "./index.less";
 export interface TipOption {
   message: string;
   duration?: number;
-  position?: string;
-  theme?: string;
+  position?: "top" | "bottom" | "left" | "right" | "center";
+  theme?: "light" | "dark";
 }
 export default createTip;
