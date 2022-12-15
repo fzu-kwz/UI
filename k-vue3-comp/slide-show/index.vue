@@ -1,5 +1,5 @@
 <template>
-  <span
+  <div
     class="k-slide-show"
     :class="arrow ? 'arrow-' + arrow : ''"
     :style="{ width: width + 'px', height: height + 'px' }"
@@ -7,7 +7,7 @@
     <span class="icon left" @click="leftClick" v-show="false">
       <img src="../assets/icon/left.svg" alt="left" />
     </span>
-    <span class="icon right" @click="rightClick" v-show="false">
+    <span class="icon right" @click="rightClick">
       <img src="../assets/icon/right.svg" alt="right" />
     </span>
     <div
@@ -22,10 +22,10 @@
         target="_blank"
         :style="{ width: width + 'px', height: height + 'px' }"
       >
-        <img :src="item.src" :alt="item.alt" :width="width" :height="height" />
+        <img :src="item.src" :alt="item.alt" />
       </a>
     </div>
-  </span>
+  </div>
 </template>
 
 <script lang="ts">
@@ -40,11 +40,11 @@ import { Slide } from "./types";
 
 const props = defineProps({
   width: {
-    type: String,
+    type: Number,
     default: "400",
   },
   height: {
-    type: String,
+    type: Number,
     default: "200",
   },
   slides: {

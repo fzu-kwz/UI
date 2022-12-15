@@ -2,10 +2,14 @@
   <KForm align-top>
     <h3 style="margin-top: 0;">SlideShow 幻灯片(Debugging)</h3>
     <p class="usage">
-      ！建议不少于3张图片时候使用，目前切换箭头还有bug，不做使用
+      ！建议不少于3张图片时候使用，目前左切换箭头还有bug，不做使用
     </p>
     <FormItem label-text="基础用法">
-      <SlideShow :slides="slides" width="300"></SlideShow>
+      <SlideShow
+        :slides="slides"
+        :width="300"
+        style="margin: 0 auto;"
+      ></SlideShow>
     </FormItem>
     <FormItem label-text="Attributes">
       <KTable
@@ -30,33 +34,27 @@ import { Column } from "$/table/types";
 const slides: Array<Slide> = [
   {
     link:
-      "https://img2.baidu.com/it/u=4137537498,3737648297&fm=253&fmt=auto?w=300&h=200",
+      "https://img0.baidu.com/it/u=2742915274,1590021909&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400",
     src:
-      "https://img2.baidu.com/it/u=4137537498,3737648297&fm=253&fmt=auto?w=300&h=200",
+      "https://img0.baidu.com/it/u=2742915274,1590021909&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400",
   },
   {
     link:
-      "https://img2.baidu.com/it/u=971342122,1533426919&fm=253&fmt=auto?w=300&h=200",
+      "https://img0.baidu.com/it/u=4207774593,3934974539&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=333",
     src:
-      "https://img2.baidu.com/it/u=971342122,1533426919&fm=253&fmt=auto?w=300&h=200",
+      "https://img0.baidu.com/it/u=4207774593,3934974539&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=333",
   },
   {
     link:
-      "https://img1.baidu.com/it/u=3039983131,1650897883&fm=253&fmt=auto?w=300&h=200",
+      "https://img0.baidu.com/it/u=2384497557,471697957&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400",
     src:
-      "https://img1.baidu.com/it/u=3039983131,1650897883&fm=253&fmt=auto?w=300&h=200",
+      "https://img0.baidu.com/it/u=2384497557,471697957&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400",
   },
   {
     link:
-      "https://img1.baidu.com/it/u=1300668939,1504410366&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=858",
+      "https://img0.baidu.com/it/u=2877239092,1429113755&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400",
     src:
-      "https://img1.baidu.com/it/u=1300668939,1504410366&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=858",
-  },
-  {
-    link:
-      "https://img1.baidu.com/it/u=1605341541,1182642759&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750",
-    src:
-      "https://img1.baidu.com/it/u=1605341541,1182642759&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750",
+      "https://img0.baidu.com/it/u=2877239092,1429113755&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=400",
   },
 ];
 
@@ -85,15 +83,15 @@ const usageAttrColumns: Array<Column> = [
 const usageAttrTableData = [
   {
     parameter: "width",
-    note: "图片宽度",
-    type: "string",
+    note: "图片宽度(单位px)",
+    type: "number",
     optional: "-",
     default: "400",
   },
   {
     parameter: "height",
-    note: "图片高度",
-    type: "string",
+    note: "图片高度(单位px)",
+    type: "number",
     optional: "-",
     default: "200",
   },
