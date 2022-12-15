@@ -5,6 +5,8 @@
       shadow ? 'shadow' : '',
       size ? 'k-input-' + size : '',
       disabled ? 'k-input-disabled' : '',
+      (type === 'password' && allowView) || allowClear ? 'one-icon' : '',
+      type === 'password' && allowView && allowClear ? 'two-icon' : '',
     ]"
     :style="{ height: type === 'textarea' ? 'auto' : '' }"
   >
@@ -24,8 +26,8 @@
       :readonly="readonly"
       :disabled="disabled"
       v-model="modelValue"
-      @focus="shadow = true"
-      @blur="shadow = false"
+      @focus="(shadow = true), emits('focus')"
+      @blur="(shadow = false), emits('blur')"
     />
     <span class="k-input-suffix" v-if="type === 'text' || type === 'password'">
       <slot name="suffix">
@@ -175,7 +177,7 @@ const modelValue = computed({
 });
 
 // 更新v-model绑定的值
-const emits = defineEmits(["update:modelValue"]);
+const emits = defineEmits(["update:modelValue", "focus", "blur"]);
 
 // 清空modelValue
 const clear = () => {

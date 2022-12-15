@@ -48,8 +48,7 @@
     width: 100%;
     height: 100%;
     border: 0;
-    padding: 0;
-    padding-left: 4px;
+    padding: 0 4px;
     border-radius: 3px;
     outline: none;
     font-size: 16px;
@@ -60,9 +59,10 @@
   }
 
   &-suffix {
+    position: absolute;
     cursor: pointer;
-    padding: 0 4px;
     height: 100%;
+    right: 4px;
     display: flex;
     align-items: center;
 
@@ -93,6 +93,18 @@
     .view {
       cursor: not-allowed;
     }
+  }
+}
+
+.one-icon {
+  .k-input-inner {
+    padding-right: 24px;
+  }
+}
+
+.two-icon {
+  .k-input-inner {
+    padding-right: 40px;
   }
 }
 
