@@ -9,8 +9,8 @@ export default {
   name: "Header",
   props: {
     height: {
-      type: String,
-      default: "48",
+      type: Number,
+      default: 48,
     },
   },
 };

@@ -111,16 +111,16 @@ const usageAttrTableData = [
   {
     parameter: "height",
     note: "Header / Footer的高度",
-    type: "stirng",
+    type: "number",
     optional: "-",
     default: "48",
   },
   {
     parameter: "width",
     note: "Aside的宽度",
-    type: "stirng",
+    type: "number",
     optional: "-",
-    default: "200",
+    default: "-",
   },
 ];
 </script>
