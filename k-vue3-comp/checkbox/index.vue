@@ -1,15 +1,13 @@
 <template>
-  <span class="k-checkbox" @click="check">
-    <input
-      type="checkbox"
-      class="k-checkbox-input"
-      :checked="modelValue"
-      :disabled="disabled"
-    />
-    <span
-      class="k-checkbox-text"
-      :class="[modelValue ? 'checked' : '', disabled ? 'disabled' : '']"
-    >
+  <span class="k-checkbox" :class="disabled ? 'disabled' : ''" @click="check">
+    <span class="k-checkbox-input" :class="modelValue ? 'checked' : ''">
+      <span
+        class="k-checkbox-inner"
+        :class="modelValue ? 'checked' : ''"
+      ></span>
+      <input v-show="false" type="checkbox" />
+    </span>
+    <span class="k-checkbox-text" :class="[modelValue ? 'checked' : '']">
       <slot></slot>
     </span>
   </span>

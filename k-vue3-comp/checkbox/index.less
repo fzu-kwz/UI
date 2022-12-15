@@ -1,34 +1,76 @@
 .k-checkbox {
+  font-size: 14px;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
 
-  &.disabled {
-    cursor: not-allowed;
+  &-input {
+    box-sizing: border-box;
+    display: inline-block;
+    line-height: 1;
   }
 
-  &-input {
-    cursor: pointer;
-    margin: 0;
+  &-inner {
+    box-sizing: border-box;
+    display: inline-block;
+    position: relative;
     width: 14px;
     height: 14px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    vertical-align: middle;
+    transition: all .2s;
 
-    &:disabled {
-      cursor: not-allowed;
+    &::after {
+      box-sizing: content-box;
+      content: "";
+      border: 1px solid #fff;
+      border-left: 0;
+      border-top: 0;
+      height: 8px;
+      width: 3px;
+      position: absolute;
+      top: 1px;
+      left: 4px;
+      transform: rotate(45deg) scaleY(0);
+      transition: transform .2s;
+      transform-origin: center;
+    }
+
+    &.checked {
+      background-color: #409eff;
+      border-color: #409eff;
+
+      &::after {
+        transform: rotate(45deg) scaleY(1);
+      }
     }
   }
 
   &-text {
-    cursor: pointer;
-    padding-left: 5px;
-    font-size: 14px;
-    line-height: 14px;
+    padding-left: 8px;
+    line-height: 18px;
+    transition: all .2s;
 
     &.checked {
       color: #409eff;
     }
+  }
 
-    &.disabled {
-      cursor: not-allowed;
+  &.disabled {
+    color: #ccc;
+    cursor: not-allowed;
+
+    .k-checkbox-inner {
+      border-color: #aaa;
+      background-color: #f0f0f0;
+
+      &::after {
+        border-color: #aaa;
+      }
+    }
+
+    .k-checkbox-text {
       color: #ccc;
     }
   }

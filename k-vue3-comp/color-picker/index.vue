@@ -1,13 +1,19 @@
 <template>
-  <div class="k-color-picker">
-    <input
-      type="color"
+  <span class="k-color-picker">
+    <span
       class="color-picker-inner"
-      :class="size ? size : ''"
-      v-model="modelValue"
-      :disabled="disabled"
-    />
-  </div>
+      :class="[size ? size : '', disabled ? 'disabled' : '']"
+      :style="{ backgroundColor: modelValue }"
+      @click.self="show"
+    >
+      <input
+        v-show="false"
+        ref="colorInput"
+        type="color"
+        v-model="modelValue"
+      />
+    </span>
+  </span>
 </template>
 
 <script lang="ts">
@@ -17,7 +23,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 
 const props = defineProps({
   modelValue: {
@@ -38,6 +44,11 @@ const modelValue = computed({
   get: () => props.modelValue,
   set: (value) => emits("update:modelValue", value),
 });
+
+const colorInput = ref<HTMLElement>();
+const show = () => {
+  props.disabled ? "" : colorInput.value?.click();
+};
 </script>
 
 <style lang="less" scoped>

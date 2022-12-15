@@ -1,15 +1,10 @@
 <template>
   <span class="k-radio" :class="disabled ? 'disabled' : ''" @click="check">
-    <input
-      class="k-radio-input"
-      type="radio"
-      :checked="checked"
-      :disabled="disabled"
-    />
-    <span
-      class="k-radio-text"
-      :class="[checked ? 'checked' : '', disabled ? 'disabled' : '']"
-    >
+    <span class="k-radio-input" :class="checked ? 'checked' : ''">
+      <span class="k-radio-inner" :class="checked ? 'checked' : ''"></span>
+      <input v-show="false" type="radio" :value="value" />
+    </span>
+    <span class="k-radio-text" :class="[checked ? 'checked' : '']">
       <slot></slot>
     </span>
   </span>

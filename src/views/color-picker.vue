@@ -2,15 +2,16 @@
   <KForm align-top>
     <h3 style="margin-top: 0;">ColorPicker 颜色选择器</h3>
     <FormItem label-text="基础用法">
-      <ColorPicker></ColorPicker>
+      <ColorPicker v-model="color"></ColorPicker>
     </FormItem>
     <FormItem label-text="禁用状态">
-      <ColorPicker disabled></ColorPicker>
+      <ColorPicker v-model="color" disabled></ColorPicker>
     </FormItem>
     <FormItem label-text="不同大小">
       <ColorPicker
         v-for="item in size"
         :size="item"
+        v-model="color"
         style="margin-right: 10px;"
       ></ColorPicker>
     </FormItem>
@@ -26,7 +27,9 @@
 <script setup lang="ts">
 import { ColorPicker, KForm, FormItem, KTable } from "$/index";
 import { Column } from "$/table/types";
+import { ref } from "vue";
 
+const color = ref();
 const size = ["large", "medium", "", "small"];
 
 const usageAttrColumns: Array<Column> = [
@@ -54,7 +57,7 @@ const usageAttrColumns: Array<Column> = [
 const usageAttrTableData = [
   {
     parameter: "v-model",
-    note: "绑定值(HEX格式，如#ffffff)",
+    note: "绑定值(需要绑定，HEX格式，如#ffffff)",
     type: "string",
     optional: "-",
     default: "-",

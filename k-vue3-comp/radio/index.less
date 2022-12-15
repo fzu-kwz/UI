@@ -1,32 +1,61 @@
 .k-radio {
+  font-size: 14px;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
 
-  &.disabled {
-    cursor: not-allowed;
-  }
-
   &-input {
-    cursor: pointer;
-    margin: 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .2s;
 
-    &:disabled {
-      cursor: not-allowed;
+    &.checked {
+      border-color: #409eff;
+      background-color: #409eff;
     }
   }
 
+  &-inner {
+    border-radius: 50%;
+    width: 4px;
+    height: 4px;
+    transition: all .2s;
+    background-color: #fff;
+  }
+
   &-text {
-    cursor: pointer;
-    padding-left: 5px;
-    font-size: 14px;
-    line-height: 14px;
+    padding-left: 8px;
+    transition: all .2s;
 
     &.checked {
       color: #409eff;
     }
+  }
 
-    &.disabled {
-      cursor: not-allowed;
+  &.disabled {
+    color: #ccc;
+    cursor: not-allowed;
+
+    .k-radio-input {
+      border-color: #ccc;
+      background-color: #f0f0f0;
+    }
+
+    .k-radio-inner {
+      background-color: #f0f0f0;
+
+      &.checked {
+        background-color: #aaa;
+      }
+    }
+
+    .k-radio-text {
       color: #ccc;
     }
   }
