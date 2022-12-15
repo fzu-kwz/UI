@@ -4,7 +4,7 @@
     <FormItem label-text="基础用法">
       <KButton @click="loading = !loading">切换loading</KButton>
       <div ref="loadingBox" class="loading-box">loading...</div>
-      <Loading v-if="loading" :to="loadingBox"></Loading>
+      <Loading :loading="loading" :target="loadingBox"></Loading>
     </FormItem>
     <FormItem label-text="Attributes">
       <KTable
@@ -23,9 +23,6 @@ import { ref } from "vue";
 const loadingBox = ref();
 
 const loading = ref(true);
-setTimeout(() => {
-  loading.value = false;
-}, 1500);
 
 const usageAttrColumns: Array<Column> = [
   {
@@ -51,15 +48,22 @@ const usageAttrColumns: Array<Column> = [
 ];
 const usageAttrTableData = [
   {
-    parameter: "to",
-    note: "加载的对象(position: relative)",
+    parameter: "target",
+    note: "加载覆盖的DOM节点(position: relative)",
     type: "string / HTMLElement",
     optional: "-",
     default: "body",
   },
   {
+    parameter: "loading",
+    note: "是否显示加载",
+    type: "boolean",
+    optional: "-",
+    default: "true",
+  },
+  {
     parameter: "text",
-    note: "文字提示",
+    note: "加载文字",
     type: "string",
     optional: "-",
     default: "-",

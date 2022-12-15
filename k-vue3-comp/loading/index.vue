@@ -1,9 +1,6 @@
 <template>
-  <Teleport :to="to">
-    <div
-      class="mask"
-      :style="{ background: background ? background : 'rgba(0, 0, 0, 0.8)' }"
-    >
+  <Teleport :to="target">
+    <div class="mask" :style="{ background: background }" v-if="loading">
       <div class="k-loading">
         <img
           src="../assets/icon/loading.svg"
@@ -23,9 +20,13 @@
 export default {
   name: "Loading",
   props: {
-    to: {
+    target: {
       type: [String, HTMLElement],
       default: "body",
+    },
+    loading: {
+      type: Boolean,
+      default: true,
     },
     text: {
       type: String,
@@ -33,7 +34,7 @@ export default {
     },
     background: {
       type: String,
-      default: "rgba(0, 0, 0, 0.8)",
+      default: "",
     },
   },
 };
