@@ -31,10 +31,18 @@
         </a>
       </div>
     </div>
+    <Footer>
+      <h3 style="color: red;">
+        This site is only for personal study, if there is infringement please
+        inform(1358848173@qq.com). Thank you!
+      </h3>
+    </Footer>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { Footer } from "$/index";
+</script>
 
 <style lang="less" scoped>
 .guide {
