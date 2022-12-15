@@ -103,7 +103,7 @@ const usageItemAttrTableData = [
   },
   {
     parameter: "labelWidth",
-    note: "标签宽度",
+    note: "标签宽度(单位px)",
     type: "number",
     optional: "-",
     default: "60",

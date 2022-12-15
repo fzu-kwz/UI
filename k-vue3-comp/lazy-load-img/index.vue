@@ -29,11 +29,11 @@ const props = defineProps({
     default: "",
   },
   width: {
-    type: [Number, String],
+    type: Number,
     default: 200,
   },
   height: {
-    type: [Number, String],
+    type: Number,
     default: 200,
   },
   target: {

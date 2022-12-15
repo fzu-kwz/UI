@@ -110,14 +110,14 @@ const usageAttrColumns: Array<Column> = [
 const usageAttrTableData = [
   {
     parameter: "height",
-    note: "Header / Footer的高度",
+    note: "Header/Footer的高度(单位px)",
     type: "number",
     optional: "-",
     default: "48",
   },
   {
     parameter: "width",
-    note: "Aside的宽度",
+    note: "Aside的宽度(单位px)",
     type: "number",
     optional: "-",
     default: "-",

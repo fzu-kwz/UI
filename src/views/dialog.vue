@@ -99,14 +99,15 @@ const usageAttrTableData = [
   },
   {
     parameter: "width",
-    note: "对话框宽度",
+    note:
+      "对话框宽度(单位px，当设备宽度不超过768px时，最大宽度为设备宽度的90%)",
     type: "number",
     optional: "-",
     default: "500",
   },
   {
     parameter: "top",
-    note: "对话框与顶部的距离",
+    note: "对话框与顶部的距离(单位px)",
     type: "number",
     optional: "-",
     default: "80",

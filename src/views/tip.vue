@@ -119,7 +119,7 @@ const usageTypeTableData = [
   {
     name: "theme",
     note: "提示的主题(可选参数)",
-    type: "number",
+    type: "string",
     optional: "dark / light",
     default: "dark",
   },
