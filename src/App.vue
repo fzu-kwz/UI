@@ -1,20 +1,25 @@
 <template>
-  <KButton class="fold" @click="open = true" v-show="!open">
-    Menu
-  </KButton>
   <Container class="k-container">
-    <Aside :class="open ? 'aside-open' : 'aside-fold'">
+    <Aside class="aside-fold">
       <Menu>
-        <MenuItem
-          v-for="item in menu"
-          :route="item.route"
-          @click="open = false"
-        >
+        <MenuItem v-for="item in menu" :route="item.route">
           <template #title>{{ item.title }}</template>
         </MenuItem>
       </Menu>
     </Aside>
-    <Main v-show="!open">
+    <Main>
+      <FoldPanelItem class="fold" :active="active" @click="active = true">
+        <template #title>Menu</template>
+        <Menu>
+          <MenuItem
+            v-for="item in menu"
+            :route="item.route"
+            @click.stop="active = false"
+          >
+            <template #title>{{ item.title }}</template>
+          </MenuItem>
+        </Menu>
+      </FoldPanelItem>
       <router-view></router-view>
     </Main>
   </Container>
@@ -29,7 +34,7 @@ import {
   Menu,
   MenuItem,
   BackTop,
-  KButton,
+  FoldPanelItem,
 } from "$/index";
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
@@ -49,43 +54,26 @@ const menu = router
     return { route: item.path, title: item.meta.title };
   });
 
-const open = ref(false);
+const active = ref(false);
 </script>
 
 <style lang="less" scoped>
-.k-container {
-  height: 100vh;
-}
 .fold {
   display: none;
-  position: fixed;
-  width: 100%;
-  z-index: 9;
+}
+.k-container {
+  height: 100vh;
 }
 
 @media screen and(max-width: 768px) {
   .fold {
     display: block;
   }
-
   .aside-fold {
     display: none;
   }
-
-  .aside-open {
-    display: block;
-  }
-
   .k-container {
     flex-direction: column;
-  }
-  .k-aside {
-    height: 100vh;
-    width: 100%;
-  }
-
-  .k-main {
-    padding-top: 30px;
   }
 }
 </style>
