@@ -71,6 +71,13 @@ const usageAttrTableData = [
     optional: "-",
     default: "-",
   },
+  {
+    parameter: "active",
+    note: "根据active变化来展开或折叠",
+    type: "boolean",
+    optional: "-",
+    default: "false",
+  },
 ];
 const usageSlotColumns: Array<Column> = [
   {

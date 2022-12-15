@@ -35,9 +35,13 @@ export default {
 <script setup lang="ts">
 import { onMounted, ref, watch } from "vue";
 
-defineProps({
+const props = defineProps({
   title: {
     type: String,
+    default: undefined,
+  },
+  active: {
+    type: Boolean,
     default: undefined,
   },
 });
@@ -59,6 +63,10 @@ watch(visible, () => {
   (wrap.value as HTMLElement).style.borderBottom = visible.value
     ? "1px solid #ebeef5"
     : "";
+});
+
+watch(props, () => {
+  visible.value = props.active ? true : false;
 });
 </script>
 
