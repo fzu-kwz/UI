@@ -13,6 +13,10 @@
     }
   }
 
+  .down {
+    pointer-events: none;
+  }
+
   .up {
     transform: rotate(-180deg);
   }
@@ -22,16 +26,17 @@
     position: absolute;
     top: 28px;
     list-style: none;
-    padding: 5px 0;
-    margin: 5px 0;
+    margin: 0;
+    padding: 0;
+    margin-top: 5px;
     border-radius: 3px;
     width: 100%;
-    max-height: 300px;
+    max-height: 200px;
     overflow-y: auto;
     overflow-x: hidden;
     box-sizing: border-box;
-    box-shadow: 0 1px 5px 1px #ccc;
-    z-index: 999;
+    z-index: 1;
+    transition: all .5s ease-in-out;
 
     li {
       box-sizing: border-box;

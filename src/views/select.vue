@@ -1,6 +1,6 @@
 <template>
   <KForm align-top>
-    <h3 style="margin-top: 0;">Select 选择器(Debugging)</h3>
+    <h3 style="margin-top: 0;">Select 选择器</h3>
     <FormItem label-text="基础用法">
       <KSelect v-model="select" :options="options"></KSelect>
     </FormItem>
@@ -45,6 +45,10 @@ const size = ["large", "medium", "", "small"];
 const select = ref();
 const options: Array<SelectOption> = [
   {
+    value: "奢香夫人",
+    label: "奢香夫人",
+  },
+  {
     value: "月亮之上",
     label: "月亮之上",
   },
@@ -55,6 +59,34 @@ const options: Array<SelectOption> = [
   {
     value: "全是爱",
     label: "全是爱",
+  },
+  {
+    value: "最新民族风",
+    label: "最新民族风",
+  },
+  {
+    value: "郎的诱惑",
+    label: "郎的诱惑",
+  },
+  {
+    value: "我从草原来",
+    label: "我从草原来",
+  },
+  {
+    value: "荷塘月色",
+    label: "荷塘月色",
+  },
+  {
+    value: "等爱的玫瑰",
+    label: "等爱的玫瑰",
+  },
+  {
+    value: "我们的歌谣",
+    label: "我们的歌谣",
+  },
+  {
+    value: "策马奔腾",
+    label: "策马奔腾",
   },
 ];
 

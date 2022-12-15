@@ -2,10 +2,12 @@
   <div class="k-select">
     <KInput
       :size="size"
+      class="one-icon"
       v-model="currentLabel"
       readonly
       :disabled="disabled"
       @click="disabled ? '' : (display = !display)"
+      @blur="display = false"
     >
       <template #suffix>
         <img
@@ -30,9 +32,9 @@
       </template>
     </KInput>
     <ul
+      ref="option"
       class="k-select-option"
       :class="[size ? 'k-select-option-' + size : '']"
-      v-show="display"
     >
       <li
         v-for="item in options"
@@ -53,7 +55,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { PropType, ref, watch } from "vue";
+import { onMounted, PropType, ref, watch } from "vue";
 import { KInput } from "../index";
 import { SelectOption } from "./types";
 
@@ -117,6 +119,26 @@ watch(props, () => {
 const clear = () => {
   emits("update:modelValue", "");
 };
+
+const option = ref<HTMLElement>();
+const optionHeight = ref();
+onMounted(() => {
+  optionHeight.value = option.value?.offsetHeight + "px";
+  (option.value as HTMLElement).style.height = "0";
+});
+
+watch(display, () => {
+  const optionNode = option.value as HTMLElement;
+  if (display.value) {
+    optionNode.style.height = optionHeight.value;
+    optionNode.style.opacity = "1";
+    optionNode.style.boxShadow = "0 1px 5px 1px #ccc";
+  } else {
+    optionNode.style.height = "0";
+    optionNode.style.opacity = "0";
+    optionNode.style.boxShadow = "0 1px 5px 1px #fff";
+  }
+});
 </script>
 
 <style lang="less" scoped>
