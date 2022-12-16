@@ -133,10 +133,14 @@ watch(display, () => {
     optionNode.style.height = optionHeight.value;
     optionNode.style.opacity = "1";
     optionNode.style.boxShadow = "0 1px 5px 1px #ccc";
+    optionNode.style.padding = "5px 0";
+    optionNode.style.margin = "5px 0";
   } else {
     optionNode.style.height = "0";
     optionNode.style.opacity = "0";
     optionNode.style.boxShadow = "0 1px 5px 1px #fff";
+    optionNode.style.padding = "0";
+    optionNode.style.marginTop = "0";
   }
 });
 </script>
