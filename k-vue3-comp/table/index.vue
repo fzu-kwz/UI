@@ -22,9 +22,9 @@
                 right: item.fixed === 'right' ? 0 : '',
                 boxShadow:
                   item.fixed === 'right'
-                    ? '-2px -1px 3px #ccc'
+                    ? '-1px -1px 3px #ddd'
                     : item.fixed === 'left'
-                    ? '2px -1px 3px #ccc'
+                    ? '1px -1px 3px #ddd'
                     : '',
                 zIndex: item.fixed ? 1 : '',
               },
@@ -41,6 +41,7 @@
         <tr v-for="(row, index) in tableData" :key="index">
           <td
             v-for="column in columns"
+            :width="column.width"
             :style="[
               {
                 textAlign: column.align,
@@ -49,9 +50,9 @@
                 right: column.fixed === 'right' ? 0 : '',
                 boxShadow:
                   column.fixed === 'right'
-                    ? '-2px 1px 3px #ccc'
+                    ? '-1px 1px 3px #ddd'
                     : column.fixed === 'left'
-                    ? '2px 1px 3px #ccc'
+                    ? '1px 1px 3px #ddd'
                     : '',
                 zIndex: column.fixed ? 1 : '',
               },

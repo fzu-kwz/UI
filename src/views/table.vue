@@ -12,6 +12,7 @@
     </FormItem>
     <FormItem label-text="自定义列模板/固定列/固定表头">
       <KTable
+        border
         :columns="slotColumns"
         :table-data="slotTableData"
         fix-header
@@ -22,8 +23,8 @@
             {{ row.name }}
           </KButton>
         </template>
-        <template #operation="{row, index}">
-          <KButton @click="operation(row, index)">click</KButton>
+        <template #action="{row, index}">
+          <KButton @click="action(row, index)">try</KButton>
         </template>
       </KTable>
     </FormItem>
@@ -67,25 +68,25 @@ import { Column } from "$/table/types";
 const columns: Array<Column> = [
   {
     prop: "name",
-    label: "名字",
-    width: "100",
+    label: "name",
+    width: "80",
   },
   {
     prop: "birth",
-    label: "生日",
-    width: "150",
+    label: "birth",
+    width: "80",
   },
   {
     prop: "address",
-    label: "地址",
-    width: "200",
+    label: "address",
+    width: "150",
   },
 ];
 
 const sortColumns: Array<Column> = [
   {
     prop: "sort",
-    label: "序号",
+    label: "sort",
     width: "60",
   }, //@ts-ignore
 ].concat(columns);
@@ -93,48 +94,56 @@ const sortColumns: Array<Column> = [
 const slotColumns: Array<Column> = [
   {
     prop: "name",
-    label: "名字",
-    width: "100",
-    fixed: "left",
+    label: "name",
+    width: "80",
+    fixed: 'left'
   },
   {
     prop: "birth",
-    label: "生日",
-    width: "150",
+    label: "birth",
+    width: "80",
   },
   {
     prop: "address",
-    label: "地址",
+    label: "address",
     width: "150",
   },
   {
-    prop: "operation",
-    label: "操作",
-    width: "100",
+    prop: "hobbies",
+    label: "hobbies",
+    width: "200",
+  },
+  {
+    prop: "action",
+    label: "action",
+    width: "80",
     fixed: "right",
   },
 ];
 let tableData: any = [];
 let slotTableData: any = [];
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < 5; i++) {
   tableData.push({
     name: "K",
     birth: "2000.02",
-    address: "Hanjiang, Putian, Fujian, China",
+    address: "Fujian, China",
   });
   slotTableData.push({
     name: "K-" + (i + 1),
     birth: "2000.0" + (i + 1),
-    address: "Hanjiang, Putian, Fujian, China",
+    address: "Fujian, China",
+    hobbies: "Typing code😂",
     operation: "",
   });
 }
 
-const operation = (row: any, index: number) => {
+const action = (row: any, index: number) => {
   Tip({
-    message: `第 ${index + 1} 行被点击<br/>${row.name}<br/>${row.birth}<br/>${
-      row.address
-    }`,
+    message: `第 ${index + 1} 行被点击<br/>
+    ${row.name}<br/>
+    ${row.birth}<br/>
+    ${row.address}<br/>
+    ${row.hobbies}`,
     position: "center",
   });
 };
@@ -178,7 +187,7 @@ const usageAttrTableData = [
   },
   {
     parameter: "border",
-    note: "是否显示边框",
+    note: "是否显示纵向边框",
     type: "boolean",
     optional: "-",
     default: "false",
