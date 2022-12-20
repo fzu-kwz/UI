@@ -8,19 +8,21 @@
       </Menu>
     </Aside>
     <Main>
-      <FoldPanelItem class="fold" :active="active" @click="active = true">
-        <template #title>Menu</template>
-        <Menu>
-          <MenuItem
-            v-for="item in menu"
-            :route="item.route"
-            @click.stop="active = false"
-          >
-            <template #title>{{ item.title }}</template>
-          </MenuItem>
-        </Menu>
-      </FoldPanelItem>
-      <router-view></router-view>
+      <Skeleton :loading="loading" :rows="10">
+        <FoldPanelItem class="fold" :active="active" @click="active = true">
+          <template #title>Menu</template>
+          <Menu>
+            <MenuItem
+              v-for="item in menu"
+              :route="item.route"
+              @click.stop="active = false"
+            >
+              <template #title>{{ item.title }}</template>
+            </MenuItem>
+          </Menu>
+        </FoldPanelItem>
+        <router-view></router-view>
+      </Skeleton>
     </Main>
   </Container>
   <BackTop :target="target"></BackTop>
@@ -35,6 +37,7 @@ import {
   MenuItem,
   BackTop,
   FoldPanelItem,
+  Skeleton,
 } from "$/index";
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
@@ -55,6 +58,10 @@ const menu = router
   });
 
 const active = ref(false);
+const loading = ref(true);
+setTimeout(() => {
+  loading.value = false;
+}, 1000);
 </script>
 
 <style lang="less" scoped>
