@@ -1,10 +1,13 @@
 <template>
-  <span class="k-color-picker">
+  <span
+    class="k-color-picker"
+    :class="[size ? size : '', disabled ? 'disabled' : '']"
+    @click="show"
+  >
     <span
       class="color-picker-inner"
       :class="[size ? size : '', disabled ? 'disabled' : '']"
       :style="{ backgroundColor: modelValue }"
-      @click.self="show"
     >
       <input
         v-show="false"

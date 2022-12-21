@@ -4,9 +4,6 @@
     <FormItem label-text="基础用法">
       <ColorPicker v-model="color"></ColorPicker>
     </FormItem>
-    <FormItem label-text="禁用状态">
-      <ColorPicker v-model="color" disabled></ColorPicker>
-    </FormItem>
     <FormItem label-text="不同大小">
       <ColorPicker
         v-for="item in size"
