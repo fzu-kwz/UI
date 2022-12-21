@@ -154,7 +154,7 @@ const usageAttrTableData = [
     default: "-",
   },
   {
-    parameter: "mixlength",
+    parameter: "minlength",
     note: "最小长度",
     type: "number",
     optional: "-",

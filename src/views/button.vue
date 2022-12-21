@@ -32,6 +32,12 @@
         :table-data="usageAttrTableData"
       ></KTable>
     </FormItem>
+    <FormItem label-text="Slot">
+      <KTable
+        :columns="usageSlotColumns"
+        :table-data="usageSlotTableData"
+      ></KTable>
+    </FormItem>
   </KForm>
 </template>
 
@@ -99,6 +105,27 @@ const usageAttrTableData = [
     type: "boolean",
     optional: "-",
     default: "false",
+  },
+];
+const usageSlotColumns: Array<Column> = [
+  {
+    prop: "name",
+    label: "名称",
+  },
+  {
+    prop: "note",
+    label: "备注",
+  },
+  {
+    prop: "data",
+    label: "数据",
+  },
+];
+const usageSlotTableData = [
+  {
+    name: "-",
+    note: "按钮名称",
+    data: "-",
   },
 ];
 </script>

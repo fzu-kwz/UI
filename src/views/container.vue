@@ -130,6 +130,7 @@ const usageAttrTableData = [
 .k-footer {
   background-color: #aaa;
   text-align: center;
+  line-height: 48px;
 }
 .k-main {
   background-color: #eee;
@@ -137,6 +138,7 @@ const usageAttrTableData = [
   text-align: center;
 }
 .k-aside {
+  width: 100px;
   background-color: #ccc;
   line-height: 140px;
   text-align: center;

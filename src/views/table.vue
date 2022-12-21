@@ -96,7 +96,7 @@ const slotColumns: Array<Column> = [
     prop: "name",
     label: "name",
     width: "80",
-    fixed: 'left'
+    fixed: "left",
   },
   {
     prop: "birth",
@@ -111,7 +111,7 @@ const slotColumns: Array<Column> = [
   {
     prop: "hobbies",
     label: "hobbies",
-    width: "200",
+    width: "150",
   },
   {
     prop: "action",
@@ -268,6 +268,12 @@ const usageTypeColumns: Array<Column> = [
   },
 ];
 const usageTypeTableData = [
+  {
+    name: "prop",
+    note: "列内容的字段名",
+    type: "string",
+    optional: "-",
+  },
   {
     name: "label",
     note: "列标题",

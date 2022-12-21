@@ -164,8 +164,13 @@ const usageSlotColumns: Array<Column> = [
 ];
 const usageSlotTableData = [
   {
+    name: "-",
+    note: "对话框内容",
+    data: "-",
+  },
+  {
     name: "footer",
-    note: " 对话框底部内容",
+    note: "对话框底部内容",
     data: "-",
   },
 ];

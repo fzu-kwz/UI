@@ -23,6 +23,12 @@
         :table-data="usageAttrTableData"
       ></KTable>
     </FormItem>
+    <FormItem label-text="Slot">
+      <KTable
+        :columns="usageSlotColumns"
+        :table-data="usageSlotTableData"
+      ></KTable>
+    </FormItem>
   </KForm>
 </template>
 
@@ -76,6 +82,27 @@ const usageAttrTableData = [
     type: "number",
     optional: "-",
     default: "500",
+  },
+];
+const usageSlotColumns: Array<Column> = [
+  {
+    prop: "name",
+    label: "名称",
+  },
+  {
+    prop: "note",
+    label: "备注",
+  },
+  {
+    prop: "data",
+    label: "数据",
+  },
+];
+const usageSlotTableData = [
+  {
+    name: "-",
+    note: "骨架屏消失后显示的内容",
+    data: "-",
   },
 ];
 </script>
