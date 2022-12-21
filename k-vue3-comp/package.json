@@ -1,6 +1,6 @@
 {
   "name": "k-vue3-comp",
-  "version": "0.0.44",
+  "version": "0.0.45",
   "description": "A Simple Components Library For Vue3",
   "main": "index.ts",
   "scripts": {
