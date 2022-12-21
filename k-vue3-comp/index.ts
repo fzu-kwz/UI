@@ -29,6 +29,7 @@ import Radio from "./radio/index.vue";
 import Select from "./select/index.vue";
 import Skeleton from "./skeleton/index.vue";
 import SlideShow from "./slide-show/index.vue";
+import Slider from "./slider/index.vue";
 import Table from "./table/index.vue";
 import Tip from "./tip/index";
 import Upload from "./upload/index.vue";
@@ -65,6 +66,7 @@ export {
   Select as KSelect,
   Skeleton,
   SlideShow,
+  Slider,
   Table as KTable,
   Tip,
   Upload,
@@ -101,6 +103,7 @@ const component = [
   Select,
   Skeleton,
   SlideShow,
+  Slider,
   Table,
   Upload,
 ];
