@@ -75,8 +75,8 @@
       :rows="rows"
       :cols="cols"
       v-model="modelValue"
-      @focus="shadow = true"
-      @blur="shadow = false"
+      @focus="(shadow = true), emits('focus')"
+      @blur="(shadow = false), emits('blur')"
     ></textarea>
   </div>
 </template>

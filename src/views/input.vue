@@ -36,6 +36,12 @@
         :table-data="usageAttrTableData"
       ></KTable>
     </FormItem>
+    <FormItem label-text="Events">
+      <KTable
+        :columns="usageEventColumns"
+        :table-data="usageEventTableData"
+      ></KTable>
+    </FormItem>
     <FormItem label-text="Slot">
       <KTable
         :columns="usageSlotColumns"
@@ -194,6 +200,32 @@ const usageAttrTableData = [
     type: "number",
     optional: "-",
     default: "-",
+  },
+];
+const usageEventColumns: Array<Column> = [
+  {
+    prop: "name",
+    label: "名称",
+  },
+  {
+    prop: "note",
+    label: "备注",
+  },
+  {
+    prop: "callback",
+    label: "回调参数",
+  },
+];
+const usageEventTableData = [
+  {
+    name: "focus",
+    note: "获取焦点时触发",
+    callback: "-",
+  },
+  {
+    name: "blur",
+    note: "失去焦点时触发",
+    callback: "-",
   },
 ];
 const usageSlotColumns: Array<Column> = [
