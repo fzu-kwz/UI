@@ -88,9 +88,9 @@
 
   &-jump {
     display: flex;
-    background-color: #f0f0f0;
 
     &-num {
+      border: 1px solid #ccc;
       box-sizing: border-box;
       width: 50px;
       outline: #fff;
@@ -109,6 +109,8 @@
     }
 
     &-btn {
+      background-color: #fff;
+
       &:disabled {
         color: #ccc;
         cursor: not-allowed;
@@ -121,7 +123,8 @@
 
   .k-pagination-num,
   .k-pagination-icon,
-  .ellipsis {
+  .ellipsis,
+  .k-pagination-jump-btn {
     background-color: #f0f0f0;
   }
 
