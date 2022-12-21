@@ -65,6 +65,7 @@ const lazyload = () => {
         img.value.getAttribute("data-src") as string
       );
     }, 500);
+    props.target.removeEventListener("scroll", lazyload);
   }
 };
 
