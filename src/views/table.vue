@@ -10,6 +10,13 @@
     <FormItem label-text="斑马条纹">
       <KTable :columns="columns" :table-data="tableData" stripe></KTable>
     </FormItem>
+    <FormItem label-text="多选">
+      <KTable
+        :columns="selectColumns"
+        :table-data="tableData"
+        @select-change="selectChange"
+      ></KTable>
+    </FormItem>
     <FormItem label-text="自定义列模板/固定列/固定表头">
       <KTable
         border
@@ -18,11 +25,6 @@
         fix-header
         style="height: 200px;"
       >
-        <template #name="{row, index}">
-          <KButton type="primary" size="small">
-            {{ row.name }}
-          </KButton>
-        </template>
         <template #action="{row, index}">
           <KButton @click="action(row, index)">try</KButton>
         </template>
@@ -44,6 +46,12 @@
       <KTable
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
+      ></KTable>
+    </FormItem>
+    <FormItem label-text="Events">
+      <KTable
+        :columns="usageEventColumns"
+        :table-data="usageEventTableData"
       ></KTable>
     </FormItem>
     <FormItem label-text="Slot">
@@ -83,6 +91,28 @@ const columns: Array<Column> = [
   },
 ];
 
+const selectColumns: Array<Column> = [
+  {
+    prop: "select",
+    width: "40",
+  },
+  {
+    prop: "name",
+    label: "name",
+    width: "80",
+  },
+  {
+    prop: "birth",
+    label: "birth",
+    width: "80",
+  },
+  {
+    prop: "address",
+    label: "address",
+    width: "150",
+  },
+];
+
 const sortColumns: Array<Column> = [
   {
     prop: "sort",
@@ -96,7 +126,6 @@ const slotColumns: Array<Column> = [
     prop: "name",
     label: "name",
     width: "80",
-    fixed: "left",
   },
   {
     prop: "birth",
@@ -144,7 +173,7 @@ const action = (row: any, index: number) => {
     ${row.birth}<br/>
     ${row.address}<br/>
     ${row.hobbies}`,
-    position: "center",
+    duration: 2000,
   });
 };
 
@@ -228,6 +257,27 @@ const usageAttrTableData = [
     default: "{}",
   },
 ];
+const usageEventColumns: Array<Column> = [
+  {
+    prop: "name",
+    label: "名称",
+  },
+  {
+    prop: "note",
+    label: "备注",
+  },
+  {
+    prop: "callback",
+    label: "回调参数",
+  },
+];
+const usageEventTableData = [
+  {
+    name: "selectChange",
+    note: "选项改变时触发",
+    callback: "选中的行索引数组(索引从0开始)",
+  },
+];
 const usageSlotColumns: Array<Column> = [
   {
     prop: "name",
@@ -270,7 +320,7 @@ const usageTypeColumns: Array<Column> = [
 const usageTypeTableData = [
   {
     name: "prop",
-    note: "列内容的字段名",
+    note: "列内容的字段名(select时显示多选框)",
     type: "string",
     optional: "-",
   },
@@ -299,6 +349,13 @@ const usageTypeTableData = [
     optional: "left / right",
   },
 ];
+
+const selectChange = (selectIndex: Array<number>) => {
+  Tip({
+    message: `[${selectIndex}]`,
+    duration: 1000,
+  });
+};
 </script>
 
 <style scoped></style>

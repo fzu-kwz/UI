@@ -1,6 +1,6 @@
 export interface Column {
   prop: string;
-  label: string;
+  label?: string;
   width?: string;
   fixed?: "left" | "right";
   align?: "left" | "right" | "center";

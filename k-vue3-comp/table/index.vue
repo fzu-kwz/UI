@@ -32,6 +32,10 @@
             ]"
           >
             <div class="text">
+              <Chechbox
+                v-if="item.prop === 'select'"
+                v-model="allChecked"
+              ></Chechbox>
               {{ item.label }}
             </div>
           </th>
@@ -60,7 +64,11 @@
             ]"
           >
             <div class="text">
-              <slot :name="column.prop" :row="row" :index="index">
+              <Chechbox
+                v-if="column.prop === 'select'"
+                v-model="checkboxs[index].checked"
+              ></Chechbox>
+              <slot v-else :name="column.prop" :row="row" :index="index">
                 {{ row[column.prop] }}
               </slot>
             </div>
@@ -81,8 +89,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { PropType } from "vue";
+import { PropType, reactive, ref, watch } from "vue";
 import { Column, Row } from "./types";
+import { Chechbox } from "../index";
 
 const props = defineProps({
   border: {
@@ -125,6 +134,48 @@ const props = defineProps({
     type: Boolean,
     default: undefined,
   },
+});
+
+const emits = defineEmits(["selectChange"]);
+
+const selectIndex: Array<number> = [];
+const allChecked = ref(false);
+const checkboxs: Array<{ checked: boolean }> = reactive([]);
+props.tableData.forEach(() => {
+  checkboxs.push({ checked: false });
+});
+watch(allChecked, () => {
+  if (allChecked.value) {
+    checkboxs.forEach((item) => {
+      item.checked = true;
+    });
+  }
+  if (!allChecked.value) {
+    let checkedNum = 0;
+    checkboxs.forEach((item) => {
+      if (item.checked) checkedNum++;
+    });
+    if (checkedNum === checkboxs.length) {
+      checkboxs.forEach((item) => {
+        item.checked = false;
+      });
+    }
+  }
+});
+watch(checkboxs, () => {
+  for (let i = 0; i < checkboxs.length; i++) {
+    if (checkboxs[i].checked === false) {
+      allChecked.value = false;
+      break;
+    } else {
+      allChecked.value = true;
+    }
+  }
+  selectIndex.splice(0);
+  checkboxs.forEach((item, index) => {
+    if (item.checked) selectIndex.push(index);
+  });
+  emits("selectChange", selectIndex);
 });
 </script>
 
