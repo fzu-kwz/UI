@@ -11,10 +11,15 @@
       @nextClick: 点击下一页按钮触发（回调参数当前页码）
     </p>
     <FormItem label-text="基础用法">
-      <Pagination v-model:current="current" jumper></Pagination>
+      <Pagination v-model:current="current" :total="5" jumper></Pagination>
     </FormItem>
     <FormItem label-text="带背景色">
-      <Pagination v-model:current="current" jumper background></Pagination>
+      <Pagination
+        v-model:current="current"
+        :total="5"
+        jumper
+        background
+      ></Pagination>
     </FormItem>
     <FormItem label-text="Attributes">
       <KTable

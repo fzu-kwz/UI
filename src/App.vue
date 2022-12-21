@@ -66,7 +66,8 @@ setTimeout(() => {
 
 <style lang="less" scoped>
 .fold {
-  display: none;
+  height: 0;
+  overflow: hidden;
 }
 .k-container {
   height: 100vh;
@@ -74,7 +75,7 @@ setTimeout(() => {
 
 @media screen and(max-width: 768px) {
   .fold {
-    display: block;
+    height: auto;
   }
   .aside-fold {
     display: none;

@@ -11,7 +11,9 @@
         src="/favicon.ico"
         v-for="item in 5"
         :key="item"
-        style="display: block;"
+        :width="250"
+        :height="250"
+        style="display: block; margin: 0 auto;"
       ></LazyLoadImg>
     </FormItem>
     <FormItem label-text="Attributes">
