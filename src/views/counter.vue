@@ -23,6 +23,12 @@
         :table-data="usageAttrTableData"
       ></KTable>
     </FormItem>
+    <FormItem label-text="Events">
+      <KTable
+        :columns="usageEventColumns"
+        :table-data="usageEventTableData"
+      ></KTable>
+    </FormItem>
   </KForm>
 </template>
 
@@ -98,6 +104,27 @@ const usageAttrTableData = [
     type: "boolean",
     optional: "-",
     default: "false",
+  },
+];
+const usageEventColumns: Array<Column> = [
+  {
+    prop: "name",
+    label: "名称",
+  },
+  {
+    prop: "note",
+    label: "备注",
+  },
+  {
+    prop: "callback",
+    label: "回调参数",
+  },
+];
+const usageEventTableData = [
+  {
+    name: "change",
+    note: "绑定值改变时触发",
+    callback: "绑定值",
   },
 ];
 </script>
