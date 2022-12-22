@@ -8,6 +8,7 @@ const Card = () => import("@/views/card.vue");
 const Checkbox = () => import("@/views/checkbox.vue");
 const ColorPicker = () => import("@/views/color-picker.vue");
 const Container = () => import("@/views/container.vue");
+const Counter = () => import("@/views/counter.vue");
 const Dialog = () => import("@/views/dialog.vue");
 const Empty = () => import("@/views/empty.vue");
 const FoldPanel = () => import("@/views/fold-panel.vue");
@@ -77,6 +78,12 @@ const routes: RouteRecordRaw[] = [
     name: "container",
     component: Container,
     meta: { title: "Container 布局容器" },
+  },
+  {
+    path: "/counter",
+    name: "counter",
+    component: Counter,
+    meta: { title: "Counter 计数器" },
   },
   {
     path: "/dialog",

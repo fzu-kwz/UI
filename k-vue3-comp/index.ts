@@ -7,6 +7,7 @@ import Card from "./card/index.vue";
 import Chechbox from "./checkbox/index.vue";
 import ColorPicker from "./color-picker/index.vue";
 import Container from "./container/index.vue";
+import Counter from "./counter/index.vue";
 import Dialog from "./dialog/index.vue";
 import Empty from "./empty/index.vue";
 import FoldPanel from "./fold-panel/index.vue";
@@ -44,6 +45,7 @@ export {
   Chechbox,
   ColorPicker,
   Container,
+  Counter,
   Dialog,
   Empty,
   FoldPanel,
@@ -81,6 +83,7 @@ const component = [
   Chechbox,
   ColorPicker,
   Container,
+  Counter,
   Dialog,
   Empty,
   FoldPanel,
