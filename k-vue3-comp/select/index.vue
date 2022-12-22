@@ -21,6 +21,7 @@
         />
         <img
           class="delete"
+          :class="disabled ? 'disabled' : ''"
           src="../assets/icon/delete.svg"
           alt="delete"
           width="16"
@@ -117,6 +118,7 @@ watch(props, () => {
 
 // 清空值
 const clear = () => {
+  if (props.disabled) return;
   emits("update:modelValue", "");
 };
 

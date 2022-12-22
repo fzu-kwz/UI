@@ -56,6 +56,20 @@
     &:read-only {
       cursor: pointer;
     }
+
+    &.disabled {
+      user-select: none;
+      cursor: not-allowed;
+      background-color: #ddd;
+      opacity: .5;
+
+      &:hover,
+      &:active,
+      &:focus {
+        border-color: #dcdfe6;
+        box-shadow: none;
+      }
+    }
   }
 
   &-suffix {
@@ -79,7 +93,7 @@
     }
   }
 
-  &-disabled {
+  &.disabled {
     cursor: not-allowed;
     background-color: #ddd;
     opacity: .5;
@@ -123,7 +137,7 @@
   border-radius: 3px;
   outline: none;
 
-  &-disabled {
+  &.disabled {
     cursor: not-allowed;
   }
 }

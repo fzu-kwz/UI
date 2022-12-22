@@ -4,7 +4,7 @@
     :class="[
       shadow ? 'shadow' : '',
       size ? 'k-input-' + size : '',
-      disabled ? 'k-input-disabled' : '',
+      disabled ? 'disabled' : '',
       (type === 'password' && allowView) || allowClear ? 'one-icon' : '',
       type === 'password' && allowView && allowClear ? 'two-icon' : '',
     ]"
@@ -15,7 +15,7 @@
       ref="_input"
       :type="type"
       class="k-input-inner"
-      :class="[disabled ? 'k-input-disabled' : '']"
+      :class="[disabled ? 'disabled' : '']"
       :placeholder="placeholder"
       :autocomplete="autocomplete"
       :autofocus="autofocus"
@@ -66,7 +66,7 @@
     <textarea
       v-if="type === 'textarea'"
       class="k-textarea"
-      :class="[disabled ? 'k-textarea-disabled' : '']"
+      :class="[disabled ? 'disabled' : '']"
       :style="{ resize: resize ? 'vertical' : 'none' }"
       :placeholder="placeholder"
       :autofocus="autofocus"
@@ -186,11 +186,13 @@ const emits = defineEmits(["update:modelValue", "focus", "blur"]);
 
 // 清空modelValue
 const clear = () => {
+  if (props.disabled) return;
   emits("update:modelValue", "");
 };
 
 // 切换图标
 const showPass = () => {
+  if (props.disabled) return;
   if (_input.value)
     passType.value === "password"
       ? ((passType.value = "text"), (_input.value.type = "text"))
