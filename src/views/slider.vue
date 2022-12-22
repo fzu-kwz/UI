@@ -5,10 +5,7 @@
       <Slider v-model="value"></Slider>
     </FormItem>
     <FormItem label-text="禁用状态">
-      <Slider v-model="value" disabled ></Slider>
-    </FormItem>
-    <FormItem label-text="纵向">
-      <Slider v-model="value" vertical></Slider>
+      <Slider v-model="value" disabled></Slider>
     </FormItem>
     <FormItem label-text="Attributes">
       <KTable
@@ -89,20 +86,6 @@ const usageAttrTableData = [
     type: "boolean",
     optional: "-",
     default: "false",
-  },
-  {
-    parameter: "vertical",
-    note: "是否垂直",
-    type: "boolean",
-    optional: "-",
-    default: "false",
-  },
-  {
-    parameter: "height",
-    note: "滑块高度(单位px)",
-    type: "number",
-    optional: "-",
-    default: "200",
   },
 ];
 const usageEventColumns: Array<Column> = [

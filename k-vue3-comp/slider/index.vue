@@ -1,12 +1,5 @@
 <template>
-  <div
-    class="k-slider"
-    :class="vertical ? 'vertical' : ''"
-    :style="{
-      width: vertical ? height + 'px' : '',
-      height: vertical ? height + 'px' : '',
-    }"
-  >
+  <div class="k-slider">
     <input
       v-model="modelValue"
       type="range"
@@ -55,14 +48,6 @@ const props = defineProps({
   disabled: {
     type: Boolean,
     default: undefined,
-  },
-  vertical: {
-    type: Boolean,
-    default: undefined,
-  },
-  height: {
-    type: Number,
-    default: 200,
   },
 });
 
