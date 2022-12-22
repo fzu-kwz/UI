@@ -3,6 +3,19 @@
   display: inline-block;
   width: 180px;
 
+  :deep(.k-input) {
+
+    &:hover {
+      border-color: #dcdfe6;
+    }
+
+    &.shadow {
+      border-color: #dcdfe6;
+      box-shadow: none;
+    }
+
+  }
+
   :deep(.k-input-inner) {
     padding: 0 40px;
     text-align: center;
@@ -18,7 +31,7 @@
     position: absolute;
     z-index: 1;
     padding: 0;
-    border: 0;
+    border: 1px solid #dcdfe6;
     width: 28px;
     height: 28px;
     text-align: center;
@@ -55,13 +68,11 @@
     &.reduce {
       left: 0;
       border-radius: 3px 0 0 3px;
-      border-right: 1px solid #dcdfe6;
     }
 
     &.add {
       right: 0;
       border-radius: 0 3px 3px 0;
-      border-left: 1px solid #dcdfe6;
     }
   }
 }
