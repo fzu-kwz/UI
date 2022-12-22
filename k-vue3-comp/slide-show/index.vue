@@ -41,11 +41,11 @@ import { Slide } from "./types";
 const props = defineProps({
   width: {
     type: Number,
-    default: "400",
+    default: 400,
   },
   height: {
     type: Number,
-    default: "200",
+    default: 200,
   },
   slides: {
     type: Array as PropType<Array<Slide>>,
