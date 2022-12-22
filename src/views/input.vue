@@ -153,6 +153,13 @@ const usageAttrTableData = [
     default: "-",
   },
   {
+    parameter: "step",
+    note: "数字间隔",
+    type: "number",
+    optional: "-",
+    default: "-",
+  },
+  {
     parameter: "maxlength",
     note: "最大长度",
     type: "number",

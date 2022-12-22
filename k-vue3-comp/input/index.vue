@@ -21,6 +21,7 @@
       :autofocus="autofocus"
       :max="max"
       :min="min"
+      :step="step"
       :maxlength="maxlength"
       :minlength="minlength"
       :readonly="readonly"
@@ -128,6 +129,10 @@ const props = defineProps({
     default: undefined,
   },
   min: {
+    type: Number,
+    default: undefined,
+  },
+  step: {
     type: Number,
     default: undefined,
   },
