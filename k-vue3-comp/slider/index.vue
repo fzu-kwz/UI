@@ -1,14 +1,25 @@
 <template>
-  <div class="k-slider">
+  <div
+    class="k-slider"
+    :class="vertical ? 'vertical' : ''"
+    :style="{
+      width: vertical ? height + 'px' : '',
+      height: vertical ? height + 'px' : '',
+    }"
+  >
     <input
       v-model="modelValue"
       type="range"
       class="k-slider-inner"
       :max="max"
       :step="step"
+      :disabled="disabled"
       :style="{
-        background: `linear-gradient(to right, #409eff 0%, #409eff ${ratio}%, 
-      #eee ${ratio}%, #eee ${100 - ratio}%)`,
+        background: disabled
+          ? `linear-gradient(to right, #ccc 0%, #ccc ${ratio}%,
+          #eee ${ratio}%, #eee ${100 - ratio}%)`
+          : `linear-gradient(to right, #409eff 0%, #409eff ${ratio}%,
+          #eee ${ratio}%, #eee ${100 - ratio}%)`,
       }"
     />
     <span class="k-slider-ratio">{{ ratio + "%" }}</span>
@@ -41,13 +52,28 @@ const props = defineProps({
     type: Number,
     default: 1,
   },
+  disabled: {
+    type: Boolean,
+    default: undefined,
+  },
+  vertical: {
+    type: Boolean,
+    default: undefined,
+  },
+  height: {
+    type: Number,
+    default: 200,
+  },
 });
 
-const emits = defineEmits(["update:modelValue"]);
+const emits = defineEmits(["update:modelValue", "change"]);
 
 const modelValue = computed({
   get: () => props.modelValue as number,
-  set: (value) => emits("update:modelValue", value),
+  set: (value) => {
+    emits("update:modelValue", value);
+    emits("change", value);
+  },
 });
 
 const ratio = computed(() => {

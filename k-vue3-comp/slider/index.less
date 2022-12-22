@@ -1,8 +1,10 @@
 .k-slider {
   position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  width: 100%;
   height: 30px;
+  transition: all .5s;
 
   .k-slider-inner {
     margin: 0;
@@ -53,11 +55,44 @@
         cursor: grabbing;
       }
     }
+
+    &:disabled {
+      cursor: default;
+
+      &::-webkit-slider-thumb {
+        border-color: #ccc;
+
+        &:hover {
+          cursor: not-allowed;
+          transform: scale(1);
+        }
+      }
+
+      &::-moz-range-thumb {
+        border-color: #ccc;
+
+        &:hover {
+          cursor: not-allowed;
+          transform: scale(1);
+        }
+      }
+    }
   }
 
   &-ratio {
     width: 40px;
     font-size: 14px;
     text-align: right;
+  }
+
+  &.vertical {
+    transform: rotate(-90deg);
+    align-items: flex-start;
+    justify-content: center;
+
+    .k-slider-ratio {
+      transform: rotate(90deg);
+      text-align: center;
+    }
   }
 }

@@ -4,10 +4,22 @@
     <FormItem label-text="基础用法">
       <Slider v-model="value"></Slider>
     </FormItem>
+    <FormItem label-text="禁用状态">
+      <Slider v-model="value" disabled ></Slider>
+    </FormItem>
+    <FormItem label-text="纵向">
+      <Slider v-model="value" vertical></Slider>
+    </FormItem>
     <FormItem label-text="Attributes">
       <KTable
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
+      ></KTable>
+    </FormItem>
+    <FormItem label-text="Events">
+      <KTable
+        :columns="usageEventColumns"
+        :table-data="usageEventTableData"
       ></KTable>
     </FormItem>
   </KForm>
@@ -70,6 +82,48 @@ const usageAttrTableData = [
     type: "number",
     optional: "-",
     default: "1",
+  },
+  {
+    parameter: "disabled",
+    note: "是否禁用",
+    type: "boolean",
+    optional: "-",
+    default: "false",
+  },
+  {
+    parameter: "vertical",
+    note: "是否垂直",
+    type: "boolean",
+    optional: "-",
+    default: "false",
+  },
+  {
+    parameter: "height",
+    note: "滑块高度(单位px)",
+    type: "number",
+    optional: "-",
+    default: "200",
+  },
+];
+const usageEventColumns: Array<Column> = [
+  {
+    prop: "name",
+    label: "名称",
+  },
+  {
+    prop: "note",
+    label: "备注",
+  },
+  {
+    prop: "callback",
+    label: "回调参数",
+  },
+];
+const usageEventTableData = [
+  {
+    name: "change",
+    note: "绑定值改变时触发",
+    callback: "绑定值",
   },
 ];
 </script>
