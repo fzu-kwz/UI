@@ -8,7 +8,7 @@ export default defineConfig({
   resolve: {
     alias: [
       { find: "@", replacement: path.resolve(__dirname, "src") },
-      { find: "$", replacement: path.resolve(__dirname, "k-vue3-comp") },
+      { find: "$", replacement: path.resolve(__dirname, "burger-ui") },
     ],
   },
   server: {

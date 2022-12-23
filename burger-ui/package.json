@@ -1,16 +1,17 @@
 {
-  "name": "k-vue3-comp",
-  "version": "0.0.50",
-  "description": "A Simple Components Library For Vue3",
+  "name": "burger-ui",
+  "version": "0.1.0",
+  "description": "A Simple Component Library For Vue3",
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "k-vue3-comp",
-    "vue3-comp",
-    "k-vue3-ui",
-    "vue3-ui"
+    "ui",
+    "components",
+    "vue",
+    "web",
+    "front-end"
   ],
   "author": "fzu-kwz",
   "license": "ISC",

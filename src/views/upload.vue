@@ -16,7 +16,7 @@
       >
         <img
           class="add-icon"
-          src="../../k-vue3-comp//assets/icon/add.svg"
+          src="../../burger-ui/assets/icon/add.svg"
           alt="add"
           width="30"
           height="30"
