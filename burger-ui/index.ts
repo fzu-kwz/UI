@@ -2,6 +2,7 @@ import { App, Component } from "vue";
 import Aside from "./aside/index.vue";
 import Avatar from "./avatar/index.vue";
 import BackTop from "./back-top/index.vue";
+import Breadcrumb from "./breadcrumb/index.vue";
 import Button from "./button/index.vue";
 import Card from "./card/index.vue";
 import Chechbox from "./checkbox/index.vue";
@@ -41,6 +42,7 @@ export {
   Aside,
   Avatar,
   BackTop,
+  Breadcrumb,
   Button as KButton,
   Card,
   Chechbox,
@@ -80,6 +82,7 @@ const component = [
   Aside,
   Avatar,
   BackTop,
+  Breadcrumb,
   Button,
   Card,
   Chechbox,

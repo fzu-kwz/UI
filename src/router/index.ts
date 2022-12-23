@@ -3,6 +3,7 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 const Guide = () => import("@/views/guide.vue");
 const Avatar = () => import("@/views/avatar.vue");
 const BackTop = () => import("@/views/back-top.vue");
+const Breadcrumb = () => import("@/views/breadcrumb.vue");
 const Button = () => import("@/views/button.vue");
 const Card = () => import("@/views/card.vue");
 const Checkbox = () => import("@/views/checkbox.vue");
@@ -49,6 +50,12 @@ const routes: RouteRecordRaw[] = [
     name: "back-top",
     component: BackTop,
     meta: { title: "BackTop 回到顶部" },
+  },
+  {
+    path: "/breadcrumb",
+    name: "breadcrumb",
+    component: Breadcrumb,
+    meta: { title: "Breadcrumb 面包屑" },
   },
   {
     path: "/button",
