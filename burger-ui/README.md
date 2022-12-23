@@ -69,6 +69,7 @@ onMounted(() => {
     │ └─img                图片
     ├─avatar               头像
     ├─back-top             返回顶部
+    ├─breadcrumb           面包屑
     ├─button               按钮
     ├─card                 卡片
     ├─checkbox             多选框
