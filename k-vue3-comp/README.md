@@ -74,6 +74,7 @@ onMounted(() => {
     ├─checkbox             多选框
     ├─color-picker         颜色选择器
     ├─container            布局容器
+    ├─counter              计数器
     ├─dialog               对话框
     ├─empty                空状态
     ├─fold-panel           折叠面板
@@ -96,6 +97,7 @@ onMounted(() => {
     ├─select               下拉框
     ├─skeleton             骨架屏
     ├─slide-show           幻灯片
+    ├─slider               滑块
     ├─table                表格
     ├─tip                  提示
     └─upload               上传
