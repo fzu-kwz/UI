@@ -98,6 +98,7 @@ onMounted(() => {
     ├─skeleton             骨架屏
     ├─slide-show           幻灯片
     ├─slider               滑块
+    ├─switch               开关
     ├─table                表格
     ├─tip                  提示
     └─upload               上传
