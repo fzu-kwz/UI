@@ -4,6 +4,7 @@
       v-model="modelValue"
       type="range"
       class="k-slider-inner"
+      :min="min"
       :max="max"
       :step="step"
       :disabled="disabled"
@@ -15,7 +16,9 @@
           #eee ${ratio}%, #eee ${100 - ratio}%)`,
       }"
     />
-    <span class="k-slider-ratio">{{ ratio + "%" }}</span>
+    <span class="k-slider-range min" v-if="showRange">{{ min + unit }}</span>
+    <span class="k-slider-range max" v-if="showRange">{{ max + unit }}</span>
+    <span class="k-slider-value">{{ modelValue + unit }}</span>
   </div>
 </template>
 
@@ -49,6 +52,14 @@ const props = defineProps({
     type: Boolean,
     default: undefined,
   },
+  unit: {
+    type: String,
+    default: "",
+  },
+  showRange: {
+    type: Boolean,
+    default: undefined,
+  },
 });
 
 const emits = defineEmits(["update:modelValue", "change"]);
@@ -62,7 +73,7 @@ const modelValue = computed({
 });
 
 const ratio = computed(() => {
-  return Math.floor((modelValue.value / props.max) * 100);
+  return ((modelValue.value - props.min) / (props.max - props.min)) * 100;
 });
 </script>
 

@@ -7,6 +7,16 @@
     <FormItem label-text="禁用状态">
       <Slider v-model="value" disabled></Slider>
     </FormItem>
+    <FormItem label-text="单位/显示范围">
+      <Slider
+        v-model="temperature"
+        :min="30"
+        :max="43"
+        unit="℃"
+        show-range
+      ></Slider>
+      <Slider v-model="percent" unit="%" show-range></Slider>
+    </FormItem>
     <FormItem label-text="Attributes">
       <KTable
         :columns="usageAttrColumns"
@@ -27,7 +37,9 @@ import { Slider, KForm, FormItem, KTable } from "$/index";
 import { Column } from "$/table/types";
 import { ref } from "vue";
 
-const value = ref<number>(0);
+const value = ref(0);
+const temperature = ref(38);
+const percent = ref(10);
 
 const usageAttrColumns: Array<Column> = [
   {
@@ -83,6 +95,20 @@ const usageAttrTableData = [
   {
     parameter: "disabled",
     note: "是否禁用",
+    type: "boolean",
+    optional: "-",
+    default: "false",
+  },
+  {
+    parameter: "unit",
+    note: "单位",
+    type: "string",
+    optional: "-",
+    default: "",
+  },
+  {
+    parameter: "showRange",
+    note: "是否显示范围",
     type: "boolean",
     optional: "-",
     default: "false",

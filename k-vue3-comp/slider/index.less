@@ -3,12 +3,12 @@
   display: inline-flex;
   align-items: center;
   width: 100%;
-  height: 30px;
+  height: 50px;
   transition: all .5s;
 
   .k-slider-inner {
     margin: 0;
-    width: calc(100% - 40px);
+    width: 100%;
     appearance: none;
     height: 8px;
     outline: 0;
@@ -79,9 +79,25 @@
     }
   }
 
-  &-ratio {
-    width: 40px;
-    font-size: 14px;
-    text-align: right;
+  &-range {
+    position: absolute;
+    font-size: 13px;
+    top: 34px;
+
+    &.min {
+      left: 0
+    }
+
+    &.max {
+      right: 0
+    }
+  }
+
+  &-value {
+    position: absolute;
+    font-size: 13px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
