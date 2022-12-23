@@ -14,7 +14,7 @@
         切换 Loading
       </KButton>
       <Skeleton :loading="loading" :delay="500">
-        <img src="../../k-vue3-comp/assets/img/error.png" />
+        <img src="../../burger-ui/assets/img/error.png" />
       </Skeleton>
     </FormItem>
     <FormItem label-text="Attributes">
