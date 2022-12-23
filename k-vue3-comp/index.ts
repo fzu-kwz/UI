@@ -31,6 +31,7 @@ import Select from "./select/index.vue";
 import Skeleton from "./skeleton/index.vue";
 import SlideShow from "./slide-show/index.vue";
 import Slider from "./slider/index.vue";
+import Switch from "./switch/index.vue";
 import Table from "./table/index.vue";
 import Tip from "./tip/index";
 import Upload from "./upload/index.vue";
@@ -69,6 +70,7 @@ export {
   Skeleton,
   SlideShow,
   Slider,
+  Switch,
   Table as KTable,
   Tip,
   Upload,
@@ -107,6 +109,7 @@ const component = [
   Skeleton,
   SlideShow,
   Slider,
+  Switch,
   Table,
   Upload,
 ];
