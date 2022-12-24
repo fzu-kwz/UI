@@ -18,6 +18,7 @@
   margin-top: 80px;
   margin-bottom: 30px;
   overflow: auto;
+  animation: dialog .3s;
 
   &-body {
     padding: 20px;
@@ -53,5 +54,18 @@
 @media screen and(max-width:768px) {
   .k-dialog {
     max-width: 90%;
+  }
+}
+
+
+@keyframes dialog {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
   }
 }
