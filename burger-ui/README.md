@@ -63,6 +63,7 @@ onMounted(() => {
 
 # Menu
 
+    ├─alert                警告
     ├─aside                侧边栏
     ├─assets               静态文件
     │ ├─icon               svg图标
