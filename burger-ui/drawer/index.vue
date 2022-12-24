@@ -11,9 +11,17 @@
             position === 'top' || position === 'bottom' ? width + 'px' : '',
         }"
       >
-        <div class="k-drawer-header">
+        <div class="k-drawer-header" v-if="title || showClose">
           <span v-if="title" class="title">{{ title }}</span>
-          <span v-if="showClose" class="close" @click="close">×</span>
+          <img
+            v-if="showClose"
+            class="close"
+            @click="close"
+            src="../assets/icon/delete.svg"
+            alt="delete"
+            width="16"
+            height="16"
+          />
         </div>
         <div class="k-drawer-body">
           <slot></slot>
