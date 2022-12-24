@@ -84,8 +84,8 @@ onMounted(() => {
     ├─form                 表单
     │ └─form-item          表单项
     ├─header               页眉
+    ├─image                图片
     ├─input                输入框
-    ├─lazy-load-img        懒加载图片
     ├─loading              加载中
     ├─main                 主体
     ├─menu                 菜单栏
