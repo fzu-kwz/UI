@@ -77,6 +77,7 @@ onMounted(() => {
     ├─container            布局容器
     ├─counter              计数器
     ├─dialog               对话框
+    ├─drawer               抽屉
     ├─empty                空状态
     ├─fold-panel           折叠面板
     │ └─fold-panel-item    折叠面板项
