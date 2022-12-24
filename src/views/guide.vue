@@ -8,12 +8,9 @@
           inform. Thank you!
         </h3>
         <p>
-          Some components refer to
+          The theme color refer to
           <a href="https://element.eleme.cn/#/zh-CN" target="_blank">Element</a
-          >. More components continue to be developed.
-        </p>
-        <p>
-          If you have any questions, please go to
+          >. If you have any questions, please go to
           <a href="https://github.com/fzu-kwz/UI/issues" target="_blank">
             issues
           </a>

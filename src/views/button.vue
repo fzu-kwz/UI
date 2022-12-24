@@ -1,6 +1,6 @@
 <template>
   <KForm align-top>
-    <h3 style="margin-top: 0;">Button 按钮(参考ElementUI)</h3>
+    <h3 style="margin-top: 0;">Button 按钮</h3>
     <FormItem label-text="基础用法">
       <KButton v-for="item in type" :type="item">
         {{ item }}

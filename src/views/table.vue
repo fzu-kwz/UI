@@ -1,6 +1,6 @@
 <template>
   <KForm align-top>
-    <h3 style="margin-top: 0;">Table 表格(Under development)</h3>
+    <h3 style="margin-top: 0;">Table 表格</h3>
     <FormItem label-text="基础用法">
       <KTable :columns="columns" :table-data="tableData"></KTable>
     </FormItem>
