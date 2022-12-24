@@ -1,12 +1,19 @@
-# Description
+<h1 align="center">BurgerUI</h1>
+<div align="center">
+  <a href="http://124.223.76.46:9000/" target="_blank">
+    <img src="http://124.223.76.46:9000/favicon.ico">
+  </a>
+</div>
+
+## Description
 
 A Simple Component Library For Vue3
 
-# Install
+## Install
 
-npm i burger-ui
+npm install burger-ui
 
-# Use
+## Start
 
 - Global import
 
@@ -61,7 +68,19 @@ onMounted(() => {
 <style lang="less" scoped></style>
 ```
 
-# Menu
+## Document
+
+[UI](http://124.223.76.46:9000/)
+
+## Repository
+
+[fzu-kwz/UI](https://github.com/fzu-kwz/UI)
+
+## LICENSE
+
+[MIT](https://github.com/fzu-kwz/UI/blob/main/LICENSE)
+
+## Menu
 
     ├─alert                警告
     ├─aside                侧边栏
