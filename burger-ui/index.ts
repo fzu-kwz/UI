@@ -1,4 +1,5 @@
 import { App, Component } from "vue";
+import Alert from "./alert/index.vue";
 import Aside from "./aside/index.vue";
 import Avatar from "./avatar/index.vue";
 import BackTop from "./back-top/index.vue";
@@ -40,6 +41,7 @@ import Upload from "./upload/index.vue";
 
 // 按需引入
 export {
+  Alert,
   Aside,
   Avatar,
   BackTop,
@@ -81,6 +83,7 @@ export {
 };
 
 const component = [
+  Alert,
   Aside,
   Avatar,
   BackTop,
