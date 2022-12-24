@@ -1,45 +1,48 @@
 <template>
-  <div class="guide">
-    <Card>
-      <h3 style="color: red;">
-        This site is only for personal study, if there is infringement please
-        inform. Thank you!
-      </h3>
-      <p>
-        Some components refer to
-        <a href="https://element.eleme.cn/#/zh-CN" target="_blank">Element</a>.
-        More components continue to be developed.
-      </p>
-      <p>
-        If you have any questions, please go to
-        <a href="https://github.com/fzu-kwz/UI/issues" target="_blank">
-          issues
-        </a>
-        or send an email to <b>1358848173@qq.com</b>. Thank you!
-      </p>
-    </Card>
-    <div>
-      <div class="guide-card">
-        <a href="https://element.eleme.cn/#/zh-CN" target="_blank">
-          <img src="@/assets/icon/ele.svg" alt="ele" width="80" />
-        </a>
-      </div>
-      <div class="guide-card">
-        <a href="https://cn.vuejs.org/" target="_blank">
-          <img src="@/assets/icon/vue.svg" alt="vue" height="40" />
-        </a>
-      </div>
-      <div class="guide-card">
-        <a href="https://www.tslang.cn/" target="_blank">
-          <img src="@/assets/icon/ts.svg" alt="ts" height="40" />
-        </a>
+  <KForm align-top>
+    <h3 style="margin-top: 0;">Guide 引导</h3>
+    <div class="guide">
+      <Card>
+        <h3 style="color: red;">
+          This site is only for personal study, if there is infringement please
+          inform. Thank you!
+        </h3>
+        <p>
+          Some components refer to
+          <a href="https://element.eleme.cn/#/zh-CN" target="_blank">Element</a
+          >. More components continue to be developed.
+        </p>
+        <p>
+          If you have any questions, please go to
+          <a href="https://github.com/fzu-kwz/UI/issues" target="_blank">
+            issues
+          </a>
+          or send an email to <b>1358848173@qq.com</b>. Thank you!
+        </p>
+      </Card>
+      <div>
+        <div class="guide-card">
+          <a href="https://element.eleme.cn/#/zh-CN" target="_blank">
+            <img src="@/assets/icon/ele.svg" alt="ele" width="80" />
+          </a>
+        </div>
+        <div class="guide-card">
+          <a href="https://cn.vuejs.org/" target="_blank">
+            <img src="@/assets/icon/vue.svg" alt="vue" height="40" />
+          </a>
+        </div>
+        <div class="guide-card">
+          <a href="https://www.tslang.cn/" target="_blank">
+            <img src="@/assets/icon/ts.svg" alt="ts" height="40" />
+          </a>
+        </div>
       </div>
     </div>
-  </div>
+  </KForm>
 </template>
 
 <script setup lang="ts">
-import { Card } from "$/index";
+import { Card, KForm } from "$/index";
 </script>
 
 <style lang="less" scoped>
