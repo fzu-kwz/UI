@@ -9,18 +9,18 @@
     </Aside>
     <Main>
       <Skeleton :loading="loading" :rows="10">
-        <FoldPanelItem class="fold" :active="active" @click="active = true">
-          <template #title>Menu</template>
+        <KButton class="fold" round @click="visible = true">Menu</KButton>
+        <Drawer v-model:visible="visible" title="Menu" position="left">
           <Menu>
             <MenuItem
               v-for="item in menu"
               :route="item.route"
-              @click.stop="active = false"
+              @click="visible = false"
             >
               <template #title>{{ item.title }}</template>
             </MenuItem>
           </Menu>
-        </FoldPanelItem>
+        </Drawer>
         <router-view></router-view>
       </Skeleton>
     </Main>
@@ -36,8 +36,9 @@ import {
   Menu,
   MenuItem,
   BackTop,
-  FoldPanelItem,
   Skeleton,
+  KButton,
+  Drawer,
 } from "$/index";
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
@@ -57,17 +58,17 @@ const menu = router
     return { route: item.path, title: item.meta.title };
   });
 
-const active = ref(false);
 const loading = ref(true);
 setTimeout(() => {
   loading.value = false;
 }, 1000);
+
+const visible = ref(false);
 </script>
 
 <style lang="less" scoped>
 .fold {
-  height: 0;
-  overflow: hidden;
+  display: none;
 }
 .k-container {
   height: 100vh;
@@ -75,7 +76,7 @@ setTimeout(() => {
 
 @media screen and(max-width: 768px) {
   .fold {
-    height: auto;
+    display: block;
   }
   .aside-fold {
     display: none;

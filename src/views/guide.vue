@@ -21,17 +21,17 @@
     <div>
       <div class="guide-card">
         <a href="https://element.eleme.cn/#/zh-CN" target="_blank">
-          <img src="@/assets/icon/ele.svg" alt="ele" width="100" />
+          <img src="@/assets/icon/ele.svg" alt="ele" width="80" />
         </a>
       </div>
       <div class="guide-card">
         <a href="https://cn.vuejs.org/" target="_blank">
-          <img src="@/assets/icon/vue.svg" alt="vue" height="80" />
+          <img src="@/assets/icon/vue.svg" alt="vue" height="40" />
         </a>
       </div>
       <div class="guide-card">
         <a href="https://www.tslang.cn/" target="_blank">
-          <img src="@/assets/icon/ts.svg" alt="ts" height="80" />
+          <img src="@/assets/icon/ts.svg" alt="ts" height="40" />
         </a>
       </div>
     </div>
@@ -59,15 +59,16 @@ import { Card } from "$/index";
   }
 
   &-card {
+    display: inline-block;
     border-radius: 3px;
     border: 1px solid #ebeef5;
     background-color: #fff;
     box-shadow: 0 2px 12px 0 rgba(#000, 0.1);
     width: 120px;
-    margin: 10px auto;
+    margin: 10px;
 
     a {
-      line-height: 120px;
+      line-height: 60px;
       display: block;
       img {
         vertical-align: middle;
