@@ -10,7 +10,12 @@
     <Main>
       <Skeleton :loading="loading" :rows="10">
         <KButton class="fold" round @click="visible = true">Menu</KButton>
-        <Drawer v-model:visible="visible" title="Menu" position="left">
+        <Drawer
+          v-model:visible="visible"
+          position="left"
+          :show-close="false"
+          :width="220"
+        >
           <Menu>
             <MenuItem
               v-for="item in menu"
