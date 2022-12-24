@@ -10,6 +10,7 @@ import ColorPicker from "./color-picker/index.vue";
 import Container from "./container/index.vue";
 import Counter from "./counter/index.vue";
 import Dialog from "./dialog/index.vue";
+import Drawer from "./drawer/index.vue";
 import Empty from "./empty/index.vue";
 import FoldPanel from "./fold-panel/index.vue";
 import FoldPanelItem from "./fold-panel/fold-panel-item/index.vue";
@@ -50,6 +51,7 @@ export {
   Container,
   Counter,
   Dialog,
+  Drawer,
   Empty,
   FoldPanel,
   FoldPanelItem,
@@ -90,6 +92,7 @@ const component = [
   Container,
   Counter,
   Dialog,
+  Drawer,
   Empty,
   FoldPanel,
   FoldPanelItem,

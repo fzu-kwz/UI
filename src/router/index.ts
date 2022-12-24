@@ -11,6 +11,7 @@ const ColorPicker = () => import("@/views/color-picker.vue");
 const Container = () => import("@/views/container.vue");
 const Counter = () => import("@/views/counter.vue");
 const Dialog = () => import("@/views/dialog.vue");
+const Drawer = () => import("@/views/drawer.vue");
 const Empty = () => import("@/views/empty.vue");
 const FoldPanel = () => import("@/views/fold-panel.vue");
 const Form = () => import("@/views/form.vue");
@@ -98,6 +99,12 @@ const routes: RouteRecordRaw[] = [
     name: "dialog",
     component: Dialog,
     meta: { title: "Dialog 对话框" },
+  },
+  {
+    path: "/drawer",
+    name: "drawer",
+    component: Drawer,
+    meta: { title: "Drawer 抽屉" },
   },
   {
     path: "/empty",
