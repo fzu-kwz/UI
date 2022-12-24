@@ -11,10 +11,19 @@
         </div>
       </Card>
     </FormItem>
-    <FormItem label-text="没有头部">
-      <Card>
-        <div v-for="item in 4" :key="item" class="card-item">
-          {{ "卡片内容 " + item }}
+    <FormItem label-text="插入图片">
+      <Card style="padding: 0; width: 200px;">
+        <img
+          src="https://img1.baidu.com/it/u=4185218222,1197108102&fm=253&fmt=auto?w=200&h=200"
+          alt="card-img"
+        />
+        <div style="padding: 20px; text-align: center;">
+          <Popup>
+            <template #refer>
+              <KButton>Detail</KButton>
+            </template>
+            哈哈哈哈！！！
+          </Popup>
         </div>
       </Card>
     </FormItem>
@@ -41,7 +50,7 @@
 </template>
 
 <script setup lang="ts">
-import { Card, KForm, FormItem, KTable } from "$/index";
+import { Card, KForm, FormItem, KTable, KButton, Popup } from "$/index";
 import { Column } from "$/table/types";
 
 const cards = ["always", "hover", "never"];
@@ -93,11 +102,6 @@ const usageSlotColumns: Array<Column> = [
 ];
 const usageSlotTableData = [
   {
-    name: "header",
-    note: " 卡片头部内容",
-    data: "-",
-  },
-  {
     name: "-",
     note: " 卡片内容",
     data: "-",
@@ -108,9 +112,10 @@ const usageSlotTableData = [
 <style scoped>
 .card {
   margin-right: 10px;
-  margin-bottom: 10px;
+  font-size: 14px;
 }
 .card-item {
   margin-bottom: 10px;
+  font-size: 14px;
 }
 </style>
