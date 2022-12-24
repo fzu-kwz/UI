@@ -2,22 +2,23 @@
   <img
     ref="img"
     :data-src="src"
-    :src="loadingSrc"
-    alt="lazy-load-img"
+    :src="lazy ? loadingSrc : src"
+    alt="img"
     :width="width"
     :height="height"
+    :style="{ objectFit: objectFit }"
   />
 </template>
 
 <!-- Bug：在一个比视口高度小的滚动元素中，其中在视口内的懒加载图片会加载 -->
 <script lang="ts">
 export default {
-  name: "LazyLoadImg",
+  name: "Image",
 };
 </script>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from "vue";
+import { onMounted, onUnmounted, PropType, ref } from "vue";
 
 const props = defineProps({
   loadingSrc: {
@@ -39,6 +40,16 @@ const props = defineProps({
   target: {
     type: [HTMLElement, Window],
     default: window,
+  },
+  lazy: {
+    type: Boolean,
+    default: false,
+  },
+  objectFit: {
+    type: String as PropType<
+      "fill" | "contain" | "cover" | "none" | "scale-down"
+    >,
+    default: "fill",
   },
 });
 
@@ -70,12 +81,16 @@ const lazyload = () => {
 };
 
 onMounted(() => {
-  lazyload();
-  props.target.addEventListener("scroll", lazyload);
+  if (props.lazy) {
+    lazyload();
+    props.target.addEventListener("scroll", lazyload);
+  }
 });
 
 onUnmounted(() => {
-  props.target.removeEventListener("scroll", lazyload);
+  if (props.lazy) {
+    props.target.removeEventListener("scroll", lazyload);
+  }
 });
 </script>
 

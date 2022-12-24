@@ -17,8 +17,8 @@ import Footer from "./footer/index.vue";
 import Form from "./form/index.vue";
 import FormItem from "./form/form-item/index.vue";
 import Header from "./header/index.vue";
+import Image from "./image/index.vue";
 import Input from "./input/index.vue";
-import LazyLoadImg from "./lazy-load-img/index.vue";
 import Loading from "./loading/index.vue";
 import Main from "./main/index.vue";
 import Menu from "./menu/index.vue";
@@ -57,8 +57,8 @@ export {
   Form as KForm,
   FormItem,
   Header,
+  Image,
   Input as KInput,
-  LazyLoadImg,
   Loading,
   Main,
   Menu,
@@ -97,8 +97,8 @@ const component = [
   Form,
   FormItem,
   Header,
+  Image,
   Input,
-  LazyLoadImg,
   Loading,
   Main,
   Menu,

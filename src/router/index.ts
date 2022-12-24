@@ -14,8 +14,8 @@ const Dialog = () => import("@/views/dialog.vue");
 const Empty = () => import("@/views/empty.vue");
 const FoldPanel = () => import("@/views/fold-panel.vue");
 const Form = () => import("@/views/form.vue");
+const Image = () => import("@/views/image.vue");
 const Input = () => import("@/views/input.vue");
-const LazyLoadImg = () => import("@/views/lazy-load-img.vue");
 const Loading = () => import("@/views/loading.vue");
 const Menu = () => import("@/views/menu.vue");
 const Pagination = () => import("@/views/pagination.vue");
@@ -118,16 +118,16 @@ const routes: RouteRecordRaw[] = [
     meta: { title: "Form 表单" },
   },
   {
+    path: "/image",
+    name: "image",
+    component: Image,
+    meta: { title: "Image 图片" },
+  },
+  {
     path: "/input",
     name: "input",
     component: Input,
     meta: { title: "Input 输入框" },
-  },
-  {
-    path: "/lazy-load-img",
-    name: "lazy-load-img",
-    component: LazyLoadImg,
-    meta: { title: "LazyLoadImg 懒加载图片" },
   },
   {
     path: "/loading",
