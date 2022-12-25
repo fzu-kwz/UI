@@ -12,7 +12,12 @@
       height="14"
     />
   </li>
-  <ul ref="list" class="k-sub-menu-list">
+  <ul
+    v-show="visible"
+    ref="list"
+    class="k-sub-menu-list"
+    :class="visible ? 'show' : ''"
+  >
     <slot></slot>
   </ul>
 </template>
@@ -24,22 +29,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from "vue";
+import { ref } from "vue";
 
 const visible = ref(false);
-
-const list = ref<HTMLElement>();
-const listHeight = ref();
-onMounted(() => {
-  listHeight.value = list.value?.offsetHeight + "px";
-  (list.value as HTMLElement).style.height = "0";
-});
-
-watch(visible, () => {
-  (list.value as HTMLElement).style.height = visible.value
-    ? listHeight.value
-    : "0";
-});
 </script>
 
 <style lang="less" scoped>
