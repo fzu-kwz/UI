@@ -14,7 +14,6 @@ import Dialog from "./dialog/index.vue";
 import Drawer from "./drawer/index.vue";
 import Empty from "./empty/index.vue";
 import FoldPanel from "./fold-panel/index.vue";
-import FoldPanelItem from "./fold-panel/fold-panel-item/index.vue";
 import Footer from "./footer/index.vue";
 import Form from "./form/index.vue";
 import FormItem from "./form/form-item/index.vue";
@@ -56,7 +55,6 @@ export {
   Drawer,
   Empty,
   FoldPanel,
-  FoldPanelItem,
   Footer,
   Form as KForm,
   FormItem,
@@ -98,7 +96,6 @@ const component = [
   Drawer,
   Empty,
   FoldPanel,
-  FoldPanelItem,
   Footer,
   Form,
   FormItem,
