@@ -122,6 +122,7 @@ onMounted(() => {
     ├─slider               滑块
     ├─switch               开关
     ├─table                表格
+    ├─tag                  标签
     ├─tip                  提示
     └─upload               上传
     index.d.ts             声明文件

@@ -30,6 +30,7 @@ const SlideShow = () => import("@/views/slide-show.vue");
 const Slider = () => import("@/views/slider.vue");
 const Switch = () => import("@/views/switch.vue");
 const Table = () => import("@/views/table.vue");
+const Tag = () => import("@/views/tag.vue");
 const Tip = () => import("@/views/tip.vue");
 const Upload = () => import("@/views/upload.vue");
 
@@ -214,6 +215,12 @@ const routes: RouteRecordRaw[] = [
     name: "table",
     component: Table,
     meta: { title: "Table 表格" },
+  },
+  {
+    path: "/tag",
+    name: "tag",
+    component: Tag,
+    meta: { title: "Tag 标签" },
   },
   {
     path: "/tip",

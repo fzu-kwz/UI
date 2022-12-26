@@ -35,6 +35,7 @@ import SlideShow from "./slide-show/index.vue";
 import Slider from "./slider/index.vue";
 import Switch from "./switch/index.vue";
 import Table from "./table/index.vue";
+import Tag from "./tag/index.vue";
 import Tip from "./tip/index";
 import Upload from "./upload/index.vue";
 
@@ -76,6 +77,7 @@ export {
   Slider,
   Switch,
   Table as KTable,
+  Tag,
   Tip,
   Upload,
 };
@@ -117,6 +119,7 @@ const component = [
   Slider,
   Switch,
   Table,
+  Tag,
   Upload,
 ];
 
