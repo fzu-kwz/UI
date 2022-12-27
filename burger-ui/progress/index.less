@@ -4,21 +4,26 @@
   align-items: center;
 
   &-bar {
+    position: relative;
     background-color: #eee;
     border-radius: 20px;
-    width: calc(100% - 40px);
+    width: 100%;
     height: 8px;
   }
 
   &-value {
-    display: block;
+    position: absolute;
     border-radius: 20px;
-    height: 100%;
+    top: 0;
+    bottom: 0;
+    text-align: right;
     background-color: #409eff;
+    transition: all .3s;
 
     &.primary {
       background-color: #409eff;
     }
+
     &.success {
       background-color: #67c23a;
     }
@@ -39,6 +44,11 @@
   &-ratio {
     width: 40px;
     font-size: 14px;
-    text-align: right;
+    line-height: 1;
+  }
+
+  &-ratio-inner {
+    display: block;
+    font-size: 12px;
   }
 }

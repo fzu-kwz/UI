@@ -1,13 +1,24 @@
 <template>
   <span class="k-progress">
-    <span class="k-progress-bar">
+    <span class="k-progress-bar" :style="{ height: height + 'px' }">
       <span
         class="k-progress-value"
-        :style="{ width: ratio }"
+        :style="{
+          width: ratio,
+          backgroundColor: color,
+          lineHeight: height + 'px',
+        }"
         :class="type ? type : ''"
-      ></span>
+      >
+        <span
+          v-if="textInside"
+          class="k-progress-ratio-inner"
+        >
+          {{ ratio }}
+        </span>
+      </span>
     </span>
-    <span class="k-progress-ratio">{{ ratio }}</span>
+    <span v-if="!textInside" class="k-progress-ratio">{{ ratio }}</span>
   </span>
 </template>
 
@@ -33,10 +44,31 @@ const props = defineProps({
     type: Number,
     default: 100,
   },
+  color: {
+    type: [String, Function],
+    default: undefined,
+  },
+  height: {
+    type: Number,
+    default: 8,
+  },
+  textInside: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const ratio = computed(() => {
   return (props.value / props.total) * 100 + "%";
+});
+
+const color = computed(() => {
+  if (typeof props.color === "string") {
+    return props.color;
+  }
+  if (typeof props.color === "function") {
+    return props.color(props.value);
+  }
 });
 </script>
 
