@@ -34,17 +34,17 @@
     border: 1px solid #dcdfe6;
     width: 28px;
     height: 28px;
-    text-align: center;
     box-sizing: border-box;
     cursor: pointer;
     user-select: none;
-    font-size: 20px;
     outline: none;
-    background-color: #eee;
     transition: all .2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    &:hover {
-      color: #409eff;
+    img {
+      width: 22px;
     }
 
     &.reduce {
@@ -60,19 +60,28 @@
     &.large {
       width: 36px;
       height: 36px;
-      font-size: 24px;
+
+      img {
+        width: 30px;
+      }
     }
 
     &.medium {
       width: 32px;
       height: 32px;
-      font-size: 22px;
+
+      img {
+        width: 26px;
+      }
     }
 
     &.small {
       width: 24px;
       height: 24px;
-      font-size: 18px;
+
+      img {
+        width: 18px;
+      }
     }
 
     &:disabled {

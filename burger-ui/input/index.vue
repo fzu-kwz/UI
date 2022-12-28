@@ -56,8 +56,7 @@
           <img
             src="../assets/icon/delete.svg"
             alt="delete"
-            width="16"
-            height="16"
+            width="18"
           />
         </span>
       </slot>

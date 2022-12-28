@@ -6,10 +6,9 @@
     <img
       class="down"
       :class="visible ? 'up' : ''"
-      src="../../assets/icon/down.svg"
-      alt="down"
-      width="14"
-      height="14"
+      src="../../assets/icon/arrow-bottom.svg"
+      alt="arrow-bottom"
+      width="16"
     />
   </li>
   <ul

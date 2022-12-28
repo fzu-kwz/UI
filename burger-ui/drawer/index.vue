@@ -19,8 +19,7 @@
             @click="close"
             src="../assets/icon/delete.svg"
             alt="delete"
-            width="16"
-            height="16"
+            width="24"
           />
         </div>
         <div class="k-drawer-body">

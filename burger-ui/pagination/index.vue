@@ -9,7 +9,7 @@
       :class="current === 1 ? 'disabled' : ''"
       @click="goToBefore"
     >
-      <img src="../assets/icon/left.svg" alt="left" />
+      <img src="../assets/icon/arrow-left.svg" alt="arrow-left" width="16" />
     </span>
 
     <span
@@ -32,8 +32,9 @@
       />
       <img
         class="double-left"
-        src="../assets/icon/double-left.svg"
-        alt="double-left"
+        src="../assets/icon/arrow-left-double.svg"
+        alt="arrow-left-double"
+        width="16"
       />
     </span>
 
@@ -60,8 +61,9 @@
       />
       <img
         class="double-right"
-        src="../assets/icon/double-right.svg"
-        alt="double-right"
+        src="../assets/icon/arrow-right-double.svg"
+        alt="arrow-right-double"
+        width="16"
       />
     </span>
 
@@ -78,7 +80,7 @@
       :class="current === total ? 'disabled' : ''"
       @click="goToNext"
     >
-      <img src="../assets/icon/right.svg" alt="right" width="16" />
+      <img src="../assets/icon/arrow-right.svg" alt="arrow-right" width="16" />
     </span>
 
     <div v-show="jumper" class="k-pagination-jump">

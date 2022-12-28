@@ -2,15 +2,10 @@
   <KForm align-top>
     <h3 style="margin-top: 0;">Pagination 分页</h3>
     <FormItem label-text="基础用法">
-      <Pagination v-model:current="current" :total="5" jumper></Pagination>
+      <Pagination v-model:current="current" jumper></Pagination>
     </FormItem>
     <FormItem label-text="带背景色">
-      <Pagination
-        v-model:current="current"
-        :total="5"
-        jumper
-        background
-      ></Pagination>
+      <Pagination v-model:current="current" jumper background></Pagination>
     </FormItem>
     <FormItem label-text="Attributes">
       <KTable

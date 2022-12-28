@@ -6,7 +6,7 @@
       :disabled="disabled || modelValue === props.max"
       @click="add"
     >
-      +
+      <img src="../assets/icon/plus-sign.svg" alt="plus-sign" />
     </button>
     <button
       class="k-counter-btn reduce"
@@ -14,7 +14,7 @@
       :disabled="disabled || modelValue === props.min"
       @click="reduce"
     >
-      -
+      <img src="../assets/icon/minus-sign.svg" alt="minus-sign" />
     </button>
     <KInput
       v-model="modelValue"

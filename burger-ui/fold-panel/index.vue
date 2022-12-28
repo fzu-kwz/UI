@@ -13,8 +13,8 @@
       <img
         class="arrow"
         :class="visible ? 'down' : ''"
-        src="../assets/icon/right.svg"
-        alt="right"
+        src="../assets/icon/arrow-right.svg"
+        alt="arrow-right"
         width="16"
       />
     </div>

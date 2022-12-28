@@ -13,10 +13,9 @@
         <img
           class="down"
           :class="[display ? 'up' : '', disabled ? 'disabled' : '']"
-          src="../assets/icon/down.svg"
-          alt="down"
-          width="16"
-          height="16"
+          src="../assets/icon/arrow-bottom.svg"
+          alt="arrow-bottom"
+          width="18"
           v-show="!close"
         />
         <img
@@ -24,8 +23,7 @@
           :class="disabled ? 'disabled' : ''"
           src="../assets/icon/delete.svg"
           alt="delete"
-          width="16"
-          height="16"
+          width="18"
           v-if="allowClear"
           v-show="close"
           @click.stop="clear"

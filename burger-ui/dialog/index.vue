@@ -10,7 +10,9 @@
       >
         <div class="k-dialog-header">
           <span v-if="title" class="title">{{ title }}</span>
-          <span v-if="showClose" class="close" @click="close">×</span>
+          <span v-if="showClose" class="close" @click="close">
+            <img src="../assets/icon/delete.svg" alt="delete" width="24" />
+          </span>
         </div>
         <div class="k-dialog-body">
           <slot></slot>

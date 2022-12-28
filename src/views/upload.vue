@@ -16,10 +16,8 @@
       >
         <img
           class="add-icon"
-          src="../../burger-ui/assets/icon/add.svg"
-          alt="add"
-          width="30"
-          height="30"
+          src="../../burger-ui/assets/icon/plus-sign.svg"
+          alt="plus-sign"
         />
         <template #tip>
           <div class="tip">
