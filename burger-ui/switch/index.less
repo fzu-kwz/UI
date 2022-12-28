@@ -32,18 +32,21 @@
       background-color: #409eff;
 
       &::after {
-        left: 21px;
+        left: 22px;
       }
     }
 
     &.close {
       background-color: #ccc;
     }
+
+    &.disabled {
+      cursor: not-allowed;
+    }
   }
 
   &-text {
     font-size: 14px;
-    line-height: 20px;
     transition: all .2s;
     cursor: pointer;
 
@@ -61,6 +64,7 @@
 
     &.disabled {
       color: #000;
+      cursor: not-allowed;
     }
   }
 }

@@ -9,7 +9,7 @@
     >
     <span
       class="k-switch-inner"
-      :class="[modelValue ? 'open' : 'close']"
+      :class="[modelValue ? 'open' : 'close', disabled ? 'disabled' : '']"
       :style="{ backgroundColor: modelValue ? openColor : closeColor }"
       @click="disabled ? '' : (modelValue = !modelValue)"
     ></span>
