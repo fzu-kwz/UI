@@ -25,7 +25,6 @@
         />
       </li>
     </ul>
-    <Progress v-show="fileList.length !== 0" :value="progress"></Progress>
   </div>
 </template>
 
@@ -36,8 +35,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, reactive, ref } from "vue";
-import { Progress } from "..";
+import { computed, PropType, reactive, ref } from "vue";
+import { Tip } from "..";
 
 const props = defineProps({
   accept: {
@@ -60,15 +59,20 @@ const props = defineProps({
     type: Number,
     default: undefined,
   },
-  progress: {
-    type: Number,
-    default: 0,
+  fileList: {
+    type: Array as PropType<Array<File>>,
+    default: () => {
+      return [];
+    },
   },
 });
 
-const emits = defineEmits(["upload"]);
-// 文件列表
-const fileList: Array<File> = reactive([]);
+const fileList = computed<Array<File>>({
+  get: () => props.fileList,
+  set: (value) => emits("update:fileList", value),
+});
+
+const emits = defineEmits(["getFiles", "update:fileList"]);
 
 const uploadInput = ref<HTMLElement>();
 
@@ -98,8 +102,8 @@ const fileChange = (
   // 单次上传数量
   const uploadLength = files.length;
   // 文件数量限制
-  if (fileList.length + uploadLength > limit) {
-    alert(`Number of files no more than ${limit}!`);
+  if (fileList.value.length + uploadLength > limit) {
+    Tip({ message: `Number of files no more than ${limit}!` });
     return (fileInput.value = "");
   }
   // 文件类型限制
@@ -107,7 +111,7 @@ const fileChange = (
     for (let i = 0; i < uploadLength; i++) {
       const item = files.item(i) as File;
       if (!pattern.test(item.type)) {
-        alert(`Only accept ${props.accept}!`);
+        Tip({ message: `Only accept ${props.accept}!` });
         return (fileInput.value = "");
       }
     }
@@ -117,37 +121,26 @@ const fileChange = (
     for (let i = 0; i < uploadLength; i++) {
       const item = files.item(i) as File;
       if (item.size > maxSize) {
-        alert(`File size no more than ${formatSize.value}!`);
+        Tip({ message: `File size no more than ${formatSize.value}!` });
         return (fileInput.value = "");
       }
     }
   }
   // 条件符合，推入文件列表
-  fileList.push(...files);
-  // 生成FormData格式的文件列表
-  /* const formData = new FormData();
-  for (let i = 0; i < fileList.length; i++) {
-    formData.append("file" + i, fileList[i]);
-  } */
-  // 上传成功事件
-  emits("upload", fileList);
+  fileList.value.push(...files);
   fileInput.value = "";
 };
 
 const removeFile = (name: string) => {
   const list: Array<File> = reactive([]);
-  list.push(...fileList);
-  fileList.splice(0);
-  fileList.push(
+  list.push(...fileList.value);
+  fileList.value.splice(0);
+  fileList.value.push(
     ...list.filter((item) => {
       return item.name !== name;
     })
   );
-  /* const formData = new FormData();
-  for (let i = 0; i < fileList.length; i++) {
-    formData.append("file" + i, fileList[i]);
-  } */
-  emits("upload", fileList);
+  emits("getFiles", fileList.value);
 };
 
 const formatSize = computed(() => {
