@@ -81,7 +81,7 @@ const usageAttrTableData = [
     note: "延迟DOM渲染的时间(单位ms)",
     type: "number",
     optional: "-",
-    default: "500",
+    default: "0",
   },
 ];
 const usageSlotColumns: Array<Column> = [

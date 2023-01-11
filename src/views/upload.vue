@@ -12,7 +12,6 @@
         :max-size="1024 * 1024 * 2"
         :limit="3"
         accept="image/*"
-        @upload="upload"
       >
         <img
           class="add-icon"
@@ -52,8 +51,6 @@
 import { Upload, KForm, FormItem, KButton, KTable } from "$/index";
 import { Column } from "$/table/types";
 
-const upload = (fileList: Array<File>) => {};
-
 const usageAttrColumns: Array<Column> = [
   {
     prop: "parameter",
@@ -77,6 +74,13 @@ const usageAttrColumns: Array<Column> = [
   },
 ];
 const usageAttrTableData = [
+  {
+    parameter: "v-model:fileList",
+    note: "上传文件列表",
+    type: "Array",
+    optional: "-",
+    default: "true",
+  },
   {
     parameter: "accept",
     note: "上传文件的类型",
@@ -112,13 +116,6 @@ const usageAttrTableData = [
     optional: "-",
     default: "-",
   },
-  {
-    parameter: "progress",
-    note: "上传进度值",
-    type: "number",
-    optional: "-",
-    default: "0",
-  },
 ];
 const usageEventColumns: Array<Column> = [
   {
@@ -136,8 +133,8 @@ const usageEventColumns: Array<Column> = [
 ];
 const usageEventTableData = [
   {
-    name: "upload",
-    note: "文件上传成功或者移除成功时触发",
+    name: "getFiles",
+    note: "文件移除成功时触发",
     callback: "文件列表",
   },
 ];

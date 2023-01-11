@@ -75,6 +75,13 @@ const usageAttrTableData = [
     optional: "-",
     default: "rgba(0, 0, 0, 0.8)",
   },
+  {
+    parameter: "delay",
+    note: "延迟消失的时间(单位ms)",
+    type: "number",
+    optional: "-",
+    default: "0",
+  },
 ];
 </script>
 
