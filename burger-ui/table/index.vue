@@ -89,7 +89,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { PropType, reactive, ref, watch } from "vue";
+import { computed, PropType, reactive, ref, watch } from "vue";
 import { Column, Row } from "./types";
 import { Chechbox } from "../index";
 
@@ -141,9 +141,12 @@ const emits = defineEmits(["selectChange"]);
 const selectIndex: Array<number> = [];
 const allChecked = ref(false);
 const checkboxs: Array<{ checked: boolean }> = reactive([]);
-props.tableData.forEach(() => {
-  checkboxs.push({ checked: false });
+watch(props.tableData, (value) => {
+  value.forEach(() => {
+    checkboxs.push({ checked: false });
+  });
 });
+
 watch(allChecked, () => {
   if (allChecked.value) {
     checkboxs.forEach((item) => {
