@@ -34,6 +34,7 @@
             <div class="text">
               <Chechbox
                 v-if="item.prop === 'select'"
+                :disabled="tableData.length === 0"
                 v-model="allChecked"
               ></Chechbox>
               {{ item.label }}
@@ -89,7 +90,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, PropType, reactive, ref, watch } from "vue";
+import { PropType, reactive, ref, watch } from "vue";
 import { Column, Row } from "./types";
 import { Chechbox } from "../index";
 
@@ -142,6 +143,7 @@ const selectIndex: Array<number> = [];
 const allChecked = ref(false);
 const checkboxs: Array<{ checked: boolean }> = reactive([]);
 watch(props.tableData, (value) => {
+  checkboxs.splice(0);
   value.forEach(() => {
     checkboxs.push({ checked: false });
   });
@@ -166,6 +168,7 @@ watch(allChecked, () => {
   }
 });
 watch(checkboxs, () => {
+  if (checkboxs.length === 0) return (allChecked.value = false);
   for (let i = 0; i < checkboxs.length; i++) {
     if (checkboxs[i].checked === false) {
       allChecked.value = false;
