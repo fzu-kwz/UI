@@ -1,6 +1,6 @@
 {
   "name": "burger-ui",
-  "version": "0.7.8",
+  "version": "0.7.9",
   "description": "A Simple Component Library For Vue3",
   "main": "index.ts",
   "scripts": {
