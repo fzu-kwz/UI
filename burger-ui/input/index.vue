@@ -30,7 +30,7 @@
       @focus="(shadow = true), emits('focus')"
       @blur="(shadow = false), emits('blur')"
     />
-    <span class="k-input-suffix" v-if="type === 'text' || type === 'password'">
+    <span class="k-input-suffix">
       <slot name="suffix">
         <span
           class="view"

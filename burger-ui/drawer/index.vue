@@ -6,9 +6,9 @@
         :class="position"
         :style="{
           width:
-            position === 'left' || position === 'right' ? width + 'px' : '',
+            position === 'left' || position === 'right' ? width : '',
           height:
-            position === 'top' || position === 'bottom' ? width + 'px' : '',
+            position === 'top' || position === 'bottom' ? width : '',
         }"
       >
         <div class="k-drawer-header" v-if="title || showClose">
@@ -53,8 +53,8 @@ const props = defineProps({
     default: undefined,
   },
   width: {
-    type: Number,
-    default: 300,
+    type: String,
+    default: '300px',
   },
   showClose: {
     type: Boolean,

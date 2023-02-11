@@ -1,6 +1,6 @@
 {
   "name": "burger-ui",
-  "version": "0.7.9",
+  "version": "0.8.0",
   "description": "A Simple Component Library For Vue3",
   "main": "index.ts",
   "scripts": {
@@ -15,5 +15,9 @@
   ],
   "author": "fzu-kwz",
   "license": "ISC",
+  "dependencies": {
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
+  },
   "types": "./types/index.d.ts"
 }
