@@ -1,6 +1,6 @@
 <template>
   <div class="k-select">
-    <KInput
+    <Input
       :size="size"
       class="one-icon"
       v-model="currentLabel"
@@ -29,7 +29,7 @@
           @click.stop="clear"
         />
       </template>
-    </KInput>
+    </Input>
     <ul
       ref="option"
       class="k-select-option"
@@ -55,7 +55,7 @@ export default {
 
 <script setup lang="ts">
 import { onMounted, PropType, ref, watch } from "vue";
-import { KInput } from "../index";
+import { Input } from "../index";
 import { SelectOption } from "./types";
 
 const props = defineProps({

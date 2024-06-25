@@ -1,38 +1,38 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Tip 提示</h3>
     <p class="usage">！这是一个函数，需要传入一个配置对象</p>
     <FormItem label-text="基础用法">
-      <KButton
+      <Button
         v-for="item in tips"
         :key="item.position"
         @click="Tip(item)"
         style="margin-right: 5px;"
       >
         {{ item.position }}
-      </KButton>
+      </Button>
     </FormItem>
     <FormItem label-text="两种主题">
-      <KButton
+      <Button
         v-for="item in theme_tips"
         :key="item.theme"
         @click="Tip(item)"
         style="margin-right: 5px;"
       >
         {{ item.theme }}
-      </KButton>
+      </Button>
     </FormItem>
     <FormItem label-text="TipOption 提示数据格式">
-      <KTable
+      <Table
         :columns="usageTypeColumns"
         :table-data="usageTypeTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { Tip, KForm, FormItem, KButton, KTable } from "$/index";
+import { Tip, Form, FormItem, Button, Table } from "$/index";
 import { Column } from "$/table/types";
 import { TipOption } from "$/tip";
 

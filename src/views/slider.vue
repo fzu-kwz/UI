@@ -1,5 +1,5 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Slider 滑块</h3>
     <FormItem label-text="基础用法">
       <Slider v-model="value"></Slider>
@@ -18,22 +18,22 @@
       <Slider v-model="percent" unit="%" show-range></Slider>
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="Events">
-      <KTable
+      <Table
         :columns="usageEventColumns"
         :table-data="usageEventTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { Slider, KForm, FormItem, KTable } from "$/index";
+import { Slider, Form, FormItem, Table } from "$/index";
 import { Column } from "$/table/types";
 import { ref } from "vue";
 

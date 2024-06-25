@@ -1,5 +1,5 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Card 卡片</h3>
     <FormItem label-text="基础用法">
       <Card>
@@ -20,7 +20,7 @@
         <div style="padding: 20px; text-align: center;">
           <Popup>
             <template #refer>
-              <KButton>Detail</KButton>
+              <Button>Detail</Button>
             </template>
             哈哈哈哈！！！
           </Popup>
@@ -35,22 +35,22 @@
       </div>
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="Slot">
-      <KTable
+      <Table
         :columns="usageSlotColumns"
         :table-data="usageSlotTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { Card, KForm, FormItem, KTable, KButton, Popup } from "$/index";
+import { Card, Form, FormItem, Table, Button, Popup } from "$/index";
 import { Column } from "$/table/types";
 
 const cards = ["always", "hover", "never"];

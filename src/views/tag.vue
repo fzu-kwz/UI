@@ -1,5 +1,5 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Tag 标签</h3>
     <FormItem label-text="基础用法">
       <Tag v-for="item in type" :type="item"></Tag>
@@ -17,28 +17,28 @@
       <Tag v-for="item in size" :size="item"></Tag>
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="Events">
-      <KTable
+      <Table
         :columns="usageEventColumns"
         :table-data="usageEventTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="Slot">
-      <KTable
+      <Table
         :columns="usageSlotColumns"
         :table-data="usageSlotTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { Tag, KForm, FormItem, KTable, Tip } from "$/index";
+import { Tag, Form, FormItem, Table, Tip } from "$/index";
 import { Column } from "$/table/types";
 import { reactive } from "vue";
 

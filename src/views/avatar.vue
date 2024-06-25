@@ -1,5 +1,5 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Avatar 头像</h3>
     <FormItem label-text="基础用法">
       <Avatar></Avatar>
@@ -25,16 +25,16 @@
       <Avatar v-for="item in size" shape="square" :size="item"></Avatar>
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { Avatar, KForm, FormItem, KTable } from "$/index";
+import { Avatar, Form, FormItem, Table } from "$/index";
 import { Column } from "$/table/types";
 
 const size = ["large", "medium", "", "small"];

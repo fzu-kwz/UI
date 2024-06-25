@@ -1,5 +1,5 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">FoldPanel 折叠面板</h3>
     <FormItem label-text="基础用法">
       <FoldPanel title="你瞒我瞒">
@@ -21,22 +21,22 @@
       </FoldPanel>
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="Slot">
-      <KTable
+      <Table
         :columns="usageSlotColumns"
         :table-data="usageSlotTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { FoldPanel, KForm, FormItem, KTable } from "$/index";
+import { FoldPanel, Form, FormItem, Table } from "$/index";
 import { Column } from "$/table/types";
 
 const usageAttrColumns: Array<Column> = [

@@ -1,48 +1,48 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Button 按钮</h3>
     <FormItem label-text="基础用法">
-      <KButton v-for="item in type" :type="item">
+      <Button v-for="item in type" :type="item">
         {{ item }}
-      </KButton>
+      </Button>
     </FormItem>
     <FormItem label-text="圆角按钮">
-      <KButton v-for="item in type" :type="item" round>
+      <Button v-for="item in type" :type="item" round>
         {{ item }}
-      </KButton>
+      </Button>
     </FormItem>
     <FormItem label-text="圆形按钮">
-      <KButton v-for="item in type" :type="item" circle>
+      <Button v-for="item in type" :type="item" circle>
         <img src="/favicon.ico" alt="add" width="14" height="14" />
-      </KButton>
+      </Button>
     </FormItem>
     <FormItem label-text="禁用状态">
-      <KButton v-for="item in type" :type="item" disabled>
+      <Button v-for="item in type" :type="item" disabled>
         {{ item }}
-      </KButton>
+      </Button>
     </FormItem>
     <FormItem label-text="不同大小">
-      <KButton v-for="item in size" :size="item">
+      <Button v-for="item in size" :size="item">
         {{ item }}
-      </KButton>
+      </Button>
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="Slot">
-      <KTable
+      <Table
         :columns="usageSlotColumns"
         :table-data="usageSlotTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { KButton, KForm, FormItem, KTable } from "$/index";
+import { Button, Form, FormItem, Table } from "$/index";
 import { Column } from "$/table/types";
 
 const type = ["default", "primary", "success", "info", "warning", "danger"];

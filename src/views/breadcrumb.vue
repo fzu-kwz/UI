@@ -1,5 +1,5 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Breadcrumb 面包屑</h3>
     <FormItem label-text="基础用法">
       <Breadcrumb :list="list"></Breadcrumb>
@@ -8,23 +8,23 @@
       <Breadcrumb :list="list" separator=">"></Breadcrumb>
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="BreadcrumbList 面包屑数据格式">
-      <KTable
+      <Table
         :columns="usageTypeColumns"
         :table-data="usageTypeTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
 import { BreadcrumbList } from "$/breadcrumb/types";
-import { Breadcrumb, KForm, FormItem, KTable } from "$/index";
+import { Breadcrumb, Form, FormItem, Table } from "$/index";
 import { Column } from "$/table/types";
 
 const list: Array<BreadcrumbList> = [

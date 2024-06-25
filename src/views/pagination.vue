@@ -1,5 +1,5 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Pagination 分页</h3>
     <FormItem label-text="基础用法">
       <Pagination v-model:current="current" jumper></Pagination>
@@ -8,22 +8,22 @@
       <Pagination v-model:current="current" jumper background></Pagination>
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="Events">
-      <KTable
+      <Table
         :columns="usageEventColumns"
         :table-data="usageEventTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { Pagination, KForm, FormItem, KTable } from "$/index";
+import { Pagination, Form, FormItem, Table } from "$/index";
 import { Column } from "$/table/types";
 import { ref } from "vue";
 

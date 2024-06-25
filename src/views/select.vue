@@ -1,42 +1,42 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Select 选择器</h3>
     <FormItem label-text="基础用法">
-      <KSelect v-model="select" :options="options"></KSelect>
+      <Select v-model="select" :options="options"></Select>
     </FormItem>
     <FormItem label-text="禁用状态">
-      <KSelect v-model="select" :options="options" disabled></KSelect>
+      <Select v-model="select" :options="options" disabled></Select>
     </FormItem>
     <FormItem label-text="显示清空">
-      <KSelect v-model="select" :options="options" allow-clear></KSelect>
+      <Select v-model="select" :options="options" allow-clear></Select>
     </FormItem>
     <FormItem label-text="不同大小">
-      <KSelect
+      <Select
         v-model="select"
         v-for="item in size"
         :size="item"
         :options="options"
         style="margin-bottom: 5px;"
       >
-      </KSelect>
+      </Select>
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="SelectOption 选择器选项数据格式">
-      <KTable
+      <Table
         :columns="usageTypeColumns"
         :table-data="usageTypeTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { KSelect, KForm, FormItem, KTable } from "$/index";
+import { Select, Form, FormItem, Table } from "$/index";
 import { SelectOption } from "$/select/types";
 import { Column } from "$/table/types";
 import { ref } from "vue";

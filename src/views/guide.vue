@@ -1,5 +1,5 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Guide 引导</h3>
     <div class="guide">
       <Card>
@@ -35,11 +35,11 @@
         </div>
       </div>
     </div>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { Card, KForm } from "$/index";
+import { Card, Form } from "$/index";
 </script>
 
 <style lang="less" scoped>

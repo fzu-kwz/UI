@@ -1,5 +1,5 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Checkbox 多选框</h3>
     <FormItem label-text="基础用法">
       <Chechbox v-model="checked">多选框</Chechbox>
@@ -18,22 +18,22 @@
       </Chechbox>
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="Events">
-      <KTable
+      <Table
         :columns="usageEventColumns"
         :table-data="usageEventTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { Chechbox, KForm, FormItem, KTable } from "$/index";
+import { Chechbox, Form, FormItem, Table } from "$/index";
 import { Column } from "$/table/types";
 import { reactive, ref } from "vue";
 

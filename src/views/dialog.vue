@@ -1,65 +1,65 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Dialog 对话框</h3>
     <FormItem label-text="基础用法">
-      <KButton @click="visible1 = true">打开Dialog</KButton>
+      <Button @click="visible1 = true">打开Dialog</Button>
       <Dialog v-model:visible="visible1">
         <span>基础用法</span>
         <template #footer>
-          <KButton style="margin-right: 10px;" @click="visible1 = false">
+          <Button style="margin-right: 10px;" @click="visible1 = false">
             取消
-          </KButton>
-          <KButton type="primary" @click="visible1 = false">确定</KButton>
+          </Button>
+          <Button type="primary" @click="visible1 = false">确定</Button>
         </template>
       </Dialog>
     </FormItem>
     <FormItem label-text="显示标题">
-      <KButton @click="visible2 = true">打开Dialog</KButton>
+      <Button @click="visible2 = true">打开Dialog</Button>
       <Dialog v-model:visible="visible2" title="标题">
         <span>显示标题</span>
         <template #footer>
-          <KButton style="margin-right: 10px;" @click="visible2 = false">
+          <Button style="margin-right: 10px;" @click="visible2 = false">
             取消
-          </KButton>
-          <KButton type="primary" @click="visible2 = false">确定</KButton>
+          </Button>
+          <Button type="primary" @click="visible2 = false">确定</Button>
         </template>
       </Dialog>
     </FormItem>
     <FormItem label-text="顶部距离">
-      <KButton @click="visible3 = true">打开Dialog</KButton>
+      <Button @click="visible3 = true">打开Dialog</Button>
       <Dialog v-model:visible="visible3" title="标题" :top="200">
         <span>顶部距离：200px</span>
         <template #footer>
-          <KButton style="margin-right: 10px;" @click="visible3 = false">
+          <Button style="margin-right: 10px;" @click="visible3 = false">
             取消
-          </KButton>
-          <KButton type="primary" @click="visible3 = false">确定</KButton>
+          </Button>
+          <Button type="primary" @click="visible3 = false">确定</Button>
         </template>
       </Dialog>
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="Events">
-      <KTable
+      <Table
         :columns="usageEventColumns"
         :table-data="usageEventTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="Slot">
-      <KTable
+      <Table
         :columns="usageSlotColumns"
         :table-data="usageSlotTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { Dialog, KForm, FormItem, KButton, KTable } from "$/index";
+import { Dialog, Form, FormItem, Button, Table } from "$/index";
 import { Column } from "$/table/types";
 import { ref } from "vue";
 

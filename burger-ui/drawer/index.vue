@@ -6,9 +6,9 @@
         :class="position"
         :style="{
           width:
-            position === 'left' || position === 'right' ? width : '',
+            position === 'left' || position === 'right' ? processedSize : '',
           height:
-            position === 'top' || position === 'bottom' ? width : '',
+            position === 'top' || position === 'bottom' ? processedSize : '',
         }"
       >
         <div class="k-drawer-header" v-if="title || showClose">
@@ -32,12 +32,12 @@
 
 <script lang="ts">
 export default {
-  name: "drawer",
+  name: 'drawer',
 };
 </script>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed } from 'vue';
 
 const props = defineProps({
   visible: {
@@ -46,14 +46,14 @@ const props = defineProps({
   },
   position: {
     type: String,
-    default: "right",
+    default: 'right',
   },
   title: {
     type: String,
     default: undefined,
   },
-  width: {
-    type: String,
+  size: {
+    type: [String, Number],
     default: '300px',
   },
   showClose: {
@@ -66,36 +66,50 @@ const props = defineProps({
   },
 });
 
-const emits = defineEmits(["update:visible", "close"]);
+const emits = defineEmits(['update:visible', 'before-close', 'close']);
 
 // v-model:visible同步更新，不需要@update:visible
 const visible = computed({
   get: () => props.visible,
   set: (value) => {
-    emits("update:visible", value);
+    emits('update:visible', value);
   },
 });
 
 const position = computed(() => {
   if (
-    props.position === "left" ||
-    props.position === "right" ||
-    props.position === "top" ||
-    props.position === "bottom"
+    props.position === 'left' ||
+    props.position === 'right' ||
+    props.position === 'top' ||
+    props.position === 'bottom'
   ) {
     return props.position;
   } else {
-    return "right";
+    return 'right';
+  }
+});
+
+const processedSize = computed(() => {
+  if (typeof props.size === 'number') {
+    return `${props.size}px`;
+  }
+  if (typeof props.size === 'string') {
+    if (props.size.endsWith('px')) {
+      return props.size;
+    } else {
+      return `${parseInt(props.size)}px`;
+    }
   }
 });
 
 const close = () => {
+  emits('before-close');
   visible.value = false;
-  emits("close");
+  emits('close');
 };
 
 const closeByModal = () => {
-  props.modalClose ? close() : "";
+  props.modalClose ? close() : '';
 };
 </script>
 

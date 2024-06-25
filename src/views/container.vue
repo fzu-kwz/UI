@@ -1,5 +1,5 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Container 布局容器</h3>
     <p class="usage">
       Container默认水平排列，当包含Header或者Footer时，垂直排列
@@ -64,12 +64,12 @@
       </Container>
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
@@ -79,9 +79,9 @@ import {
   Footer,
   Aside,
   Main,
-  KForm,
+  Form,
   FormItem,
-  KTable,
+  Table,
 } from "$/index";
 import { Column } from "$/table/types";
 

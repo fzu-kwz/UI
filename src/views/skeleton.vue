@@ -1,39 +1,39 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Skeleton 骨架屏</h3>
     <FormItem label-text="基础用法">
       <Skeleton></Skeleton>
     </FormItem>
     <FormItem label-text="防止抖动">
-      <KButton
+      <Button
         type="primary"
         size="small"
         @click="loading = !loading"
         style="margin-bottom: 10px;"
       >
         切换 Loading
-      </KButton>
+      </Button>
       <Skeleton :loading="loading" :delay="500">
         <img src="../../burger-ui/assets/img/error.png" />
       </Skeleton>
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="Slot">
-      <KTable
+      <Table
         :columns="usageSlotColumns"
         :table-data="usageSlotTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { Skeleton, KForm, FormItem, KButton, KTable } from "$/index";
+import { Skeleton, Form, FormItem, Button, Table } from "$/index";
 import { Column } from "$/table/types";
 import { ref } from "vue";
 

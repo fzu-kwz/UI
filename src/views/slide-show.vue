@@ -1,5 +1,5 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">SlideShow 幻灯片(Debugging)</h3>
     <p class="usage">
       ！建议不少于3张图片时候使用，目前左切换箭头还有bug，不做使用
@@ -12,22 +12,22 @@
       ></SlideShow>
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="Slide 幻灯片数据格式">
-      <KTable
+      <Table
         :columns="usageTypeColumns"
         :table-data="usageTypeTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { KForm, FormItem, SlideShow, KTable } from "$/index";
+import { Form, FormItem, SlideShow, Table } from "$/index";
 import { Slide } from "$/slide-show/types";
 import { Column } from "$/table/types";
 

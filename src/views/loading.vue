@@ -1,22 +1,22 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Loading 加载中</h3>
     <FormItem label-text="基础用法">
-      <KButton @click="loading = !loading">切换loading</KButton>
+      <Button @click="loading = !loading">切换loading</Button>
       <div ref="loadingBox" class="loading-box">loading...</div>
       <Loading :loading="loading" :target="loadingBox"></Loading>
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { Loading, KForm, FormItem, KTable, KButton } from "$/index";
+import { Loading, Form, FormItem, Table, Button } from "$/index";
 import { Column } from "$/table/types";
 import { ref } from "vue";
 

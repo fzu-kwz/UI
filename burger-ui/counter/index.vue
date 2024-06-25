@@ -16,7 +16,7 @@
     >
       <img src="../assets/icon/minus-sign.svg" alt="minus-sign" />
     </button>
-    <KInput
+    <Input
       v-model="modelValue"
       :min="min"
       :max="max"
@@ -24,7 +24,7 @@
       :size="size"
       :disabled="disabled"
       readonly
-    ></KInput>
+    ></Input>
   </div>
 </template>
 
@@ -36,7 +36,7 @@ export default {
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { KInput } from "../index";
+import { Input } from "../index";
 
 const props = defineProps({
   modelValue: {

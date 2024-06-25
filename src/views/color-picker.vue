@@ -1,5 +1,5 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">ColorPicker 颜色选择器</h3>
     <FormItem label-text="基础用法">
       <ColorPicker v-model="color"></ColorPicker>
@@ -13,16 +13,16 @@
       ></ColorPicker>
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { ColorPicker, KForm, FormItem, KTable } from "$/index";
+import { ColorPicker, Form, FormItem, Table } from "$/index";
 import { Column } from "$/table/types";
 import { ref } from "vue";
 

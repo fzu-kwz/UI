@@ -1,5 +1,5 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Popup 弹窗(Debugging)</h3>
     <FormItem label-text="基础用法">
       <div
@@ -9,7 +9,7 @@
       >
         <Popup :position="item.position" :content="item.position + ' popup'">
           <template #refer>
-            <KButton>{{ item.name }}</KButton>
+            <Button>{{ item.name }}</Button>
           </template>
         </Popup>
       </div>
@@ -18,12 +18,12 @@
       <div style="display: flex; justify-content: center;">
         <Popup position="top" content="Popup">
           <template #refer>
-            <KButton>light</KButton>
+            <Button>light</Button>
           </template>
         </Popup>
         <Popup position="bottom" content="Popup" theme="dark">
           <template #refer>
-            <KButton>dark</KButton>
+            <Button>dark</Button>
           </template>
         </Popup>
       </div>
@@ -31,28 +31,28 @@
     <FormItem label-text="插槽传入DOM">
       <Popup position="right">
         <template #refer>
-          <KButton>插槽</KButton>
+          <Button>插槽</Button>
         </template>
-        <KButton></KButton>
+        <Button></Button>
       </Popup>
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="Slot">
-      <KTable
+      <Table
         :columns="usageSlotColumns"
         :table-data="usageSlotTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { Popup, KForm, FormItem, KButton, KTable } from "$/index";
+import { Popup, Form, FormItem, Button, Table } from "$/index";
 import { Column } from "$/table/types";
 
 const popups = [

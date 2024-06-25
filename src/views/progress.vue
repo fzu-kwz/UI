@@ -1,5 +1,5 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Progress 进度条</h3>
     <FormItem label-text="基础用法">
       <Progress
@@ -21,32 +21,32 @@
     <FormItem label-text="自定义颜色">
       <Progress color="blue" :value="customValue"></Progress>
       <Progress :color="customColorMethod" :value="customValue"></Progress>
-      <KButton
+      <Button
         @click="decrease"
         style="border-top-right-radius: 0; border-bottom-right-radius: 0;"
-        >-</KButton
+        >-</Button
       >
-      <KButton
+      <Button
         @click="increase"
         style="
           border-top-left-radius: 0;
           border-bottom-left-radius: 0;
           border-left: 0;
         "
-        >+</KButton
+        >+</Button
       >
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { Progress, KForm, FormItem, KTable, KButton } from "$/index";
+import { Progress, Form, FormItem, Table, Button } from "$/index";
 import { Column } from "$/table/types";
 import { ref } from "vue";
 

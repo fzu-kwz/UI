@@ -1,13 +1,16 @@
-.DS_Store
 node_modules
-/dist
-/ui
+.DS_Store
+dist
+dist-ssr
+*.local
 
-# Editor directories and files
-.idea
+# lock
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+
+*.log
+
+# IDE
 .vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+.idea

@@ -1,5 +1,5 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Menu 菜单栏</h3>
     <FormItem label-text="基础用法">
       <Menu>
@@ -24,28 +24,28 @@
       </Menu>
     </FormItem>
     <FormItem label-text="MenuItem Attributes">
-      <KTable
+      <Table
         :columns="usageMenuItemAttrColumns"
         :table-data="usageMenuItemAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="MenuItem Slot">
-      <KTable
+      <Table
         :columns="usageMenuItemSlotColumns"
         :table-data="usageMenuItemSlotTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="SubMenu Slot">
-      <KTable
+      <Table
         :columns="usageSubMenuSlotColumns"
         :table-data="usageSubMenuSlotTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { Menu, MenuItem, SubMenu, KForm, FormItem, KTable } from "$/index";
+import { Menu, MenuItem, SubMenu, Form, FormItem, Table } from "$/index";
 import { Column } from "$/table/types";
 
 const usageMenuItemAttrColumns: Array<Column> = [

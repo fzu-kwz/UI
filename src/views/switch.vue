@@ -1,5 +1,5 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Switch 开关</h3>
     <FormItem label-text="基础用法">
       <Switch v-model="value"></Switch>
@@ -19,16 +19,16 @@
       ></Switch>
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { Switch, KForm, FormItem, KTable } from "$/index";
+import { Switch, Form, FormItem, Table } from "$/index";
 import { Column } from "$/table/types";
 import { ref } from "vue";
 

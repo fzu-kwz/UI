@@ -1,20 +1,20 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Input 输入框</h3>
     <FormItem label-text="基础用法">
-      <KInput v-model="value" placeholder="请输入" />
+      <Input v-model="value" placeholder="请输入" />
     </FormItem>
     <FormItem label-text="禁用状态">
-      <KInput v-model="value" disabled />
+      <Input v-model="value" disabled />
     </FormItem>
     <FormItem label-text="显示清空">
-      <KInput v-model="value" allow-clear />
+      <Input v-model="value" allow-clear />
     </FormItem>
     <FormItem label-text="显示密码">
-      <KInput v-model="value" type="password" allow-view />
+      <Input v-model="value" type="password" allow-view />
     </FormItem>
     <FormItem label-text="不同大小">
-      <KInput
+      <Input
         v-model="value"
         v-for="item in size"
         :size="item"
@@ -22,7 +22,7 @@
       />
     </FormItem>
     <FormItem label-text="文本域">
-      <KInput
+      <Input
         v-model="value"
         type="textarea"
         :rows="5"
@@ -31,28 +31,28 @@
       />
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="Events">
-      <KTable
+      <Table
         :columns="usageEventColumns"
         :table-data="usageEventTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="Slot">
-      <KTable
+      <Table
         :columns="usageSlotColumns"
         :table-data="usageSlotTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { KInput, KForm, FormItem, KTable } from "$/index";
+import { Input, Form, FormItem, Table } from "$/index";
 import { Column } from "$/table/types";
 import { ref } from "vue";
 

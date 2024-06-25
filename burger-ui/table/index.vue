@@ -85,14 +85,14 @@
 
 <script lang="ts">
 export default {
-  name: "Table",
+  name: 'Table',
 };
 </script>
 
 <script setup lang="ts">
-import { PropType, reactive, ref, watch } from "vue";
-import { Column, Row } from "./types";
-import { Chechbox } from "../index";
+import { PropType, reactive, ref, watch } from 'vue';
+import { Column, Row } from './types';
+import { Chechbox } from '../index';
 
 const props = defineProps({
   border: {
@@ -129,7 +129,7 @@ const props = defineProps({
   },
   emptyText: {
     type: String,
-    default: "No Data",
+    default: 'No Data',
   },
   fixHeader: {
     type: Boolean,
@@ -137,17 +137,24 @@ const props = defineProps({
   },
 });
 
-const emits = defineEmits(["selectChange"]);
+const emits = defineEmits(['selectChange']);
 
 const selectIndex: Array<number> = [];
 const allChecked = ref(false);
 const checkboxs: Array<{ checked: boolean }> = reactive([]);
-watch(props.tableData, (value) => {
-  checkboxs.splice(0);
-  value.forEach(() => {
-    checkboxs.push({ checked: false });
-  });
-});
+
+watch(
+  () => props.tableData,
+  (value) => {
+    checkboxs.splice(0);
+    value.forEach(() => {
+      checkboxs.push({ checked: false });
+    });
+  },
+  {
+    immediate: true,
+  }
+);
 
 watch(allChecked, () => {
   if (allChecked.value) {
@@ -181,7 +188,7 @@ watch(checkboxs, () => {
   checkboxs.forEach((item, index) => {
     if (item.checked) selectIndex.push(index);
   });
-  emits("selectChange", selectIndex);
+  emits('selectChange', selectIndex);
 });
 </script>
 

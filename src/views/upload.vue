@@ -1,9 +1,9 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Upload 上传</h3>
     <FormItem label-text="基础用法">
       <Upload>
-        <KButton type="primary">上传文件</KButton>
+        <Button type="primary">上传文件</Button>
       </Upload>
     </FormItem>
     <FormItem label-text="图片上传">
@@ -27,28 +27,28 @@
       </Upload>
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="Events">
-      <KTable
+      <Table
         :columns="usageEventColumns"
         :table-data="usageEventTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="Slot">
-      <KTable
+      <Table
         :columns="usageSlotColumns"
         :table-data="usageSlotTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { Upload, KForm, FormItem, KButton, KTable } from "$/index";
+import { Upload, Form, FormItem, Button, Table } from "$/index";
 import { Column } from "$/table/types";
 
 const usageAttrColumns: Array<Column> = [

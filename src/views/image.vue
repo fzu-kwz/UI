@@ -1,5 +1,5 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Image 图片</h3>
     <FormItem label-text="基础用法">
       <Image src="/favicon.ico" style="display: block; margin: 0 auto;"></Image>
@@ -17,16 +17,16 @@
       ></Image>
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { Image, KForm, FormItem, KTable } from "$/index";
+import { Image, Form, FormItem, Table } from "$/index";
 import { Column } from "$/table/types";
 
 const target = document.getElementsByTagName("main")[0];

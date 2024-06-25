@@ -1,36 +1,36 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Form 表单</h3>
     <FormItem label-text="基础用法">
-      <KForm>
+      <Form>
         <FormItem label-text="账号：">
-          <KInput></KInput>
+          <Input></Input>
         </FormItem>
         <FormItem label-text="密码：">
-          <KInput></KInput>
+          <Input></Input>
         </FormItem>
         <FormItem>
-          <KButton type="primary" style="width: 100%;">确定</KButton>
+          <Button type="primary" style="width: 100%;">确定</Button>
         </FormItem>
-      </KForm>
+      </Form>
     </FormItem>
     <FormItem label-text="Form Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="FormItem Attributes">
-      <KTable
+      <Table
         :columns="usageItemAttrColumns"
         :table-data="usageItemAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { KForm, FormItem, KInput, KButton, KTable } from "$/index";
+import { Form, FormItem, Input, Button, Table } from "$/index";
 import { Column } from "$/table/types";
 
 const usageAttrColumns: Array<Column> = [

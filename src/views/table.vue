@@ -1,24 +1,24 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">Table 表格</h3>
     <FormItem label-text="基础用法">
-      <KTable :columns="columns" :table-data="tableData"></KTable>
+      <Table :columns="columns" :table-data="tableData"></Table>
     </FormItem>
     <FormItem label-text="纵向边框">
-      <KTable :columns="columns" :table-data="tableData" border></KTable>
+      <Table :columns="columns" :table-data="tableData" border></Table>
     </FormItem>
     <FormItem label-text="斑马条纹">
-      <KTable :columns="columns" :table-data="tableData" stripe></KTable>
+      <Table :columns="columns" :table-data="tableData" stripe></Table>
     </FormItem>
     <FormItem label-text="多选">
-      <KTable
+      <Table
         :columns="selectColumns"
         :table-data="tableData"
         @select-change="selectChange"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="自定义列模板/固定列/固定表头">
-      <KTable
+      <Table
         border
         :columns="slotColumns"
         :table-data="slotTableData"
@@ -26,51 +26,51 @@
         style="height: 200px;"
       >
         <template #action="{row, index}">
-          <KButton @click="action(row, index)">try</KButton>
+          <Button @click="action(row, index)">try</Button>
         </template>
-      </KTable>
+      </Table>
     </FormItem>
     <FormItem label-text="表头单元格样式/序号">
-      <KTable
+      <Table
         :columns="sortColumns"
         :table-data="tableData"
         :header-cell-style="{ color: '#f56c6c', backgroundColor: '#303033' }"
       >
         <template #sort="{index}">{{ index + 1 }}</template>
-      </KTable>
+      </Table>
     </FormItem>
     <FormItem label-text="无数据">
-      <KTable :columns="columns"></KTable>
+      <Table :columns="columns"></Table>
     </FormItem>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="Events">
-      <KTable
+      <Table
         :columns="usageEventColumns"
         :table-data="usageEventTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="Slot">
-      <KTable
+      <Table
         :columns="usageSlotColumns"
         :table-data="usageSlotTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
     <FormItem label-text="Column 表格列数据格式">
-      <KTable
+      <Table
         :columns="usageTypeColumns"
         :table-data="usageTypeTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { KTable, KForm, FormItem, KButton, Tip } from "$/index";
+import { Table, Form, FormItem, Button, Tip } from "$/index";
 import { Column } from "$/table/types";
 
 const columns: Array<Column> = [

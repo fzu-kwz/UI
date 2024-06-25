@@ -1,3 +1,10 @@
+<!--
+ * @Description: 
+ * @Author: kangweize kangweize@cnpc.com.cn
+ * @Date: 2024-06-25 14:35:53
+ * @LastEditors: kangweize kangweize@cnpc.com.cn
+ * @LastEditTime: 2024-06-25 15:06:35
+-->
 <template>
   <Container class="k-container">
     <Aside class="aside-fold">
@@ -9,12 +16,12 @@
     </Aside>
     <Main>
       <Skeleton :loading="loading" :rows="10">
-        <KButton class="fold" round @click="visible = true">Menu</KButton>
+        <Button class="fold" round @click="visible = true">Menu</Button>
         <Drawer
           v-model:visible="visible"
           position="left"
           :show-close="false"
-          :width="220"
+          :size="220"
         >
           <Menu>
             <MenuItem
@@ -42,15 +49,15 @@ import {
   MenuItem,
   BackTop,
   Skeleton,
-  KButton,
+  Button,
   Drawer,
-} from "$/index";
-import { onMounted, ref } from "vue";
-import { useRouter } from "vue-router";
+} from '$/index';
+import { onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 const target = ref();
 onMounted(() => {
-  target.value = document.getElementsByTagName("main")[0];
+  target.value = document.getElementsByTagName('main')[0];
 });
 
 const router = useRouter();

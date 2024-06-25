@@ -1,17 +1,17 @@
 <template>
-  <KForm align-top>
+  <Form align-top>
     <h3 style="margin-top: 0;">BackTop 回到顶部</h3>
     <FormItem label-text="Attributes">
-      <KTable
+      <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
-      ></KTable>
+      ></Table>
     </FormItem>
-  </KForm>
+  </Form>
 </template>
 
 <script setup lang="ts">
-import { KForm, FormItem, KTable } from "$/index";
+import { Form, FormItem, Table } from "$/index";
 import { Column } from "$/table/types";
 
 const usageAttrColumns: Array<Column> = [
