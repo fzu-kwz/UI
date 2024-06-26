@@ -2,13 +2,21 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import path from 'path';
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
 
 export default defineConfig({
   define: {
     // enable hydration mismatch details in production build
     __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'true',
   },
-  plugins: [vue(), vueJsx()],
+  plugins: [
+    vue(),
+    vueJsx(),
+    AutoImport({
+      imports: ['vue', 'vue-router'],
+    }),
+  ],
   resolve: {
     alias: [
       { find: '@', replacement: path.resolve(__dirname, 'src') },
