@@ -1,5 +1,5 @@
 <template>
-  <div class="k-select">
+  <div class="burger-select">
     <Input
       :size="size"
       class="one-icon"
@@ -32,8 +32,8 @@
     </Input>
     <ul
       ref="option"
-      class="k-select-option"
-      :class="[size ? 'k-select-option-' + size : '']"
+      class="burger-select-option"
+      :class="[size ? 'burger-select-option-' + size : '']"
     >
       <li
         v-for="item in options"

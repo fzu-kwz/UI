@@ -1,20 +1,19 @@
 <template>
-  <div
-    class="k-form"
-    :class="[border ? 'border' : '', alignTop ? 'align-top' : '']"
-  >
+  <div class="burger-form" :class="[border ? 'border' : '']">
     <slot></slot>
   </div>
 </template>
 
 <script lang="ts">
 export default {
-  name: "Form",
+  name: 'Form',
 };
 </script>
 
 <script setup lang="ts">
-defineProps({
+import { provide } from 'vue';
+
+const props = defineProps({
   border: {
     type: Boolean,
     default: undefined,
@@ -23,7 +22,14 @@ defineProps({
     type: Boolean,
     default: undefined,
   },
+  labelWidth: {
+    type: [String, Number],
+    default: '60px',
+  },
 });
+
+provide('alignTop', props.alignTop);
+provide('labelWidth', props.labelWidth);
 </script>
 
 <style lang="less" scoped>

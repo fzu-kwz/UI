@@ -6,7 +6,7 @@
  * @LastEditTime: 2024-06-25 15:06:35
 -->
 <template>
-  <Container class="k-container">
+  <Container class="burger-container">
     <Aside class="aside-fold">
       <Menu>
         <MenuItem v-for="item in menu" :route="item.route">
@@ -82,7 +82,7 @@ const visible = ref(false);
 .fold {
   display: none;
 }
-.k-container {
+.burger-container {
   height: 100vh;
 }
 
@@ -93,7 +93,7 @@ const visible = ref(false);
   .aside-fold {
     display: none;
   }
-  .k-container {
+  .burger-container {
     flex-direction: column;
   }
 }

@@ -1,11 +1,11 @@
 <template>
   <div
-    class="k-pagination"
+    class="burger-pagination"
     :class="background ? 'bg' : ''"
     v-if="total !== 0 && total !== 1"
   >
     <span
-      class="k-pagination-icon"
+      class="burger-pagination-icon"
       :class="current === 1 ? 'disabled' : ''"
       @click="goToBefore"
     >
@@ -13,7 +13,7 @@
     </span>
 
     <span
-      class="k-pagination-num"
+      class="burger-pagination-num"
       @click="goTo(1)"
       v-show="currentEdge.indexOf(1) === -1"
     >
@@ -39,7 +39,7 @@
     </span>
 
     <span
-      class="k-pagination-num"
+      class="burger-pagination-num"
       v-for="item in total"
       :key="item"
       :class="current === item ? 'active' : ''"
@@ -68,7 +68,7 @@
     </span>
 
     <span
-      class="k-pagination-num"
+      class="burger-pagination-num"
       @click="goTo(total)"
       v-show="currentEdge.indexOf(total) === -1"
     >
@@ -76,16 +76,16 @@
     </span>
 
     <span
-      class="k-pagination-icon"
+      class="burger-pagination-icon"
       :class="current === total ? 'disabled' : ''"
       @click="goToNext"
     >
       <img src="../assets/icon/arrow-right.svg" alt="arrow-right" width="16" />
     </span>
 
-    <div v-show="jumper" class="k-pagination-jump">
+    <div v-show="jumper" class="burger-pagination-jump">
       <input
-        class="k-pagination-jump-num"
+        class="burger-pagination-jump-num"
         type="text"
         v-model="jump"
         :maxlength="total.toString().length"
@@ -93,7 +93,7 @@
         @keyup="jump = jump.replace(/\D/g, '')"
       />
       <button
-        class="k-pagination-jump-btn"
+        class="burger-pagination-jump-btn"
         @click="jumpTo(jump)"
         :disabled="jump === ''"
       >

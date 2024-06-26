@@ -1,14 +1,14 @@
 <template>
   <Teleport :to="target">
     <div class="mask" :style="{ background: background }" v-if="loading">
-      <div class="k-loading">
+      <div class="burger-loading">
         <img
           src="../assets/icon/loading.svg"
           alt="loading"
           width="30"
           height="30"
         />
-        <p class="k-loading-text" v-if="text">
+        <p class="burger-loading-text" v-if="text">
           {{ text }}
         </p>
       </div>

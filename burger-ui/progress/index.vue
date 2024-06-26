@@ -1,8 +1,8 @@
 <template>
-  <span class="k-progress">
-    <span class="k-progress-bar" :style="{ height: height + 'px' }">
+  <span class="burger-progress">
+    <span class="burger-progress-bar" :style="{ height: height + 'px' }">
       <span
-        class="k-progress-value"
+        class="burger-progress-value"
         :style="{
           width: ratio,
           backgroundColor: color,
@@ -12,13 +12,13 @@
       >
         <span
           v-if="textInside"
-          class="k-progress-ratio-inner"
+          class="burger-progress-ratio-inner"
         >
           {{ ratio }}
         </span>
       </span>
     </span>
-    <span v-if="!textInside" class="k-progress-ratio">{{ ratio }}</span>
+    <span v-if="!textInside" class="burger-progress-ratio">{{ ratio }}</span>
   </span>
 </template>
 

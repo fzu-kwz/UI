@@ -2,7 +2,7 @@
   <Teleport to="body">
     <div class="mask" v-if="visible" @click.self="closeByModal">
       <div
-        class="k-drawer"
+        class="burger-drawer"
         :class="position"
         :style="{
           width:
@@ -11,7 +11,7 @@
             position === 'top' || position === 'bottom' ? processedSize : '',
         }"
       >
-        <div class="k-drawer-header" v-if="title || showClose">
+        <div class="burger-drawer-header" v-if="title || showClose">
           <span v-if="title" class="title">{{ title }}</span>
           <img
             v-if="showClose"
@@ -22,7 +22,7 @@
             width="24"
           />
         </div>
-        <div class="k-drawer-body">
+        <div class="burger-drawer-body">
           <slot></slot>
         </div>
       </div>
@@ -37,6 +37,7 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { processedCssPx } from '$/utils';
 import { computed } from 'vue';
 
 const props = defineProps({
@@ -90,16 +91,7 @@ const position = computed(() => {
 });
 
 const processedSize = computed(() => {
-  if (typeof props.size === 'number') {
-    return `${props.size}px`;
-  }
-  if (typeof props.size === 'string') {
-    if (props.size.endsWith('px')) {
-      return props.size;
-    } else {
-      return `${parseInt(props.size)}px`;
-    }
-  }
+  return processedCssPx(props.size);
 });
 
 const close = () => {

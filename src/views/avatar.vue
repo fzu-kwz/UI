@@ -87,7 +87,7 @@ const usageAttrTableData = [
 </script>
 
 <style scoped>
-.k-avatar {
+.burger-avatar {
   margin-right: 10px;
 }
 </style>

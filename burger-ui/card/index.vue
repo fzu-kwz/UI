@@ -1,5 +1,5 @@
 <template>
-  <div class="k-card" :class="shadow + '-shadow'">
+  <div class="burger-card" :class="shadow + '-shadow'">
     <slot></slot>
   </div>
 </template>

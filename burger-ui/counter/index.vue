@@ -1,7 +1,7 @@
 <template>
-  <div class="k-counter">
+  <div class="burger-counter">
     <button
-      class="k-counter-btn add"
+      class="burger-counter-btn add"
       :class="size"
       :disabled="disabled || modelValue === props.max"
       @click="add"
@@ -9,7 +9,7 @@
       <img src="../assets/icon/plus-sign.svg" alt="plus-sign" />
     </button>
     <button
-      class="k-counter-btn reduce"
+      class="burger-counter-btn reduce"
       :class="size"
       :disabled="disabled || modelValue === props.min"
       @click="reduce"

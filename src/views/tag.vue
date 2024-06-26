@@ -146,7 +146,7 @@ const usageSlotTableData = [
 </script>
 
 <style scoped>
-.k-tag {
+.burger-tag {
   margin-bottom: 5px;
   margin-right: 5px;
 }

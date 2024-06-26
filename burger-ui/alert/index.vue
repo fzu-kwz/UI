@@ -1,6 +1,6 @@
 <template>
-  <div class="k-alert" :class="[type, closed ? 'close' : '']" v-show="show">
-    <p class="k-alert-text" :style="{ textAlign: center ? 'center' : 'left' }">
+  <div class="burger-alert" :class="[type, closed ? 'close' : '']" v-show="show">
+    <p class="burger-alert-text" :style="{ textAlign: center ? 'center' : 'left' }">
       <slot>{{ text }}</slot>
     </p>
     <span class="close" @click="close">

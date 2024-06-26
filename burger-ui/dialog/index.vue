@@ -2,22 +2,22 @@
   <Teleport to="body">
     <div class="mask" v-if="visible" @click.self="closeByModal">
       <div
-        class="k-dialog"
+        class="burger-dialog"
         :style="{
           width: width + 'px',
           marginTop: top + 'px',
         }"
       >
-        <div class="k-dialog-header">
+        <div class="burger-dialog-header">
           <span v-if="title" class="title">{{ title }}</span>
           <span v-if="showClose" class="close" @click="close">
             <img src="../assets/icon/delete.svg" alt="delete" width="24" />
           </span>
         </div>
-        <div class="k-dialog-body">
+        <div class="burger-dialog-body">
           <slot></slot>
         </div>
-        <div class="k-dialog-footer"><slot name="footer"></slot></div>
+        <div class="burger-dialog-footer"><slot name="footer"></slot></div>
       </div>
     </div>
   </Teleport>

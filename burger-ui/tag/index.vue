@@ -1,5 +1,5 @@
 <template>
-  <span class="k-tag" :class="[type, size]" @click.self="emits('click')">
+  <span class="burger-tag" :class="[type, size]" @click.self="emits('click')">
     <slot>默认标签</slot>
     <span v-if="showClose" class="close" @click="emits('close')">×</span>
   </span>

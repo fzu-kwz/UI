@@ -1,11 +1,11 @@
 <template>
   <button
-    class="k-button"
+    class="burger-button"
     :class="[
-      type ? 'k-button-' + type : '',
-      size ? 'k-button-' + size : '',
-      round ? 'k-button-round' : '',
-      circle ? 'k-button-circle' : '',
+      type ? 'burger-button-' + type : '',
+      size ? 'burger-button-' + size : '',
+      round ? 'burger-button-round' : '',
+      circle ? 'burger-button-circle' : '',
       disabled ? 'disabled' : '',
     ]"
     type="button"

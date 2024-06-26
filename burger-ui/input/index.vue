@@ -1,9 +1,9 @@
 <template>
   <div
-    class="k-input"
+    class="burger-input"
     :class="[
       shadow ? 'shadow' : '',
-      size ? 'k-input-' + size : '',
+      size ? 'burger-input-' + size : '',
       disabled ? 'disabled' : '',
       (type === 'password' && allowView) || allowClear ? 'one-icon' : '',
       type === 'password' && allowView && allowClear ? 'two-icon' : '',
@@ -14,7 +14,7 @@
       v-if="type !== 'textarea'"
       ref="_input"
       :type="type"
-      class="k-input-inner"
+      class="burger-input-inner"
       :class="[disabled ? 'disabled' : '']"
       :placeholder="placeholder"
       :autocomplete="autocomplete"
@@ -30,7 +30,7 @@
       @focus="(shadow = true), emits('focus')"
       @blur="(shadow = false), emits('blur')"
     />
-    <span class="k-input-suffix">
+    <span class="burger-input-suffix">
       <slot name="suffix">
         <span
           class="view"
@@ -64,7 +64,7 @@
 
     <textarea
       v-if="type === 'textarea'"
-      class="k-textarea"
+      class="burger-textarea"
       :class="[disabled ? 'disabled' : '']"
       :style="{ resize: resize ? 'vertical' : 'none' }"
       :placeholder="placeholder"

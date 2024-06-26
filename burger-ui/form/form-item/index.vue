@@ -1,13 +1,13 @@
 <template>
   <div
     ref="formItem"
-    class="k-form-item"
+    class="burger-form-item"
     :class="[alignTop ? 'align-top' : '']"
   >
     <span
-      class="k-form-item-label"
+      class="burger-form-item-label"
       :style="{
-        width: alignTop ? '100%' : labelWidth + 'px',
+        width: alignTop ? '100%' : processedLabelWidth,
         display: alignTop ? 'block' : '',
         paddingBottom: alignTop ? '5px' : '',
       }"
@@ -15,8 +15,10 @@
       {{ labelText }}
     </span>
     <div
-      class="k-form-item-content"
-      :style="{ width: alignTop ? '100%' : `calc(100% - ${labelWidth}px)` }"
+      class="burger-form-item-content"
+      :style="{
+        width: alignTop ? '100%' : `calc(100% - ${processedLabelWidth})`,
+      }"
     >
       <slot></slot>
     </div>
@@ -25,28 +27,30 @@
 
 <script lang="ts">
 export default {
-  name: "FormItem",
+  name: 'FormItem',
 };
 </script>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, inject, ref } from 'vue';
+import { processedCssPx } from '$/utils';
 
-defineProps({
+const props = defineProps({
   labelText: {
     type: String,
     default: undefined,
-  },
-  labelWidth: {
-    type: String,
-    default: "60",
   },
 });
 
 const formItem = ref<HTMLElement>();
 
-const alignTop = computed(() => {
-  return formItem.value?.parentElement?.className.includes("align-top");
+const alignTop = inject('alignTop');
+
+const labelWidth = inject<string | number>('labelWidth');
+console.log(labelWidth);
+
+const processedLabelWidth = computed(() => {
+  return processedCssPx(labelWidth!);
 });
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <span
-    class="k-color-picker"
+    class="burger-color-picker"
     :class="[size ? size : '', disabled ? 'disabled' : '']"
     @click="show"
   >

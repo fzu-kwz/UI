@@ -1,21 +1,21 @@
 <template>
-  <span class="k-switch" :class="disabled ? 'disabled' : ''">
+  <span class="burger-switch" :class="disabled ? 'disabled' : ''">
     <span
       v-if="closeText"
-      class="k-switch-text close"
+      class="burger-switch-text close"
       :class="[!modelValue ? 'active' : '', disabled ? 'disabled' : '']"
       @click="disabled ? '' : (modelValue = false)"
       >{{ closeText }}</span
     >
     <span
-      class="k-switch-inner"
+      class="burger-switch-inner"
       :class="[modelValue ? 'open' : 'close', disabled ? 'disabled' : '']"
       :style="{ backgroundColor: modelValue ? openColor : closeColor }"
       @click="disabled ? '' : (modelValue = !modelValue)"
     ></span>
     <span
       v-if="openText"
-      class="k-switch-text open"
+      class="burger-switch-text open"
       :class="[modelValue ? 'active' : '', disabled ? 'disabled' : '']"
       @click="disabled ? '' : (modelValue = true)"
       >{{ openText }}</span

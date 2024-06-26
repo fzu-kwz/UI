@@ -1,9 +1,9 @@
 <template>
-  <div class="k-skeleton">
+  <div class="burger-skeleton">
     <div
       v-if="loading"
       v-for="item in rows"
-      class="k-skeleton-bar"
+      class="burger-skeleton-bar"
       :class="rowCount"
     ></div>
     <slot v-else></slot>

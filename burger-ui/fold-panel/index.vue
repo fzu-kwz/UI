@@ -1,7 +1,7 @@
 <template>
-  <div class="k-fold-panel">
+  <div class="burger-fold-panel">
     <div
-      class="k-fold-panel-header"
+      class="burger-fold-panel-header"
       :class="visible ? 'no-bottom' : ''"
       @click="visible = !visible"
     >
@@ -21,10 +21,10 @@
     <div
       v-show="visible"
       ref="wrap"
-      class="k-fold-panel-wrap"
+      class="burger-fold-panel-wrap"
       :class="visible ? 'show' : ''"
     >
-      <div class="k-fold-panel-content">
+      <div class="burger-fold-panel-content">
         <slot></slot>
       </div>
     </div>

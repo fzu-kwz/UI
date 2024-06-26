@@ -1,13 +1,13 @@
 <template>
-  <span class="k-checkbox" :class="disabled ? 'disabled' : ''" @click="check">
-    <span class="k-checkbox-input" :class="modelValue ? 'checked' : ''">
+  <span class="burger-checkbox" :class="disabled ? 'disabled' : ''" @click="check">
+    <span class="burger-checkbox-input" :class="modelValue ? 'checked' : ''">
       <span
-        class="k-checkbox-inner"
+        class="burger-checkbox-inner"
         :class="modelValue ? 'checked' : ''"
       ></span>
       <input v-show="false" type="checkbox" />
     </span>
-    <span class="k-checkbox-text" :class="[modelValue ? 'checked' : '']">
+    <span class="burger-checkbox-text" :class="[modelValue ? 'checked' : '']">
       <slot></slot>
     </span>
   </span>

@@ -1,6 +1,6 @@
 <template>
-  <li class="k-sub-menu" @click="visible = !visible">
-    <span class="k-sub-menu-title">
+  <li class="burger-sub-menu" @click="visible = !visible">
+    <span class="burger-sub-menu-title">
       <slot name="title"></slot>
     </span>
     <img
@@ -14,7 +14,7 @@
   <ul
     v-show="visible"
     ref="list"
-    class="k-sub-menu-list"
+    class="burger-sub-menu-list"
     :class="visible ? 'show' : ''"
   >
     <slot></slot>

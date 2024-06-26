@@ -1,5 +1,5 @@
 <template>
-  <footer class="k-footer" :style="{ height: height + 'px' }">
+  <footer class="burger-footer" :style="{ height: height + 'px' }">
     <slot></slot>
   </footer>
 </template>

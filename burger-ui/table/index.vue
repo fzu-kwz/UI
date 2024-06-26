@@ -1,6 +1,6 @@
 <template>
   <div
-    class="k-table"
+    class="burger-table"
     :class="[
       border ? ' border' : '',
       stripe ? 'stripe' : '',

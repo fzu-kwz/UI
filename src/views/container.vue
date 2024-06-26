@@ -126,18 +126,18 @@ const usageAttrTableData = [
 </script>
 
 <style lang="less" scoped>
-.k-header,
-.k-footer {
+.burger-header,
+.burger-footer {
   background-color: #aaa;
   text-align: center;
   line-height: 48px;
 }
-.k-main {
+.burger-main {
   background-color: #eee;
   line-height: 100px;
   text-align: center;
 }
-.k-aside {
+.burger-aside {
   width: 100px;
   background-color: #ccc;
   line-height: 140px;

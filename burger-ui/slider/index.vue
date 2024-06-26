@@ -1,9 +1,9 @@
 <template>
-  <div class="k-slider">
+  <div class="burger-slider">
     <input
       v-model="modelValue"
       type="range"
-      class="k-slider-inner"
+      class="burger-slider-inner"
       :min="min"
       :max="max"
       :step="step"
@@ -16,9 +16,9 @@
           #eee ${ratio}%, #eee ${100 - ratio}%)`,
       }"
     />
-    <span class="k-slider-range min" v-if="showRange">{{ min + unit }}</span>
-    <span class="k-slider-range max" v-if="showRange">{{ max + unit }}</span>
-    <span class="k-slider-value">{{ modelValue + unit }}</span>
+    <span class="burger-slider-range min" v-if="showRange">{{ min + unit }}</span>
+    <span class="burger-slider-range max" v-if="showRange">{{ max + unit }}</span>
+    <span class="burger-slider-value">{{ modelValue + unit }}</span>
   </div>
 </template>
 

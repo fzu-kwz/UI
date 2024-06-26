@@ -1,5 +1,5 @@
 <template>
-  <header class="k-header" :style="{ height: height + 'px' }">
+  <header class="burger-header" :style="{ height: height + 'px' }">
     <slot></slot>
   </header>
 </template>

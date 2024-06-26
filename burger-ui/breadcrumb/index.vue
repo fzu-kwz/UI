@@ -1,14 +1,14 @@
 <template>
-  <div class="k-breadcrumb">
-    <span class="k-breadcrumb-item" v-for="(item, index) in list">
+  <div class="burger-breadcrumb">
+    <span class="burger-breadcrumb-item" v-for="(item, index) in list">
       <span
-        class="k-breadcrumb-name"
+        class="burger-breadcrumb-name"
         :class="item.route ? 'link' : ''"
         @click="router.push(item.route as string)"
       >
         {{ item.name }}
       </span>
-      <span class="k-breadcrumb-separator" v-if="index !== list.length - 1">
+      <span class="burger-breadcrumb-separator" v-if="index !== list.length - 1">
         {{ separator }}
       </span>
     </span>

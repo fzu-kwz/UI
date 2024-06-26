@@ -1,5 +1,5 @@
 <template>
-  <main class="k-main">
+  <main class="burger-main">
     <slot></slot>
   </main>
 </template>

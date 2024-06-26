@@ -1,14 +1,14 @@
 <template>
-  <span class="k-popup" ref="popup">
+  <span class="burger-popup" ref="popup">
     <slot name="refer"></slot>
     <span
-      class="k-popup-card"
+      class="burger-popup-card"
       :class="[hover ? position : '']"
       ref="card"
       :style="{ width: width + 'px' }"
     >
       <span
-        class="k-popup-card-content"
+        class="burger-popup-card-content"
         :class="[hover ? 'shadow' : '', theme]"
       >
         <slot>{{ content }}</slot>

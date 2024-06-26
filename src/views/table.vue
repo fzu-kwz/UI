@@ -153,12 +153,12 @@ let tableData: any = [];
 let slotTableData: any = [];
 for (let i = 0; i < 5; i++) {
   tableData.push({
-    name: "K",
+    name: "Burger",
     birth: "2000.02",
     address: "Fujian, China",
   });
   slotTableData.push({
-    name: "K-" + (i + 1),
+    name: "burger-" + (i + 1),
     birth: "2000.0" + (i + 1),
     address: "Fujian, China",
     hobbies: "Typing code😂",

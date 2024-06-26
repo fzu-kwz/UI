@@ -1,10 +1,10 @@
 <template>
-  <span class="k-radio" :class="disabled ? 'disabled' : ''" @click="check">
-    <span class="k-radio-input" :class="checked ? 'checked' : ''">
-      <span class="k-radio-inner" :class="checked ? 'checked' : ''"></span>
+  <span class="burger-radio" :class="disabled ? 'disabled' : ''" @click="check">
+    <span class="burger-radio-input" :class="checked ? 'checked' : ''">
+      <span class="burger-radio-inner" :class="checked ? 'checked' : ''"></span>
       <input v-show="false" type="radio" :value="value" />
     </span>
-    <span class="k-radio-text" :class="[checked ? 'checked' : '']">
+    <span class="burger-radio-text" :class="[checked ? 'checked' : '']">
       <slot></slot>
     </span>
   </span>

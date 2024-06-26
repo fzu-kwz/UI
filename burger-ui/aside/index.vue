@@ -1,5 +1,5 @@
 <template>
-  <aside class="k-aside" :style="{ width: width ? width + 'px' : '' }">
+  <aside class="burger-aside" :style="{ width: width ? width + 'px' : '' }">
     <slot></slot>
   </aside>
 </template>

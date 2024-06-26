@@ -1,5 +1,5 @@
 <template>
-  <ul class="k-menu">
+  <ul class="burger-menu">
     <slot></slot>
   </ul>
 </template>

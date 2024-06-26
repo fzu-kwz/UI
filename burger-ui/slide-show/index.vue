@@ -1,6 +1,6 @@
 <template>
   <div
-    class="k-slide-show"
+    class="burger-slide-show"
     :class="arrow ? 'arrow-' + arrow : ''"
     :style="{ width: width + 'px', height: height + 'px' }"
   >
@@ -12,7 +12,7 @@
     </span>
     <div
       v-for="item in slides"
-      class="k-slide-show-img"
+      class="burger-slide-show-img"
       :key="item.src"
       ref="slideImg"
       :style="{ width: width + 'px', height: height + 'px' }"

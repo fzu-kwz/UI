@@ -2,27 +2,27 @@ export function createTip(tipOption: TipOption) {
   const tip = document.createElement("div");
   switch (tipOption.position) {
     case "top":
-      tip.className = "k-tip top";
+      tip.className = "burger-tip top";
       tip.style.animationName = "top";
       break;
     case "bottom":
-      tip.className = "k-tip bottom";
+      tip.className = "burger-tip bottom";
       tip.style.animationName = "bottom";
       break;
     case "left":
-      tip.className = "k-tip left";
+      tip.className = "burger-tip left";
       tip.style.animationName = "left";
       break;
     case "right":
-      tip.className = "k-tip right";
+      tip.className = "burger-tip right";
       tip.style.animationName = "right";
       break;
     case "center":
-      tip.className = "k-tip center";
+      tip.className = "burger-tip center";
       tip.style.animationName = "center";
       break;
     default:
-      tip.className = "k-tip top";
+      tip.className = "burger-tip top";
       tip.style.animationName = "top";
       break;
   }
