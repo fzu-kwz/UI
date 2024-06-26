@@ -1,13 +1,13 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">Counter 计数器</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <Counter v-model="counter" :min="0" :max="10"></Counter>
     </FormItem>
-    <FormItem label-text="禁用状态">
+    <FormItem label="禁用状态">
       <Counter v-model="counter" :min="0" :max="10" disabled></Counter>
     </FormItem>
-    <FormItem label-text="不同大小">
+    <FormItem label="不同大小">
       <Counter
         v-model="counter"
         :min="0"
@@ -17,13 +17,13 @@
         style="display: block; margin-bottom: 5px;"
       ></Counter>
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="Events">
+    <FormItem label="Events">
       <Table
         :columns="usageEventColumns"
         :table-data="usageEventTableData"

@@ -1,7 +1,7 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">Card 卡片</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <Card>
         <template #header>
           <span>标题</span>
@@ -11,7 +11,7 @@
         </div>
       </Card>
     </FormItem>
-    <FormItem label-text="插入图片">
+    <FormItem label="插入图片">
       <Card style="padding: 0; width: 200px;">
         <img
           src="https://img1.baidu.com/it/u=4185218222,1197108102&fm=253&fmt=auto?w=200&h=200"
@@ -27,20 +27,20 @@
         </div>
       </Card>
     </FormItem>
-    <FormItem label-text="卡片阴影">
+    <FormItem label="卡片阴影">
       <div style="display: flex; flex-wrap: wrap;">
         <Card class="card" v-for="item in cards" :key="item" :shadow="item">
           <div>{{ item }}</div>
         </Card>
       </div>
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="Slot">
+    <FormItem label="Slot">
       <Table
         :columns="usageSlotColumns"
         :table-data="usageSlotTableData"

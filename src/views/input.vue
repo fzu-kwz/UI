@@ -1,19 +1,19 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">Input 输入框</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <Input v-model="value" placeholder="请输入" />
     </FormItem>
-    <FormItem label-text="禁用状态">
+    <FormItem label="禁用状态">
       <Input v-model="value" disabled />
     </FormItem>
-    <FormItem label-text="显示清空">
+    <FormItem label="显示清空">
       <Input v-model="value" allow-clear />
     </FormItem>
-    <FormItem label-text="显示密码">
+    <FormItem label="显示密码">
       <Input v-model="value" type="password" allow-view />
     </FormItem>
-    <FormItem label-text="不同大小">
+    <FormItem label="不同大小">
       <Input
         v-model="value"
         v-for="item in size"
@@ -21,7 +21,7 @@
         style="margin-bottom: 5px;"
       />
     </FormItem>
-    <FormItem label-text="文本域">
+    <FormItem label="文本域">
       <Input
         v-model="value"
         type="textarea"
@@ -30,19 +30,19 @@
         placeholder="请输入"
       />
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="Events">
+    <FormItem label="Events">
       <Table
         :columns="usageEventColumns"
         :table-data="usageEventTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="Slot">
+    <FormItem label="Slot">
       <Table
         :columns="usageSlotColumns"
         :table-data="usageSlotTableData"

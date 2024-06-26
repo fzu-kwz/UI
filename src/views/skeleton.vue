@@ -1,10 +1,10 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">Skeleton 骨架屏</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <Skeleton></Skeleton>
     </FormItem>
-    <FormItem label-text="防止抖动">
+    <FormItem label="防止抖动">
       <Button
         type="primary"
         size="small"
@@ -17,13 +17,13 @@
         <img src="../../burger-ui/assets/img/error.png" />
       </Skeleton>
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="Slot">
+    <FormItem label="Slot">
       <Table
         :columns="usageSlotColumns"
         :table-data="usageSlotTableData"

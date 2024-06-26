@@ -1,12 +1,12 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0">Form 表单</h3>
-    <FormItem label-text="基础用法">
-      <Form>
-        <FormItem label-text="账号：">
+    <FormItem label="基础用法">
+      <Form labelWidth="100" showSuffix>
+        <FormItem label="表单项一">
           <Input></Input>
         </FormItem>
-        <FormItem label-text="密码：">
+        <FormItem label="表单项二">
           <Input></Input>
         </FormItem>
         <FormItem>
@@ -14,16 +14,22 @@
         </FormItem>
       </Form>
     </FormItem>
-    <FormItem label-text="Form Attributes">
+    <FormItem label="Form Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="FormItem Attributes">
+    <FormItem label="FormItem Attributes">
       <Table
         :columns="usageItemAttrColumns"
         :table-data="usageItemAttrTableData"
+      ></Table>
+    </FormItem>
+    <FormItem label="FormItem Slot">
+      <Table
+        :columns="usageItemSlotColumns"
+        :table-data="usageItemSlotTableData"
       ></Table>
     </FormItem>
   </Form>
@@ -70,6 +76,13 @@ const usageAttrTableData = [
     optional: '-',
     default: 'false',
   },
+  {
+    parameter: 'labelWidth',
+    note: '标签宽度(单位px)',
+    type: 'number',
+    optional: '-',
+    default: '60',
+  },
 ];
 const usageItemAttrColumns: Array<Column> = [
   {
@@ -95,18 +108,32 @@ const usageItemAttrColumns: Array<Column> = [
 ];
 const usageItemAttrTableData = [
   {
-    parameter: 'labelText',
+    parameter: 'label',
     note: '标签文本',
     type: 'string',
     optional: '-',
     default: '-',
   },
+];
+const usageItemSlotColumns: Array<Column> = [
   {
-    parameter: 'labelWidth',
-    note: '标签宽度(单位px)',
-    type: 'number',
-    optional: '-',
-    default: '60',
+    prop: 'name',
+    label: '名称',
+  },
+  {
+    prop: 'note',
+    label: '备注',
+  },
+  {
+    prop: 'data',
+    label: '数据',
+  },
+];
+const usageItemSlotTableData = [
+  {
+    name: 'label',
+    note: '标签内容',
+    data: '-',
   },
 ];
 </script>

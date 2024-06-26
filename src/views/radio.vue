@@ -1,7 +1,7 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">Radio 单选框</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <Radio
         v-for="item in radios"
         :key="item"
@@ -12,7 +12,7 @@
         {{ item }}
       </Radio>
     </FormItem>
-    <FormItem label-text="禁用状态">
+    <FormItem label="禁用状态">
       <Radio
         v-for="item in radios"
         :key="item"
@@ -24,7 +24,7 @@
         {{ item }}
       </Radio>
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"

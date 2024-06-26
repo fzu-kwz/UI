@@ -1,19 +1,19 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">Pagination 分页</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <Pagination v-model:current="current" jumper></Pagination>
     </FormItem>
-    <FormItem label-text="带背景色">
+    <FormItem label="带背景色">
       <Pagination v-model:current="current" jumper background></Pagination>
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="Events">
+    <FormItem label="Events">
       <Table
         :columns="usageEventColumns"
         :table-data="usageEventTableData"

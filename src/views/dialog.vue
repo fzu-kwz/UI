@@ -1,7 +1,7 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">Dialog 对话框</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <Button @click="visible1 = true">打开Dialog</Button>
       <Dialog v-model:visible="visible1">
         <span>基础用法</span>
@@ -13,7 +13,7 @@
         </template>
       </Dialog>
     </FormItem>
-    <FormItem label-text="显示标题">
+    <FormItem label="显示标题">
       <Button @click="visible2 = true">打开Dialog</Button>
       <Dialog v-model:visible="visible2" title="标题">
         <span>显示标题</span>
@@ -25,7 +25,7 @@
         </template>
       </Dialog>
     </FormItem>
-    <FormItem label-text="顶部距离">
+    <FormItem label="顶部距离">
       <Button @click="visible3 = true">打开Dialog</Button>
       <Dialog v-model:visible="visible3" title="标题" :top="200">
         <span>顶部距离：200px</span>
@@ -37,19 +37,19 @@
         </template>
       </Dialog>
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="Events">
+    <FormItem label="Events">
       <Table
         :columns="usageEventColumns"
         :table-data="usageEventTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="Slot">
+    <FormItem label="Slot">
       <Table
         :columns="usageSlotColumns"
         :table-data="usageSlotTableData"

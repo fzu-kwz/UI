@@ -1,38 +1,38 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">Button 按钮</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <Button v-for="item in type" :type="item">
         {{ item }}
       </Button>
     </FormItem>
-    <FormItem label-text="圆角按钮">
+    <FormItem label="圆角按钮">
       <Button v-for="item in type" :type="item" round>
         {{ item }}
       </Button>
     </FormItem>
-    <FormItem label-text="圆形按钮">
+    <FormItem label="圆形按钮">
       <Button v-for="item in type" :type="item" circle>
         <img src="/favicon.ico" alt="add" width="14" height="14" />
       </Button>
     </FormItem>
-    <FormItem label-text="禁用状态">
+    <FormItem label="禁用状态">
       <Button v-for="item in type" :type="item" disabled>
         {{ item }}
       </Button>
     </FormItem>
-    <FormItem label-text="不同大小">
+    <FormItem label="不同大小">
       <Button v-for="item in size" :size="item">
         {{ item }}
       </Button>
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="Slot">
+    <FormItem label="Slot">
       <Table
         :columns="usageSlotColumns"
         :table-data="usageSlotTableData"

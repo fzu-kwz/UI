@@ -1,23 +1,19 @@
 <template>
-  <div
-    ref="formItem"
-    class="burger-form-item"
-    :class="[alignTop ? 'align-top' : '']"
-  >
+  <div class="burger-form-item" :class="[labelTop ? 'align-top' : '']">
     <span
       class="burger-form-item-label"
       :style="{
-        width: alignTop ? '100%' : processedLabelWidth,
-        display: alignTop ? 'block' : '',
-        paddingBottom: alignTop ? '5px' : '',
+        width: labelTop ? '100%' : processedLabelWidth,
+        display: labelTop ? 'block' : '',
+        paddingBottom: labelTop ? '5px' : '',
       }"
     >
-      {{ labelText }}
+      <slot name="label">{{ label }}{{ suffix() }}</slot>
     </span>
     <div
       class="burger-form-item-content"
       :style="{
-        width: alignTop ? '100%' : `calc(100% - ${processedLabelWidth})`,
+        width: labelTop ? '100%' : `calc(100% - ${processedLabelWidth})`,
       }"
     >
       <slot></slot>
@@ -32,26 +28,62 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, inject, ref } from 'vue';
 import { processedCssPx } from '$/utils';
+import {
+  computed,
+  getCurrentInstance,
+  inject,
+  onMounted,
+  onUpdated,
+  useSlots,
+} from 'vue';
+import { FormProps, LabelPosition } from '../types';
 
 const props = defineProps({
-  labelText: {
+  label: {
     type: String,
     default: undefined,
   },
 });
 
-const formItem = ref<HTMLElement>();
+const slots = useSlots();
+const hasLabel = slots?.label && slots?.label().length !== 0;
 
-const alignTop = inject('alignTop');
+// 注入formProps
+const formProps = inject<FormProps>('formProps');
 
-const labelWidth = inject<string | number>('labelWidth');
-console.log(labelWidth);
-
+// 计算label宽度
 const processedLabelWidth = computed(() => {
-  return processedCssPx(labelWidth!);
+  return processedCssPx(formProps?.labelWidth!);
 });
+
+// 判断label是否是顶部对齐
+const labelTop = computed(
+  () => formProps?.alignTop || formProps?.labelPosition === LabelPosition.TOP
+);
+
+// 获取label后缀
+const labelSuffix = computed(() => formProps?.labelSuffix);
+
+// 获取是否显示后缀
+const showSuffix = computed(() => formProps?.showSuffix);
+
+const suffix = () => {
+  if (!showSuffix.value) return '';
+  if (hasLabel) {
+    return labelSuffix.value;
+  } else {
+    if (
+      props.label &&
+      props.label.length !== 0 &&
+      !props.label?.endsWith(labelSuffix.value!)
+    ) {
+      return labelSuffix.value;
+    } else {
+      return '';
+    }
+  }
+};
 </script>
 
 <style lang="less" scoped>

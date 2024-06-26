@@ -1,7 +1,7 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">FoldPanel 折叠面板</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <FoldPanel title="你瞒我瞒">
         <div>无言的亲亲亲 侵袭我心</div>
         <div>仍宁愿亲口讲你累得很</div>
@@ -20,13 +20,13 @@
         <div>装着对未来的梦想</div>
       </FoldPanel>
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="Slot">
+    <FormItem label="Slot">
       <Table
         :columns="usageSlotColumns"
         :table-data="usageSlotTableData"

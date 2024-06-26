@@ -1,7 +1,7 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">BackTop 回到顶部</h3>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"

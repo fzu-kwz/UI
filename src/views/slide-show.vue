@@ -4,20 +4,20 @@
     <p class="usage">
       ！建议不少于3张图片时候使用，目前左切换箭头还有bug，不做使用
     </p>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <SlideShow
         :slides="slides"
         :width="300"
         style="margin: 0 auto;"
       ></SlideShow>
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="Slide 幻灯片数据格式">
+    <FormItem label="Slide 幻灯片数据格式">
       <Table
         :columns="usageTypeColumns"
         :table-data="usageTypeTableData"

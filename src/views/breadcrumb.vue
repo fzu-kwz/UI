@@ -1,19 +1,19 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">Breadcrumb 面包屑</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <Breadcrumb :list="list"></Breadcrumb>
     </FormItem>
-    <FormItem label-text="自定义分隔符">
+    <FormItem label="自定义分隔符">
       <Breadcrumb :list="list" separator=">"></Breadcrumb>
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="BreadcrumbList 面包屑数据格式">
+    <FormItem label="BreadcrumbList 面包屑数据格式">
       <Table
         :columns="usageTypeColumns"
         :table-data="usageTypeTableData"

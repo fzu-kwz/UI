@@ -1,13 +1,13 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">Checkbox 多选框</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <Chechbox v-model="checked">多选框</Chechbox>
     </FormItem>
-    <FormItem label-text="禁用状态">
+    <FormItem label="禁用状态">
       <Chechbox v-model="checked" disabled>禁用状态</Chechbox>
     </FormItem>
-    <FormItem label-text="多选框组">
+    <FormItem label="多选框组">
       <Chechbox
         v-for="item in checkboxs"
         :key="item.label"
@@ -17,13 +17,13 @@
         {{ item.label }}
       </Chechbox>
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="Events">
+    <FormItem label="Events">
       <Table
         :columns="usageEventColumns"
         :table-data="usageEventTableData"

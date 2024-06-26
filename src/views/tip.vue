@@ -2,7 +2,7 @@
   <Form align-top>
     <h3 style="margin-top: 0;">Tip 提示</h3>
     <p class="usage">！这是一个函数，需要传入一个配置对象</p>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <Button
         v-for="item in tips"
         :key="item.position"
@@ -12,7 +12,7 @@
         {{ item.position }}
       </Button>
     </FormItem>
-    <FormItem label-text="两种主题">
+    <FormItem label="两种主题">
       <Button
         v-for="item in theme_tips"
         :key="item.theme"
@@ -22,7 +22,7 @@
         {{ item.theme }}
       </Button>
     </FormItem>
-    <FormItem label-text="TipOption 提示数据格式">
+    <FormItem label="TipOption 提示数据格式">
       <Table
         :columns="usageTypeColumns"
         :table-data="usageTypeTableData"

@@ -1,16 +1,16 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">Select 选择器</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <Select v-model="select" :options="options"></Select>
     </FormItem>
-    <FormItem label-text="禁用状态">
+    <FormItem label="禁用状态">
       <Select v-model="select" :options="options" disabled></Select>
     </FormItem>
-    <FormItem label-text="显示清空">
+    <FormItem label="显示清空">
       <Select v-model="select" :options="options" allow-clear></Select>
     </FormItem>
-    <FormItem label-text="不同大小">
+    <FormItem label="不同大小">
       <Select
         v-model="select"
         v-for="item in size"
@@ -20,13 +20,13 @@
       >
       </Select>
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="SelectOption 选择器选项数据格式">
+    <FormItem label="SelectOption 选择器选项数据格式">
       <Table
         :columns="usageTypeColumns"
         :table-data="usageTypeTableData"

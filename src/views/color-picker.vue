@@ -1,10 +1,10 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">ColorPicker 颜色选择器</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <ColorPicker v-model="color"></ColorPicker>
     </FormItem>
-    <FormItem label-text="不同大小">
+    <FormItem label="不同大小">
       <ColorPicker
         v-for="item in size"
         :size="item"
@@ -12,7 +12,7 @@
         style="margin-right: 10px;"
       ></ColorPicker>
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"

@@ -1,7 +1,7 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">Popup 弹窗(Debugging)</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <div
         v-for="item in popups"
         :key="item.position"
@@ -14,7 +14,7 @@
         </Popup>
       </div>
     </FormItem>
-    <FormItem label-text="两种主题">
+    <FormItem label="两种主题">
       <div style="display: flex; justify-content: center;">
         <Popup position="top" content="Popup">
           <template #refer>
@@ -28,7 +28,7 @@
         </Popup>
       </div>
     </FormItem>
-    <FormItem label-text="插槽传入DOM">
+    <FormItem label="插槽传入DOM">
       <Popup position="right">
         <template #refer>
           <Button>插槽</Button>
@@ -36,13 +36,13 @@
         <Button></Button>
       </Popup>
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="Slot">
+    <FormItem label="Slot">
       <Table
         :columns="usageSlotColumns"
         :table-data="usageSlotTableData"

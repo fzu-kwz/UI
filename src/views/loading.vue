@@ -1,12 +1,12 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">Loading 加载中</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <Button @click="loading = !loading">切换loading</Button>
       <div ref="loadingBox" class="loading-box">loading...</div>
       <Loading :loading="loading" :target="loadingBox"></Loading>
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"

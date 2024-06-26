@@ -1,17 +1,17 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">Alert 警告</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <Alert v-for="item in type" :type="item" style="margin-bottom: 10px;">
         {{ item }}
       </Alert>
     </FormItem>
-    <FormItem label-text="文本居中">
+    <FormItem label="文本居中">
       <Alert center>
         文本居中
       </Alert>
     </FormItem>
-    <FormItem label-text="显示关闭按钮/自定义文本">
+    <FormItem label="显示关闭按钮/自定义文本">
       <Alert
         type="danger"
         show-close
@@ -24,19 +24,19 @@
         自定义文本
       </Alert>
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="Events">
+    <FormItem label="Events">
       <Table
         :columns="usageEventColumns"
         :table-data="usageEventTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="Slot">
+    <FormItem label="Slot">
       <Table
         :columns="usageSlotColumns"
         :table-data="usageSlotTableData"

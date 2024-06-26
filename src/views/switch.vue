@@ -1,16 +1,16 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">Switch 开关</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <Switch v-model="value"></Switch>
     </FormItem>
-    <FormItem label-text="自定义样式">
+    <FormItem label="自定义样式">
       <Switch v-model="value" open-color="blue" close-color="red"></Switch>
     </FormItem>
-    <FormItem label-text="文字描述">
+    <FormItem label="文字描述">
       <Switch v-model="value" close-text="关闭" open-text="打开"></Switch>
     </FormItem>
-    <FormItem label-text="禁用状态">
+    <FormItem label="禁用状态">
       <Switch
         v-model="value"
         close-text="关闭"
@@ -18,7 +18,7 @@
         disabled
       ></Switch>
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"

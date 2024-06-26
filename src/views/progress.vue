@@ -1,14 +1,14 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">Progress 进度条</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <Progress
         v-for="item in type"
         :type="item"
         :value="customValue"
       ></Progress>
     </FormItem>
-    <FormItem label-text="进度条高度/百分比内显">
+    <FormItem label="进度条高度/百分比内显">
       <Progress
         v-for="item in type"
         :type="item"
@@ -18,7 +18,7 @@
         style="margin-bottom: 5px;"
       ></Progress>
     </FormItem>
-    <FormItem label-text="自定义颜色">
+    <FormItem label="自定义颜色">
       <Progress color="blue" :value="customValue"></Progress>
       <Progress :color="customColorMethod" :value="customValue"></Progress>
       <Button
@@ -36,7 +36,7 @@
         >+</Button
       >
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"

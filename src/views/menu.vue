@@ -1,7 +1,7 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">Menu 菜单栏</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <Menu>
         <MenuItem>
           <template #title>自由飞翔</template>
@@ -23,19 +23,19 @@
         </SubMenu>
       </Menu>
     </FormItem>
-    <FormItem label-text="MenuItem Attributes">
+    <FormItem label="MenuItem Attributes">
       <Table
         :columns="usageMenuItemAttrColumns"
         :table-data="usageMenuItemAttrTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="MenuItem Slot">
+    <FormItem label="MenuItem Slot">
       <Table
         :columns="usageMenuItemSlotColumns"
         :table-data="usageMenuItemSlotTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="SubMenu Slot">
+    <FormItem label="SubMenu Slot">
       <Table
         :columns="usageSubMenuSlotColumns"
         :table-data="usageSubMenuSlotTableData"

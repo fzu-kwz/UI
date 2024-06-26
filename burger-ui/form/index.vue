@@ -11,7 +11,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { provide } from 'vue';
+import { PropType, provide } from 'vue';
+import { LabelPosition } from './types';
 
 const props = defineProps({
   border: {
@@ -22,14 +23,25 @@ const props = defineProps({
     type: Boolean,
     default: undefined,
   },
+  labelPosition: {
+    type: String as PropType<LabelPosition>,
+    default: LabelPosition.LEFT,
+  },
   labelWidth: {
     type: [String, Number],
     default: '60px',
   },
+  labelSuffix: {
+    type: String,
+    default: ' : ',
+  },
+  showSuffix: {
+    type: Boolean,
+    default: false,
+  },
 });
 
-provide('alignTop', props.alignTop);
-provide('labelWidth', props.labelWidth);
+provide('formProps', props);
 </script>
 
 <style lang="less" scoped>

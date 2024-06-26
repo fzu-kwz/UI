@@ -1,30 +1,30 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">Avatar 头像</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <Avatar></Avatar>
     </FormItem>
-    <FormItem label-text="加载失败">
+    <FormItem label="加载失败">
       <Avatar
         src="https://img.baidu.com/it/u=3263383870,1485448309&fm=253&fmt=auto&app=138&f=JPEG?w=200&h=200"
       >
       </Avatar>
     </FormItem>
-    <FormItem label-text="展示类型">
+    <FormItem label="展示类型">
       <Avatar
         src="https://img0.baidu.com/it/u=3263383870,1485448309&fm=253&fmt=auto&app=138&f=JPEG?w=200&h=200"
       ></Avatar>
       <Avatar>123</Avatar>
     </FormItem>
-    <FormItem label-text="不同形状">
+    <FormItem label="不同形状">
       <Avatar shape="circle"></Avatar>
       <Avatar shape="square"></Avatar>
     </FormItem>
-    <FormItem label-text="不同大小">
+    <FormItem label="不同大小">
       <Avatar v-for="item in size" :size="item"></Avatar><br />
       <Avatar v-for="item in size" shape="square" :size="item"></Avatar>
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"

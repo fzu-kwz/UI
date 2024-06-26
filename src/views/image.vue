@@ -1,10 +1,10 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">Image 图片</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <Image src="/favicon.ico" style="display: block; margin: 0 auto;"></Image>
     </FormItem>
-    <FormItem label-text="懒加载">
+    <FormItem label="懒加载">
       <Image
         lazy
         :target="target"
@@ -16,7 +16,7 @@
         style="display: block; margin: 0 auto;"
       ></Image>
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"

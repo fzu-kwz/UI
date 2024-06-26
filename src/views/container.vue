@@ -4,26 +4,26 @@
     <p class="usage">
       Container默认水平排列，当包含Header或者Footer时，垂直排列
     </p>
-    <FormItem label-text="页眉+主体">
+    <FormItem label="页眉+主体">
       <Container>
         <Header>Header</Header>
         <Main>Main</Main>
       </Container>
     </FormItem>
-    <FormItem label-text="页眉+主体+页脚">
+    <FormItem label="页眉+主体+页脚">
       <Container>
         <Header>Header</Header>
         <Main>Main</Main>
         <Footer>Footer</Footer>
       </Container>
     </FormItem>
-    <FormItem label-text="侧边栏+主体">
+    <FormItem label="侧边栏+主体">
       <Container>
         <Aside>Aside</Aside>
         <Main>Main</Main>
       </Container>
     </FormItem>
-    <FormItem label-text="页眉+(侧边栏+主体)">
+    <FormItem label="页眉+(侧边栏+主体)">
       <Container>
         <Header>Header</Header>
         <Container>
@@ -32,7 +32,7 @@
         </Container>
       </Container>
     </FormItem>
-    <FormItem label-text="页眉+(侧边栏+(主体+页脚))">
+    <FormItem label="页眉+(侧边栏+(主体+页脚))">
       <Container>
         <Header>Header</Header>
         <Container>
@@ -44,7 +44,7 @@
         </Container>
       </Container>
     </FormItem>
-    <FormItem label-text="侧边栏+(页眉+主体)">
+    <FormItem label="侧边栏+(页眉+主体)">
       <Container>
         <Aside>Aside</Aside>
         <Container>
@@ -53,7 +53,7 @@
         </Container>
       </Container>
     </FormItem>
-    <FormItem label-text="侧边栏+(页眉+主体+页脚)">
+    <FormItem label="侧边栏+(页眉+主体+页脚)">
       <Container>
         <Aside>Aside</Aside>
         <Container>
@@ -63,7 +63,7 @@
         </Container>
       </Container>
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"

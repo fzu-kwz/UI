@@ -1,13 +1,13 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">Slider 滑块</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <Slider v-model="value"></Slider>
     </FormItem>
-    <FormItem label-text="禁用状态">
+    <FormItem label="禁用状态">
       <Slider v-model="value" disabled></Slider>
     </FormItem>
-    <FormItem label-text="单位/显示范围">
+    <FormItem label="单位/显示范围">
       <Slider
         v-model="temperature"
         :min="30"
@@ -17,13 +17,13 @@
       ></Slider>
       <Slider v-model="percent" unit="%" show-range></Slider>
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="Events">
+    <FormItem label="Events">
       <Table
         :columns="usageEventColumns"
         :table-data="usageEventTableData"

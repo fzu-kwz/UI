@@ -1,10 +1,10 @@
 <template>
   <Form align-top>
     <h3 style="margin-top: 0;">Tag 标签</h3>
-    <FormItem label-text="基础用法">
+    <FormItem label="基础用法">
       <Tag v-for="item in type" :type="item"></Tag>
     </FormItem>
-    <FormItem label-text="显示关闭按钮">
+    <FormItem label="显示关闭按钮">
       <Tag
         v-for="item in type"
         :type="item"
@@ -13,22 +13,22 @@
         @click="click"
       ></Tag>
     </FormItem>
-    <FormItem label-text="不同大小">
+    <FormItem label="不同大小">
       <Tag v-for="item in size" :size="item"></Tag>
     </FormItem>
-    <FormItem label-text="Attributes">
+    <FormItem label="Attributes">
       <Table
         :columns="usageAttrColumns"
         :table-data="usageAttrTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="Events">
+    <FormItem label="Events">
       <Table
         :columns="usageEventColumns"
         :table-data="usageEventTableData"
       ></Table>
     </FormItem>
-    <FormItem label-text="Slot">
+    <FormItem label="Slot">
       <Table
         :columns="usageSlotColumns"
         :table-data="usageSlotTableData"
