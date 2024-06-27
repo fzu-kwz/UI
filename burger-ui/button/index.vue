@@ -10,6 +10,7 @@
     ]"
     type="button"
     :disabled="disabled"
+    @click="emits('click')"
   >
     <slot>默认按钮</slot>
   </button>
@@ -17,7 +18,7 @@
 
 <script lang="ts">
 export default {
-  name: "Button",
+  name: 'Button',
 };
 </script>
 
@@ -44,6 +45,8 @@ defineProps({
     default: undefined,
   },
 });
+
+const emits = defineEmits(['click']);
 </script>
 
 <style lang="less" scoped>

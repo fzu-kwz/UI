@@ -2,7 +2,7 @@
   <Form align-top>
     <h3 style="margin-top: 0">Form 表单</h3>
     <FormItem label="基础用法">
-      <Form labelWidth="100" showSuffix>
+      <Form labelWidth="100" border>
         <FormItem label="表单项一">
           <Input></Input>
         </FormItem>

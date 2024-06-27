@@ -12,7 +12,11 @@ export const processedCssPx = (param: string | number) => {
     if (param.endsWith('px')) {
       return param;
     } else {
-      return `${parseInt(param)}px`;
+      const parsedParam = parseInt(param, 10);
+      if (isNaN(parsedParam)) {
+        throw new Error(`Invalid CSS pixel value: ${param}`);
+      }
+      return `${parsedParam}px`;
     }
   }
 };

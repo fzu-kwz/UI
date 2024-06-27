@@ -29,18 +29,15 @@ export default {
 
 <script setup lang="ts">
 import { processedCssPx } from '$/utils';
-import {
-  computed,
-  getCurrentInstance,
-  inject,
-  onMounted,
-  onUpdated,
-  useSlots,
-} from 'vue';
+import { computed, inject, useSlots } from 'vue';
 import { FormProps, LabelPosition } from '../types';
 
 const props = defineProps({
   label: {
+    type: String,
+    default: undefined,
+  },
+  prop: {
     type: String,
     default: undefined,
   },
@@ -68,6 +65,7 @@ const labelSuffix = computed(() => formProps?.labelSuffix);
 // 获取是否显示后缀
 const showSuffix = computed(() => formProps?.showSuffix);
 
+// 获取后缀
 const suffix = () => {
   if (!showSuffix.value) return '';
   if (hasLabel) {
