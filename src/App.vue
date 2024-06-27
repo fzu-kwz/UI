@@ -2,15 +2,15 @@
  * @Description: 
  * @Author: kangweize kangweize@cnpc.com.cn
  * @Date: 2024-06-25 14:35:53
- * @LastEditors: kangweize kangweize@cnpc.com.cn
- * @LastEditTime: 2024-06-25 15:06:35
+ * @LastEditors: kangweize 2550121932@qq.com
+ * @LastEditTime: 2024-06-27 10:41:16
 -->
 <template>
   <Container class="burger-container">
     <Aside class="aside-fold">
       <Menu>
         <MenuItem v-for="item in menu" :route="item.route">
-          <template #title>{{ item.title }}</template>
+          <template #label>{{ item.title }}</template>
         </MenuItem>
       </Menu>
     </Aside>
@@ -29,7 +29,7 @@
               :route="item.route"
               @click="visible = false"
             >
-              <template #title>{{ item.title }}</template>
+              <template #label>{{ item.title }}</template>
             </MenuItem>
           </Menu>
         </Drawer>

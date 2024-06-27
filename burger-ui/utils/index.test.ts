@@ -69,3 +69,87 @@ describe('processedCssPx', () => {
     expect(() => cssUtils.processedCssPx('10px5')).toThrowError(/Invalid CSS pixel value: 10px5/);
   });
 });
+
+npm install --save-dev jest
+
+```
+
+然后，创建一个测试文件（例如`createDebounce.test.js`）并添加以下测试代码：
+
+```javascript
+
+jest.mock('timers', () => ({
+  setTimeout: jest.fn((callback, delay) => {
+    // In a real test environment, you would not mock setTimeout to return a fake ID,
+    // but for the purpose of this example, we'll just return a number.
+    const fakeId = jest.fn(() => {}); // The ID would normally be a real timer ID
+    fakeId.mockImplementationOnce(callback); // Call the callback immediately on the first call
+    return fakeId as any; // Cast to any to avoid type errors
+  }),
+  clearTimeout: jest.fn(),
+}));
+
+createDebounce = (fn, delay = 300) => {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delay);
+  };
+}
+
+describe('createDebounce', () => {
+  let debouncedFn;
+
+  beforeEach(() => {
+    // Reset mocks before each test
+    mockFunction.mockClear();
+    jest.clearAllMocks();
+    debouncedFn = createDebounce(mockFunction);
+  });
+
+  it('should call the function after the specified delay', () => {
+    debouncedFn('arg1', 'arg2');
+
+    // Since we mocked setTimeout to call the callback immediately,
+    // the function should have been called.
+    expect(mockFunction).toHaveBeenCalledWith('arg1', 'arg2');
+    expect(setTimeout).toHaveBeenCalledTimes(1); // Ensure setTimeout was called
+    expect(clearTimeout).not.toHaveBeenCalled(); // No timer to clear on first call
+  });
+
+  it('should clear the timer and not call the function when called again before the delay', () => {
+    debouncedFn('arg1', 'arg2'); // This will call mockFunction immediately due to mock
+    debouncedFn('arg3', 'arg4'); // This should clear the timer but not call mockFunction
+
+    expect(mockFunction).toHaveBeenCalledTimes(1); // Should only have been called once
+    expect(mockFunction).toHaveBeenCalledWith('arg1', 'arg2'); // With the first args
+    expect(clearTimeout).toHaveBeenCalled(); // Ensure clearTimeout was called
+    expect(setTimeout).toHaveBeenCalledTimes(2); // Two setTimeout calls (one was cleared)
+  });
+
+  it('should call the function with the latest arguments after the delay', () => {
+    debouncedFn('arg1', 'arg2'); // Call with first args
+    jest.runAllTimers(); // "Fast forward" the timers
+
+    debouncedFn('arg3', 'arg4'); // Call with second args before delay expires
+    jest.runAllTimers(); // Fast forward again to simulate delay expiration
+
+    // Since the second call cleared the first timer, only the second args should be used
+    expect(mockFunction).toHaveBeenCalledTimes(2);
+    expect(mockFunction).toHaveBeenNthCalledWith(1, 'arg1', 'arg2');
+    expect(mockFunction).toHaveBeenNthCalledWith(2, 'arg3', 'arg4');
+  });
+
+  it('should use the default delay if none is provided', () => {
+    const debouncedWithDefaultDelay = createDebounce(mockFunction);
+    debouncedWithDefaultDelay('arg');
+    expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 300); // Default delay
+  });
+
+  it('should use the provided delay', () => {
+    const customDelay = 500;
+    const debouncedWithCustomDelay = createDebounce(mockFunction, customDelay);
+    debouncedWithCustomDelay('arg');
+    expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), customDelay); // Custom delay
+  });
+});
