@@ -16,6 +16,7 @@ const Drawer = () => import("@/views/drawer.vue");
 const Empty = () => import("@/views/empty.vue");
 const FoldPanel = () => import("@/views/fold-panel.vue");
 const Form = () => import("@/views/form.vue");
+const ImageCutter = () => import("@/views/image-cutter.vue");
 const Image = () => import("@/views/image.vue");
 const Input = () => import("@/views/input.vue");
 const Loading = () => import("@/views/loading.vue");
@@ -131,6 +132,12 @@ const routes: RouteRecordRaw[] = [
     name: "form",
     component: Form,
     meta: { title: "Form 表单" },
+  },
+  {
+    path: "/image-cutter",
+    name: "image-cutter",
+    component: ImageCutter,
+    meta: { title: "ImageCutter 图片裁剪" },
   },
   {
     path: "/image",

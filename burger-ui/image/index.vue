@@ -49,7 +49,7 @@ const props = defineProps({
     type: String as PropType<
       "fill" | "contain" | "cover" | "none" | "scale-down"
     >,
-    default: "fill",
+    default: "cover",
   },
 });
 

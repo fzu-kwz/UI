@@ -18,7 +18,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Ref, inject, onMounted, ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 defineProps({
@@ -43,8 +43,6 @@ defineProps({
 const menuItem = ref<HTMLElement>();
 
 const router = useRouter();
-
-const isVisible = inject<Ref<boolean>>('isVisible');
 
 onMounted(() => {
   if (menuItem.value?.parentElement?.className.includes('burger-sub-menu')) {
