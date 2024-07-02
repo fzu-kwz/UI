@@ -8,7 +8,7 @@
         paddingBottom: labelTop ? '5px' : '',
       }"
     >
-      <slot name="label">{{ label }}{{ suffix() }}</slot>
+      <slot name="label">{{ label }}{{ suffix }}</slot>
     </span>
     <div
       class="burger-form-item-content"
@@ -66,7 +66,7 @@ const labelSuffix = computed(() => formProps?.labelSuffix);
 const showSuffix = computed(() => formProps?.showSuffix);
 
 // 获取后缀
-const suffix = () => {
+const suffix = computed(() => {
   if (!showSuffix.value) return '';
   if (hasLabel) {
     return labelSuffix.value;
@@ -81,7 +81,7 @@ const suffix = () => {
       return '';
     }
   }
-};
+});
 </script>
 
 <style lang="less" scoped>

@@ -1,52 +1,43 @@
-export function createTip(tipOption: TipOption) {
-  const tip = document.createElement("div");
-  switch (tipOption.position) {
-    case "top":
-      tip.className = "burger-tip top";
-      tip.style.animationName = "top";
-      break;
-    case "bottom":
-      tip.className = "burger-tip bottom";
-      tip.style.animationName = "bottom";
-      break;
-    case "left":
-      tip.className = "burger-tip left";
-      tip.style.animationName = "left";
-      break;
-    case "right":
-      tip.className = "burger-tip right";
-      tip.style.animationName = "right";
-      break;
-    case "center":
-      tip.className = "burger-tip center";
-      tip.style.animationName = "center";
-      break;
-    default:
-      tip.className = "burger-tip top";
-      tip.style.animationName = "top";
-      break;
+/**
+ * @description 创建一个提示信息
+ *
+ * @param options 提示信息的选项或字符串内容
+ * @param options.position 提示信息的位置，可选值包括 'top'、'bottom'、'left'、'right'，默认为 'top'
+ * @param options.duration 提示信息的显示时长，单位毫秒，默认为 3000
+ * @param options.message 提示信息的内容，如果 options 为字符串，则直接作为提示信息的内容
+ * @param options.theme 提示信息的主题，可选值包括 'dark' 和 'light'，默认为 'dark'
+ */
+export function createTip(options: TipOption | string) {
+  debugger;
+  if (typeof options === 'string') {
+    options = {
+      message: options,
+    };
   }
-  tip.innerHTML = tipOption.message;
-  tipOption.duration
-    ? (tip.style.animationDuration = tipOption.duration / 1000 + "s")
-    : "";
-  tip.className = tipOption.theme
-    ? tip.className + " " + tipOption.theme
-    : tip.className + " dark";
+  const {
+    message,
+    duration = 3000,
+    position = 'top',
+    theme = 'dark',
+  } = options;
+  const tip = document.createElement('div');
+
+  tip.innerHTML = message;
+  tip.className = `burger-tip ${position}`;
+  tip.style.animationName = position;
+  tip.style.animationDuration = `${duration / 1000}s`;
+  tip.className = `${tip.className} ${theme}`;
   document.documentElement.appendChild(tip);
-  setTimeout(
-    () => {
-      document.documentElement.removeChild(tip);
-    },
-    tipOption.duration ? tipOption.duration : 3000
-  );
+  setTimeout(() => {
+    document.documentElement.removeChild(tip);
+  }, duration || 3000);
 }
 
-import "./index.less";
+import './index.less';
 export interface TipOption {
   message: string;
   duration?: number;
-  position?: "top" | "bottom" | "left" | "right" | "center";
-  theme?: "light" | "dark";
+  position?: 'top' | 'bottom' | 'left' | 'right' | 'center';
+  theme?: 'light' | 'dark';
 }
 export default createTip;

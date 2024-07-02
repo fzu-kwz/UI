@@ -37,7 +37,7 @@ const props = defineProps({
   },
   showSuffix: {
     type: Boolean,
-    default: true,
+    default: false,
   },
 });
 
