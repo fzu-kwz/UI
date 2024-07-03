@@ -18,8 +18,8 @@
           src="../../burger-ui/assets/icon/plus-sign.svg"
           alt="plus-sign"
         />
-        <template #tip>
-          <div class="tip">
+        <template #message>
+          <div class="message">
             Only accept pictures, file size no more than 2MB and the number of
             files no more than 3
           </div>
@@ -154,7 +154,7 @@ const usageSlotColumns: Array<Column> = [
 ];
 const usageSlotTableData = [
   {
-    name: "tip",
+    name: "message",
     note: "提示文本",
     data: "-",
   },
@@ -177,7 +177,7 @@ const usageSlotTableData = [
     border-color: #409eff;
   }
 }
-.tip {
+.message {
   color: #606266;
   font-size: 14px;
 }

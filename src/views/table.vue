@@ -70,7 +70,7 @@
 </template>
 
 <script setup lang="ts">
-import { Table, Form, FormItem, Button, Tip } from '$/index';
+import { Table, Form, FormItem, Button, Message } from '$/index';
 import { Column } from '$/table/types';
 
 const columns: Array<Column> = [
@@ -167,7 +167,7 @@ for (let i = 0; i < 5; i++) {
 }
 
 const action = (row: any, index: number) => {
-  Tip({
+  Message({
     message: `第 ${index + 1} 行被点击<br/>
     ${row.name}<br/>
     ${row.birth}<br/>
@@ -351,7 +351,7 @@ const usageTypeTableData = [
 ];
 
 const selectChange = (selectIndex: Array<number>) => {
-  Tip({
+  Message({
     message: `[${selectIndex}]`,
     duration: 1000,
   });

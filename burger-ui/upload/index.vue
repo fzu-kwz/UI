@@ -10,7 +10,7 @@
       @change="fileChange($event, limit, accept, maxSize)"
     />
   </div>
-  <slot name="tip"></slot>
+  <slot name="message"></slot>
   <div v-if="showList">
     <ul class="burger-upload-list">
       <li v-for="item in fileList" :key="item.name">
@@ -36,7 +36,7 @@ export default {
 
 <script setup lang="ts">
 import { computed, PropType, reactive, ref } from "vue";
-import { Tip } from "..";
+import { Message } from "..";
 
 const props = defineProps({
   accept: {
@@ -103,7 +103,7 @@ const fileChange = (
   const uploadLength = files.length;
   // 文件数量限制
   if (fileList.value.length + uploadLength > limit) {
-    Tip({ message: `Number of files no more than ${limit}!` });
+    Message({ message: `Number of files no more than ${limit}!` });
     return (fileInput.value = "");
   }
   // 文件类型限制
@@ -111,7 +111,7 @@ const fileChange = (
     for (let i = 0; i < uploadLength; i++) {
       const item = files.item(i) as File;
       if (!pattern.test(item.type)) {
-        Tip({ message: `Only accept ${props.accept}!` });
+        Message({ message: `Only accept ${props.accept}!` });
         return (fileInput.value = "");
       }
     }
@@ -121,7 +121,7 @@ const fileChange = (
     for (let i = 0; i < uploadLength; i++) {
       const item = files.item(i) as File;
       if (item.size > maxSize) {
-        Tip({ message: `File size no more than ${formatSize.value}!` });
+        Message({ message: `File size no more than ${formatSize.value}!` });
         return (fileInput.value = "");
       }
     }

@@ -38,17 +38,17 @@
 </template>
 
 <script setup lang="ts">
-import { Tag, Form, FormItem, Table, Tip } from "$/index";
+import { Tag, Form, FormItem, Table, Message } from "$/index";
 import { Column } from "$/table/types";
 import { reactive } from "vue";
 
 const type = reactive(["", "primary", "success", "info", "warning", "danger"]);
 const size = ["large", "medium", "", "small"];
 const click = () => {
-  Tip({ message: "click" });
+  Message({ message: "click" });
 };
 const close = (index: number) => {
-  Tip({ message: "close" });
+  Message({ message: "close" });
 };
 
 const usageAttrColumns: Array<Column> = [

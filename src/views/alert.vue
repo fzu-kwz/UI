@@ -46,12 +46,12 @@
 </template>
 
 <script setup lang="ts">
-import { Form, FormItem, Table, Alert, Tip } from "$/index";
+import { Form, FormItem, Table, Alert, Message } from "$/index";
 import { Column } from "$/table/types";
 
 const type = ["default", "primary", "success", "info", "warning", "danger"];
 const close = () => {
-  Tip({ message: "close", duration: 1000 });
+  Message({ message: "close", duration: 1000 });
 };
 
 const usageAttrColumns: Array<Column> = [

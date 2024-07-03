@@ -123,7 +123,7 @@ onMounted(() => {
     ├─switch               开关
     ├─table                表格
     ├─tag                  标签
-    ├─tip                  提示
+    ├─message                  提示
     └─upload               上传
     index.d.ts             声明文件
     index.ts               组件导出入口

@@ -36,7 +36,7 @@ import Slider from './slider/index.vue';
 import Switch from './switch/index.vue';
 import Table from './table/index.vue';
 import Tag from './tag/index.vue';
-import Tip from './tip/index';
+import Message from './message/index';
 import Upload from './upload/index.vue';
 
 // 按需引入
@@ -78,7 +78,7 @@ export {
   Switch,
   Table,
   Tag,
-  Tip,
+  Message,
   Upload,
 };
 
@@ -123,7 +123,7 @@ const component = [
   Upload,
 ];
 
-const KUI = {
+const BurgerUI = {
   install(App: App) {
     component.forEach((item: Component) => {
       App.component(item.name as string, item);
@@ -131,4 +131,4 @@ const KUI = {
   },
 };
 
-export default KUI;
+export default BurgerUI;

@@ -1,18 +1,27 @@
 // 弹出框样式
-.burger-tip {
+.burger-message {
   position: fixed;
   z-index: 2000;
   text-align: center;
   box-sizing: border-box;
-  padding: 15px;
-  border-radius: 3px;
+  padding: 16px;
+  border-radius: 4px;
   min-width: 200px;
   max-width: 80%;
+  font-size: 16px;
   overflow: hidden;
-  animation-duration: 3s;
-  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  display: flex;
+  align-items: center;
+  animation-timing-function: ease;
   animation-iteration-count: 1;
   -webkit-animation-iteration-count: 1;
+
+  &-close {
+    cursor: pointer;
+    margin-left: 8px;
+    border-radius: 50%;
+    user-select: none;
+  }
 
   &.light {
     background-color: #fff;
@@ -21,7 +30,7 @@
 
   &.dark {
     color: #fff;
-    background-color: rgba(#000, .8);
+    background-color: rgba(#000, 0.8);
   }
 
   &.top {
@@ -31,12 +40,22 @@
   }
 
   @keyframes top {
-    0% {
+    0%,
+    100% {
       opacity: 0;
     }
 
-    50% {
-      top: 10vh;
+    25%,
+    50%,
+    75% {
+      top: 60px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes top-close {
+    0% {
+      top: 60px;
       opacity: 1;
     }
 
@@ -52,12 +71,22 @@
   }
 
   @keyframes bottom {
-    0% {
+    0%,
+    100% {
       opacity: 0;
     }
 
-    50% {
-      bottom: 10vh;
+    25%,
+    50%,
+    75% {
+      bottom: 60px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes bottom-close {
+    0% {
+      bottom: 60px;
       opacity: 1;
     }
 
@@ -73,12 +102,22 @@
   }
 
   @keyframes left {
-    0% {
+    0%,
+    100% {
       opacity: 0;
     }
 
-    50% {
-      left: 5vw;
+    25%,
+    50%,
+    75% {
+      left: 60px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes left-close {
+    0% {
+      left: 60px;
       opacity: 1;
     }
 
@@ -94,12 +133,22 @@
   }
 
   @keyframes right {
-    0% {
+    0%,
+    100% {
       opacity: 0;
     }
 
-    50% {
-      right: 5vw;
+    25%,
+    50%,
+    75% {
+      right: 60px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes right-close {
+    0% {
+      right: 60px;
       opacity: 1;
     }
 
@@ -115,14 +164,19 @@
   }
 
   @keyframes center {
-    0% {
+    0%,
+    100% {
       opacity: 0;
     }
 
-    50% {
+    25%,
+    50%,
+    75% {
       opacity: 1;
     }
+  }
 
+  @keyframes center-close {
     100% {
       opacity: 0;
     }

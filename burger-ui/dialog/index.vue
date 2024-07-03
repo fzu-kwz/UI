@@ -48,7 +48,7 @@ export default {
 <script setup lang="ts">
 import { processedCssPx } from '$/utils';
 import { computed, nextTick, ref } from 'vue';
-import { Button, Tip } from '$/index';
+import { Button, Message } from '$/index';
 
 const props = defineProps({
   modelValue: {
@@ -131,7 +131,7 @@ const handleCancel = () => {
 
 // 确认按钮
 const handleOk = () => {
-  Tip('ok');
+  Message('ok');
   emits('ok');
 };
 
