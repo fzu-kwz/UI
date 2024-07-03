@@ -8,12 +8,13 @@
     cursor: pointer;
     border-bottom: 1px solid #ebeef5;
     font-size: 14px;
-    transition: border-bottom-color .2s;
+    transition: border-bottom-color 0.2s;
 
     .arrow {
       user-select: none;
+      -webkit-user-select: none;
       margin: 0 8px 0 auto;
-      transition: transform .2s;
+      transition: transform 0.2s;
 
       &.down {
         transform: rotate(90deg);
@@ -29,7 +30,7 @@
     background-color: #fff;
     overflow: hidden;
     box-sizing: border-box;
-    transition: height .2s;
+    transition: height 0.2s;
   }
 
   &-content {
@@ -40,7 +41,7 @@
 }
 
 .show {
-  animation: show .3s ease-in-out;
+  animation: show 0.3s ease-in-out;
   border-bottom: 1px solid #ebeef5;
 }
 

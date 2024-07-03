@@ -59,9 +59,10 @@
 
     &.disabled {
       user-select: none;
+      -webkit-user-select: none;
       cursor: not-allowed;
       background-color: #f0f0f0;
-      opacity: .5;
+      opacity: 0.5;
 
       &:hover,
       &:active,
@@ -89,6 +90,7 @@
       border-radius: 50%;
       transition: all 0.2s;
       user-select: none;
+      -webkit-user-select: none;
       pointer-events: all;
     }
   }
@@ -96,7 +98,7 @@
   &.disabled {
     cursor: not-allowed;
     background-color: #f0f0f0;
-    opacity: .5;
+    opacity: 0.5;
 
     &:hover,
     &:active,

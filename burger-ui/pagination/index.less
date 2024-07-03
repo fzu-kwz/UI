@@ -25,6 +25,7 @@
     margin: 2px;
     cursor: pointer;
     user-select: none;
+    -webkit-user-select: none;
 
     &:hover {
       color: @hover-color;
@@ -73,7 +74,7 @@
 
   &-icon {
     &.disabled {
-      opacity: .4;
+      opacity: 0.4;
       cursor: not-allowed;
     }
   }
@@ -96,7 +97,7 @@
       outline: #fff;
       text-align: center;
       cursor: text;
-      transition: all .2s;
+      transition: all 0.2s;
 
       &:hover {
         color: #000;
@@ -120,7 +121,6 @@
 }
 
 .bg {
-
   .burger-pagination-num,
   .burger-pagination-icon,
   .ellipsis,
