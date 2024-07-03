@@ -3,22 +3,27 @@
     <div
       ref="maskRef"
       class="mask"
+      :class="[`${visibleEffect ? 'open' : 'close'}`]"
+      :style="{ animationDuration: animationDuration }"
       v-show="visible"
-      @click.self="closeByModal"
       tabindex="-1"
+      @click.self="closeByModal"
       @keyup.esc="closeByEsc"
     >
       <div
+        ref="dialogRef"
         class="burger-dialog"
+        :class="[`${visibleEffect ? 'open' : 'close'}`]"
         :style="{
           width: processedWidth,
           marginTop: processedTop,
+          animationDuration: animationDuration,
         }"
       >
         <div class="burger-dialog-header">
           <slot name="header">
             <span v-if="title" class="title">{{ title }}</span>
-            <span v-if="showClose" class="close" @click="close">
+            <span v-if="showClose" class="close" @click="handleClose">
               <img src="../assets/icon/delete.svg" alt="delete" width="20" />
             </span>
           </slot>
@@ -41,14 +46,14 @@
 
 <script lang="ts">
 export default {
-  name: 'Dialog',
+  name: "Dialog",
 };
 </script>
 
 <script setup lang="ts">
-import { processedCssPx } from '$/utils';
-import { computed, nextTick, ref } from 'vue';
-import { Button, Message } from '$/index';
+import { Button } from "$/index";
+import { processedCssPx } from "$/utils";
+import { computed, nextTick, ref } from "vue";
 
 const props = defineProps({
   modelValue: {
@@ -79,60 +84,105 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  openDelay: {
+    type: Number,
+    default: 0,
+  },
+  closeDelay: {
+    type: Number,
+    default: 0,
+  },
 });
 
 const emits = defineEmits([
-  'update:modelValue',
-  'close',
-  'before-close',
-  'ok',
-  'cancel',
+  "update:modelValue",
+  "open",
+  "opened",
+  "close",
+  "closed",
+  "ok",
+  "cancel",
 ]);
 
 // 弹窗遮罩层
 const maskRef = ref<HTMLDivElement>();
 
+// 弹窗
+const dialogRef = ref<HTMLDivElement>();
+
+const visibleEffect = ref(false);
+
+const triggerClose = ref(false);
+
 const visible = computed({
   get: () => {
     if (props.modelValue) {
+      visibleEffect.value = true;
+      emits("open");
       nextTick(() => {
         maskRef.value?.focus();
       });
+      dialogRef.value?.addEventListener("animationend", handleOpened);
     }
     return props.modelValue;
   },
   set: (value) => {
-    emits('update:modelValue', value);
+    emits("update:modelValue", value);
   },
 });
 
+// 动画时长
+const animationDuration = computed(
+  () => `${visibleEffect ? props.openDelay + 300 : props.closeDelay + 200}ms`
+);
+
+const handleOpened = () => {
+  emits("opened");
+  dialogRef.value?.removeEventListener("animationend", handleOpened);
+};
+
 // 关闭弹窗
-const close = () => {
-  emits('before-close');
+const handleClose = () => {
+  if (visibleEffect.value) {
+    emits("close");
+    dialogRef.value?.addEventListener("animationend", closed);
+  }
+  visibleEffect.value = false;
+};
+
+// 关闭动画结束时
+const closed = () => {
   visible.value = false;
-  emits('close');
+  emits("closed");
+  dialogRef.value?.removeEventListener("animationend", closed);
 };
 
 // 点击遮罩层关闭弹窗
 const closeByModal = () => {
-  props.modalClose ? close() : '';
+  if (props.modalClose) {
+    handleClose();
+  }
 };
 
 // 按下esc关闭弹窗
 const closeByEsc = () => {
-  props.escClose ? close() : '';
+  if (props.escClose) {
+    handleClose();
+  }
 };
 
 // 取消按钮
 const handleCancel = () => {
-  emits('cancel');
-  close();
+  if (visibleEffect.value) {
+    emits("cancel");
+    handleClose();
+  }
+  visibleEffect.value = false;
 };
 
 // 确认按钮
 const handleOk = () => {
-  Message('ok');
-  emits('ok');
+  emits("ok");
 };
 
 const processedWidth = computed(() => {

@@ -7,6 +7,41 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.4);
   overflow: auto;
+  transition: all 0.3s;
+
+  &.open {
+    animation-name: mask-open;
+    animation-duration: 0.3s;
+  }
+
+  &.close {
+    animation-name: dialog-close;
+    animation-duration: 0.2s;
+  }
+}
+
+@keyframes mask-open {
+  0% {
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  100% {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+@keyframes mask-close {
+  0% {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  100% {
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
 }
 
 .burger-dialog {
@@ -18,7 +53,17 @@
   margin-top: 80px;
   margin-bottom: 30px;
   overflow: auto;
-  animation: dialog .3s;
+  animation-duration: 0.2s;
+
+  &.open {
+    animation-name: dialog-open;
+    animation-duration: 0.3s;
+  }
+
+  &.close {
+    animation-name: dialog-close;
+    animation-duration: 0.2s;
+  }
 
   &-body {
     padding: 20px;
@@ -42,6 +87,7 @@
       line-height: 24px;
       font-weight: lighter;
       user-select: none;
+      -webkit-user-select: none;
     }
   }
 
@@ -57,8 +103,7 @@
   }
 }
 
-
-@keyframes dialog {
+@keyframes dialog-open {
   0% {
     opacity: 0;
     transform: translateY(-10px);
@@ -66,6 +111,18 @@
 
   100% {
     opacity: 1;
-    transform: translate(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes dialog-close {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
   }
 }
