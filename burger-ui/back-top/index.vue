@@ -2,7 +2,7 @@
   <span
     class="burger-back-top"
     v-show="visible"
-    :style="{ right: right + 'px', bottom: bottom + 'px' }"
+    :style="{ right: processedRight, bottom: processedBottom }"
     @click="backTop"
   >
     <img
@@ -10,18 +10,20 @@
       alt="back-top"
       width="30"
       height="30"
+      style="display: block"
     />
   </span>
 </template>
 
 <script lang="ts">
 export default {
-  name: "BackTop",
+  name: 'BackTop',
 };
 </script>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from "vue";
+import { processedCssPx } from '$/utils';
+import { computed, onMounted, onUnmounted, ref } from 'vue';
 
 const props = defineProps({
   target: {
@@ -45,27 +47,31 @@ const props = defineProps({
 const visible = ref(false);
 const scrollTop = ref<number>(0);
 
+const processedBottom = computed(() => processedCssPx(props.bottom));
+
+const processedRight = computed(() => processedCssPx(props.right));
+
 const handleScroll = () => {
   if (props.target === window) {
     scrollTop.value = document.documentElement.scrollTop;
   } else {
     scrollTop.value = (props.target as HTMLElement).scrollTop;
   }
-  visible.value = scrollTop.value >= props.height ? true : false;
+  visible.value = scrollTop.value >= Number(props.height) ? true : false;
 };
 
 onMounted(() => {
-  props.target.addEventListener("scroll", handleScroll, true);
+  props.target.addEventListener('scroll', handleScroll, true);
 });
 
 onUnmounted(() => {
-  props.target.removeEventListener("scroll", handleScroll);
+  props.target.removeEventListener('scroll', handleScroll);
 });
 
 const backTop = () => {
   props.target.scrollTo({
     top: 0,
-    behavior: "smooth", // 平滑移动
+    behavior: 'smooth', // 平滑移动
   });
 };
 </script>
