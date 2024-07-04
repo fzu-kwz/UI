@@ -1,33 +1,6 @@
 <template>
   <div class="burger-fold-panel">
-    <div
-      class="burger-fold-panel-header"
-      :class="visible ? 'no-bottom' : ''"
-      @click="visible = !visible"
-    >
-      <slot name="title">
-        <span>
-          {{ title }}
-        </span>
-      </slot>
-      <img
-        class="arrow"
-        :class="visible ? 'down' : ''"
-        src="../assets/icon/arrow-right.svg"
-        alt="arrow-right"
-        width="16"
-      />
-    </div>
-    <div
-      v-show="visible"
-      ref="wrap"
-      class="burger-fold-panel-wrap"
-      :class="visible ? 'show' : ''"
-    >
-      <div class="burger-fold-panel-content">
-        <slot></slot>
-      </div>
-    </div>
+    <slot></slot>
   </div>
 </template>
 
@@ -38,24 +11,22 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { provide } from "vue";
 
 const props = defineProps({
-  title: {
-    type: String,
-    default: undefined,
+  modelValue: {
+    type: [String, Array<string | number>],
+    default: [],
   },
-  active: {
+  accordion: {
     type: Boolean,
-    default: undefined,
+    default: false,
   },
 });
 
-const visible = ref(false);
+const updateModelValue = () => {};
 
-watch(props, () => {
-  visible.value = props.active ? true : false;
-});
+provide("foldPanelProps", props);
 </script>
 
 <style lang="less" scoped>
