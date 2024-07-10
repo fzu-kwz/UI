@@ -1,15 +1,20 @@
 .border {
-  table {
-    th {
-      border-top: 1px solid #ccc;
-    }
+  outline: 1px solid #ccc;
 
+  table {
     th,
     td {
+      border-bottom: 0;
       border-right: 1px solid #ccc;
+    }
 
-      &:first-child {
-        border-left: 1px solid #ccc;
+    tbody {
+      tr {
+        &:last-child {
+          td {
+            border-bottom: 0;
+          }
+        }
       }
     }
   }
@@ -35,7 +40,7 @@
       position: sticky;
       top: 0;
       z-index: 2;
-      box-shadow: 0 1px 2px #ddd;
+      box-shadow: 0 1px 1px #ddd;
     }
   }
 }
@@ -50,6 +55,10 @@
     table-layout: fixed;
     color: #303133;
     font-size: 14px;
+
+    thead {
+      background-color: #eee;
+    }
 
     th,
     td {
@@ -67,13 +76,38 @@
         word-break: break-all;
         line-height: 20px;
       }
+
+      &.fixed {
+        position: sticky;
+        z-index: 1;
+      }
+    }
+
+    th.left {
+      left: 0;
+      box-shadow: 2px 0 1px #ddd;
+    }
+
+    th.right {
+      right: 0;
+      box-shadow: -2px 0 1px #ddd;
+    }
+
+    td.left {
+      left: 0;
+      box-shadow: 1px 0 1px 1px #ddd;
+    }
+
+    td.right {
+      right: 0;
+      box-shadow: -1px 0 1px 1px #ddd;
     }
 
     tbody {
       tr {
         &:hover {
           td {
-            transition: background-color .2s;
+            transition: background-color 0.2s;
             background-color: #f0f0f0;
           }
         }
@@ -88,7 +122,7 @@
     font-weight: bold;
     font-size: 18px;
     padding: 32px;
-    background-color: #f0f0f0;
+    background-color: #f9f9f9;
   }
 }
 

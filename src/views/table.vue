@@ -14,7 +14,8 @@
       <Table
         :columns="selectColumns"
         :table-data="tableData"
-        @select-change="selectChange"
+        :default-selected-row-keys="defaultSelectedRowKeys"
+        @selectChange="selectChange"
       ></Table>
     </FormItem>
     <FormItem label="自定义列模板/固定列/固定表头">
@@ -23,10 +24,11 @@
         :columns="slotColumns"
         :table-data="slotTableData"
         fix-header
-        style="height: 200px"
+        style="height: 200px; width: 100%"
+        @rowClick="rowClick"
       >
-        <template #action="{ row, index }">
-          <Button @click="action(row, index)">try</Button>
+        <template #action="{ row, rowIndex }">
+          <Button @click="action(row, rowIndex)">try</Button>
         </template>
       </Table>
     </FormItem>
@@ -34,9 +36,9 @@
       <Table
         :columns="sortColumns"
         :table-data="tableData"
-        :header-cell-style="{ color: '#f56c6c', backgroundColor: '#303033' }"
+        :header-cell-style="{ color: '#f56c6c', backgroundColor: '#606060' }"
       >
-        <template #sort="{ index }">{{ index + 1 }}</template>
+        <template #sort="{ rowIndex }">{{ rowIndex + 1 }}</template>
       </Table>
     </FormItem>
     <FormItem label="无数据">
@@ -72,6 +74,7 @@
 <script setup lang="ts">
 import { Table, Form, FormItem, Button, Message } from '$/index';
 import { Column } from '$/table/types';
+import { ref } from 'vue';
 
 const columns: Array<Column> = [
   {
@@ -90,6 +93,8 @@ const columns: Array<Column> = [
     width: '150',
   },
 ];
+
+const defaultSelectedRowKeys = ref(['1000', '1002']);
 
 const selectColumns: Array<Column> = [
   {
@@ -125,17 +130,29 @@ const slotColumns: Array<Column> = [
   {
     prop: 'name',
     label: 'name',
-    width: '80',
+    width: '100',
+    fixed: 'left',
   },
   {
     prop: 'birth',
     label: 'birth',
-    width: '80',
+    width: '100',
+  },
+  {
+    prop: 'country',
+    label: 'country',
+    width: '150',
   },
   {
     prop: 'address',
     label: 'address',
     width: '150',
+  },
+  {
+    prop: 'job',
+    label: 'job',
+    width: '150',
+    ellipsis: true,
   },
   {
     prop: 'hobbies',
@@ -145,7 +162,7 @@ const slotColumns: Array<Column> = [
   {
     prop: 'action',
     label: 'action',
-    width: '80',
+    width: '100',
     fixed: 'right',
   },
 ];
@@ -153,6 +170,7 @@ let tableData: any = [];
 let slotTableData: any = [];
 for (let i = 0; i < 5; i++) {
   tableData.push({
+    id: `100${i}`,
     name: 'Burger',
     birth: '2000.02',
     address: 'Fujian, China',
@@ -162,19 +180,13 @@ for (let i = 0; i < 5; i++) {
     birth: '2000.0' + (i + 1),
     address: 'Fujian, China',
     hobbies: 'Typing code😂',
-    operation: '',
+    country: 'China',
+    job: 'Front-end engineer',
   });
 }
 
 const action = (row: any, index: number) => {
-  Message({
-    message: `第 ${index + 1} 行被点击<br/>
-    ${row.name}<br/>
-    ${row.birth}<br/>
-    ${row.address}<br/>
-    ${row.hobbies}`,
-    duration: 2000,
-  });
+  Message(`第 ${index + 1} 行被点击`);
 };
 
 const usageAttrColumns: Array<Column> = [
@@ -256,6 +268,20 @@ const usageAttrTableData = [
     optional: '-',
     default: '{}',
   },
+  {
+    parameter: 'defaultSelectedRowKeys',
+    note: '默认选中的行',
+    type: 'Array<string | number>',
+    optional: '-',
+    default: '{}',
+  },
+  {
+    parameter: 'rowKey',
+    note: '行数据唯一标识',
+    type: 'string',
+    optional: '-',
+    default: 'id',
+  },
 ];
 const usageEventColumns: Array<Column> = [
   {
@@ -275,7 +301,12 @@ const usageEventTableData = [
   {
     name: 'selectChange',
     note: '选项改变时触发',
-    callback: '选中的行索引数组(索引从0开始)',
+    callback: 'function (selectedKeys, selectedRows) => {}',
+  },
+  {
+    name: 'rowClick',
+    note: '点击行触发',
+    callback: 'function (row, rowIndex) => {}',
   },
 ];
 const usageSlotColumns: Array<Column> = [
@@ -294,9 +325,9 @@ const usageSlotColumns: Array<Column> = [
 ];
 const usageSlotTableData = [
   {
-    name: '列内容的字段名',
+    name: 'prop属性值',
     note: '自定义列模板，默认为列内容的文本',
-    data: 'row: 当前行的数据，index: 当前行的索引',
+    data: 'row: 当前行的数据，rowIndex: 当前行的索引',
   },
 ];
 const usageTypeColumns: Array<Column> = [
@@ -348,13 +379,20 @@ const usageTypeTableData = [
     type: 'string',
     optional: 'left / right',
   },
+  {
+    name: 'ellipsis',
+    note: '列单元格是否省略(可选参数)',
+    type: 'boolean',
+    optional: '-',
+  },
 ];
 
-const selectChange = (selectIndex: Array<number>) => {
-  Message({
-    message: `[${selectIndex}]`,
-    duration: 1000,
-  });
+const selectChange = (selectedKeys: [], selectedRows: []) => {
+  console.log(selectedKeys, selectedRows);
+};
+
+const rowClick = (row: {}, rowIndex: number) => {
+  console.log(row, rowIndex);
 };
 </script>
 

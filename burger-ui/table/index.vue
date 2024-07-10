@@ -2,7 +2,7 @@
   <div
     class="burger-table"
     :class="[
-      border ? ' border' : '',
+      border ? 'border' : '',
       stripe ? 'stripe' : '',
       fixHeader ? 'fix-header' : '',
     ]"
@@ -11,66 +11,56 @@
       <thead>
         <tr>
           <th
-            v-for="item in columns"
-            :key="item.prop"
-            :width="item.width"
+            v-for="{ prop, label, width, align, fixed } in columns"
+            :key="prop"
+            :width="width"
+            :class="[fixed, fixed ? 'fixed' : '']"
             :style="[
               {
-                textAlign: item.align,
-                position: item.fixed ? 'sticky' : 'relative',
-                left: item.fixed === 'left' ? 0 : '',
-                right: item.fixed === 'right' ? 0 : '',
-                boxShadow:
-                  item.fixed === 'right'
-                    ? '-1px -1px 3px #ddd'
-                    : item.fixed === 'left'
-                    ? '1px -1px 3px #ddd'
-                    : '',
-                zIndex: item.fixed ? 1 : '',
+                textAlign: align,
               },
               headerCellStyle,
             ]"
           >
             <div class="text">
               <Chechbox
-                v-if="item.prop === 'select'"
+                v-if="prop === 'select'"
                 :disabled="tableData.length === 0"
                 v-model="allChecked"
               ></Chechbox>
-              {{ item.label }}
+              {{ label }}
             </div>
           </th>
         </tr>
       </thead>
       <tbody v-if="tableData.length !== 0">
-        <tr v-for="(row, index) in tableData" :key="index">
+        <tr
+          v-for="(row, rowIndex) in tableData"
+          :key="row[props.rowKey] || rowIndex"
+          @click="emits('rowClick', row, rowIndex)"
+        >
           <td
-            v-for="column in columns"
-            :width="column.width"
+            v-for="{ prop, width, align, fixed, ellipsis } in columns"
+            :width="width"
+            :class="[fixed, fixed ? 'fixed' : '']"
             :style="[
               {
-                textAlign: column.align,
-                position: column.fixed ? 'sticky' : 'relative',
-                left: column.fixed === 'left' ? 0 : '',
-                right: column.fixed === 'right' ? 0 : '',
-                boxShadow:
-                  column.fixed === 'right'
-                    ? '-1px 1px 3px #ddd'
-                    : column.fixed === 'left'
-                    ? '1px 1px 3px #ddd'
-                    : '',
-                zIndex: column.fixed ? 1 : '',
+                textAlign: align,
               },
               cellStyle,
             ]"
           >
-            <div class="text">
+            <div
+              class="text"
+              :style="{ whiteSpace: ellipsis ? 'nowrap' : 'normal' }"
+              :title="row[prop]"
+            >
               <Chechbox
-                v-if="column.prop === 'select'"
-                v-model="checkboxs[index].checked"
+                v-if="prop === 'select'"
+                v-model="checkboxs[rowIndex].checked"
               ></Chechbox>
-              <slot v-else :name="column.prop" :row="row" :index="index">
-                {{ row[column.prop] }}
+              <slot v-else :name="prop" :row="row" :rowIndex="rowIndex">
+                {{ row[prop] }}
               </slot>
             </div>
           </td>
@@ -90,18 +80,18 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { PropType, reactive, ref, watch } from 'vue';
+import { PropType, StyleValue, computed, reactive, ref, watch } from 'vue';
 import { Column, Row } from './types';
-import { Chechbox } from '../index';
+import { Chechbox } from '$/index';
 
 const props = defineProps({
   border: {
     type: Boolean,
-    default: undefined,
+    default: false,
   },
   stripe: {
     type: Boolean,
-    default: undefined,
+    default: false,
   },
   columns: {
     type: Array as PropType<Array<Column>>,
@@ -116,13 +106,13 @@ const props = defineProps({
     },
   },
   headerCellStyle: {
-    type: Object,
+    type: Object as PropType<StyleValue>,
     default: () => {
       return {};
     },
   },
   cellStyle: {
-    type: Object,
+    type: Object as PropType<StyleValue>,
     default: () => {
       return {};
     },
@@ -133,13 +123,23 @@ const props = defineProps({
   },
   fixHeader: {
     type: Boolean,
-    default: undefined,
+    default: false,
+  },
+  defaultSelectedRowKeys: {
+    type: Array as PropType<Array<string | number>>,
+    default: () => [],
+  },
+  rowKey: {
+    type: String,
+    default: 'id',
   },
 });
 
-const emits = defineEmits(['selectChange']);
+const emits = defineEmits(['selectChange', 'rowClick']);
 
-const selectIndex: Array<number> = [];
+const selectedKeys: Array<string | number> = [];
+const selectedRows: Array<Row> = [];
+
 const allChecked = ref(false);
 const checkboxs: Array<{ checked: boolean }> = reactive([]);
 
@@ -147,12 +147,19 @@ watch(
   () => props.tableData,
   (value) => {
     checkboxs.splice(0);
-    value.forEach(() => {
-      checkboxs.push({ checked: false });
+    value.forEach((item, index) => {
+      checkboxs.push({
+        checked: props.defaultSelectedRowKeys.includes(
+          item[props.rowKey] || index
+        )
+          ? true
+          : false,
+      });
     });
   },
   {
     immediate: true,
+    deep: true,
   }
 );
 
@@ -174,6 +181,7 @@ watch(allChecked, () => {
     }
   }
 });
+
 watch(checkboxs, () => {
   if (checkboxs.length === 0) return (allChecked.value = false);
   for (let i = 0; i < checkboxs.length; i++) {
@@ -184,11 +192,18 @@ watch(checkboxs, () => {
       allChecked.value = true;
     }
   }
-  selectIndex.splice(0);
+  selectedKeys.splice(0);
+  selectedRows.splice(0);
   checkboxs.forEach((item, index) => {
-    if (item.checked) selectIndex.push(index);
+    if (item.checked) {
+      const row = props.tableData.find((_item, _index) => index === _index);
+      if (row) {
+        selectedKeys.push(row[props.rowKey] || index);
+        selectedRows.push(row);
+      }
+    }
   });
-  emits('selectChange', selectIndex);
+  emits('selectChange', selectedKeys, selectedRows);
 });
 </script>
 

@@ -153,3 +153,75 @@ describe('createDebounce', () => {
     expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), customDelay); // Custom delay
   });
 });
+
+npm install --save-dev jest
+# 或者
+
+yarn add --dev jest
+
+```
+
+然后，我们可以创建一个名为`debounce.test.js`的文件，并在其中编写以下单元测试：
+
+```javascript
+
+describe('createDebounce', () => {
+  it('should call the function after the specified delay', (done) => {
+    debouncedFn('arg1', 'arg2');
+    expect(testFn).not.toHaveBeenCalled(); // 立即调用后，原始函数不应被调用
+
+    setTimeout(() => {
+      expect(testFn).toHaveBeenCalledTimes(1); // 在指定的延迟后，原始函数应该被调用一次
+      expect(testFn.mock.calls[0][0]).toBe('arg1'); // 检查参数是否正确
+      expect(testFn.mock.calls[0][1]).toBe('arg2');
+      done(); // 完成异步测试
+    }, 15); // 由于我们设置了10ms的延迟，这里稍微等待久一点以确保setTimeout被触发
+  });
+
+  it('should not call the function if invoked multiple times within the delay', (done) => {
+    debouncedFn('arg1', 'arg2');
+    debouncedFn('arg3', 'arg4'); // 在延迟期间再次调用
+
+    setTimeout(() => {
+      expect(testFn).toHaveBeenCalledTimes(1); // 只应调用一次
+      expect(testFn.mock.calls[0][0]).toBe('arg1'); // 检查参数是否是第一次调用的参数
+      expect(testFn.mock.calls[0][1]).toBe('arg2');
+      done();
+    }, 20); // 等待足够长的时间以确保最后一次setTimeout被触发
+  });
+
+  it('should call the function with the most recent set of arguments', (done) => {
+    debouncedFn('arg1', 'arg2');
+    setTimeout(() => {
+      debouncedFn('arg3', 'arg4'); // 在第一次setTimeout触发后但延迟未结束时调用
+    }, 5);
+
+    setTimeout(() => {
+      expect(testFn).toHaveBeenCalledTimes(1); // 只应调用一次
+      expect(testFn.mock.calls[0][0]).toBe('arg3'); // 检查参数是否是最后一次调用的参数
+      expect(testFn.mock.calls[0][1]).toBe('arg4');
+      done();
+    }, 20); // 等待足够长的时间以确保最后一次setTimeout被触发
+  });
+
+  // 其他可能的测试用例，例如测试清除定时器、默认延迟等
+});
+
+```
+
+请注意，由于JavaScript的事件循环和setTimeout的异步性质，我们在测试这些函数时需要小心处理异步操作。Jest的`done`回调函数允许我们在测试完成时通知Jest。此外，我们还使用了Jest的mock功能来跟踪`testFn`的调用和参数。
+
+要运行这些测试，只需在终端中进入测试文件所在的目录，并执行以下命令（取决于你安装Jest的方式）：
+
+```bash
+
+debounce.test.js
+
+或者
+
+debounce.test.js
+
+或者，如果你已经在package.json中配置了Jest脚本
+
+npm test
+});
