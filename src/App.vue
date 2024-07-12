@@ -18,7 +18,7 @@
       <Skeleton :loading="loading" :rows="10">
         <Button class="fold" round @click="visible = true">Menu</Button>
         <Drawer
-          v-model:visible="visible"
+          v-model="visible"
           position="left"
           :show-close="false"
           :size="220"
@@ -51,13 +51,13 @@ import {
   Skeleton,
   Button,
   Drawer,
-} from '$/index';
-import { onMounted, ref } from 'vue';
-import { useRouter } from 'vue-router';
+} from "$/index";
+import { onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
 
 const target = ref();
 onMounted(() => {
-  target.value = document.getElementsByTagName('main')[0];
+  target.value = document.getElementsByTagName("main")[0];
 });
 
 const router = useRouter();

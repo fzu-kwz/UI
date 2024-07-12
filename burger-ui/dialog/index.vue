@@ -112,8 +112,6 @@ const dialogRef = ref<HTMLDivElement>();
 
 const visibleEffect = ref(false);
 
-const triggerClose = ref(false);
-
 const visible = computed({
   get: () => {
     if (props.modelValue) {

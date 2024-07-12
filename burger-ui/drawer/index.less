@@ -7,6 +7,46 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.4);
   overflow: hidden;
+
+  &.open {
+    animation-name: mask-open;
+    animation-duration: 0.3s;
+  }
+
+  &.close {
+    animation-name: mask-close;
+    animation-duration: 0.2s;
+  }
+}
+
+.mask-start {
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.mask-end {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+@keyframes mask-open {
+  0% {
+    .mask-start();
+  }
+
+  100% {
+    .mask-end();
+  }
+}
+
+@keyframes mask-close {
+  0% {
+    .mask-end();
+  }
+
+  100% {
+    .mask-start();
+  }
 }
 
 .burger-drawer {
@@ -19,36 +59,72 @@
     top: 0;
     bottom: 0;
     right: 0;
-    animation: right .3s;
+
+    &.open {
+      animation-name: right-open;
+      animation-duration: 0.3s;
+    }
+
+    &.close {
+      animation-name: right-close;
+      animation-duration: 0.2s;
+    }
   }
 
   &.left {
     top: 0;
     bottom: 0;
     left: 0;
-    animation: left .3s;
+
+    &.open {
+      animation-name: left-open;
+      animation-duration: 0.3s;
+    }
+
+    &.close {
+      animation-name: left-close;
+      animation-duration: 0.2s;
+    }
   }
 
   &.top {
     left: 0;
     right: 0;
     top: 0;
-    animation: top .3s;
+
+    &.open {
+      animation-name: top-open;
+      animation-duration: 0.3s;
+    }
+
+    &.close {
+      animation-name: top-close;
+      animation-duration: 0.2s;
+    }
   }
 
   &.bottom {
     left: 0;
     right: 0;
     bottom: 0;
-    animation: bottom .3s;
+
+    &.open {
+      animation-name: bottom-open;
+      animation-duration: 0.3s;
+    }
+
+    &.close {
+      animation-name: bottom-close;
+      animation-duration: 0.2s;
+    }
   }
 
   &-body {
-    padding: 10px;
+    padding: 8px 16px;
   }
 
   &-header {
-    padding: 10px;
+    padding: 16px;
     line-height: 20px;
     display: flex;
     align-items: center;
@@ -62,13 +138,13 @@
       font-size: 20px;
       font-weight: lighter;
       user-select: none;
--webkit-user-select: none;
+      -webkit-user-select: none;
       margin: 0 0 0 auto;
     }
   }
 }
 
-@keyframes left {
+@keyframes left-open {
   0% {
     transform: translate(-100%);
   }
@@ -78,7 +154,17 @@
   }
 }
 
-@keyframes right {
+@keyframes left-close {
+  0% {
+    transform: translate(0);
+  }
+
+  100% {
+    transform: translate(-100%);
+  }
+}
+
+@keyframes right-open {
   0% {
     transform: translate(100%);
   }
@@ -88,7 +174,17 @@
   }
 }
 
-@keyframes top {
+@keyframes right-close {
+  0% {
+    transform: translate(0);
+  }
+
+  100% {
+    transform: translate(100%);
+  }
+}
+
+@keyframes top-open {
   0% {
     transform: translateY(-100%);
   }
@@ -98,12 +194,32 @@
   }
 }
 
-@keyframes bottom {
+@keyframes top-close {
+  0% {
+    transform: translate(0);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes bottom-open {
   0% {
     transform: translateY(100%);
   }
 
   100% {
     transform: translate(0);
+  }
+}
+
+@keyframes bottom-close {
+  0% {
+    transform: translate(0);
+  }
+
+  100% {
+    transform: translateY(100%);
   }
 }
