@@ -26,9 +26,9 @@ export const processedCssPx = (param: string | number) => {
  *
  * @param fn 要防抖的函数
  * @param delay 防抖延迟时间，默认为300毫秒
- * @returns 返回防抖后的函数
+ * @returns {Function} 返回防抖后的函数
  */
-export const createDebounce = (fn: Function, delay = 200) => {
+export const createDebounce = (fn: Function, delay = 200): Function => {
   let timer: string | number | NodeJS.Timeout | undefined;
   return (...args: any) => {
     clearTimeout(timer);
